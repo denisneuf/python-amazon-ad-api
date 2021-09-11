@@ -32,7 +32,7 @@ default:
 
 ```
 
-* macOS and Other Unix:
+* macOS and Other Unix: `~/.config/python-ad-api`
 * Windows: 
 
 <div>
