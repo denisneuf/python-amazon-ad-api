@@ -8,29 +8,30 @@ Python Amazon Advertising Api
 
 ```
 import logging
-from ad_api.base import SellingApiException, Marketplaces
+from ad_api.base import AdvertisingApiException, Marketplaces
+from ad_api.api.sp import Campaigns
 
-def get_marketplace(argument):
-    switcher = {
-        'ES': Marketplaces.ES,
-        'GB': Marketplaces.GB,
-        'IT': Marketplaces.IT,
-        'FR': Marketplaces.FR,
-        'DE': Marketplaces.DE,
-    }
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s:%(levelname)s:%(message)s"
+)
 
-    logging.info(switcher.get(argument))
-    return switcher.get(argument)
-
-marketplace = 'ES'
-states = 'enabled'
-
-# campaigns API
 try:
-    res = Campaigns(get_marketplace(marketplace)).list_campaigns_request(
+
+    states = 'enabled'
+
+    res = Campaigns(Marketplaces.ES).list_campaigns_extended_request(
         stateFilter=states
     )
-except SellingApiException as ex:
+
+    campaigns = res.payload
+    for campaign in campaigns:
+        logging.info(campaign)
+
+    logging.info(len(campaigns))
+
+
+except AdvertisingApiException as ex:
     print(ex)
 
 ```
