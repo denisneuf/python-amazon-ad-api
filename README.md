@@ -52,7 +52,7 @@ function fancyAlert(arg) {
 
 ### Usage Campaigns
 
-```
+```python
 import logging
 from ad_api.base import AdvertisingApiException, Marketplaces
 from ad_api.api.sp import Campaigns
