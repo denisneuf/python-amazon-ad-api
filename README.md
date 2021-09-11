@@ -21,7 +21,7 @@ Use a credentials.yml file with your credentials if you dont know how to obtain 
 
 [Login with Amazon application](https://advertising.amazon.com/API/docs/en-us/setting-up/step-1-create-lwa-app)
 
-```html
+```javascript
 version: '1.0'
 
 default:
