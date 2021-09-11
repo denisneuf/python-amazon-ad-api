@@ -41,6 +41,14 @@ back to `%HOME%\AppData\Roaming` if undefined
 
 [Confuse Help](https://confuse.readthedocs.io/en/latest/usage.html#search-paths)
 
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
+
 
 ### Usage Campaigns
 
