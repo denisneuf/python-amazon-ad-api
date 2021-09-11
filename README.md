@@ -4,7 +4,16 @@
 
 Python Amazon Advertising Api
 
-### Usage
+### Set Up
+
+Create a .env file and put in the root of your project ( SANDBOX or PRODUCTION )
+```
+# environment variables defined inside a .env file
+AWS_ENV=SANDBOX
+```
+
+
+### Usage Campaigns
 
 ```
 import logging
