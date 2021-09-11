@@ -12,6 +12,22 @@ Create a .env file and put in the root of your project ( SANDBOX or PRODUCTION )
 AWS_ENV=SANDBOX
 ```
 
+### Credentials
+Use a credentials.yml file with your credentials if you dont know how to obtain your refresh token, please visit:
+
+https://advertising.amazon.com - Login with Amazon application
+[Amazon](https://advertising.amazon.com/API/docs/en-us/setting-up/step-1-create-lwa-app)
+
+```
+version: '1.0'
+
+default:
+  refresh_token: 'your-refresh-token'
+  client_id: 'your-client-id'
+  client_secret: 'your-client-secret'
+  profile_id: 'your-profile-id'
+
+```
 
 ### Usage Campaigns
 
