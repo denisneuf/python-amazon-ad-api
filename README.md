@@ -13,7 +13,7 @@ AWS_ENV=SANDBOX
 ```
 <pre><code>.
 ├── .env
-└── foo.py
+└── campaign_client.py
 </code></pre>
 
 ### Credentials
