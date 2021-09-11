@@ -33,7 +33,7 @@ default:
 ```
 
 <div>
-<h2>Search Paths<a title="Permalink to this headline">¶</a></h2>
+<h3>Search Paths ¶</h3>
 <ul>
 <li>macOS: <code><span>~/.config/app</span></code> and <code><span class="pre">~/Library/Application</span> <span>Support/app</span></code></li>
 <li>Other Unix: <code><span>~/.config/app</span></code> and <code><span>/etc/app</span></code></li>
