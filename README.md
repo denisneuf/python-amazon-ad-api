@@ -42,6 +42,8 @@ back to <code><span>%HOME%\AppData\Roaming</span></code> if undefined</li>
 </ul>
 </div>
 
+[Confuse](https://confuse.readthedocs.io/en/latest/usage.html#search-paths)
+
 
 ### Usage Campaigns
 
