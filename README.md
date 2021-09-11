@@ -32,19 +32,14 @@ default:
 
 ```
 
+### Search path for credentials.yml
+
 * macOS and Other Unix: `~/.config/python-ad-api`
-* Windows: 
+* Windows: `%APPDATA%\python-ad-api` where the <cite>APPDATA</cite> environment variable falls
+back to `%HOME%\AppData\Roaming` if undefined
 
-<div>
-<h3>Search Paths ¶</h3>
-<ul>
-<li>macOS Other Unix: <code><span>~/.config/python-ad-api</span></code></li>
-<li>Windows: <code><span>%APPDATA%\python-ad-api</span></code> where the <cite>APPDATA</cite> environment variable falls
-back to <code><span>%HOME%\AppData\Roaming</span></code> if undefined</li>
-</ul>
-</div>
 
-[Confuse](https://confuse.readthedocs.io/en/latest/usage.html#search-paths)
+[Confuse Help](https://confuse.readthedocs.io/en/latest/usage.html#search-paths)
 
 
 ### Usage Campaigns
