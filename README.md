@@ -32,6 +32,18 @@ default:
 
 ```
 
+<div class="section" id="search-paths">
+<h2>Search Paths<a class="headerlink" href="#search-paths" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>macOS: <code class="docutils literal notranslate"><span class="pre">~/.config/app</span></code> and <code class="docutils literal notranslate"><span class="pre">~/Library/Application</span> <span class="pre">Support/app</span></code></li>
+<li>Other Unix: <code class="docutils literal notranslate"><span class="pre">~/.config/app</span></code> and <code class="docutils literal notranslate"><span class="pre">/etc/app</span></code></li>
+<li>Windows: <code class="docutils literal notranslate"><span class="pre">%APPDATA%\app</span></code> where the <cite>APPDATA</cite> environment variable falls
+back to <code class="docutils literal notranslate"><span class="pre">%HOME%\AppData\Roaming</span></code> if undefined</li>
+</ul>
+<p>Both macOS and other Unix operating sytems also try to use the
+</div>
+
+
 ### Usage Campaigns
 
 ```
