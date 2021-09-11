@@ -32,12 +32,14 @@ default:
 
 ```
 
+* macOS and Other Unix:
+* Windows: 
+
 <div>
 <h3>Search Paths ¶</h3>
 <ul>
-<li>macOS: <code><span>~/.config/app</span></code> and <code><span class="pre">~/Library/Application</span> <span>Support/app</span></code></li>
-<li>Other Unix: <code><span>~/.config/app</span></code> and <code><span>/etc/app</span></code></li>
-<li>Windows: <code><span>%APPDATA%\app</span></code> where the <cite>APPDATA</cite> environment variable falls
+<li>macOS Other Unix: <code><span>~/.config/python-ad-api</span></code></li>
+<li>Windows: <code><span>%APPDATA%\python-ad-api</span></code> where the <cite>APPDATA</cite> environment variable falls
 back to <code><span>%HOME%\AppData\Roaming</span></code> if undefined</li>
 </ul>
 </div>
