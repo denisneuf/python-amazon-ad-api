@@ -15,8 +15,7 @@ AWS_ENV=SANDBOX
 ### Credentials
 Use a credentials.yml file with your credentials if you dont know how to obtain your refresh token, please visit:
 
-https://advertising.amazon.com - Login with Amazon application
-[Amazon](https://advertising.amazon.com/API/docs/en-us/setting-up/step-1-create-lwa-app)
+[Login with Amazon application](https://advertising.amazon.com/API/docs/en-us/setting-up/step-1-create-lwa-app)
 
 ```
 version: '1.0'
