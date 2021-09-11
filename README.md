@@ -34,11 +34,11 @@ default:
 
 <div>
 <h2>Search Paths<a title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>macOS: <code><span class="pre">~/.config/app</span></code> and <code><span class="pre">~/Library/Application</span> <span>Support/app</span></code></li>
-<li>Other Unix: <code class="docutils literal notranslate"><span class="pre">~/.config/app</span></code> and <code class="docutils literal notranslate"><span class="pre">/etc/app</span></code></li>
-<li>Windows: <code class="docutils literal notranslate"><span class="pre">%APPDATA%\app</span></code> where the <cite>APPDATA</cite> environment variable falls
-back to <code class="docutils literal notranslate"><span class="pre">%HOME%\AppData\Roaming</span></code> if undefined</li>
+<ul>
+<li>macOS: <code><span>~/.config/app</span></code> and <code><span class="pre">~/Library/Application</span> <span>Support/app</span></code></li>
+<li>Other Unix: <code><span>~/.config/app</span></code> and <code><span>/etc/app</span></code></li>
+<li>Windows: <code><span>%APPDATA%\app</span></code> where the <cite>APPDATA</cite> environment variable falls
+back to <code><span>%HOME%\AppData\Roaming</span></code> if undefined</li>
 </ul>
 </div>
 
