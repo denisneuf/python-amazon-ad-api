@@ -1,4 +1,4 @@
-# PYTHON-AMAZON-AD-API
+# PYTHON-AMAZON-AD-API [AMAZON ADVERTISING]
 
 ![CodeQL](https://img.shields.io/badge/coverage-15%25-yellow)
 
