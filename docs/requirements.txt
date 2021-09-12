@@ -1,0 +1,9 @@
+# Base packages
+
+pip==21.2.4
+virtualenv==20.7.2
+
+# For intersphinx during builds
+Sphinx==4.1.2
+
+requests==2.26.0
