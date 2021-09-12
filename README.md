@@ -1,6 +1,7 @@
 ## PYTHON-AMAZON-AD-API [AMAZON ADVERTISING]
 
 ![CodeQL](https://img.shields.io/badge/coverage-15%25-yellow)
+<img src="https://readthedocs.org/projects/selling-partner-api-docs/badge/?version=latest">
 
 Python Amazon Advertising Api
 
