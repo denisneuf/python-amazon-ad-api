@@ -13,5 +13,5 @@ python:
       extra_requirements:
         - docs
     - method: setuptools
-      path: another/package
+      path: ad_api/api
   system_packages: true
