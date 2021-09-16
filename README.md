@@ -43,6 +43,17 @@ back to `%HOME%\AppData\Roaming` if undefined
 [Confuse Help](https://confuse.readthedocs.io/en/latest/usage.html#search-paths)
 
 
+### Modules Available Sponsored Products
+
+* Ad Groups
+* Bid Rrecommendations
+* Campaigns
+* Keywords
+* Negative Keywords
+* Product Ads
+* Suggested Kkeywords
+
+
 ### Usage Campaigns
 
 ```python
@@ -59,7 +70,7 @@ try:
 
     states = 'enabled'
 
-    res = Campaigns(Marketplaces.ES).list_campaigns_extended_request(
+    res = Campaigns(Marketplaces.ES).list_campaigns_extended(
         stateFilter=states
     )
 
