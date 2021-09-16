@@ -44,7 +44,6 @@ class AccessTokenClient(BaseClient):
 
         try:
             access_token = cache[cache_key]
-            print(access_token)
         except KeyError:
             cache_ttl = 3600
             access_token = None
