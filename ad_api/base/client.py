@@ -78,6 +78,9 @@ class Client(BaseClient):
             exception = get_exception_for_content(data)
             raise exception(data)
 
+        if vars(res).get('_content') == b'[]' and vars(res).get('_content_consumed') is True:
+            data = json.loads('{"status_code": 200, "msg": "No Data Available"}')
+
         headers = vars(res).get('headers')
         status_code = vars(res).get('status_code')
         next_token = vars(res).get('_next')

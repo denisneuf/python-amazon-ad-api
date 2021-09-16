@@ -68,33 +68,6 @@ def create_md5(file):
 
 
 def nest_dict(flat: dict()):
-    """
-    Convert flat dictionary to nested dictionary.
-
-    Input
-    {
-        "AmazonOrderId":1,
-        "ShipFromAddress.Name" : "Seller",
-        "ShipFromAddress.AddressLine1": "Street",
-    }
-
-    Output
-    {
-        "AmazonOrderId":1,
-        "ShipFromAddress.: {
-            "Name" : "Seller",
-            "AddressLine1": "Street",
-        }
-    }
-
-
-    Args:
-        flat:dict():
-
-    Returns:
-        nested:dict():
-    """
-
     result = {}
     for k, v in flat.items():
         _nest_dict_rec(k, v, result)

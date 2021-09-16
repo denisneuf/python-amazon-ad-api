@@ -1,6 +1,17 @@
 import sys
+import os
+import logging
 from enum import Enum
 from dotenv import dotenv_values
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s:%(levelname)s:%(message)s"
+)
+
+class AuthorizationError(Exception):
+    def __init__(self, code, message=".env problem set your file in the root project"):
+        logging.warning(message);
 
 class AWS_ENV(Enum):
     PRODUCTION = "PRODUCTION"
@@ -12,6 +23,17 @@ AWS_ENVIRONMENT = config.get('AWS_ENV')
 
 BASE_URL_EU = "https://advertising-api-eu.amazon.com"
 BASE_URL_US = "https://advertising-api.amazon.com"
+
+if AWS_ENVIRONMENT is not None:
+    logging.warning('Running in choosen mode : %s' % AWS_ENVIRONMENT)
+
+if AWS_ENVIRONMENT is None:
+    default_mode = os.environ["__MODE__"] = "SANDBOX"
+    AWS_ENVIRONMENT = default_mode
+
+    if AWS_ENVIRONMENT is not None:
+        logging.warning('Running in default: %s' % default_mode )
+
 
 if AWS_ENV(AWS_ENVIRONMENT) is AWS_ENV.SANDBOX:
     BASE_URL_EU = "https://advertising-api-test.amazon.com"

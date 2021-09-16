@@ -1,6 +1,5 @@
 import os
 import confuse
-import boto3
 
 class MissingCredentials(Exception):
     """
