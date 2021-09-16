@@ -17,6 +17,31 @@ AWS_ENV=SANDBOX
 └── campaign_client.py
 </code></pre>
 
+
+### Switcher SandBox Environment
+Use a .env to manage the environment. Is high recommended try the SANDBOX environment as some features may delete (archive) modules as campaigns, ad groups,...etc and this cannot be undone.
+
+```javascript
+# environment variables defined inside a .env file
+AWS_ENV=SANDBOX
+# AWS_ENV=PRODUCTION
+
+```
+You may create a test profile id to include in your credentials with a curl command, note the ***{"countryCode":"ES"}*** that refers to the marketplace you will operate.
+
+
+```javascript
+# environment variables defined inside a .env file
+curl \
+    -X PUT \
+    -H "Content-Type:application/json" \
+    -H "Authorization: Bearer Your-Token \
+    -H "Amazon-Advertising-API-ClientId: your-client-id" \
+    --data '{"countryCode":"ES"}' \
+     https://advertising-api-test.amazon.com/v2/profiles/register
+
+```
+
 ### Credentials
 Use a credentials.yml file with your credentials if you dont know how to obtain your refresh token, please visit:
 
@@ -41,6 +66,10 @@ back to `%HOME%\AppData\Roaming` if undefined
 
 
 [Confuse Help](https://confuse.readthedocs.io/en/latest/usage.html#search-paths)
+
+
+
+
 
 
 ### Modules Available Sponsored Products
