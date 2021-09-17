@@ -37,7 +37,6 @@ You may create a test profile id to include in your credentials with a curl comm
 
 
 ```javascript
-# environment variables defined inside a .env file
 curl \
     -X PUT \
     -H "Content-Type:application/json" \
