@@ -1,4 +1,3 @@
-# from .campaigns.campaigns import Campaigns
 from .campaigns import Campaigns
 from .ad_groups import AdGroups
 from .product_ads import ProductAds
@@ -10,6 +9,7 @@ from .suggested_keywords import SuggestedKeywords
 from .product_targeting import Targets
 from .negative_product_targeting import NegativeTargets
 from .reports import Reports
+from .snapshots import Snapshots
 __all__ = [
     "Campaigns",
     "AdGroups",
@@ -21,5 +21,6 @@ __all__ = [
     "SuggestedKeywords",
     "Targets",
     "NegativeTargets",
-    "Reports"
+    "Reports",
+    "Snapshots"
 ]
