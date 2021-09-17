@@ -28,10 +28,8 @@ AWS_ENV=SANDBOX
 Use a .env to manage the environment. Is high recommended try the SANDBOX environment as some features may delete (archive) modules as campaigns, ad groups,...etc and this cannot be undone.
 
 ```javascript
-# environment variables defined inside a .env file
 AWS_ENV=SANDBOX
 # AWS_ENV=PRODUCTION
-
 ```
 You may create a test profile id to include in your credentials with a curl command, note the ***{"countryCode":"ES"}*** that refers to the marketplace you will operate.
 
