@@ -5,7 +5,7 @@ class AdGroups(Client):
     @sp_endpoint('/v2/sp/adGroups', method='POST')
     def create_ad_groups(self, **kwargs) -> ApiResponse:
         r"""
-        create_ad_groups(self, **kwargs) -> ApiResponse
+        create_ad_groups(self, \*\*kwargs) -> ApiResponse
 
         Creates one or more ad groups.
 
@@ -15,6 +15,7 @@ class AdGroups(Client):
             | '**campaignId**': *number*, {'description': 'An existing campaign to which the ad group is associated'}
             | '**defaultBid**': *number($float)*, {'description': 'A bid value for use when no bid is specified for keywords in the ad group', 'minimum': '0.02'}
             | '**state**': *string*, {'description': 'A name for the ad group', 'Enum': '[ enabled, paused, archived ]'}
+
 
         Returns:
 
@@ -26,7 +27,7 @@ class AdGroups(Client):
     @sp_endpoint('/v2/sp/adGroups', method='PUT')
     def edit_ad_groups(self, **kwargs) -> ApiResponse:
         r"""
-        edit_ad_group(self, **kwargs) -> ApiResponse
+        edit_ad_group(self, \*\*kwargs) -> ApiResponse
 
         Updates one or more ad groups.
 
@@ -47,7 +48,7 @@ class AdGroups(Client):
     @sp_endpoint('/v2/sp/adGroups', method='GET')
     def list_ad_groups(self, **kwargs) -> ApiResponse:
         r"""
-        list_ad_groups(self, **kwargs) -> ApiResponse
+        list_ad_groups(self, \*\*kwargs) -> ApiResponse
 
         Gets an array of AdGroup objects for a requested set of Sponsored Display ad groups. Note that the AdGroup object is designed for performance, and includes a small set of commonly used fields to reduce size. If the extended set of fields is required, use the ad group operations that return the AdGroupResponseEx object.
 
@@ -64,6 +65,7 @@ class AdGroups(Client):
             query **name**:*string* | Optional. The returned array includes only ad groups with the specified name.
 
 
+
         Returns:
 
             ApiResponse
@@ -75,7 +77,7 @@ class AdGroups(Client):
     def get_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
         r"""
 
-        get_ad_group(self, adGroupId, **kwargs) -> ApiResponse
+        get_ad_group(self, adGroupId, \*\*kwargs) -> ApiResponse
 
         Gets an ad group specified by identifier.
 
@@ -92,7 +94,7 @@ class AdGroups(Client):
     def delete_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
         r"""
 
-        delete_ad_group(self, adGroupId, **kwargs) -> ApiResponse
+        delete_ad_group(self, adGroupId, \*\*kwargs) -> ApiResponse
 
         Sets the ad group status to archived. Archived entities cannot be made active again. See developer notes for more information.
 
@@ -108,7 +110,7 @@ class AdGroups(Client):
     @sp_endpoint('/v2/sp/adGroups/extended', method='GET')
     def list_ad_groups_extended(self, **kwargs) -> ApiResponse:
         r"""
-        list_ad_groups_extended(self, **kwargs) -> ApiResponse
+        list_ad_groups_extended(self, \*\*kwargs) -> ApiResponse
 
         Gets an array of AdGroup objects for a requested set of Sponsored Display ad groups. Note that the AdGroup object is designed for performance, and includes a small set of commonly used fields to reduce size. If the extended set of fields is required, use the ad group operations that return the AdGroupResponseEx object.
 
@@ -135,7 +137,7 @@ class AdGroups(Client):
     def get_ad_group_extended(self, adGroupId, **kwargs) -> ApiResponse:
         r"""
 
-        get_ad_group_extended(self, adGroupId, **kwargs) -> ApiResponse
+        get_ad_group_extended(self, adGroupId, \*\*kwargs) -> ApiResponse
 
         Gets an ad group that has extended data fields.
 

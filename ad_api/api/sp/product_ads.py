@@ -4,7 +4,7 @@ class ProductAds(Client):
     @sp_endpoint('/v2/sp/productAds', method='GET')
     def list_product_ads(self, **kwargs) -> ApiResponse:
         r"""
-        list_product_ads(self, **kwargs) -> ApiResponse
+        list_product_ads(self, \*\*kwargs) -> ApiResponse
 
         Gets an array of campaigns.
 
@@ -30,7 +30,7 @@ class ProductAds(Client):
     @sp_endpoint('/v2/sp/productAds/extended', method='GET')
     def list_product_ads_extended(self, **kwargs) -> ApiResponse:
         r"""
-        list_product_ads_extended_request(self, **kwargs) -> ApiResponse
+        list_product_ads_extended_request(self, \*\*kwargs) -> ApiResponse
 
         Gets extended data for a list of product ads filtered by specified criteria.
 
@@ -57,7 +57,7 @@ class ProductAds(Client):
     def get_product_ad(self, adId, **kwargs) -> ApiResponse:
         r"""
 
-        get_product_ad_request(self, adId, **kwargs) -> ApiResponse
+        get_product_ad_request(self, adId, \*\*kwargs) -> ApiResponse
 
         Gets a product ad specified by identifier.
 
@@ -91,7 +91,7 @@ class ProductAds(Client):
     def delete_product_ad(self, adId, **kwargs) -> ApiResponse:
         r"""
 
-        delete_product_ad(self, adId, **kwargs) -> ApiResponse
+        delete_product_ad(self, adId, \*\*kwargs) -> ApiResponse
 
         Sets the state of a specified product ad to archived. Note that once the state is set to archived it cannot be changed.
 
@@ -107,7 +107,7 @@ class ProductAds(Client):
     @sp_endpoint('/v2/sp/productAds', method='PUT')
     def edit_product_ads(self, **kwargs) -> ApiResponse:
         r"""
-        edit_product_ads(self, **kwargs) -> ApiResponse
+        edit_product_ads(self, \*\*kwargs) -> ApiResponse
 
         Updates one or more product ads specified by identifier.
 
@@ -126,7 +126,7 @@ class ProductAds(Client):
     @sp_endpoint('/v2/sp/productAds', method='POST')
     def create_product_ads(self, **kwargs) -> ApiResponse:
         r"""
-        create_product_ads(self, **kwargs) -> ApiResponse
+        create_product_ads(self, \*\*kwargs) -> ApiResponse
 
         Creates one or more product ads.
 

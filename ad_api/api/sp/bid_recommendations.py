@@ -5,7 +5,7 @@ class BidRecommendations(Client):
     @sp_endpoint('/v2/sp/adGroups/{}/bidRecommendations', method='GET')
     def get_ad_group_bid_recommendations(self, adGroupId, **kwargs) -> ApiResponse:
         r"""
-        get_ad_group_bid_recommendations(self, adGroupId, **kwargs) -> ApiResponse
+        get_ad_group_bid_recommendations(self, adGroupId, \*\*kwargs) -> ApiResponse
 
         Gets a bid recommendation for an ad group.
 
@@ -22,7 +22,7 @@ class BidRecommendations(Client):
     @sp_endpoint('/v2/sp/keywords/{}/bidRecommendations', method='GET')
     def get_keyword_bid_recommendations(self, keywordId, **kwargs) -> ApiResponse:
         r"""
-        get_ad_group_bid_recommendations(self, adGroupId, **kwargs) -> ApiResponse
+        get_ad_group_bid_recommendations(self, adGroupId, \*\*kwargs) -> ApiResponse
 
         Gets a bid recommendation for a keyword.
 
@@ -38,7 +38,7 @@ class BidRecommendations(Client):
     @sp_endpoint('/v2/sp/keywords/bidRecommendations', method='POST')
     def get_keywords_bid_recommendations(self, **kwargs) -> ApiResponse:
         r"""
-        get_keywords_bid_recommendations(self, **kwargs) -> ApiResponse:
+        get_keywords_bid_recommendations(self, \*\*kwargs) -> ApiResponse:
 
         Gets bid recommendations for keywords.
 
@@ -50,6 +50,7 @@ class BidRecommendations(Client):
             | '**matchType**': *string*, {'description': 'The type of match', 'Enum': '[ exact, phrase, broad ]'}
             | }
 
+
         Returns:
 
             ApiResponse
@@ -60,7 +61,7 @@ class BidRecommendations(Client):
     @sp_endpoint('/v2/sp/targets/bidRecommendations', method='POST')
     def get_targets_bid_recommendations(self, **kwargs) -> ApiResponse:
         r"""
-        get_targets_bid_recommendations(self, **kwargs) -> ApiResponse:
+        get_targets_bid_recommendations(self, \*\*kwargs) -> ApiResponse:
 
         Gets a list of bid recommendations for keyword, product, or auto targeting expressions.
 
@@ -71,6 +72,7 @@ class BidRecommendations(Client):
             | '**value**': *string*, {'description': 'The expression value.'}
             | '**type**': *string*, {'description': 'The type of targeting expression', 'Enum': '[ queryBroadMatches, queryPhraseMatches, queryExactMatches, asinCategorySameAs, asinBrandSameAs, asinPriceLessThan, asinPriceBetween, asinPriceGreaterThan, asinReviewRatingLessThan, asinReviewRatingBetween, asinReviewRatingGreaterThan, asinSameAs, queryBroadRelMatches, queryHighRelMatches, asinSubstituteRelated, asinAccessoryRelated, asinAgeRangeSameAs, asinGenreSameAs, asinIsPrimeShippingEligible ]'}
             | }
+
 
         Returns:
 

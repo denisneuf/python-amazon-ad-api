@@ -135,13 +135,11 @@ class Keywords(Client):
             | '**nativeLanguageLocale**': *string*, {'description': 'The locale preference of the advertiser.'}
             | '**matchType**': *string*, {'description': 'The type of match.' , 'Enum': '[ exact, phrase, broad ]'}
             | '**bid**': *number($float)* {'description': 'Bid associated with this keyword. Applicable to biddable match types only.'}
-        Returns:
-
-            ApiResponse
 
         Returns:
 
             ApiResponse
+
 
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
@@ -158,6 +156,7 @@ class Keywords(Client):
             | '**keywordId**': *number*, {'description': 'The identifer of the campaign to which the keyword is associated.'}
             | '**state**': *string*, {'description': 'The current resource state.' , 'Enum': '[ enabled, paused, archived ]'}
             | '**bid**': *number($float)* {'description': 'Bid associated with this keyword. Applicable to biddable match types only.'}
+
         Returns:
 
             ApiResponse

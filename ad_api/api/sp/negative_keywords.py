@@ -6,11 +6,12 @@ class NegativeKeywords(Client):
     def get_negative_keyword(self, keywordId, **kwargs) -> ApiResponse:
         r"""
 
-        get_negative_keyword(self, keywordId, **kwargs) -> ApiResponse
+        get_negative_keyword(self, keywordId, \*\*kwargs) -> ApiResponse
 
         Gets a campaign negative keyword specified by identifier.
 
             path **keywordId**:*number* | Required. The identifier of an existing keyword.
+
 
         Returns:
 
@@ -23,11 +24,12 @@ class NegativeKeywords(Client):
     def delete_negative_keyword(self, keywordId, **kwargs) -> ApiResponse:
         r"""
 
-        delete_negative_keyword(self, keywordId, **kwargs) -> ApiResponse
+        delete_negative_keyword(self, keywordId, \*\*kwargs) -> ApiResponse
 
         Archives a campaign negative keyword.
 
             path **keywordId**:*number* | Required. The identifier of an existing keyword.
+
 
         Returns:
 
@@ -40,7 +42,7 @@ class NegativeKeywords(Client):
     def get_negative_keyword_extended(self, keywordId, **kwargs) -> ApiResponse:
         r"""
 
-        get_negative_keyword_extended(self, keywordId, **kwargs) -> ApiResponse
+        get_negative_keyword_extended(self, keywordId, \*\*kwargs) -> ApiResponse
 
         Gets a campaign negative keyword that has extended data fields.
 
@@ -56,7 +58,7 @@ class NegativeKeywords(Client):
     @sp_endpoint('/v2/sp/negativeKeywords/extended', method='GET')
     def list_negative_keywords_extended(self, **kwargs) -> ApiResponse:
         r"""
-        list_negative_keywords_extended(self, **kwargs) -> ApiResponse
+        list_negative_keywords_extended(self, \*\*kwargs) -> ApiResponse
 
         Gets a list of negative keywords that have extended data fields.
 
@@ -74,19 +76,19 @@ class NegativeKeywords(Client):
 
             query **adGroupIdFilter**:*string* | Optional. Restricts results to keywords associated with ad groups specified by identifier in the comma-delimited list.
 
-            query **keywordIdFilter**:*string* | Optional. Restricts results to keywords associated with campaigns specified by identifier in the comma-delimited list..
+            query **keywordIdFilter**:*string* | Optional. Restricts results to keywords associated with campaigns specified by identifier in the comma-delimited list.
 
-        Returns:
+            Returns:
 
             ApiResponse
 
-        """
+            """
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/negativeKeywords', method='GET')
     def list_negative_keywords(self, **kwargs) -> ApiResponse:
         r"""
-        list_negative_keywords(self, **kwargs) -> ApiResponse
+        list_negative_keywords(self, \*\*kwargs) -> ApiResponse
 
         Gets a list of negative keyword objects.
 
@@ -116,7 +118,7 @@ class NegativeKeywords(Client):
     @sp_endpoint('/v2/sp/negativeKeywords', method='POST')
     def create_negative_keywords(self, **kwargs) -> ApiResponse:
         r"""
-        create_negative_keywords(self, **kwargs) -> ApiResponse:
+        create_negative_keywords(self, \*\*kwargs) -> ApiResponse:
 
         Creates one or more campaign negative keywords.
 
@@ -127,6 +129,7 @@ class NegativeKeywords(Client):
             | '**state**': *string*, {'description': 'The current resource state.' , 'Enum': '[ enabled ]'}
             | '**keywordText**': *string*, {'description': 'The text of the expression to match against a search query.'}
             | '**matchType**': *string*, {'description': 'The type of match.' , 'Enum': '[ negativeExact, negativePhrase ]'}
+
         Returns:
 
             ApiResponse
@@ -137,7 +140,7 @@ class NegativeKeywords(Client):
     @sp_endpoint('/v2/sp/negativeKeywords', method='PUT')
     def edit_negative_keywords(self, **kwargs) -> ApiResponse:
         r"""
-        edit_negative_keywords(self, **kwargs) -> ApiResponse:
+        edit_negative_keywords(self, \*\*kwargs) -> ApiResponse:
 
         Updates one or more campaign negative keywords.
 
@@ -145,6 +148,7 @@ class NegativeKeywords(Client):
 
             | '**keywordId**': *number*, {'description': 'The identifer of the campaign to which the keyword is associated.'}
             | '**state**': *string*, {'description': 'The current resource state.' , 'Enum': '[ enabled, paused, archived ]'}
+
         Returns:
 
             ApiResponse
