@@ -75,7 +75,7 @@ back to `%HOME%\AppData\Roaming` if undefined
 ### Modules Available Sponsored Products
 
 * Ad Groups
-* Bid Rrecommendations
+* Bid Recommendations
 * Campaigns
 * Keywords
 * Negative Keywords
