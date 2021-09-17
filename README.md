@@ -80,7 +80,9 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Keywords
 * Negative Keywords
 * Product Ads
-* Suggested Kkeywords
+* Suggested Keywords
+* Product Targeting
+* Negative Product Targeting
 
 
 ### Usage Campaigns
