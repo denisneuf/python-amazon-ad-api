@@ -3,8 +3,7 @@
 ![CodeQL](https://img.shields.io/badge/coverage-39%25-yellow)
 ![CodeQL](https://img.shields.io/badge/Docs-sphinx-green)
 ![CodeQL](https://img.shields.io/github/v/release/denisneuf/python-amazon-ad-api)
-.. image:: https://readthedocs.org/projects/python-amazon-ad-api/badge/?version=latest
-:target: https://python-amazon-ad-api.readthedocs.io/en/latest/?badge=latest
+[![Documentation Status](https://readthedocs.org/projects/python-amazon-ad-api/badge/?version=latest)](https://python-amazon-ad-api.readthedocs.io/en/latest/?badge=latest)
 :alt: Documentation Status
 
 Python Amazon Advertising Api
