@@ -12,7 +12,4 @@ Welcome to Python Amazon Advertising Documentation
 
    Proceed with caution!
 
-.. figure:: screenshot-control-panel.jpg
-   :width: 50%
-
    An overview of the admin control panel.
