@@ -71,8 +71,12 @@ back to `%HOME%\AppData\Roaming` if undefined
 [Confuse Help](https://confuse.readthedocs.io/en/latest/usage.html#search-paths)
 
 
+### Modules Available Common Resources
 
-
+* Profiles
+* Invoices aka Billing
+* Elegibility
+* Metadata aka Product metadata
 
 
 ### Modules Available Sponsored Products
