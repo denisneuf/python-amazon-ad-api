@@ -6,10 +6,41 @@
 Welcome to Python Amazon Advertising Documentation
 ==================================================
 
+.. toctree::
+   :maxdepth: 0
 
-.. warning:: Here be dragons! This topic covers a number of options that
-   might alter your database.
+   ad_api.api.sp
 
-   Proceed with caution!
+Indices and tables
+==================
 
-   An overview of the admin control panel.
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+
+useful #2 -- explicit members
+=============================
+
+This is something I want to say that is not in the docstring.
+
+   ::autoclass:: AdGroups
+   :members: list_ad_groups_request, list_ad_groups_extended_request
+
+
+.. literalinclude:: example.py
+   :language: python
+
+.. seealso::
+
+   Module :py:mod:`zipfile`
+      Documentation of the :py:mod:`zipfile` standard module.
+
+   `GNU tar manual, Basic Tar Format <http://link>`_
+      Documentation for tar archive files, including GNU tar extensions.
+
+.. toctree::
+   :maxdepth: 1
+
+   modules
+   support
