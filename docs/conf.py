@@ -25,7 +25,7 @@ print(os.path.abspath(folder))
 
 # sys.path.insert(0, os.path.abspath('.'))
 
-sys.path.insert(0, os.path.abspath(folder))
+
 
 print(sys.path)
 
@@ -36,6 +36,7 @@ if on_rtd:
     # html_theme = 'default'
     html_theme = 'classic'
 else:
+	sys.path.insert(0, os.path.abspath(folder))
     html_theme = 'nature'
 
 # sys.exit()
