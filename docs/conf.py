@@ -29,6 +29,15 @@ sys.path.insert(0, os.path.abspath(folder))
 
 print(sys.path)
 
+
+import os
+on_rtd = os.environ.get('READTHEDOCS') == 'True'
+if on_rtd:
+    # html_theme = 'default'
+    html_theme = 'classic'
+else:
+    html_theme = 'nature'
+
 # sys.exit()
 
 # sys.path.insert(0, '/Users/hanuman/Documents/PycharmProjects/python-amazon-ad-api-1-0-3/venv/lib/python3.8/site-packages/ad_api/api/')
@@ -85,7 +94,7 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 # html_theme = 'alabaster'
-html_theme = 'classic'
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
