@@ -10,3 +10,15 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+
+folder = '../ad_api/api/'
+
+print(folder)
+print(os.path.abspath('.'))
+print(os.path.abspath(folder))
+
+# sys.path.insert(0, folder)
+
+# sys.path.insert(0, os.path.abspath('.'))
+
+sys.path.insert(0, os.path.abspath(folder))
