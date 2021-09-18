@@ -25,4 +25,4 @@ author = 'daniel'
 # The full version, including alpha/beta/rc tags
 release = '2021'
 
-
+master_doc = 'index'
