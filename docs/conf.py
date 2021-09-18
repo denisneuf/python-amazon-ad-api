@@ -13,30 +13,9 @@
 import os
 import sys
 # This will include the necessary source files folders in the PATH to be able to generate the documentation from.
-# folder = '../venv/lib/python3.8/site-packages/ad_api/api/sp/'
-# folder = '../venv/lib/python3.8/site-packages/ad_api/'
-folder = '../ad_api/api/'
 
-print(folder)
-print(os.path.abspath('.'))
-print(os.path.abspath(folder))
 
-# sys.path.insert(0, folder)
-
-# sys.path.insert(0, os.path.abspath('.'))
-
-sys.path.insert(0, os.path.abspath(folder))
-
-print(sys.path)
-
-# sys.exit()
-
-# sys.path.insert(0, '/Users/hanuman/Documents/PycharmProjects/python-amazon-ad-api-1-0-3/venv/lib/python3.8/site-packages/ad_api/api/')
-
-if os.path.isdir(folder):
-    print('have')
-else:
-    print('do not have')
+sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
