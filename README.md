@@ -2,6 +2,7 @@
 
 ![CodeQL](https://img.shields.io/badge/coverage-39%25-yellow)
 ![CodeQL](https://img.shields.io/badge/Docs-sphinx-green)
+![CodeQL](https://img.shields.io/github/v/release/denisneuf/python-amazon-ad-api)
 
 Python Amazon Advertising Api
 
