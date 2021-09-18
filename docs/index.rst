@@ -6,18 +6,6 @@
 Welcome to Python Amazon Advertising Documentation
 ==================================================
 
-.. toctree::
-   :maxdepth: 3
-
-   ad_api.api
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
 
 useful #2 -- explicit members
 =============================
