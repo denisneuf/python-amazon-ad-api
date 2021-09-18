@@ -13,8 +13,7 @@
 import os
 import sys
 
-submodules:
-  include: all
+
 
 extensions = [
     'sphinx.ext.autodoc',

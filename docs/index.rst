@@ -7,22 +7,12 @@ Welcome to Python Amazon Advertising Documentation
 ==================================================
 
 
-useful #2 -- explicit members
-=============================
+.. warning:: Here be dragons! This topic covers a number of options that
+   might alter your database.
 
-This is something I want to say that is not in the docstring.
+   Proceed with caution!
 
-   ::autoclass:: AdGroups
-   :members: list_ad_groups_request, list_ad_groups_extended_request
+.. figure:: screenshot-control-panel.jpg
+   :width: 50%
 
-
-.. literalinclude:: example.py
-   :language: python
-
-.. seealso::
-
-   Module :py:mod:`zipfile`
-      Documentation of the :py:mod:`zipfile` standard module.
-
-   `GNU tar manual, Basic Tar Format <http://link>`_
-      Documentation for tar archive files, including GNU tar extensions.
+   An overview of the admin control panel.
