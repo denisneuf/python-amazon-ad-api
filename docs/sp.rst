@@ -1,5 +1,0 @@
-sp package
-==========
-
-Submodules
-----------
