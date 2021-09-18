@@ -15,7 +15,7 @@ import sys
 # This will include the necessary source files folders in the PATH to be able to generate the documentation from.
 # folder = '../venv/lib/python3.8/site-packages/ad_api/api/sp/'
 # folder = '../venv/lib/python3.8/site-packages/ad_api/'
-folder = '../venv/lib/python3.8/site-packages/ad_api/api/'
+folder = '../ad_api/api/'
 
 print(folder)
 print(os.path.abspath('.'))
