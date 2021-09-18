@@ -57,11 +57,9 @@ release = '2021'
 # extensions = ['sphinx.ext.autodoc']
 # extensions = ['myst_parser', 'sphinx.ext.autodoc']
 
-extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.viewcode',
-]
+# extensions = ['sphinx.ext.autodoc','sphinx.ext.napoleon','sphinx.ext.viewcode',]
+
+extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
