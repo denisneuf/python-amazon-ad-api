@@ -15,7 +15,7 @@ import sys
 # This will include the necessary source files folders in the PATH to be able to generate the documentation from.
 
 
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
