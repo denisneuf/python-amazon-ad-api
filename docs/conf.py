@@ -26,3 +26,9 @@ author = 'daniel'
 release = '2021'
 
 master_doc = 'index'
+
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.viewcode',
+]
