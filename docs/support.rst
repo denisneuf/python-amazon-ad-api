@@ -6,18 +6,6 @@
 Welcome to amazon's documentation!
 ==================================
 
-.. toctree::
-   :maxdepth: 5
-   :caption: Contents:
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 
 The easiest way to get help with the project is to join the #crawler
