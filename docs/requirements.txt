@@ -4,6 +4,6 @@ requests
 six
 cachetools
 pycryptodome
-python-doten
+python-dotenv
 pytz
 confuse
