@@ -1,26 +1,26 @@
 Exceptions
 ==========
 
-..  autoclass:: sp_api.base.MissingCredentials
+..  autoclass:: ad_api.base.MissingCredentials
 
-..  autoclass:: sp_api.base.exceptions.SellingApiException
+..  autoclass:: ad_api.base.exceptions.SellingApiException
     :show-inheritance:
 
-..  autoclass:: sp_api.base.SellingApiBadRequestException
+..  autoclass:: ad_api.base.SellingApiBadRequestException
     :show-inheritance:
 
-..  autoclass:: sp_api.base.SellingApiForbiddenException
+..  autoclass:: ad_api.base.SellingApiForbiddenException
     :show-inheritance:
 
-..  autoclass:: sp_api.base.SellingApiNotFoundException
+..  autoclass:: ad_api.base.SellingApiNotFoundException
     :show-inheritance:
 
-..  autoclass:: sp_api.base.SellingApiRequestThrottledException
+..  autoclass:: ad_api.base.SellingApiRequestThrottledException
     :show-inheritance:
 
-..  autoclass:: sp_api.base.SellingApiServerException
+..  autoclass:: ad_api.base.SellingApiServerException
     :show-inheritance:
 
-..  autoclass:: sp_api.base.SellingApiTemporarilyUnavailableException
+..  autoclass:: ad_api.base.SellingApiTemporarilyUnavailableException
     :show-inheritance:
 

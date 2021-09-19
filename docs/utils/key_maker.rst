@@ -1,4 +1,4 @@
 Key Maker
 =========
 
-..  autoclass:: sp_api.util.KeyMaker
+..  autoclass:: ad_api.util.KeyMaker

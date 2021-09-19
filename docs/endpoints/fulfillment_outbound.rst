@@ -2,4 +2,4 @@ FulfillmentOutbound
 ===================
     
     
-..  autoclass:: sp_api.api.FulfillmentOutbound
+..  autoclass:: ad_api.api.FulfillmentOutbound

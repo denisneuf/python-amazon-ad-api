@@ -2,4 +2,4 @@ VendorDirectFulfillmentShipping
 ===============================
     
     
-..  autoclass:: sp_api.api.VendorDirectFulfillmentShipping
+..  autoclass:: ad_api.api.VendorDirectFulfillmentShipping

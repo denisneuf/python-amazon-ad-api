@@ -2,4 +2,4 @@ ListingsItems
 =============
     
     
-..  autoclass:: sp_api.api.ListingsItems
+..  autoclass:: ad_api.api.ListingsItems

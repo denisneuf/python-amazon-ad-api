@@ -2,4 +2,4 @@ Upload
 ======
     
     
-..  autoclass:: sp_api.api.Upload
+..  autoclass:: ad_api.api.Upload

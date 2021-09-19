@@ -2,4 +2,4 @@ VendorDirectFulfillmentPayments
 ===============================
     
     
-..  autoclass:: sp_api.api.VendorDirectFulfillmentPayments
+..  autoclass:: ad_api.api.VendorDirectFulfillmentPayments

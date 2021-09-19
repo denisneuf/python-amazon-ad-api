@@ -2,4 +2,4 @@ Tokens
 ======
     
     
-..  autoclass:: sp_api.api.Tokens
+..  autoclass:: ad_api.api.Tokens

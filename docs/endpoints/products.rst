@@ -4,7 +4,7 @@ Products
 
 
 
-..  autoclass:: sp_api.api.Products
+..  autoclass:: ad_api.api.Products
 
 
 

@@ -3,4 +3,4 @@ Finances
 
 
 
-..  autoclass:: sp_api.api.Finances
+..  autoclass:: ad_api.api.Finances

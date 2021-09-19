@@ -2,4 +2,4 @@ FbaSmallAndLight
 ================
     
     
-..  autoclass:: sp_api.api.FbaSmallAndLight
+..  autoclass:: ad_api.api.FbaSmallAndLight

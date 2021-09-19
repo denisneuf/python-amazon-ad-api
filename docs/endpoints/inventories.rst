@@ -6,4 +6,4 @@ Inventories
 
 
 
-..  autoclass:: sp_api.api.Inventories
+..  autoclass:: ad_api.api.Inventories

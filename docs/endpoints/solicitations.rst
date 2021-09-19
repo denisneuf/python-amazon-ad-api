@@ -2,4 +2,4 @@ Solicitations
 =============
     
     
-..  autoclass:: sp_api.api.Solicitations
+..  autoclass:: ad_api.api.Solicitations

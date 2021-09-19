@@ -1,7 +1,7 @@
 Load All Pages Decorator
 ========================
 
-..  automethod:: sp_api.util.load_all_pages
+..  automethod:: ad_api.util.load_all_pages
 
 The example below will load all pages, transforming the decorated function to a generator:
 

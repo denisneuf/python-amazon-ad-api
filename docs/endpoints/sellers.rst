@@ -5,4 +5,4 @@ Sellers
 
 
 
-..  autoclass:: sp_api.api.Sellers
+..  autoclass:: ad_api.api.Sellers

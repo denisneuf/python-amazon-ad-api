@@ -5,12 +5,12 @@ Environment Variables
 =====================    =========================================================================================================
 ENVIRONMENT VARIABLE     DESCRIPTION
 =====================    =========================================================================================================
-SP_API_REFRESH_TOKEN     The refresh token used obtained via authorization (can be passed to the client instead)
+ad_api_REFRESH_TOKEN     The refresh token used obtained via authorization (can be passed to the client instead)
 LWA_APP_ID               Your login with amazon app id
 LWA_CLIENT_SECRET        Your login with amazon client secret
-SP_API_ACCESS_KEY        AWS USER ACCESS KEY
-SP_API_SECRET_KEY        AWS USER SECRET KEY
-SP_API_ROLE_ARN          The role's arn (needs permission to "Assume Role" STS)
+ad_api_ACCESS_KEY        AWS USER ACCESS KEY
+ad_api_SECRET_KEY        AWS USER SECRET KEY
+ad_api_ROLE_ARN          The role's arn (needs permission to "Assume Role" STS)
 =====================    =========================================================================================================
 
 
@@ -18,14 +18,14 @@ To set environment variables under linux/mac, use
 
 ..  code-block:: bash
 
-    export SP_API_REFRESH_TOKEN="<your token>"
+    export ad_api_REFRESH_TOKEN="<your token>"
 
 
 You can (but don't have to) suffix each of these variables with `_<account>` if you want to set multiple accounts via env variables.
 
 ..  code-block:: bash
 
-    export SP_API_REFRESH_TOKEN_ANOTHER_ACCOUNT="<your token>"
+    export ad_api_REFRESH_TOKEN_ANOTHER_ACCOUNT="<your token>"
 
 
 **************************

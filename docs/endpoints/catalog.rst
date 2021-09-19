@@ -1,5 +1,5 @@
 Catalog
 =======
 
-..  autoclass:: sp_api.api.Catalog
+..  autoclass:: ad_api.api.Catalog
 

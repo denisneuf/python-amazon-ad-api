@@ -2,4 +2,4 @@ VendorInvoices
 ==============
     
     
-..  autoclass:: sp_api.api.VendorInvoices
+..  autoclass:: ad_api.api.VendorInvoices

@@ -2,4 +2,4 @@ VendorTransactionStatus
 =======================
     
     
-..  autoclass:: sp_api.api.VendorTransactionStatus
+..  autoclass:: ad_api.api.VendorTransactionStatus

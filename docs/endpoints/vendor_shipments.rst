@@ -2,4 +2,4 @@ VendorShipments
 ===============
     
     
-..  autoclass:: sp_api.api.VendorShipments
+..  autoclass:: ad_api.api.VendorShipments

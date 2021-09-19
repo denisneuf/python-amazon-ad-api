@@ -1,9 +1,9 @@
 Retry Decorators
 ================
 
-..  automethod:: sp_api.util.retry
-..  automethod:: sp_api.util.sp_retry
-..  automethod:: sp_api.util.throttle_retry
+..  automethod:: ad_api.util.retry
+..  automethod:: ad_api.util.sp_retry
+..  automethod:: ad_api.util.throttle_retry
 
 
 The example below will retry the call when a throttled exception was thrown:

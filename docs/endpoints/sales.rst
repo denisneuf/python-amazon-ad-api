@@ -2,4 +2,4 @@ Sales
 =====
 
 
-..  autoclass:: sp_api.api.Sales
+..  autoclass:: ad_api.api.Sales

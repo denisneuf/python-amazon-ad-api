@@ -2,4 +2,4 @@ Notifications
 =============
     
     
-..  autoclass:: sp_api.api.Notifications
+..  autoclass:: ad_api.api.Notifications

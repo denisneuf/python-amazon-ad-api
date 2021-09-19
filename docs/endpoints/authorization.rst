@@ -2,4 +2,4 @@ Authorization
 =============
     
     
-..  autoclass:: sp_api.api.Authorization
+..  autoclass:: ad_api.api.Authorization

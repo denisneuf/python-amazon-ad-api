@@ -2,4 +2,4 @@ AplusContent
 ============
     
     
-..  autoclass:: sp_api.api.AplusContent
+..  autoclass:: ad_api.api.AplusContent

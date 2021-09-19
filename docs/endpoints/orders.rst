@@ -5,4 +5,4 @@ Orders
 
 
 
-..  autoclass:: sp_api.api.Orders
+..  autoclass:: ad_api.api.Orders

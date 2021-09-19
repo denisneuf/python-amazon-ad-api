@@ -4,6 +4,6 @@ Feeds
 
 
 
-..  autoclass:: sp_api.api.Feeds
+..  autoclass:: ad_api.api.Feeds
 
 

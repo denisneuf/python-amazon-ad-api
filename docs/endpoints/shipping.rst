@@ -2,4 +2,4 @@ Shipping
 ========
     
     
-..  autoclass:: sp_api.api.Shipping
+..  autoclass:: ad_api.api.Shipping

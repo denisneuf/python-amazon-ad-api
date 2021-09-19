@@ -2,4 +2,4 @@ ProductTypeDefinitions
 ======================
     
     
-..  autoclass:: sp_api.api.ProductTypeDefinitions
+..  autoclass:: ad_api.api.ProductTypeDefinitions
