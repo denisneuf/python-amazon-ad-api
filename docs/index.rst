@@ -11,7 +11,7 @@ Welcome to PYTHON-AMAZON-AD-API documentation
 
    ad_api.api.sp
 
-..  autoclass:: ad_api.api.sp.Keyword
+..  autoclass:: Keyword
 
 Indices and tables
 ==================
