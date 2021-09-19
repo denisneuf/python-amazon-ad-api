@@ -2,6 +2,12 @@ Installation
 ============
 
 
+.. automodule:: ad_api.base.exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
 ..  autoclass:: ad_api.base.exceptions.AdvertisingApiException
     :show-inheritance:
 
