@@ -7,7 +7,7 @@ Welcome to Python Amazon Advertising Documentation
 ==================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    installation
 
