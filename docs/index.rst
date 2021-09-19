@@ -42,7 +42,7 @@ For more information about how to use this library, see the :ref:`api`.
    :maxdepth: 2
    :caption: Contents:
    
-   profiles
+   api.profiles
 
 Indices and tables
 ==================
