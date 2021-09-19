@@ -58,7 +58,7 @@ References
 
 .. target-notes::
 
-.. _`credentials.yml`: https://github.com/denisneuf/python-amazon-ad-api/blob/master/credentials.yml
+.. _`credentials.yml`: https://github.com/denisneuf/python-amazon-ad-api/#credentials
 .. _`confused`: https://confuse.readthedocs.io/en/latest/usage.html#search-paths
 
 
