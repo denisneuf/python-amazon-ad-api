@@ -19,6 +19,15 @@ Indices and tables
 * :ref:`search`
 
 
+Profiles
+========
+
+.. automodule:: ad_api.api.profiles
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
 useful #2 -- explicit members
 =============================
 
