@@ -18,7 +18,7 @@ This will import the following:
 Using the Pkg Class
 --------------------
 
-.. autoclass:: Profiles
+.. autoclass:: ad_api.api.Profiles
     :members:
 
 Pkg explanation goes here.
@@ -26,7 +26,7 @@ Pkg explanation goes here.
 Using Foo Function
 ------------------
 
-.. autofunction:: foo()
+.. autofunction:: list_profiles()
 
 Constants
 ---------
