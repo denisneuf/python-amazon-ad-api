@@ -8,7 +8,7 @@ Welcome to PYTHON-AMAZON-AD-API's documentation!
 
 .. toctree::
    :maxdepth: 2
-   endpoints
+   ad_api.api.sp
 
 Indices and tables
 ==================
