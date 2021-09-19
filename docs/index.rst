@@ -18,6 +18,8 @@ For more information about how to use this library, see the :ref:`api`.
    :maxdepth: 2
    :caption: Contents:
    
+   installation
+   credentials
    api
 
 Indices and tables
