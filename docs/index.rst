@@ -1,49 +1,21 @@
-.. amazon documentation master file, created by
-   sphinx-quickstart on Sun Sep 12 03:03:53 2021.
+.. PYTHON-AMAZON-SP-API documentation master file, created by
+   sphinx-quickstart on Thu Jan 28 17:29:02 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Python Amazon Advertising Documentation
-==================================================
-
-Profiles
---------
-
-.. automodule:: ad_api.api.profiles
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
+Welcome to PYTHON-AMAZON-SP-API's documentation!
+================================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
    installation
+   exceptions
+
+
 
 Indices and tables
 ==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-
-useful #2 -- explicit members
-=============================
-
-This is something I want to say that is not in the docstring.
-
-   ::autoclass:: ad_api.api.Profiles
-   :members: list_ad_groups_request, list_ad_groups_extended_request
-
-
-.. literalinclude:: example.py
-   :language: python
-
-.. seealso::
-
-   Module :py:mod:`zipfile`
-      Documentation of the :py:mod:`zipfile` standard module.
-
-   `GNU tar manual, Basic Tar Format <http://link>`_
-      Documentation for tar archive files, including GNU tar extensions.
+*  :ref:`genindex`
+*  :ref:`modindex`
+*  :ref:`search`
