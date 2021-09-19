@@ -25,7 +25,7 @@ useful #2 -- explicit members
 
 This is something I want to say that is not in the docstring.
 
-   ::autoclass:: AdGroups
+   ::autoclass:: ad_api.api.Profiles
    :members: list_ad_groups_request, list_ad_groups_extended_request
 
 
