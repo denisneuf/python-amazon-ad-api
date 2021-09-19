@@ -12,7 +12,7 @@ how to use the *sphinx* documentation generator for Python.
 Reference Example
 ------------------
 
-For more information about how to use this library, see the :ref:`api`.
+For more information about how to use this library, see the :ref:`v005`.
 
 .. toctree::
    :maxdepth: 2
