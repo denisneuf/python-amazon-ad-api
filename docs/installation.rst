@@ -1,20 +1,9 @@
-Installati0n
+Installation
 ============
 
 
-.. automodule:: ad_api.base.exceptions
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 
-..  autoclass:: ad_api.base.exceptions.AdvertisingApiException
-    :show-inheritance:
-
-
-
-..  autoclass:: ad_api.sp.invoices.Invoices
-	:members:
 
 
 You can install using pip
@@ -24,5 +13,5 @@ You can install using pip
 
 ..  code-block:: bash
 
-    pip install python-amazon-ad-api
+    pip install python-amazon-sp-api
 
