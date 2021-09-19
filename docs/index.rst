@@ -15,7 +15,6 @@ Welcome to PYTHON-AMAZON-SP-API's documentation!
    api
    responses
    exceptions
-   utils
    testing
 
 

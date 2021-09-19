@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'PYTHON-AMAZON-SP-API'
-copyright = '2021, Michael Primke'
-author = 'Michael Primke'
+project = 'PYTHON-AMAZON-AD-API'
+copyright = '2021, DAC'
+author = 'DAC'
 
 # -- General configuration ---------------------------------------------------
 
@@ -27,9 +27,7 @@ author = 'Michael Primke'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx_rtd_theme",
-    'sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon',
-
+    'sphinx_rtd_theme', 'sphinx.ext.autoclass', 'sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon'
 ]
 
 autodoc_mock_imports = ["ad_api"]
