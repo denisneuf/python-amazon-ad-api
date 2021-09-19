@@ -10,4 +10,4 @@ API
     api/profiles
     api/invoices
     api/metadata
-    api/elegibility
+    api/eligibility
