@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'PYTHON-AMAZON-SP-API'
-copyright = '2021, Michael Primke'
-author = 'Michael Primke'
+project = 'PYTHON-AMAZON-AD-API'
+copyright = '2021, Daniel Álvaro'
+author = '丹尼尔'
 
 # -- General configuration ---------------------------------------------------
 
