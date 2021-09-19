@@ -52,8 +52,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'autodoc-example'
-copyright = u'2016, Eric Beahan'
-author = u'Eric Beahan'
+copyright = u'2021, DAC'
+author = u'DAC'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
