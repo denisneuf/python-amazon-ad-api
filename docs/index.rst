@@ -3,12 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PYTHON-AMAZON-AD-API's documentation!
+Welcome to PYTHON-AMAZON-AD-API documentation!
 ================================================
 
 .. toctree::
    :maxdepth: 2
-   ad_api.api.sp
+   endpoints
 
 Indices and tables
 ==================
