@@ -8,3 +8,12 @@ Sponsored Products
     :maxdepth: 1
 
     sp/campaigns
+    sp/ad_groups
+    sp/product_ads
+    sp/bid_recommendations
+    sp/keywords
+    sp/negative_keywords
+    sp/campaign_negative_keywords
+    sp/suggested_keywords
+    sp/product_targeting
+    sp/negative_product_targeting
