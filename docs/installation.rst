@@ -12,7 +12,7 @@ Common Resources
 Profiles
 --------
 
-::autoclass:: ad_api.api.Profiles
+::autoclass:: python-amazon-ad-api.ad_api.api.profiles
 
 
 
