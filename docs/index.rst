@@ -6,6 +6,15 @@
 Welcome to Python Amazon Advertising Documentation
 ==================================================
 
+Profiles
+--------
+
+.. automodule:: ad_api.api.profiles
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
 .. toctree::
    :maxdepth: 4
 
@@ -17,15 +26,6 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-
-Profiles
-========
-
-.. automodule:: api.profiles
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 
 useful #2 -- explicit members
