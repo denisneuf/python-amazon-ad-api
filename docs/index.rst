@@ -10,7 +10,6 @@ Welcome to Python Amazon Advertising Documentation
    :maxdepth: 2
 
    installation
-   ad_api.api.sp
 
 Indices and tables
 ==================
@@ -39,9 +38,3 @@ This is something I want to say that is not in the docstring.
 
    `GNU tar manual, Basic Tar Format <http://link>`_
       Documentation for tar archive files, including GNU tar extensions.
-
-.. toctree::
-   :maxdepth: 1
-
-   modules
-   support
