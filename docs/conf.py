@@ -30,7 +30,7 @@ extensions = [
 
 ]
 
-autodoc_mock_imports = ["ad_api"]
+autodoc_mock_imports = ["ad_api", "ad_api.sp"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
