@@ -1,10 +1,41 @@
-Api
-=========
+.. _api:
 
+API Documentation
+=================
 
+.. module:: api
 
+For normal use, all you have to do is import the package::
 
-..  toctree::
-    :maxdepth: 1
+    import pkg
 
-    api/profiles
+This will import the following:
+
+* My amazing :class:`Pkg` class.
+* The awesome :func:`foo` function.
+* Several `constants`_ representing stuff.
+
+Using the Pkg Class
+--------------------
+
+.. autoclass:: Profiles
+    :members:
+
+Pkg explanation goes here.
+
+Using Foo Function
+------------------
+
+.. autofunction:: foo()
+
+Constants
+---------
+
+.. _constants:
+
+Four unneeded constants have been defined as examples:
+
+- NORTH
+- EAST
+- SOUTH
+- WEST
