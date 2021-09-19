@@ -22,7 +22,7 @@ Indices and tables
 Profiles
 ========
 
-.. automodule:: ad_api.api.profiles
+.. automodule:: profiles
    :members:
    :undoc-members:
    :show-inheritance:
