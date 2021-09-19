@@ -21,7 +21,7 @@ For more information about how to use this library, see the :ref:`api`.
    installation
    credentials
    api
-   api.sp
+   sp
 
 Indices and tables
 ==================
