@@ -3,7 +3,7 @@
 API Documentation
 =================
 
-.. module:: ad_api.api
+.. module:: ad_api.api.profiles
 
 For normal use, all you have to do is import the package::
 
