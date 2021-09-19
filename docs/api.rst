@@ -23,10 +23,6 @@ Using the Pkg Class
 
 Pkg explanation goes here.
 
-Using Foo Function
-------------------
-
-.. autofunction:: list_profiles()
 
 Constants
 ---------
