@@ -2,4 +2,4 @@ AplusContent
 ============
     
     
-..  autoclass:: ad_api.api.Profiles
+..  autoclass:: ad_api.api.profiles

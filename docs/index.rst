@@ -8,16 +8,7 @@ Welcome to PYTHON-AMAZON-SP-API's documentation!
 
 .. toctree::
    :maxdepth: 2
-
-   installation
-   credentials
-   client_usage
    endpoints
-   responses
-   exceptions
-   utils
-   testing
-
 
 Indices and tables
 ==================
