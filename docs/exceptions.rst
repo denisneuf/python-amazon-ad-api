@@ -3,24 +3,8 @@ Exceptions
 
 ..  autoclass:: ad_api.base.MissingCredentials
 
-..  autoclass:: ad_api.base.exceptions.SellingApiException
+..  autoclass:: ad_api.base.exceptions.AdvertisingApiException
     :show-inheritance:
 
-..  autoclass:: ad_api.base.SellingApiBadRequestException
+..  autoclass:: ad_api.base.AdvertisingApiForbiddenException
     :show-inheritance:
-
-..  autoclass:: ad_api.base.SellingApiForbiddenException
-    :show-inheritance:
-
-..  autoclass:: ad_api.base.SellingApiNotFoundException
-    :show-inheritance:
-
-..  autoclass:: ad_api.base.SellingApiRequestThrottledException
-    :show-inheritance:
-
-..  autoclass:: ad_api.base.SellingApiServerException
-    :show-inheritance:
-
-..  autoclass:: ad_api.base.SellingApiTemporarilyUnavailableException
-    :show-inheritance:
-
