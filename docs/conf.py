@@ -10,14 +10,16 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-
+# import os
+# import sys
+# sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'PYTHON-AMAZON-AD-API'
-copyright = '2021, Daniel Álvaro'
-author = 'Daniel'
+project = 'PYTHON-AMAZON-SP-API'
+copyright = '2021, Michael Primke'
+author = 'Michael Primke'
 
 # -- General configuration ---------------------------------------------------
 
@@ -29,8 +31,6 @@ extensions = [
     'sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon',
 
 ]
-
-# autodoc_mock_imports = ["ad_api", "ad_api.sp"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
