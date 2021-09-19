@@ -2,17 +2,8 @@ Installation
 ============
 
 
-ad\_api.api.sp package
-======================
-
-
-Common Resources
-----------------
-
-Profiles
---------
-
-::autoclass:: ad_api.api.profiles
+..  autoclass:: ad_api.base.exceptions.AdvertisingApiException
+    :show-inheritance:
 
 
 
