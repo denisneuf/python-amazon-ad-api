@@ -7,6 +7,9 @@ Installation
 
 
 
+..  autoclass:: ad_api.sp.invoices.Invoices
+
+
 You can install using pip
 
 
