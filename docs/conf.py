@@ -51,7 +51,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'autodoc-example'
+project = u'Python Amazon Advertising API'
 copyright = u'2021, DAC'
 author = u'DAC'
 
