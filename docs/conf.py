@@ -19,7 +19,7 @@
 
 project = 'PYTHON-AMAZON-AD-API'
 copyright = '2021, Daniel Álvaro'
-author = '丹尼尔'
+author = 'Daniel'
 
 # -- General configuration ---------------------------------------------------
 
