@@ -1,6 +1,11 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
 class Profiles(Client):
+    """
+    Profiles AD-API Client
+    :link: 
+    With the Profiles.
+    """
 
     @sp_endpoint('/v2/profiles', method='GET')
     def list_profiles(self, **kwargs) -> ApiResponse:
