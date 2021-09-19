@@ -3,7 +3,7 @@
 API Documentation
 =================
 
-.. module:: api
+.. module:: ad_api.api
 
 For normal use, all you have to do is import the package::
 
