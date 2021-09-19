@@ -1,5 +1,7 @@
 Profiles
 ============
-    
-    
-..  autoclass:: ad_api.api.sp.Keyword
+
+.. automodule:: ad_api.api.profiles
+   :members:
+   :undoc-members:
+   :show-inheritance:

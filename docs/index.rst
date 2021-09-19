@@ -9,9 +9,8 @@ Welcome to PYTHON-AMAZON-AD-API documentation
 .. toctree::
    :maxdepth: 2
 
-   ad_api.api.sp
+   endpoint
 
-..  autoclass:: Keyword
 
 Indices and tables
 ==================
