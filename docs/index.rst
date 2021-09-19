@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to autodoc-example's documentation!
-===========================================
+Welcome to Python Amazon Advertising API documentation
+======================================================
 
 This project servers as an example project to demostrate
 how to use the *sphinx* documentation generator for Python.
@@ -42,7 +42,7 @@ For more information about how to use this library, see the :ref:`api`.
    :maxdepth: 2
    :caption: Contents:
    
-   api
+   profiles
 
 Indices and tables
 ==================
