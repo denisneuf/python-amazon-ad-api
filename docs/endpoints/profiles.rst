@@ -2,4 +2,4 @@ Profiles
 ============
     
     
-..  autoclass:: ad_api.api.profiles
+..  autoclass:: ad_api.api.Profiles
