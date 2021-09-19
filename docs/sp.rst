@@ -1,4 +1,4 @@
-SPONSORED PRODUCTS
+Sponsored Products
 ==================
 
 

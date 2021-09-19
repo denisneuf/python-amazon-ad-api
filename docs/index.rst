@@ -9,10 +9,6 @@ Welcome to Python Amazon Advertising API documentation
 This project servers as an example project to demostrate
 how to use the *sphinx* documentation generator for Python.
 
-Reference Example
-------------------
-
-For more information about how to use this library, see the :ref:`v005`.
 
 .. toctree::
    :maxdepth: 2
