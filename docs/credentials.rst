@@ -1,8 +1,6 @@
 Credentials
 ===========
 
-
-
 An example config file is provided in this repository, it supports multiple accounts.
 The programm looks for a file called `credentials.yml`_
 
@@ -23,18 +21,15 @@ If you're only using one account, place it under default. You can pass the accou
 
     default:
       refresh_token: ''
-      lwa_app_id: ''
-      lwa_client_secret: ''
-      aws_secret_key: ''
-      aws_access_key: ''
-      role_arn: ''
+      client_id: ''
+      client_secret: ''
+      profile_id: ''
+
     another_account:
       refresh_token: ''
-      lwa_app_id: ''
-      lwa_client_secret: ''
-      aws_secret_key: ''
-      aws_access_key: ''
-      role_arn: ''
+      client_id: ''
+      client_secret: ''
+      profile_id: ''
 
 
 **************************
@@ -43,7 +38,7 @@ Usage with default account
 
 ..  code-block:: python
 
-    Orders().get_orders(CreatedAfter=(datetime.utcnow() - timedelta(days=7)).isoformat())
+    Campaigns().list_campaigns()
 
 
 **************************
@@ -54,15 +49,7 @@ You can use every account's name from the config file for account
 
 ..  code-block:: python
 
-    Orders(account=another_account).get_orders(CreatedAfter=(datetime.utcnow() - timedelta(days=7)).isoformat())
-
-Note
-^^^^
-The refresh token can be passed directly to the client, too. You don't need to pass the whole credentials if all that changes is the refresh token.
-
-..  code-block:: python
-
-    Orders(account='another_account', refresh_token='<refresh_token_for_this_request>').get_orders(CreatedAfter=(datetime.utcnow() - timedelta(days=7)).isoformat())
+	Campaigns(account="another_account", marketplace=Marketplaces.ES).list_campaigns()
 
 
 **********
