@@ -1,4 +1,4 @@
-Installation
+Installati0n
 ============
 
 
@@ -14,6 +14,7 @@ Installation
 
 
 ..  autoclass:: ad_api.sp.invoices.Invoices
+	:members:
 
 
 You can install using pip
