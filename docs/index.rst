@@ -26,6 +26,3 @@ Indices and tables
 
 
 .. literalinclude:: example.py
-
-
-.. literalinclude:: ../test/campaigns/create_auto_portfolio.json
