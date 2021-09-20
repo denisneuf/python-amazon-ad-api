@@ -79,6 +79,11 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Invoices aka Billing
 * Elegibility
 * Metadata aka Product metadata
+* History
+* Localization
+* Audiences
+* Portfolios
+* Insights
 
 
 ### Modules Available Sponsored Products
