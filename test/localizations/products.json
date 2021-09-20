@@ -3,7 +3,7 @@
     {
       "product": {
         "asin": "B07T6698JX",
-        "sku": "AMZBEU-2FBAC01A045A05-ZJLYJ-MK908P"
+        "sku": "YOUR-SKU"
       }
     }
   ],
@@ -11,7 +11,7 @@
   "targetDetails": [
     {
       "marketplaceId": "A30EQIZQ0EK03B",
-      "advertiserId": "789149912270470"
+      "advertiserId": "YOUR-ADVERTISER-ID"
     }
   ]
 }
