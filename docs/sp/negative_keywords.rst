@@ -1,4 +1,4 @@
-NegativeKeywords
+Negative Keywords
 =================
 
 .. autoclass:: ad_api.api.sp.NegativeKeywords

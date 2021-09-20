@@ -1,9 +1,6 @@
 Api
 =========
 
-
-
-
 ..  toctree::
     :maxdepth: 1
 
@@ -11,3 +8,8 @@ Api
     api/invoices
     api/metadata
     api/eligibility
+    api/history
+    api/localization
+    api/audiences
+    api/portfolios
+    api/insights

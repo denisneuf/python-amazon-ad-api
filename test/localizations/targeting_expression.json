@@ -1,0 +1,25 @@
+{
+  "targetDetailsList": [
+    {
+      "marketplaceId": "A1RKKUPIHCS9HS",
+      "countryCode": "ES"
+    }
+  ],
+  "requests": [
+    {
+      "targetingExpression": {
+        "isForNegativeTargeting": false,
+        "expression": [
+          {
+            "type": "asinSameAs",
+            "value": "B07RTW8W5D"
+          }
+        ]
+      }
+    }
+  ],
+  "sourceDetails": {
+    "marketplaceId": "A1F83G8C2ARO7P",
+    "countryCode": "UK"
+  }
+}

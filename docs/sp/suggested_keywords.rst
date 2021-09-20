@@ -1,5 +1,5 @@
-SuggestedKeywords
-=================
+Suggested Keywords
+==================
 
 .. autoclass:: ad_api.api.sp.SuggestedKeywords
     :members:

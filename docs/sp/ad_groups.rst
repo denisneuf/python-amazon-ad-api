@@ -1,5 +1,5 @@
-AdGroups
-=================
+Ad Groups
+=========
 
 .. autoclass:: ad_api.api.sp.AdGroups
     :members:

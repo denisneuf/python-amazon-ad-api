@@ -1,0 +1,20 @@
+{
+  "fromDate": 1626739199000,
+  "toDate": 1632095999000,
+  "pageOffset": 10,
+  "count": 60,
+  "sort": {
+    "key": "DATE",
+    "direction": "DESC"
+  },
+  "eventTypes": {
+    "CAMPAIGN": {
+      "filters": [
+        "BUDGET_AMOUNT"
+      ],
+      "eventTypeIds": [
+        "137359064782313"
+      ]
+    }
+  }
+}

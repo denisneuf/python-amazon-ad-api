@@ -1,5 +1,5 @@
 Campaigns
-=================
+=========
 
 .. autoclass:: ad_api.api.sp.Campaigns
     :members:

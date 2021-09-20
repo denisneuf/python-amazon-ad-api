@@ -12,7 +12,6 @@ how to use the *sphinx* documentation generator for Python.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
    
    installation
    credentials
@@ -23,5 +22,10 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
+
+
+.. literalinclude:: example.py
+
+
+.. literalinclude:: ../test/campaigns/create_auto_portfolio.json
