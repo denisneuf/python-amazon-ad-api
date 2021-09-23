@@ -100,6 +100,23 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Campaign Negative Keywords
 
 
+### Modules Available Sponsored Brands
+
+* Campaigns
+* AdGroups
+* Keywords
+* Negative Keywords
+* Product Targeting
+* Negative Product Targeting
+* Targeting Recommendations
+* Bid Recommendations
+* Stores
+* Landing Page Asins
+* Media
+* Brands
+* Moderation
+
+
 ### Usage Campaigns
 
 ```python
