@@ -17,6 +17,8 @@ how to use the *sphinx* documentation generator for Python.
    credentials
    api
    sp
+   sb
+   disclaimer
 
 Indices and tables
 ==================
