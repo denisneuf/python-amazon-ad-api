@@ -17,12 +17,16 @@ Snapshots
 
         record_type = 'campaigns'
 
-        result = Snapshots(account="leadtech_pro", marketplace=Marketplaces.ES).post_snapshot(
+        result = Snapshots().post_snapshot(
             recordType=record_type,
             body=data
         )
 
     ### Example json
+
+    Get the example json `FILE`_.
+
+    .. _FILE: ../../../test/snapshots/sp-sx-state-filter.json
 
     .. literalinclude:: ../../test/snapshots/sp-sx-state-filter.json
 
@@ -35,7 +39,7 @@ Snapshots
         # this snapshot_id is obtained from post_snapshot method
         snapshot_id = "amzn1.clicksAPI.v1.p44551.614D9309.84477233-ccc8-4591-80f2-1f96b7ea9c7e"
 
-        result = Snapshots(account="leadtech_pro", marketplace=Marketplaces.ES).get_snapshot(
+        result = Snapshots().get_snapshot(
             snapshotId=snapshot_id
         )
 
@@ -62,7 +66,7 @@ Snapshots
         # path = '/Users/your-profile/Downloads/report_name'
         # mode = "data"  # "data (list), raw, url, json, zip, gzip default is url"
 
-        result = Reports(account="leadtech_pro", marketplace=Marketplaces.ES).download_report(
+        result = Reports().download_report(
             url=location,
             # file=path,
             # format=mode

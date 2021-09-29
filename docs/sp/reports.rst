@@ -26,7 +26,14 @@ Reports
 
     ### Example json
 
+    Get the example json `FILE`_.
+
+    .. _FILE: ../../../test/reports/sp-sx-ad_groups-report.json
+
     .. literalinclude:: ../../test/reports/sp-sx-ad_groups-report.json
+
+
+
 
     .. autofunction:: ad_api.api.sp.Reports.get_report(self, reportId, **kwargs) -> ApiResponse:
 
@@ -37,7 +44,7 @@ Reports
         # this report_id is obtained from post_report method
         report_id = 'amzn1.clicksAPI.v1.p44551.61549C5E.e4599469-7392-4624-a858-fc1fecdb165c'
 
-        result = Reports(account="leadtech_pro", marketplace=Marketplaces.ES).get_report(
+        result = Reports().get_report(
             reportId=report_id
         )
 
@@ -64,10 +71,9 @@ Reports
         # path = '/Users/your-profile/Downloads/report_name'
         # mode = "data"  # "data (list), raw, url, json, zip, gzip default is url"
 
-        result = Reports(account="leadtech_pro", marketplace=Marketplaces.ES).download_report(
+        result = Reports().download_report(
             url=location,
             # file=path,
             # format=mode
         )
-
 
