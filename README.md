@@ -98,6 +98,8 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Product Targeting
 * Negative Product Targeting
 * Campaign Negative Keywords
+* Reports
+* Snapshots
 
 
 ### Modules Available Sponsored Brands
@@ -133,7 +135,7 @@ try:
 
     states = 'enabled'
 
-    res = Campaigns(Marketplaces.ES).list_campaigns_extended(
+    res = Campaigns().list_campaigns_extended(
         stateFilter=states
     )
 
