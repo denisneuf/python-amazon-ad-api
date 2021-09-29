@@ -1,4 +1,4 @@
-Targets
+Product Targeting
 =================
 
 .. autoclass:: ad_api.api.sp.Targets
