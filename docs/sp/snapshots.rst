@@ -26,9 +26,7 @@ Snapshots
 
     ### Example json
 
-    Get the example json `FILE`_.
-
-    .. _FILE: ../../../test/snapshots/sp-sx-state-filter.json
+    Open this :download:`json <../../test/snapshots/sp-sx-state-filter.json>` file to see the result:
 
     .. literalinclude:: ../../test/snapshots/sp-sx-state-filter.json
 

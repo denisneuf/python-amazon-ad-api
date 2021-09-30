@@ -28,9 +28,7 @@ Reports
 
     ### Example json
 
-    Get the example json `FILE`_.
-
-    .. _FILE: ../../../test/reports/sp-sx-ad_groups-report.json
+    Open this :download:`json <../../test/reports/sp-sx-ad_groups-report.json>` file to see the result:
 
     .. literalinclude:: ../../test/reports/sp-sx-ad_groups-report.json
 
