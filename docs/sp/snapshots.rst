@@ -9,6 +9,8 @@ Snapshots
 
     .. code-block:: python
 
+        from ad_api.api.sp.snapshots import Snapshots
+
         file = open("request.json")
         data = file.read()
         file.close()
@@ -36,6 +38,8 @@ Snapshots
 
     .. code-block:: python
 
+        from ad_api.api.sp.snapshots import Snapshots
+
         # this snapshot_id is obtained from post_snapshot method
         snapshot_id = "amzn1.clicksAPI.v1.p44551.614D9309.84477233-ccc8-4591-80f2-1f96b7ea9c7e"
 
@@ -59,6 +63,8 @@ Snapshots
     ### Example python
 
     .. code-block:: python
+
+        from ad_api.api.sp.snapshots import Snapshots
 
         # the url=location is obtained from get_snapshot method need to in stay 'status': 'SUCCESS' if is 'IN_PROGRESS' the snapshot cannot be downloaded
         location = 'https://advertising-api-eu.amazon.com/v1/snapshots/amzn1.clicksAPI.v1.p44551.614D9309.84477233-ccc8-4591-80f2-1f96b7ea9c7e/download'

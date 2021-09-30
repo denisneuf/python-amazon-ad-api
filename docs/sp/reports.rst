@@ -9,6 +9,8 @@ Reports
 
     .. code-block:: python
 
+        from ad_api.api.sp.reports import Reports
+
         file = open("ad_groups.json")
         data = file.read()
         file.close()
@@ -41,6 +43,8 @@ Reports
 
     .. code-block:: python
 
+        from ad_api.api.sp.reports import Reports
+
         # this report_id is obtained from post_report method
         report_id = 'amzn1.clicksAPI.v1.p44551.61549C5E.e4599469-7392-4624-a858-fc1fecdb165c'
 
@@ -64,6 +68,8 @@ Reports
     ### Example python
 
     .. code-block:: python
+
+        from ad_api.api.sp.reports import Reports
 
         # the url=location is obtained from get_report method need to in stay 'status': 'SUCCESS' if is 'IN_PROGRESS' the report cannot be downloaded
         location = 'https://advertising-api-eu.amazon.com/v1/reports/amzn1.clicksAPI.v1.p44551.61549C5E.e4599469-7392-4624-a858-fc1fecdb165c/download'
