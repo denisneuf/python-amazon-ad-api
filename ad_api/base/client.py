@@ -10,8 +10,6 @@ from .exceptions import get_exception_for_code, get_exception_for_content, Adver
 from .marketplaces import Marketplaces
 import sys
 import os
-# import urllib.request
-# import urllib.parse
 import requests
 from io import BytesIO
 import gzip
@@ -27,12 +25,12 @@ class Client(BaseClient):
     grantless_scope = ''
     def __init__(
             self,
-            marketplace: Marketplaces = Marketplaces.ES,
-            *,
-            refresh_token=None,
             account='default',
+            marketplace: Marketplaces = Marketplaces.EU,
+            refresh_token=None,
             credentials=None
     ):
+
         super().__init__(account, credentials)
         self.endpoint = marketplace.endpoint
         self._auth = AccessTokenClient(refresh_token=refresh_token, account=account, credentials=credentials)
@@ -54,7 +52,6 @@ class Client(BaseClient):
     @staticmethod
     def _download(self, params: dict = None, headers=None) -> ApiResponse:
 
-        # logging.info(params)
         location = params.get("url")
 
         try:
@@ -183,6 +180,9 @@ class Client(BaseClient):
             }
             next_token = None
             return ApiResponse(error, next_token, headers=self.headers)
+
+        sys.exit()
+
 
 
     def _request(self, path: str, *, data: str = None, params: dict = None, headers=None,

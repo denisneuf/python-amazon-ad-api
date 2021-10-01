@@ -17,44 +17,51 @@ class AWS_ENV(Enum):
     PRODUCTION = "PRODUCTION"
     SANDBOX = "SANDBOX"
 
-config = dotenv_values(".env")
-
-AWS_ENVIRONMENT = config.get('AWS_ENV')
-
-BASE_URL_EU = "https://advertising-api-eu.amazon.com"
-BASE_URL_US = "https://advertising-api.amazon.com"
-
-if AWS_ENVIRONMENT is not None:
-    logging.warning('Running in choosen mode : %s' % AWS_ENVIRONMENT)
-
-if AWS_ENVIRONMENT is None:
-    default_mode = os.environ["__MODE__"] = "SANDBOX"
-    AWS_ENVIRONMENT = default_mode
-
-    if AWS_ENVIRONMENT is not None:
-        logging.warning('Running in default: %s' % default_mode )
-
-
-if AWS_ENV(AWS_ENVIRONMENT) is AWS_ENV.SANDBOX:
-    BASE_URL_EU = "https://advertising-api-test.amazon.com"
-    BASE_URL_US = "https://advertising-api-test.amazon.com"
 
 class Marketplaces(Enum):
-    """Enumeration for MWS marketplaces, containing endpoints and marketplace IDs.
-    Example, endpoint and ID for UK marketplace:
-        endpoint = Marketplaces.UK.endpoint
-        marketplace_id = Marketplaces.UK.marketplace_id
-    """
+    NA = {'sandbox': 'advertising-api-test.amazon.com',
+           'prod': 'advertising-api.amazon.com',
+           'currency': 'USD',
+           'token_url': 'api.amazon.com/auth/o2/token'}
 
-    US = (f"{BASE_URL_US}", 'EUR')
-    ES = (f"{BASE_URL_EU}", 'EUR')
-    GB = (f"{BASE_URL_EU}", 'GBP')
-    IT = (f"{BASE_URL_EU}", 'EUR')
-    FR = (f"{BASE_URL_EU}", 'EUR')
-    DE = (f"{BASE_URL_EU}", 'EUR')
+    EU = {'sandbox': 'advertising-api-test.amazon.com',
+           'prod': 'advertising-api-eu.amazon.com',
+           'currency': 'EUR',
+           'token_url': 'api.amazon.com/auth/o2/token'}
 
+    GB = {'sandbox': 'advertising-api-test.amazon.com',
+           'prod': 'advertising-api-eu.amazon.com',
+           'currency': 'GBP',
+           'token_url': 'api.amazon.com/auth/o2/token'}
 
-    def __init__(self, endpoint, currency):
-        """Easy dot access like: Marketplaces.endpoint ."""
-        self.endpoint = endpoint
-        self.currency = currency
+    ES = {'sandbox': 'advertising-api-test.amazon.com',
+           'prod': 'advertising-api-eu.amazon.com',
+           'currency': 'EUR',
+           'token_url': 'api.amazon.com/auth/o2/token'}
+
+    DE = {'sandbox': 'advertising-api-test.amazon.com',
+           'prod': 'advertising-api-eu.amazon.com',
+           'currency': 'EUR',
+           'token_url': 'api.amazon.com/auth/o2/token'}
+
+    IT = {'sandbox': 'advertising-api-test.amazon.com',
+           'prod': 'advertising-api-eu.amazon.com',
+           'currency': 'EUR',
+           'token_url': 'api.amazon.com/auth/o2/token'}
+
+    FR = {'sandbox': 'advertising-api-test.amazon.com',
+           'prod': 'advertising-api-eu.amazon.com',
+           'currency': 'EUR',
+           'token_url': 'api.amazon.com/auth/o2/token'}
+
+    def __init__(self, info):
+
+        config = dotenv_values(".env")
+        AWS_ENVIRONMENT = config.get('AWS_ENV') or os.environ.get('API_PASSWORD')
+        if AWS_ENVIRONMENT=="PRODUCTION":
+            self.region_url = info.get('prod')
+        else:
+            self.region_url = info.get('sandbox')
+
+        self.endpoint = 'https://{}'.format(self.region_url)
+        self.currency = info.get('currency')

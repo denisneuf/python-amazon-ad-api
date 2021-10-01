@@ -14,7 +14,7 @@ class AdvertisingApiBadRequestException(AdvertisingApiException):
     code = 400
 
     def __init__(self, error):
-        super(SellingApiBadRequestException, self).__init__(error)
+        super(AdvertisingApiBadRequestException, self).__init__(error)
 
 
 class AdvertisingApiForbiddenException(AdvertisingApiException):
@@ -24,7 +24,7 @@ class AdvertisingApiForbiddenException(AdvertisingApiException):
     code = 403
 
     def __init__(self, error):
-        super(SellingApiForbiddenException, self).__init__(error)
+        super(AdvertisingApiForbiddenException, self).__init__(error)
 
 
 def get_exception_for_code(code: int):
@@ -39,5 +39,5 @@ def get_exception_for_code(code: int):
 
 def get_exception_for_content(content: object):
     return {
-        'UNAUTHORIZED': SellingApiUnauthorizedException
-    }.get(content.get('code'), SellingApiException)
+        'UNAUTHORIZED': AdvertisingApiForbiddenException
+    }.get(content.get('code'), AdvertisingApiException)
