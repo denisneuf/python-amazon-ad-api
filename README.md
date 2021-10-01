@@ -16,7 +16,8 @@ pip install python-amazon-ad-api
 
 ### Donate
 
-https://www.paypal.com/biz/fund?id=ZK9NBAEA9P23S
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/biz/fund?id=ZK9NBAEA9P23S)
+
 
 
 ### Set Up
