@@ -13,6 +13,12 @@ Python Amazon Advertising Api
 pip install python-amazon-ad-api
 ```
 
+
+### Donate
+
+https://www.paypal.com/biz/fund?id=ZK9NBAEA9P23S
+
+
 ### Set Up
 
 Create a .env file and put in the root of your project ( SANDBOX or PRODUCTION )
