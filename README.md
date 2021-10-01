@@ -9,6 +9,8 @@ Python Amazon Advertising Api
 
 ### Install
 
+[![Badge](https://img.shields.io/pypi/v/python-amazon-ad-api?style=for-the-badge)](https://pypi.org/project/python-amazon-ad-api/)
+
 ```
 pip install python-amazon-ad-api
 ```
