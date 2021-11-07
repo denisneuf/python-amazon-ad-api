@@ -2,7 +2,7 @@ import pprint
 
 class ApiResponse:
     def __init__(self, payload=None, nextToken=None, **kwargs):
-        self.payload = payload or kwargs
+        self.payload = payload
         self.headers = kwargs
         self.next_token = self.set_next_token(nextToken)
 
@@ -13,7 +13,7 @@ class ApiResponse:
         if nextToken:
             return nextToken
         try:
-            return self.payload.get('NextToken', None)
+            return self.payload.get('NextToken', None) or self.headers.get('NextToken', None)
         except AttributeError:
             return None
 
