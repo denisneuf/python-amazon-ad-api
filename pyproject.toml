@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "ad_api"
+version = "0.0.9"
+description = "Python Amazon Advertising Api"
+authors = ["denisneuf <denisneuf@hotmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+cachetools = "4.2.4"
+confuse = "1.6.0"
+pycryptodome = "3.11.0"
+python-dotenv = "0.19.1"
+requests = "2.26.0"
+setuptools = "^58.5.3"
+
+[tool.poetry.dev-dependencies]
+poetry = "^1.1.11"
+pytest = "^6.2.5"
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
