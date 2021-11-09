@@ -27,7 +27,9 @@ class Targets(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        contentType = 'application/vnd.sblisttargetsrequest.v3.0+json'
+        headers = {'Content-Type': contentType}
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
 
     @sp_endpoint('/sb/targets', method='PUT')

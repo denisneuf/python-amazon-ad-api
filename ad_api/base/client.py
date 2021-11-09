@@ -18,6 +18,7 @@ import zipfile
 
 from urllib.parse import urlparse
 
+
 log = logging.getLogger(__name__)
 role_cache = TTLCache(maxsize=10, ttl=3600)
 
@@ -28,21 +29,23 @@ class Client(BaseClient):
             account='default',
             marketplace: Marketplaces = Marketplaces.EU,
             refresh_token=None,
-            credentials=None
+            credentials=None,
+            debug=False
     ):
 
         super().__init__(account, credentials)
         self.endpoint = marketplace.endpoint
+        self.debug = debug
         self._auth = AccessTokenClient(refresh_token=refresh_token, account=account, credentials=credentials)
 
     @property
     def headers(self):
         return {
-            'user-agent': self.user_agent,
+            'User-Agent': self.user_agent,
             'Amazon-Advertising-API-ClientId': self.credentials.client_id,
             'Authorization': 'Bearer %s' % self.auth.access_token,
             'Amazon-Advertising-API-Scope': self.credentials.profile_id,
-            'content-type': 'application/json'
+            'Content-Type': 'application/json'
         }
 
     @property
@@ -65,18 +68,18 @@ class Client(BaseClient):
             }
             next_token = None
             return ApiResponse(error, next_token, headers=self.headers)
-        except requests.exceptions.RequestException as e:
-            error = {
-                'success': False,
-                'code': 503,
-                'response': e
-            }
-            next_token = None
-            return ApiResponse(error, next_token, headers=self.headers)
         except requests.exceptions.ConnectionError as e:
             error = {
                 'success': False,
                 'code': e.status_code,
+                'response': e
+            }
+            next_token = None
+            return ApiResponse(error, next_token, headers=self.headers)
+        except requests.exceptions.RequestException as e:
+            error = {
+                'success': False,
+                'code': 503,
                 'response': e
             }
             next_token = None
@@ -183,21 +186,31 @@ class Client(BaseClient):
 
         sys.exit()
 
+    def _request(self,
+                 path: str,
+                 data: str = None,
+                 params: dict = None,
+                 headers = None,
+                 ) -> ApiResponse:
 
-
-    def _request(self, path: str, *, data: str = None, params: dict = None, headers=None,
-                 add_marketplace=True) -> ApiResponse:
         if params is None:
             params = {}
-        if data is None:
-            data = {}
 
         method = params.pop('method')
 
-        if method in ('POST', 'PUT', 'PATCH'):
+        if headers is False:
+            base_header = self.headers.copy()
+            base_header.pop("Content-Type")
+            headers = base_header
 
-            if headers is not None:
-                headers.update(self.headers)
+
+        elif headers is not None:
+
+            base_header = self.headers.copy()
+            base_header.update(headers)
+            headers = base_header
+
+        if method in ('POST', 'PUT', 'PATCH'):
 
             res = request(method,
                       self.endpoint + path,
@@ -211,18 +224,54 @@ class Client(BaseClient):
                       params=params,
                       headers=headers or self.headers)
 
+        if self.debug:
+            logging.info(headers or self.headers)
+            logging.info(method + " " + self.endpoint + path)
+            if data is not None:
+                logging.info(data)
+
         return self._check_response(res)
 
-    @staticmethod
-    def _check_response(res) -> ApiResponse:
+    # @staticmethod
+    def _check_response(self, res) -> ApiResponse:
+
+        if self.debug:
+            logging.info(vars(res))
 
         content = vars(res).get('_content')
         str_content = content.decode('utf8')
+
+        if type(str_content) is str and str_content[0:50] == '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">' and vars(res).get('_content_consumed') is True:
+
+            dictionary = {"status_code": vars(res).get('status_code'), "msg": "Unauthorized"}
+            exception = get_exception_for_content(dictionary)
+            raise exception(dictionary)
+
         data = json.loads(str_content)
 
         if type(data) is dict and data.get('code')=='UNAUTHORIZED':
             exception = get_exception_for_content(data)
             raise exception(data)
+
+        if type(data) is dict and data.get('message') == 'Unauthorized' and vars(res).get('_content_consumed') is True:
+            dictionary = {"status_code": vars(res).get('status_code'), "message": "Unauthorized"}
+            exception = get_exception_for_content(dictionary)
+            raise exception(dictionary)
+
+        if type(data) is dict and data.get('details') == 'Invalid authorization inputs' and vars(res).get('_content_consumed') is True:
+            dictionary = {"status_code": vars(res).get('status_code'), "message": "Invalid authorization inputs"}
+            exception = get_exception_for_content(dictionary)
+            raise exception(dictionary)
+
+        if type(data) is dict and data.get('message') == 'Missing Authentication Token' and vars(res).get('_content_consumed') is True:
+            dictionary = {"status_code": vars(res).get('status_code'), "message": "Missing Authentication Token"}
+            exception = get_exception_for_content(dictionary)
+            raise exception(dictionary)
+
+        if type(data) is dict and data.get('details') == 'Cannot consume content type' and vars(res).get('_content_consumed') is True:
+            dictionary = {"status_code": vars(res).get('status_code'), "message": data.get('details')}
+            exception = get_exception_for_content(dictionary)
+            raise exception(dictionary)
 
         if vars(res).get('_content') == b'[]' and vars(res).get('_content_consumed') is True:
             data = json.loads('{"status_code": 200, "msg": "No Data Available"}')
