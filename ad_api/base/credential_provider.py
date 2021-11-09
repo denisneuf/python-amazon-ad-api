@@ -4,6 +4,7 @@ import confuse
 from cachetools import Cache
 import sys
 
+
 class MissingCredentials(Exception):
     """
     Credentials are missing, see the error output to find possible causes
@@ -18,6 +19,7 @@ class CredentialProvider:
     def __init__(self, account='default', credentials=None):
         self.account = account
         self.read_credentials = [
+            self.from_env,
             self.read_config
         ]
         if credentials:
@@ -32,6 +34,22 @@ class CredentialProvider:
         for read_method in self.read_credentials:
             if read_method():
                 return True
+
+    def from_env(self):
+        account_data = dict(
+            refresh_token=self._get_env('AD_API_REFRESH_TOKEN'),
+            client_id=self._get_env('AD_CLIENT_ID'),
+            client_secret=self._get_env('AD_CLIENT_SECRET'),
+            profile_id=self._get_env('AD_PROFILE_ID'),
+        )
+        self.credentials = self.Config(**account_data)
+        missing = self.credentials.check_config()
+        if not len(missing):
+            return True
+
+    def _get_env(self, key):
+        return os.environ.get(f'{key}_{self.account}',
+                              os.environ.get(key))
 
     def read_config(self):
         try:

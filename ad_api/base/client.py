@@ -21,12 +21,14 @@ from urllib.parse import urlparse
 log = logging.getLogger(__name__)
 role_cache = TTLCache(maxsize=10, ttl=3600)
 
+
 class Client(BaseClient):
     grantless_scope = ''
+
     def __init__(
             self,
             account='default',
-            marketplace: Marketplaces = Marketplaces.EU,
+            marketplace: Marketplaces = Marketplaces[os.environ['AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.US,
             refresh_token=None,
             credentials=None
     ):
