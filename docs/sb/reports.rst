@@ -27,9 +27,9 @@ Reports
 
     ### Example json
 
-    Open this :download:`json <../../test/reports/sp-sx-campaigns-report.json>` file to see the result:
+    Open this :download:`json <../../test/reports/sb-sx-campaigns-report.json>` file to see the result:
 
-    .. literalinclude:: ../../test/reports/sp-sx-campaigns-report.json
+    .. literalinclude:: ../../test/reports/sb-sx-campaigns-report.json
 
 
 
@@ -79,4 +79,3 @@ Reports
             # file=path,
             # format=mode
         )
-

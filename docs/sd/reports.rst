@@ -27,9 +27,9 @@ Reports
 
     ### Example json
 
-    Open this :download:`json <../../test/reports/sp-sx-asins-report.json>` file to see the result:
+    Open this :download:`json <../../test/reports/sd-sx-asins-report.json>` file to see the result:
 
-    .. literalinclude:: ../../test/reports/sp-sx-asins-report.json
+    .. literalinclude:: ../../test/reports/sd-sx-asins-report.json
 
 
 
@@ -79,4 +79,3 @@ Reports
             # file=path,
             # format=mode
         )
-
