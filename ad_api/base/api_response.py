@@ -2,7 +2,8 @@ import pprint
 
 class ApiResponse:
     def __init__(self, payload=None, nextToken=None, **kwargs):
-        self.payload = payload or kwargs
+        # self.payload = payload or kwargs
+        self.payload = payload
         self.headers = kwargs
         self.next_token = self.set_next_token(nextToken)
 
