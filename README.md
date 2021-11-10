@@ -129,11 +129,13 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Media
 * Brands
 * Moderation
+* Reports
 
 ### Modules Available Sponsored Display
 
 * Campaigns
 * Ad Groups
+* Reports
 
 
 ### Example Usage Campaigns
