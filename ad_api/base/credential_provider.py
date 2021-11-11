@@ -38,9 +38,9 @@ class CredentialProvider:
     def from_env(self):
         account_data = dict(
             refresh_token=self._get_env('AD_API_REFRESH_TOKEN'),
-            client_id=self._get_env('AD_CLIENT_ID'),
-            client_secret=self._get_env('AD_CLIENT_SECRET'),
-            profile_id=self._get_env('AD_PROFILE_ID'),
+            client_id=self._get_env('AD_API_CLIENT_ID'),
+            client_secret=self._get_env('AD_API_CLIENT_SECRET'),
+            profile_id=self._get_env('AD_API_PROFILE_ID'),
         )
         self.credentials = self.Config(**account_data)
         missing = self.credentials.check_config()

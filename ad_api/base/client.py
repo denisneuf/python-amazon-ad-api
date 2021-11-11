@@ -28,7 +28,8 @@ class Client(BaseClient):
     def __init__(
             self,
             account='default',
-            marketplace: Marketplaces = Marketplaces[os.environ['AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.US,
+            marketplace: Marketplaces = Marketplaces[os.environ[
+                'AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.EU,
             refresh_token=None,
             credentials=None
     ):
@@ -96,7 +97,6 @@ class Client(BaseClient):
             o = urlparse(r.url)
             name = o.path[1:o.path.find('.')]
 
-
         if mode == "raw":
 
             next_token = None
@@ -127,17 +127,17 @@ class Client(BaseClient):
                 buf = BytesIO(bytes)
                 f = gzip.GzipFile(fileobj=buf)
                 read_data = f.read()
-                fo = open(name+".json", 'w')
+                fo = open(name + ".json", 'w')
                 fo.write(read_data.decode('utf-8'))
                 fo.close()
                 next_token = None
-                return ApiResponse(name+".json", next_token, headers=r.headers)
+                return ApiResponse(name + ".json", next_token, headers=r.headers)
             else:
-                fo = open(name+".json", 'w')
+                fo = open(name + ".json", 'w')
                 fo.write(r.text)
                 fo.close()
                 next_token = None
-                return ApiResponse(name+".json", next_token, headers=r.headers)
+                return ApiResponse(name + ".json", next_token, headers=r.headers)
 
         elif mode == "gzip":
             fo = gzip.open(name + ".json.gz", 'wb').write(r.content)
@@ -150,11 +150,11 @@ class Client(BaseClient):
                 buf = BytesIO(bytes)
                 f = gzip.GzipFile(fileobj=buf)
                 read_data = f.read()
-                fo = open(name+".json", 'w')
+                fo = open(name + ".json", 'w')
                 fo.write(read_data.decode('utf-8'))
                 fo.close()
 
-                zipObj = ZipFile(name+'.zip', 'w', zipfile.ZIP_DEFLATED)
+                zipObj = ZipFile(name + '.zip', 'w', zipfile.ZIP_DEFLATED)
                 zipObj.write(name + ".json")
                 zipObj.close()
             else:
@@ -162,7 +162,7 @@ class Client(BaseClient):
                 fo.write(r.text)
                 fo.close()
 
-                zipObj = ZipFile(name+'.zip', 'w', zipfile.ZIP_DEFLATED)
+                zipObj = ZipFile(name + '.zip', 'w', zipfile.ZIP_DEFLATED)
                 zipObj.write(name + ".json")
                 zipObj.close()
 
@@ -178,14 +178,13 @@ class Client(BaseClient):
             error = {
                 'success': False,
                 'code': 400,
-                'response': 'The mode "%s" is not supported perhaps you could use "data", "raw", "url", "json", "zip" or "gzip"' % (mode)
+                'response': 'The mode "%s" is not supported perhaps you could use "data", "raw", "url", "json", "zip" or "gzip"' % (
+                    mode)
             }
             next_token = None
             return ApiResponse(error, next_token, headers=self.headers)
 
         sys.exit()
-
-
 
     def _request(self, path: str, *, data: str = None, params: dict = None, headers=None,
                  add_marketplace=True) -> ApiResponse:
@@ -202,16 +201,16 @@ class Client(BaseClient):
                 headers.update(self.headers)
 
             res = request(method,
-                      self.endpoint + path,
-                      params=params,
-                      data=data,
-                      headers=headers or self.headers)
+                          self.endpoint + path,
+                          params=params,
+                          data=data,
+                          headers=headers or self.headers)
 
         else:
             res = request(method,
-                      self.endpoint + path,
-                      params=params,
-                      headers=headers or self.headers)
+                          self.endpoint + path,
+                          params=params,
+                          headers=headers or self.headers)
 
         return self._check_response(res)
 
@@ -222,7 +221,7 @@ class Client(BaseClient):
         str_content = content.decode('utf8')
         data = json.loads(str_content)
 
-        if type(data) is dict and data.get('code')=='UNAUTHORIZED':
+        if type(data) is dict and data.get('code') == 'UNAUTHORIZED':
             exception = get_exception_for_content(data)
             raise exception(data)
 

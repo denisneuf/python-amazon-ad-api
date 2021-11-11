@@ -2,6 +2,7 @@ import sys
 import os
 import logging
 from enum import Enum
+from dotenv import dotenv_values
 
 logging.basicConfig(
     level=logging.INFO,
@@ -103,11 +104,12 @@ class Marketplaces(Enum):
     }
     
     def __init__(self, info):
-        AWS_ENVIRONMENT = os.environ.get('AWS_ENV')
-        if AWS_ENVIRONMENT == "SANDBOX":
-            self.region_url = info.get('sandbox')
-        else:
+        config = dotenv_values(".env")
+        AWS_ENVIRONMENT = config.get('AWS_ENV') or os.environ.get('API_PASSWORD')
+        if AWS_ENVIRONMENT == "PRODUCTION":
             self.region_url = info.get('prod')
-        
+        else:
+            self.region_url = info.get('sandbox')
+
         self.endpoint = 'https://{}'.format(self.region_url)
         self.currency = info.get('currency')
