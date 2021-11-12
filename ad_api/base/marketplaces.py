@@ -105,7 +105,7 @@ class Marketplaces(Enum):
     
     def __init__(self, info):
         config = dotenv_values(".env")
-        AWS_ENVIRONMENT = os.environ.get('AWS_ENV') or config.get('AWS_ENV') or os.environ.get('API_PASSWORD')
+        AWS_ENVIRONMENT = os.environ.get('AWS_ENV') or config.get('AWS_ENV')
         if AWS_ENVIRONMENT == "PRODUCTION":
             self.region_url = info.get('prod')
         else:
