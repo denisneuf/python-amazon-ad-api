@@ -43,9 +43,7 @@ class CredentialProvider:
             profile_id=self._get_env('AD_API_PROFILE_ID'),
         )
         self.credentials = self.Config(**account_data)
-        missing = self.credentials.check_config()
-        if not len(missing):
-            return True
+        return len(self.credentials.check_config()) == 0
 
     def _get_env(self, key):
         return os.environ.get(f'{key}_{self.account}',
