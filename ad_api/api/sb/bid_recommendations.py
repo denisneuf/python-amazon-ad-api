@@ -29,4 +29,5 @@ class BidRecommendations(Client):
             ApiResponse
 
         """
+
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)

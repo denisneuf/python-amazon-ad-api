@@ -18,6 +18,7 @@ how to use the *sphinx* documentation generator for Python.
    api
    sp
    sb
+   sd
    disclaimer
 
 Indices and tables

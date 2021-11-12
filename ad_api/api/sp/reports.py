@@ -1,9 +1,14 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
+
 class Reports(Client):
-    """
+    """Sponsored Products Reports
+    
+    Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-products/2-0/openapi#/Reports
+    
     Use the Amazon Advertising API for Sponsored Products for campaign, ad group, keyword, negative keyword, and product ad management operations. For more information about Sponsored Products, see the Sponsored Products Support Center. For onboarding information, see the account setup topic.
     """
+    
     @sp_endpoint('/v2/sp/{}/report', method='POST')
     def post_report(self, recordType, **kwargs) -> ApiResponse:
         r"""
@@ -26,7 +31,7 @@ class Reports(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), recordType), data=kwargs.pop('body'), params=kwargs)
-
+    
     @sp_endpoint('/v2/reports/{}', method='GET')
     def get_report(self, reportId, **kwargs) -> ApiResponse:
         r"""
@@ -39,7 +44,7 @@ class Reports(Client):
             ApiResponse
         """
         return self._request(fill_query_params(kwargs.pop('path'), reportId), params=kwargs)
-
+    
     def download_report(self, **kwargs) -> ApiResponse:
         r"""
         Downloads the report previously get report specified by location (this is not part of the official Amazon Advertising API, is a helper method to download the report). Take in mind that a direct download of location returned in get_report will return 401 - Unauthorized.

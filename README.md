@@ -117,7 +117,7 @@ back to `%HOME%\AppData\Roaming` if undefined
 ### Modules Available Sponsored Brands
 
 * Campaigns
-* AdGroups
+* Ad Groups
 * Keywords
 * Negative Keywords
 * Product Targeting
@@ -129,9 +129,16 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Media
 * Brands
 * Moderation
+* Reports
+
+### Modules Available Sponsored Display
+
+* Campaigns
+* Ad Groups
+* Reports
 
 
-### Usage Campaigns
+### Example Usage Campaigns
 
 ```python
 import logging
@@ -158,8 +165,8 @@ try:
     logging.info(len(campaigns))
 
 
-except AdvertisingApiException as ex:
-    print(ex)
+except AdvertisingApiException as error:
+    logging.info(error)
 
 ```
 

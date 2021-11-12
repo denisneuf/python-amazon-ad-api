@@ -17,4 +17,5 @@ Sponsored Brands
     sb/media
     sb/brands
     sb/moderation
+    sb/reports
 

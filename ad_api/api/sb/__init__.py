@@ -14,6 +14,8 @@ from .targeting_recommendations import TargetsRecommendations
 from .bid_recommendations import BidRecommendations
 from .stores import Stores
 from .media import Media
+from .reports import Reports
+
 __all__ = [
     "Brands",
     "PageAsins",
@@ -30,5 +32,6 @@ __all__ = [
     "TargetsRecommendations",
     "BidRecommendations",
     "Stores",
-    "Media"
+    "Media",
+    "Reports"
 ]
