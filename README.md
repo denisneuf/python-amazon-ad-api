@@ -136,11 +136,11 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Campaigns
 * Ad Groups
 * Reports
-* ProductAds
+* Product Ads
 * Targets
-* NegativeTargets
-* TargetsRecommendations
-* BidRecommendations
+* Negative Targets
+* Targets Recommendations
+* Bid Recommendations
 * Creatives
 
 
