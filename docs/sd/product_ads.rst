@@ -127,3 +127,13 @@ Product Ads
         .. code-block:: JSON
 
             [{"code": "SUCCESS", "adId": 182575048323550}]
+
+    .. autofunction:: ad_api.api.sd.ProductAds.create_product_ads(self, **kwargs) -> ApiResponse:
+
+    .. autofunction:: ad_api.api.sd.ProductAds.get_product_ad(self, adId, **kwargs) -> ApiResponse:
+
+    .. autofunction:: ad_api.api.sd.ProductAds.delete_product_ad(self, adId, **kwargs) -> ApiResponse:
+
+    .. autofunction:: ad_api.api.sd.ProductAds.list_product_ads_extended(self, **kwargs) -> ApiResponse:
+
+    .. autofunction:: ad_api.api.sd.ProductAds.get_product_ad_extended(self, adId, **kwargs) -> ApiResponse:
