@@ -6,4 +6,5 @@ Sponsored Display
 
     sd/campaigns
     sd/ad_groups
+    sd/product_ads
     sd/reports

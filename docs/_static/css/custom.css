@@ -1,0 +1,4 @@
+@import 'theme.css';
+.strike {
+  text-decoration: line-through;
+}
