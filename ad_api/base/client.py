@@ -31,7 +31,6 @@ class Client(BaseClient):
             account='default',
             marketplace: Marketplaces = Marketplaces[os.environ[
                 'AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.EU,
-            refresh_token=None,
             credentials=None,
             debug=False
     ):
@@ -39,7 +38,7 @@ class Client(BaseClient):
         super().__init__(account, credentials)
         self.endpoint = marketplace.endpoint
         self.debug = debug
-        self._auth = AccessTokenClient(refresh_token=refresh_token, account=account, credentials=credentials)
+        self._auth = AccessTokenClient(account=account, credentials=credentials)
 
     @property
     def headers(self):
