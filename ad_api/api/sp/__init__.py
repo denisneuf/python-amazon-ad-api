@@ -10,6 +10,12 @@ from .product_targeting import Targets
 from .negative_product_targeting import NegativeTargets
 from .reports import Reports
 from .snapshots import Snapshots
+from .budget_rules import BudgetRules
+from .campaings_optimization import CampaignOptimization
+from .ranked_keywords_recommendations import RankedKeywordsRecommendations
+from .budget_recommendations import BudgetRecommendations
+from .budget_rules_recommendations import BudgetRulesRecommendations
+from .product_recommendations import ProductRecommendations
 
 __all__ = [
     "Campaigns",
@@ -23,5 +29,11 @@ __all__ = [
     "Targets",
     "NegativeTargets",
     "Reports",
-    "Snapshots"
+    "Snapshots",
+    "BudgetRules",
+    "CampaignOptimization",
+    "RankedKeywordsRecommendations",
+    "BudgetRecommendations",
+    "BudgetRulesRecommendations",
+    "ProductRecommendations"
 ]

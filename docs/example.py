@@ -1,5 +1,5 @@
 import logging
-from ad_api.base import AdvertisingApiException, Marketplaces
+from ad_api.base import AdvertisingApiException
 from ad_api.api.sp import Campaigns
 
 logging.basicConfig(
@@ -9,14 +9,14 @@ logging.basicConfig(
 
 try:
     states = 'enabled'
-    res = Campaigns().list_campaigns_extended_request(
+    result = Campaigns().list_campaigns_extended_request(
         stateFilter=states
     )
 
-    campaigns = res.payload
+    campaigns = result.payload
     for campaign in campaigns:
         logging.info(campaign)
 
 
-except AdvertisingApiException as ex:
-    print(ex)
+except AdvertisingApiException as e:
+    logging.error(e)

@@ -3,29 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Python Amazon Advertising API documentation
-======================================================
+Python Amazon Advertising API documentation
+===========================================
 
-This project servers as an example project to demostrate
-how to use the *sphinx* documentation generator for Python.
+This project helps you using python 3.8 to use the *Python Amazon Advertising API*.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    
    installation
    credentials
    api
-   sp
+   sp_v2
+   sp_v3
    sb
    sd
    disclaimer
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`search`
-
+.. versionadded:: 0.1.5
+   The *Sponsored Products 3.0* api.
 
 .. literalinclude:: example.py

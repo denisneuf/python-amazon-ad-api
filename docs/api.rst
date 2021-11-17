@@ -1,5 +1,5 @@
-Api
-=========
+Common Resources
+================
 
 ..  toctree::
     :maxdepth: 1
