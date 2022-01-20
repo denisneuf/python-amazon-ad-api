@@ -4,7 +4,7 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
 
 class Tags(Client):
-    @sp_endpoint("/attribution/tags/nonMacroTemplateTags", method="GET")
+    @sp_endpoint("/attribution/tags/nonMacroTemplateTag", method="GET")
     def get_non_macro_template_tag(
         self, publisher_ids: List[str], advertiser_ids: List[str] = None, **kwargs
     ) -> ApiResponse:
