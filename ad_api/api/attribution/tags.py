@@ -22,11 +22,13 @@ class Tags(Client):
         Returns:
 
         """
+        kwargs["publisherIds"] = ",".join(publisher_ids)
+        kwargs["advertiserIds"] = (
+            None if advertiser_ids is None else ",".join(advertiser_ids),
+        )
         return self._request(
             fill_query_params(
                 kwargs.pop("path"),
-                publisherIds=",".join(publisher_ids),
-                advertiserIds=",".join(advertiser_ids),
             ),
             params=kwargs,
         )
@@ -36,7 +38,7 @@ class Tags(Client):
         self, publisher_ids: List[str], advertiser_ids: List[str] = None, **kwargs
     ) -> ApiResponse:
         """Gets a list of attribution tags for third-party publisher campaigns that support macros.
-        
+
         Third-party publishers, such as Google Ads, Facebook, Microsoft Ads, and Pinterest support tags that include macro parameters. Using macro parameters, campaign tracking information is dynamically inserted into the click-through URL when an ad is clicked. This resource is a tag pre-populated with campaign, ad group, and ad level publisher macros with the values associated with your campaign.
         For example, a Google Ads macro tag is "?maas=maas_adg_api_123456789_1_99&ref_=aa_maas&tag=maas&aa_campaignid={campaignid}&aa_adgroupid={adgroupid}&aa_creativeid=ad-{creative}_{targetid}_dev-{device}_ext-{feeditemid}"
 
@@ -48,11 +50,11 @@ class Tags(Client):
         Returns:
             ApiResponse
         """
+        kwargs["publisherIds"] = ",".join(publisher_ids)
+        kwargs["advertiserIds"] = (
+            None if advertiser_ids is None else ",".join(advertiser_ids),
+        )
         return self._request(
-            fill_query_params(
-                kwargs.pop("path"),
-                publisherIds=",".join(publisher_ids),
-                advertiserIds=",".join(advertiser_ids),
-            ),
+            fill_query_params(kwargs.pop("path")),
             params=kwargs,
         )

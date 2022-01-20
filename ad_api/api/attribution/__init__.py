@@ -1,6 +1,6 @@
 from .publishers import Publishers
 from .reports import Reports
-from .publishers import Publishers
+from .advertisers import Advertisers
 from .tags import Tags
 
-__all__ = ["Publishers", "Reports", "Publishers", "Tags"]
+__all__ = ["Publishers", "Reports", "Advertisers", "Tags"]
