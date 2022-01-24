@@ -97,6 +97,12 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Portfolios
 * Insights
 
+### Amazon Attribution open beta
+* Advertisers
+* Publishers
+* Attribution tags
+* Reports
+
 
 ### Modules Available Sponsored Products 2.0
 
