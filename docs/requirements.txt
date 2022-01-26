@@ -1,9 +1,2 @@
 sphinx
 sphinx-rtd-theme
-requests
-six
-cachetools
-pycryptodome
-python-dotenv
-pytz
-confuse
