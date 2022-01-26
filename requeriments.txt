@@ -1,5 +1,5 @@
 pytest
-requests~=2.26.0
+requests~=2.27.0
 six>=1.16,<2
 cachetools~=4.2.4
 setuptools~=58.0.4
