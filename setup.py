@@ -12,7 +12,7 @@ setup(
         "pytz~=2021.3",
         "confuse~=1.7.0",
     ],
-    packages=['ad_api','ad_api.api','ad_api.auth','ad_api.base','ad_api.api.sp','ad_api.api.sb','ad_api.api.sd'],
+    packages=['ad_api','ad_api.api','ad_api.auth','ad_api.base','ad_api.api.sp','ad_api.api.sb','ad_api.api.sd','ad_api.api.attribution'],
     url='https://github.com/denisneuf/python-amazon-ad-api',
     license='MIT',
     author='Daniel Alvaro',
