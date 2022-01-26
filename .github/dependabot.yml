@@ -5,13 +5,13 @@
 
 version: 2
 updates:
-  - package-ecosystem: "pip" # See documentation for possible values
+  - package-ecosystem: "pip" # See documentation for possible values 2
     directory: "/" # Location of package manifests
     target-branch: "master"
     schedule:
       interval: "daily"
     assignees:
-      - "saleweaver"
+      - "denisneuf"
     commit-message:
       prefix: "DEP"
       include: "scope"
