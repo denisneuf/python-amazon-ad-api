@@ -10,7 +10,6 @@ from .insights import Insights
 from . import sp as sponsored_products
 from . import sb as sponsored_brands
 from . import sd as sponsored_display
-from . import attribution
 
 __all__ = [
     "sp",
@@ -19,7 +18,6 @@ __all__ = [
     "sponsored_products",
     "sponsored_brands",
     "sponsored_display",
-    "attribution",
     "Profiles",
     "Invoices",
     "Eligibility",
