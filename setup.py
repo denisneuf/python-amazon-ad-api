@@ -7,7 +7,7 @@ setup(
         "requests~=2.27.1",
         "six~=1.16.0",
         "cachetools~=5.0.0",
-        "pycryptodome~=3.13.0",
+        "pycryptodome>=3.13,<3.15",
         "python-dotenv~=0.19.2",
         "pytz~=2021.3",
         "confuse~=1.7.0",
