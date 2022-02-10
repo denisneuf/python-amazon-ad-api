@@ -1,4 +1,7 @@
 sphinx
 sphinx-rtd-theme
-confuse
 cachetools
+pycryptodome
+python-dotenv
+pyyaml
+confuse
