@@ -1,11 +1,13 @@
-## PYTHON-AMAZON-AD-API [AMAZON ADVERTISING]
+# PYTHON-AMAZON-AD-API
 
 ![CodeQL](https://img.shields.io/badge/coverage-75%25-green)
 ![CodeQL](https://img.shields.io/badge/Docs-sphinx-green)
 ![CodeQL](https://img.shields.io/github/v/release/denisneuf/python-amazon-ad-api)
 [![Documentation Status](https://readthedocs.org/projects/python-amazon-ad-api/badge/?version=latest)](https://python-amazon-ad-api.readthedocs.io/en/latest/?badge=latest)
 
-Python Amazon Advertising Api
+## Amazon's Advertising API
+
+A wrapper to access Amazon's Advertising API with an easy-to-use interface.
 
 ### Install
 
@@ -192,6 +194,14 @@ except AdvertisingApiException as error:
     logging.info(error)
 
 ```
+
+### SELLING PARTNER API
+
+This API is based on the [API Client](https://github.com/saleweaver/rapid_rest_client) created by [@saleweaver](https://github.com/saleweaver) which also build a wrapper to access Amazon's Selling Partner API with an easy-to-use interface that you can find it out [here](https://github.com/saleweaver/python-amazon-sp-api)
+
+### DISCLAIMER
+
+We are not affiliated with Amazon
 
 ### LICENSE
 
