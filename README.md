@@ -197,7 +197,7 @@ except AdvertisingApiException as error:
 
 ### SELLING PARTNER API
 
-This API is based on the [API Client](https://github.com/saleweaver/rapid_rest_client) created by [@saleweaver](https://github.com/saleweaver) which also build a wrapper to access Amazon's Selling Partner API with an easy-to-use interface that you can find it out [here](https://github.com/saleweaver/python-amazon-sp-api)
+This API is based on the [API Client](https://github.com/saleweaver/rapid_rest_client) created by [@saleweaver](https://github.com/saleweaver) which also build [Python-Amazon-Selling-Partner-API](https://github.com/saleweaver/python-amazon-sp-api) with an easy-to-use interface that you can find it out [here](https://github.com/saleweaver/python-amazon-sp-api)
 
 ### DISCLAIMER
 
