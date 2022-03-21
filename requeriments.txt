@@ -5,5 +5,5 @@ cachetools~=5.0.0
 setuptools~=60.10.0
 pycryptodome~=3.14.1
 python-dotenv~=0.19.2
-pytz~=2021.3
+pytz~=2022.1
 confuse~=1.7.0
