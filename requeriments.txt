@@ -4,6 +4,6 @@ six>=1.16,<2
 cachetools~=5.0.0
 setuptools~=61.1.0
 pycryptodome~=3.14.1
-python-dotenv~=0.19.2
+python-dotenv~=0.20.0
 pytz~=2022.1
 confuse~=1.7.0

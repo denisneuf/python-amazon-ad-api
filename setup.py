@@ -8,7 +8,7 @@ setup(
         "six~=1.16.0",
         "cachetools~=5.0.0",
         "pycryptodome>=3.13,<3.15",
-        "python-dotenv~=0.19.2",
+        "python-dotenv>=0.19.2,<0.21.0",
         "pytz>=2021.3,<2023.0",
         "confuse~=1.7.0",
     ],
