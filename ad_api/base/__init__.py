@@ -7,6 +7,7 @@ from .exceptions import AdvertisingApiBadRequestException
 from .exceptions import AdvertisingApiForbiddenException
 from .credential_provider import CredentialProvider, MissingCredentials
 from .api_response import ApiResponse
+from .utils import Utils
 
 __all__ = [
     'AccessTokenClient',
@@ -20,5 +21,6 @@ __all__ = [
     'AdvertisingApiBadRequestException',
     'AdvertisingApiForbiddenException',
     'CredentialProvider',
-    'MissingCredentials'
+    'MissingCredentials',
+    'Utils'
 ]
