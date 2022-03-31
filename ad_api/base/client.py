@@ -15,7 +15,6 @@ from io import BytesIO
 import gzip
 from zipfile import ZipFile
 import zipfile
-
 from urllib.parse import urlparse
 
 
@@ -60,7 +59,7 @@ class Client(BaseClient):
         location = params.get("url")
 
         try:
-            r = requests.get(location, headers=self.headers, data=None, allow_redirects=True)
+            r = requests.get(location, headers=headers or self.headers, data=None, allow_redirects=True)
 
         except requests.exceptions.InvalidSchema as e:
             error = {
@@ -97,7 +96,8 @@ class Client(BaseClient):
 
         if name is None:
             o = urlparse(r.url)
-            name = o.path[1:o.path.find('.')]
+            file_name = o.path[1:o.path.find('.')]
+            name = file_name.replace("/", "-")
 
         if mode == "raw":
 
@@ -140,6 +140,23 @@ class Client(BaseClient):
                 fo.close()
                 next_token = None
                 return ApiResponse(name + ".json", next_token, headers=r.headers)
+
+        elif mode == "csv":
+            if bytes[0:2] == b'\x1f\x8b':
+                buf = BytesIO(bytes)
+                f = gzip.GzipFile(fileobj=buf)
+                read_data = f.read()
+                fo = open(name + ".csv", 'w')
+                fo.write(read_data.decode('utf-8'))
+                fo.close()
+                next_token = None
+                return ApiResponse(name + ".csv", next_token, headers=r.headers)
+            else:
+                fo = open(name + ".csv", 'w')
+                fo.write(r.text)
+                fo.close()
+                next_token = None
+                return ApiResponse(name + ".csv", next_token, headers=r.headers)
 
         elif mode == "gzip":
             fo = gzip.open(name + ".json.gz", 'wb').write(r.content)

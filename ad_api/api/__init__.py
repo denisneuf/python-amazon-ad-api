@@ -11,6 +11,7 @@ from . import sp as sponsored_products
 from . import sb as sponsored_brands
 from . import sd as sponsored_display
 from .attribution import Attribution
+from .brand_metrics import BrandMetrics
 
 __all__ = [
     "sp",
@@ -29,4 +30,5 @@ __all__ = [
     "Audiences",
     "Portfolios",
     "Insights",
+    "BrandMetrics"
 ]
