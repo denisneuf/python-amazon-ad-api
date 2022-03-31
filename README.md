@@ -105,6 +105,8 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Attribution tags
 * Reports
 
+### Brand Metrics open beta
+* Reports
 
 ### Modules Available Sponsored Products 2.0
 
