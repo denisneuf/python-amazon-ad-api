@@ -9,19 +9,39 @@ Brand Metrics API open beta
 
 .. code-block:: python
 
-    from ad_api.api.localization import Localization
+    from ad_api.api import BrandMetrics
+    from ad_api.base import Marketplaces, AdvertisingApiException
+    import json
 
-    file = open("query_taxonomy.json")
-    data = file.read()
-    file.close()
+    dictionary = {
+        "categoryNodeTreeName": "es-automotive",
+        "brandName": "BMW",
+        "reportStartDate": "2022-03-01",
+        "lookBackPeriod": "1w",
+        "format": "CSV",
+        "metrics": [
+            "engagedShopperRateLowerBound",
+            "customerConversionRate",
+            "newToBrandCustomerRate"
+        ],
+        "reportEndDate": "2022-03-05"
+    }
 
-    Localization().get_currency(
-        body=data
-    )
+    try:
 
-### Example query_taxonomy.json
+        result = BrandMetrics(account=store, marketplace=marketplace, debug=True).post_report(
+            body=json.dumps(data)
+        )
 
-.. literalinclude:: ../../test/audiences/query_taxonomy.json
+        print(result)
+
+    except AdvertisingApiException as error:
+
+        print(error)
+
+### Example results
+
+.. literalinclude:: ../../test/brand_metrics/result.json
 
 .. autofunction:: ad_api.api.BrandMetrics.get_report
 
@@ -29,16 +49,53 @@ Brand Metrics API open beta
 
 .. code-block:: python
 
-    from ad_api.api.localization import Localization
+    from ad_api.api import BrandMetrics
+    from ad_api.base import Marketplaces, AdvertisingApiException
 
-    file = open("query_general.json")
-    data = file.read()
-    file.close()
+    report_id = "820882fa-ff22-4772-99e1-6889e3ae97f8"
 
-    Localization().get_products(
-        body=data
-    )
+    try:
 
-### Example query_general.json
+        result = BrandMetrics(account=store, marketplace=marketplace, debug=True).get_report(
+            reportId=report_id
+        )
 
-.. literalinclude:: ../../test/audiences/query_general.json
+        print(result)
+
+    except AdvertisingApiException as error:
+
+        print(error)
+
+### Result to get the location
+
+.. literalinclude:: ../../test/brand_metrics/location.json
+
+.. autofunction:: ad_api.api.BrandMetrics.download_report
+
+
+### Example python
+
+.. code-block:: python
+
+    from ad_api.api import BrandMetrics
+    from ad_api.base import Marketplaces, AdvertisingApiException
+
+    location = "https://infrastack-prod-eu-eu-we-generatedreportsbucket49-96329mbigajd.s3.eu-west-1.amazonaws.com/[...]"
+
+
+    try:
+
+        result = BrandMetrics(account=store, marketplace=marketplace, debug=True).download_report(
+            url=location,
+            format="csv"
+        )
+
+        print(result)
+
+    except AdvertisingApiException as error:
+
+        print(error)
+
+### Result of the file downloaded
+
+.. literalinclude:: ../../test/brand_metrics/download.json
