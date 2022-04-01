@@ -108,6 +108,10 @@ back to `%HOME%\AppData\Roaming` if undefined
 ### Brand Metrics open beta
 * Reports
 
+### Test accounts
+* Create
+* Get
+
 ### Modules Available Sponsored Products 2.0
 
 * Ad Groups
