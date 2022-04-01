@@ -15,7 +15,6 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    installation
    credentials
    api
-   attribution
    sp_v2
    sp_v3
    sb
@@ -23,7 +22,7 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    disclaimer
 
 
-.. versionadded:: 0.1.6
-   The *Amazon Attribution open beta* api.
+.. versionadded:: 0.2.4
+   The *Brand Metrics API open beta* api.
 
 .. literalinclude:: example.py

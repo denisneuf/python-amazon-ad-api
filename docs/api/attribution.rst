@@ -1,5 +1,5 @@
-Attribution
-===========
+Amazon Attribution API open beta
+================================
 
 .. autoclass:: ad_api.api.Attribution
 

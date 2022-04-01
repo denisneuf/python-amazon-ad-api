@@ -13,3 +13,5 @@ Common Resources
     api/audiences
     api/portfolios
     api/insights
+    api/attribution
+    api/brand_metrics
