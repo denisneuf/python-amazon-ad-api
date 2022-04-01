@@ -43,3 +43,14 @@ Advertising Test Account
     result = AdvertisingTestAccount(account=store, marketplace=marketplace, debug=True).get_test_account(
         requestId=request_id
     )
+
+
+.. code-block:: python
+
+    {
+    "accountType": "VENDOR",
+    "asins": [],
+    "countryCode": "ES",
+    "id": "ENTITY1MBW4T9T7Z5PC",
+    "status": "COMPLETED"
+    }
