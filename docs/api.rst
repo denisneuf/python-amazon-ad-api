@@ -15,3 +15,4 @@ Common Resources
     api/insights
     api/attribution
     api/brand_metrics
+    api/advertising_test_account
