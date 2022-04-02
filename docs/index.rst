@@ -22,7 +22,7 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    disclaimer
 
 
-.. versionadded:: 0.2.4
-   The *Brand Metrics API open beta* api.
+.. versionadded:: 0.2.5
+   The *Advertising Test Account* api.
 
 .. literalinclude:: example.py
