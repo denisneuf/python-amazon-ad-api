@@ -167,6 +167,7 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Targets Recommendations
 * Bid Recommendations
 * Creatives
+* Snapshots
 
 
 ### Example Usage Campaigns
