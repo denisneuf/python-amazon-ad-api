@@ -155,6 +155,7 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Brands
 * Moderation
 * Reports
+* Snapshots
 
 ### Modules Available Sponsored Display
 
@@ -167,7 +168,6 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Targets Recommendations
 * Bid Recommendations
 * Creatives
-* Snapshots
 
 
 ### Example Usage Campaigns
