@@ -1,0 +1,55 @@
+[
+    {
+        "portfolioId": 214026257044134,
+        "name": "Campaign manual bid true",
+        "tags": {
+            "PONumber": "203382",
+            "accountManager": "Manager001"
+        },
+        "campaignType": "sponsoredProducts",
+        "targetingType": "manual",
+        "state": "enabled",
+        "dailyBudget": 22.0,
+        "startDate": "20220430",
+        "endDate": "20420430",
+        "premiumBidAdjustment": true
+    },
+    {
+        "portfolioId": 214026257044134,
+        "name": "Campaign manual adjustments true",
+        "tags": {
+          "PONumber": "203382",
+          "accountManager": "Manager001"
+        },
+        "campaignType": "sponsoredProducts",
+        "targetingType": "manual",
+        "state": "enabled",
+        "dailyBudget": 22.0,
+        "startDate": "20220430",
+        "endDate": "20420430",
+        "bidding": {
+            "strategy": "legacyForSales",
+            "adjustments":
+            [
+                {
+                  "predicate": "placementTop",
+                  "percentage": 15
+                }
+            ]
+        }
+    },
+    {
+        "portfolioId": 214026257044134,
+        "name": "Campaign auto test from dict as 3 option",
+        "tags": {
+            "PONumber": "203382",
+            "accountManager": "Manager001"
+        },
+        "campaignType": "sponsoredProducts",
+        "targetingType": "auto",
+        "state": "enabled",
+        "dailyBudget": 12.5,
+        "startDate": "20220430",
+        "endDate": "20420430"
+    }
+]

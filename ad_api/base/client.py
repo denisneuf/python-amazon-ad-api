@@ -15,7 +15,7 @@ from io import BytesIO
 import gzip
 from zipfile import ZipFile
 import zipfile
-from urllib.parse import urlparse
+from urllib.parse import urlparse, quote
 
 
 log = logging.getLogger(__name__)
@@ -246,7 +246,21 @@ class Client(BaseClient):
 
         if self.debug:
             logging.info(headers or self.headers)
-            logging.info(method + " " + self.endpoint + path)
+
+            # logging.info(params)
+            # logging.info(type(params))
+
+            if params:
+                str_query = ""
+                for key, value in params.items():
+                    # logging.info(key)
+                    # logging.info(value)
+                    str_query += key + "=" + quote(str(value))
+                message = method + " " + self.endpoint + path + "?" + str_query
+            else:
+                message = method + " " + self.endpoint + path
+
+            logging.info(message)
             if data is not None:
                 logging.info(data)
 

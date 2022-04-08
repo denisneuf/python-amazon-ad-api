@@ -22,7 +22,7 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    disclaimer
 
 
-.. versionadded:: 0.2.5
-   The *Advertising Test Account* api.
+.. versionadded:: 0.2.7
+   The *Sponsored Product Campaign* api helpers: create_single_campaign_assistant, edit_single_campaign_assistant.
 
 .. literalinclude:: example.py

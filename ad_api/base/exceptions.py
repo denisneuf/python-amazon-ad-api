@@ -1,3 +1,14 @@
+class AdvertisingTypeException(Exception):
+    code = 888
+    def __init__(self, type, error):
+        try:
+            self.type = type
+            self.message = error
+        except IndexError:
+            pass
+        self.error = error
+
+
 class AdvertisingApiException(Exception):
     code = 999
     def __init__(self, error):
