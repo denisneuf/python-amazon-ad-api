@@ -646,7 +646,7 @@ Campaigns
 
         Sets the campaign status to archived. Archived entities cannot be made active again. Consider editing the campaign and setting the status to "paused".
 
-### Example deleting a campaign
+    ### Example deleting a campaign
 
     .. code-block:: python
 
@@ -679,7 +679,7 @@ Campaigns
     .. autofunction:: ad_api.api.sp.Campaigns.list_campaigns_extended
 
 
-### Example getting a list of campaigns with extended data
+    ### Example getting a list of campaigns with extended data
 
     .. code-block:: python
 
