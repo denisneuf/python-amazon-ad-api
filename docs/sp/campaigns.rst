@@ -350,17 +350,19 @@ Campaigns
 
         file_name = "../test/campaigns/sp-sx-create-campaigns.json"
 
-        # Calling the create_campaigns(file) before closing the file
-        # or will raise ValueError: I/O operation on closed file.
+        create_campaigns(file_name)
 
+        # Or More elegant in your side catching the FileNotFoundError
+        '''
         try:
 
             with open(file_name, mode="r", encoding="utf-8") as file:
-                create_campaigns(file)
+                create_campaigns(file_name)
                 file.close()
 
         except FileNotFoundError as e:
             logging.info(e)
+        '''
 
 
     ### Example Sending the content of a .json file
@@ -411,12 +413,330 @@ Campaigns
 
     .. autofunction:: ad_api.api.sp.Campaigns.edit_campaigns
 
+    .. versionadded:: 0.2.7
+        The support to pass the body as dictionary, list, path to file or content of file.
+
+    .. warning::
+
+       The **regular way** to create a campaign is pass a keyword argument body as JSON string but now we could support a variety of other types and will cast to feed the right string in JSON format
+
+    ### Example Sending a dictionary or a list
+
+    .. code-block:: python
+
+        import logging
+        import json
+        from ad_api.api import sponsored_products
+        from ad_api.base import AdvertisingApiException
+
+        def edit_campaigns(data: (dict, list)):
+            try:
+
+                result = sponsored_products.Campaigns(account=store, marketplace=marketplace, debug=True).edit_campaigns(
+                    body=data
+                )
+
+                logging.info(result)
+
+            except AdvertisingApiException as error:
+                logging.info(error)
+
+
+        # If you submit a dictionary the method create_campaigns(body=data) will check if is a
+        # instance of dict and wrap and dumps in JSON string: body = json.dumps([body])
+
+        single_dictionary = \
+            {
+                'campaignId': 247123430252449,
+                'state': 'enabled',
+                'dailyBudget': 99,
+            }
+
+        edit_campaigns(single_dictionary)
+
+
+        # If you submit a list[{dict},{dict}] which is a right way the wrapper will check if is a
+        # instance of list and dumps in JSON string: body = json.dumps(body)
+        # This allow you to create 1 or more campaigns at once.
+
+        list_dictionary = \
+            [
+                {
+                    'campaignId': 247123430252449,
+                    'tags': {
+                        'PONumber': '203384',
+                        'accountManager': 'Manager003'
+                    },
+                    'state': 'enabled',
+                    'dailyBudget': 29.0,
+                },
+                {
+                    'campaignId': 1280722862611,
+                    'state': 'paused',
+                    'dailyBudget': 22.0,
+                    'bidding': {
+                        'strategy': 'legacyForSales',
+                        'adjustments':
+                        [
+                            {
+                                'predicate': 'placementTop',
+                                'percentage': 20
+                            },
+                            {
+                                'predicate': 'placementProductPage',
+                                'percentage': 25
+                            }
+                        ]
+                    }
+                },
+                {
+                    'campaignId': 7164447325502,
+                    'state': 'paused'
+                }
+            ]
+
+        edit_campaigns(list_dictionary)
+
+    ### Example Sending a path to a .json file
+
+    .. code-block:: python
+
+        import logging
+        from ad_api.api import sponsored_products
+        from ad_api.base import AdvertisingApiException
+
+        def edit_campaigns(data: str):
+            try:
+
+                result = sponsored_products.Campaigns(account=store, marketplace=marketplace, debug=True).edit_campaigns(
+                    body=data
+                )
+
+                logging.info(result)
+
+            except AdvertisingApiException as error:
+                logging.info(error)
+
+        file_name = "../test/campaigns/sp-sx-edit-campaigns.json"
+        edit_campaigns(file_name)
+
+    ### Example Sending the content of a .json file
+
+    .. code-block:: python
+
+        import logging
+        from ad_api.api import sponsored_products
+        from ad_api.base import AdvertisingApiException
+
+        def edit_campaigns(data: str):
+            try:
+
+                result = sponsored_products.Campaigns(account=store, marketplace=marketplace, debug=True).edit_campaigns(
+                    body=data
+                )
+
+                logging.info(result)
+
+            except AdvertisingApiException as error:
+                logging.info(error)
+
+
+
+        file_name = "../test/campaigns/sp-sx-edit-campaigns.json"
+
+        # Open the file or read, then call the create_campaigns(f) before closing the file or
+        # will raise ValueError: I/O operation on closed file.
+
+        try:
+
+            with open(file_name, mode="r", encoding="utf-8") as file:
+
+                # Is also possible to send the instance of TextIOWrapper
+                # edit_campaigns(file)
+
+                # But recommend to read it and send the content as str
+                f = file.read()
+                edit_campaigns(f)
+                file.close()
+
+        except FileNotFoundError as e:
+            logging.info(e)
+
+    ### Example json
+
+    Download :download:`json <../../test/campaigns/sp-sx-edit-campaigns.json>` the file to use:
+
+    .. literalinclude:: ../../test/campaigns/sp-sx-edit-campaigns.json
+
     .. autofunction:: ad_api.api.sp.Campaigns.list_campaigns
+
+    ### Example getting a list of campaigns
+
+    .. code-block:: python
+
+        import logging
+        from ad_api.api import sponsored_products
+        from ad_api.base import AdvertisingApiException
+
+        def sp_list_campaigns(**kwargs):
+
+            logging.info("---------------------------------")
+            logging.info("Sponsored Products > list_campaigns(%s)" % str(kwargs))
+            logging.info("---------------------------------")
+
+            try:
+
+                result = sponsored_products.Campaigns(account=store, marketplace=marketplace, debug=True).list_campaigns(
+                    **kwargs
+                )
+
+                campaigns = result.payload
+                logging.info(len(campaigns))
+                for campaign in campaigns:
+                    logging.info(campaign)
+
+            except AdvertisingApiException as error:
+                logging.info(error)
+
+        # if no filters provided will return all campaigns
+        sp_list_campaigns()
+
+        # Examples using filters
+        # sp_list_campaigns(portfolioIdFilter="214026257044134")
+        # sp_list_campaigns(stateFilter="enabled,paused")
+        # sp_list_campaigns(stateFilter="enabled", count=10)
+        # sp_list_campaigns(startIndex=10, stateFilter="enabled", count=10)
+        # sp_list_campaigns(name="API.ES.Campaign.Manual.JSON.Edit.3")
+        # sp_list_campaigns(campaignIdFilter="247123430252449,1280722862611,7164447325502")
 
     .. autofunction:: ad_api.api.sp.Campaigns.get_campaign
 
+    ### Example getting a campaign
+
+    .. code-block:: python
+
+        import logging
+        from ad_api.api import sponsored_products
+        from ad_api.base import AdvertisingApiException
+
+        def sp_get_campaign(campaign_id: int):
+
+            logging.info("---------------------------------")
+            logging.info("Sponsored Products > get_campaign(%s)" % campaign_id)
+            logging.info("---------------------------------")
+
+            try:
+
+                result = sponsored_products.Campaigns(account=store, marketplace=marketplace, debug=True).get_campaign(
+                    campaignId=campaign_id
+                )
+
+                logging.info(result)
+
+            except AdvertisingApiException as error:
+                logging.info(error)
+
+        sp_campaign_id = 247123430252449
+        sp_get_campaign(sp_campaign_id)
+
     .. autofunction:: ad_api.api.sp.Campaigns.delete_campaign
+
+
+    .. warning::
+
+        Sets the campaign status to archived. Archived entities cannot be made active again. Consider editing the campaign and setting the status to "paused".
+
+### Example deleting a campaign
+
+    .. code-block:: python
+
+        import logging
+        from ad_api.api import sponsored_products
+        from ad_api.base import AdvertisingApiException
+
+        def sp_delete_campaign(campaign_id: int):
+
+            logging.info("---------------------------------")
+            logging.info("Sponsored Products > delete_campaign(%s)" % campaign_id)
+            logging.info("---------------------------------")
+
+            try:
+
+                result = sponsored_products.Campaigns(account=store, marketplace=marketplace, debug=True).delete_campaign(
+                    campaignId=campaign_id
+                )
+
+                logging.info(result)
+
+            except AdvertisingApiException as error:
+                logging.info(error)
+
+
+        sp_campaign_id = 217954743666143
+        sp_delete_campaign(sp_campaign_id)
+
 
     .. autofunction:: ad_api.api.sp.Campaigns.list_campaigns_extended
 
+
+### Example getting a list of campaigns with extended data
+
+    .. code-block:: python
+
+        import logging
+        from ad_api.api import sponsored_products
+        from ad_api.base import AdvertisingApiException
+
+        def sp_list_campaigns_extended(**kwargs):
+
+            logging.info("---------------------------------")
+            logging.info("Sponsored Products > sp_list_campaigns_extended(%s)" % str(kwargs))
+            logging.info("---------------------------------")
+
+            try:
+
+                result = sponsored_products.Campaigns(account=store, marketplace=marketplace, debug=True).list_campaigns_extended(
+                    **kwargs
+                )
+
+                campaigns = result.payload
+                logging.info(len(campaigns))
+                for campaign in campaigns:
+                    logging.info(campaign)
+
+            except AdvertisingApiException as error:
+                logging.info(error)
+
+        # sp_list_campaigns_extended()
+        sp_list_campaigns_extended(stateFilter="paused")
+
+
     .. autofunction:: ad_api.api.sp.Campaigns.get_campaign_extended
+
+    ### Example getting a campaign with extended fields
+
+    .. code-block:: python
+
+        import logging
+        from ad_api.api import sponsored_products
+        from ad_api.base import AdvertisingApiException
+
+        def sp_get_campaign_extended(campaign_id: int):
+
+            logging.info("---------------------------------")
+            logging.info("Sponsored Products > get_campaign_extended(%s)" % campaign_id)
+            logging.info("---------------------------------")
+
+            try:
+
+                result = sponsored_products.Campaigns(account=store, marketplace=marketplace, debug=True).get_campaign_extended(
+                    campaignId=campaign_id
+                )
+
+                logging.info(result)
+
+            except AdvertisingApiException as error:
+                logging.info(error)
+
+        sp_campaign_id = 247123430252449
+        sp_get_campaign_extended(sp_campaign_id)

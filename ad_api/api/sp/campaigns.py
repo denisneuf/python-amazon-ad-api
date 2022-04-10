@@ -4,6 +4,7 @@ import json
 from json.decoder import JSONDecodeError
 from io import TextIOWrapper
 
+
 class Campaigns(Client):
     r"""
     Campaigns(account='default', marketplace: Marketplaces = Marketplaces.EU, credentials=None, debug=False)
@@ -281,11 +282,13 @@ class Campaigns(Client):
         body = kwargs.pop('body')
 
         if isinstance(body, str):
+
             if os.path.isfile(body):
+                body = open(body, mode="r", encoding="utf-8")
+                body = body.read()
                 try:
-                    body = open(body, mode="r", encoding="utf-8")
-                    body = body.read()
-                except ValueError as error:
+                    json.loads(body)
+                except JSONDecodeError as error:
                     raise AdvertisingTypeException(f"{type(error)}", error)
             else:
                 try:
@@ -307,8 +310,9 @@ class Campaigns(Client):
                 raise AdvertisingTypeException(f"{type(error)}", error)
 
         if isinstance(body, TextIOWrapper):
+            body = body.read()
             try:
-                body = json.load(body)
+                json.loads(body)
             except JSONDecodeError as error:
                 raise AdvertisingTypeException(f"{type(error)}", error)
 
@@ -339,7 +343,45 @@ class Campaigns(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        body = kwargs.pop('body')
+
+        if isinstance(body, str):
+
+            if os.path.isfile(body):
+                body = open(body, mode="r", encoding="utf-8")
+                body = body.read()
+                try:
+                    json.loads(body)
+                except JSONDecodeError as error:
+                    raise AdvertisingTypeException(f"{type(error)}", error)
+            else:
+                try:
+                    body = json.loads(body)
+                except ValueError as error:
+                    raise AdvertisingTypeException(f"{type(error)}", error)
+                pass
+
+        if isinstance(body, dict):
+            try:
+                body = json.dumps([body])
+            except TypeError as error:
+                raise AdvertisingTypeException(f"{type(error)}", error)
+
+        if isinstance(body, list):
+            try:
+                body = json.dumps(body)
+            except TypeError as error:
+                raise AdvertisingTypeException(f"{type(error)}", error)
+
+        if isinstance(body, TextIOWrapper):
+            body = body.read()
+            try:
+                json.loads(body)
+            except JSONDecodeError as error:
+                raise AdvertisingTypeException(f"{type(error)}", error)
+
+        return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns', method='GET')
     def list_campaigns(self, **kwargs) -> ApiResponse:
