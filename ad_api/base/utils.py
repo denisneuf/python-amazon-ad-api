@@ -1,6 +1,57 @@
 import time
+import os
+import json
+from json.decoder import JSONDecodeError
+from io import TextIOWrapper
+from ad_api.base import AdvertisingTypeException
 
 class Utils:
+
+    @staticmethod
+    def convert_body(body, wrap: bool = True):
+
+        if isinstance(body, str):
+
+            if os.path.isfile(body):
+                body = open(body, mode="r", encoding="utf-8")
+                body = body.read()
+                try:
+                    json.loads(body)
+                except JSONDecodeError as error:
+                    raise AdvertisingTypeException(f"{type(error)}", error)
+            else:
+                try:
+                    body = json.loads(body)
+                except ValueError as error:
+                    raise AdvertisingTypeException(f"{type(error)}", error)
+                pass
+
+        if isinstance(body, dict) and wrap:
+            try:
+                body = json.dumps([body])
+            except TypeError as error:
+                raise AdvertisingTypeException(f"{type(error)}", error)
+
+        if isinstance(body, dict) and wrap is False:
+            try:
+                body = json.dumps(body)
+            except TypeError as error:
+                raise AdvertisingTypeException(f"{type(error)}", error)
+
+        if isinstance(body, list):
+            try:
+                body = json.dumps(body)
+            except TypeError as error:
+                raise AdvertisingTypeException(f"{type(error)}", error)
+
+        if isinstance(body, TextIOWrapper):
+            body = body.read()
+            try:
+                json.loads(body)
+            except JSONDecodeError as error:
+                raise AdvertisingTypeException(f"{type(error)}", error)
+
+        return body
 
     def load_all_pages(throttle_by_seconds: float = 2, next_token_param='NextToken',
                        use_rate_limit_header: bool = False,

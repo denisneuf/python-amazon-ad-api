@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, AdvertisingTypeException
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 import os
 import json
 from json.decoder import JSONDecodeError
@@ -278,50 +278,13 @@ class Campaigns(Client):
             ApiResponse
 
         """
-
-        body = kwargs.pop('body')
-
-        if isinstance(body, str):
-
-            if os.path.isfile(body):
-                body = open(body, mode="r", encoding="utf-8")
-                body = body.read()
-                try:
-                    json.loads(body)
-                except JSONDecodeError as error:
-                    raise AdvertisingTypeException(f"{type(error)}", error)
-            else:
-                try:
-                    body = json.loads(body)
-                except ValueError as error:
-                    raise AdvertisingTypeException(f"{type(error)}", error)
-                pass
-
-        if isinstance(body, dict):
-            try:
-                body = json.dumps([body])
-            except TypeError as error:
-                raise AdvertisingTypeException(f"{type(error)}", error)
-
-        if isinstance(body, list):
-            try:
-                body = json.dumps(body)
-            except TypeError as error:
-                raise AdvertisingTypeException(f"{type(error)}", error)
-
-        if isinstance(body, TextIOWrapper):
-            body = body.read()
-            try:
-                json.loads(body)
-            except JSONDecodeError as error:
-                raise AdvertisingTypeException(f"{type(error)}", error)
-
+        body = Utils.convert_body(kwargs.pop('body'))
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns', method='PUT')
     def edit_campaigns(self, **kwargs) -> ApiResponse:
         r"""
-        edit_campaigns(body: str) -> ApiResponse
+        edit_campaigns(body: (dict, str, list)) -> ApiResponse
 
         Updates one or more campaigns.
 
@@ -343,44 +306,7 @@ class Campaigns(Client):
             ApiResponse
 
         """
-
-        body = kwargs.pop('body')
-
-        if isinstance(body, str):
-
-            if os.path.isfile(body):
-                body = open(body, mode="r", encoding="utf-8")
-                body = body.read()
-                try:
-                    json.loads(body)
-                except JSONDecodeError as error:
-                    raise AdvertisingTypeException(f"{type(error)}", error)
-            else:
-                try:
-                    body = json.loads(body)
-                except ValueError as error:
-                    raise AdvertisingTypeException(f"{type(error)}", error)
-                pass
-
-        if isinstance(body, dict):
-            try:
-                body = json.dumps([body])
-            except TypeError as error:
-                raise AdvertisingTypeException(f"{type(error)}", error)
-
-        if isinstance(body, list):
-            try:
-                body = json.dumps(body)
-            except TypeError as error:
-                raise AdvertisingTypeException(f"{type(error)}", error)
-
-        if isinstance(body, TextIOWrapper):
-            body = body.read()
-            try:
-                json.loads(body)
-            except JSONDecodeError as error:
-                raise AdvertisingTypeException(f"{type(error)}", error)
-
+        body = Utils.convert_body(kwargs.pop('body'))
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns', method='GET')
@@ -472,7 +398,6 @@ class Campaigns(Client):
     @sp_endpoint('/v2/sp/campaigns/extended/{}', method='GET')
     def get_campaign_extended(self, campaignId, **kwargs) -> ApiResponse:
         r"""
-
         get_campaign_extended(campaignId: int) -> ApiResponse
 
         Gets an array of campaigns with extended data fields.

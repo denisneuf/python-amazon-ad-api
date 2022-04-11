@@ -287,6 +287,16 @@ class Client(BaseClient):
             exception = get_exception_for_content(data)
             raise exception(data)
 
+        if type(data) is dict and data.get('code') == 'NOT_FOUND' and vars(res).get('_content_consumed') is True:
+            dictionary = {"status_code": vars(res).get('status_code'), "code": data.get('code'), "details": data.get('details'), "requestId": data.get('requestId')}
+            exception = get_exception_for_content(data)
+            raise exception(dictionary)
+
+        if type(data) is dict and data.get('code') == 'SERVER_IS_BUSY' and vars(res).get('_content_consumed') is True:
+            dictionary = {"status_code": vars(res).get('status_code'), "code": data.get('code'), "details": data.get('details'), "requestId": data.get('requestId')}
+            exception = get_exception_for_content(data)
+            raise exception(dictionary)
+
         if type(data) is dict and data.get('message') == 'Unauthorized' and vars(res).get('_content_consumed') is True:
             dictionary = {"status_code": vars(res).get('status_code'), "message": "Unauthorized"}
             exception = get_exception_for_content(dictionary)
