@@ -1,6 +1,6 @@
 # PYTHON-AMAZON-AD-API
 
-![CodeQL](https://img.shields.io/badge/coverage-75%25-green)
+![CodeQL](https://img.shields.io/badge/coverage-85%25-green)
 ![CodeQL](https://img.shields.io/badge/Docs-sphinx-green)
 ![CodeQL](https://img.shields.io/github/v/release/denisneuf/python-amazon-ad-api)
 [![Documentation Status](https://readthedocs.org/projects/python-amazon-ad-api/badge/?version=latest)](https://python-amazon-ad-api.readthedocs.io/en/latest/?badge=latest)
@@ -90,14 +90,15 @@ back to `%HOME%\AppData\Roaming` if undefined
 ### Modules Available Common Resources
 
 * Profiles
-* Invoices aka Billing
-* Elegibility
-* Metadata aka Product metadata
-* History
-* Localization
-* Audiences
 * Portfolios
+* Invoices aka Billing
+* Audiences
+* Change History open Beta
+* Elegibility
 * Insights
+* Localization
+* Metadata aka Product metadata
+
 
 ### Amazon Attribution open beta
 * Advertisers
@@ -106,11 +107,11 @@ back to `%HOME%\AppData\Roaming` if undefined
 * Reports
 
 ### Brand Metrics open beta
-* Reports
+* Report
 
-### Test accounts
-* Create
-* Get
+### Advertising Test Account
+* Create test account
+* Get test account information
 
 ### Modules Available Sponsored Products 2.0
 
