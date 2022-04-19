@@ -1,0 +1,15 @@
+{
+    "localizeProductRequests": [
+        {
+            "product": {
+                "asin": "B000000000",
+                "sku": "SKU-OF-B000000000"
+            }
+        }
+    ],
+    "adType": "SPONSORED_PRODUCTS",
+    "entityType": "SELLER",
+    "sourceCountryCode": "ES",
+    "sourceAdvertiserId": "AD9EUOBWMS33M",
+    "targetDetails": [{"countryCode": "FR", "advertiserId": "AD9EUOBWMS33M"}]
+}

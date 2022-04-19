@@ -281,9 +281,18 @@ class Client(BaseClient):
             exception = get_exception_for_content(dictionary)
             raise exception(dictionary)
 
+        if type(str_content) is str and str_content[0:15] == 'Invalid request' and vars(res).get('_content_consumed') is True:
+            dictionary = {"status_code": vars(res).get('status_code'), "msg": str_content}
+            exception = get_exception_for_content(dictionary)
+            raise exception(dictionary)
+
         data = json.loads(str_content)
 
         if type(data) is dict and data.get('code') == 'UNAUTHORIZED':
+            exception = get_exception_for_content(data)
+            raise exception(data)
+
+        if type(data) is dict and data.get('message') == 'Too Many Requests' and vars(res).get('_content_consumed') is True:
             exception = get_exception_for_content(data)
             raise exception(data)
 
@@ -318,7 +327,11 @@ class Client(BaseClient):
             raise exception(dictionary)
 
         if vars(res).get('_content') == b'[]' and vars(res).get('_content_consumed') is True:
-            data = json.loads('{"status_code": 200, "msg": "No Data Available"}')
+            # data = json.loads('{"status_code": 200, "msg": "No Data Available", "payload": "No Data Available"}')
+            data = vars(res).get('_content').decode('utf-8')
+            # dictionary = {"status_code": 200, "message": "No Data Available"}
+            # exception = get_exception_for_content(dictionary)
+            # raise exception(dictionary)
 
         headers = vars(res).get('headers')
         status_code = vars(res).get('status_code')

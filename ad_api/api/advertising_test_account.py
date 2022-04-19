@@ -6,7 +6,9 @@ class AdvertisingTestAccount(Client):
     """
     @sp_endpoint('/testAccounts', method='POST')
     def create_test_account(self, **kwargs) -> ApiResponse:
-        r"""API to create test accounts
+        r"""
+        create_test_account(body: dict or str) -> ApiResponse:
+        API to create test accounts
 
         Submit a account creation request. You can create up to 1 test account type per marketplace.
 
@@ -20,11 +22,14 @@ class AdvertisingTestAccount(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        body = Utils.convert_body(kwargs.pop('body'), wrap=False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs)
+
 
     @sp_endpoint('/testAccounts', method='GET')
     def get_test_account(self, **kwargs) -> ApiResponse:
-        r"""API to get Account information.
+        r"""
+        get_test_account(requestId: str) -> ApiResponse
 
         Keyword Args
             | query **requestId** (string): [required] request id.

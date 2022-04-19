@@ -1,0 +1,22 @@
+{
+    "responses": [
+        {
+            "sourceTargetingExpression": {
+                "expression": [{"value": "1730635034", "type": "asinCategorySameAs"}],
+                "isForNegativeTargeting": false
+            },
+            "localizedTargetingExpressions": {},
+            "localizedTargetingExpressionResults": {
+                "ES": {
+                    "status": "FAILURE",
+                    "messages": [
+                        "There is no category node with the ID 1730635034 in the source marketplace A1F83G8C2ARO7P."
+                    ],
+                    "errorCode": "INTERNAL_ERROR"
+                }
+            },
+            "status": "FAILURE",
+            "errorCode": "INTERNAL_ERROR"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "localizedCurrencyResponses": [
+        {
+            "localizedCurrencies": {
+                "A1F83G8C2ARO7P": {"amount": 8.29},
+                "ATVPDKIKX0DER": {"amount": 10.83},
+                "A1VC38T7YXB528": {"amount": 1363.0}
+            },
+            "status": "SUCCESS"
+        },
+        {
+            "localizedCurrencies": {
+                "A1F83G8C2ARO7P": {"amount": 12.43},
+                "ATVPDKIKX0DER": {"amount": 16.25},
+                "A1VC38T7YXB528": {"amount": 2045.0}
+            },
+            "status": "SUCCESS"
+        },
+    ]
+}

@@ -1,21 +1,66 @@
-History
-=================
+Change History open beta
+========================
+`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json`_
+
+.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json
+
+Provides information about changes made to campaigns, adgroups, ads, etc
 
 .. autoclass:: ad_api.api.History
-    :members:
 
-### Example python
+    .. autofunction:: ad_api.api.History.get_history
 
-.. code-block:: python
+    ### Example python
 
-    file = open("query.json")
-    data = file.read()
-    file.close()
+    .. code-block:: python
 
-    res = History().get_history(
-        body=data
-    )
+        import logging
+        from ad_api.api import History
+        from ad_api.base import AdvertisingApiException
 
-### Example query.json
+        def get_history(data: (str, dict)):
 
-.. literalinclude:: ../../test/history/query.json
+            try:
+
+                result = History(debug=True).get_history(
+                    body=json.dumps(data)
+                )
+                payload = result.payload
+                events = payload.get("events")
+                for event in events:
+                    logging.info(event)
+
+            except AdvertisingApiException as error:
+                logging.info(error)
+
+        if __name__ == '__main__':
+
+
+            # fromDate cannot be more than 90 days ago
+            from_date = datetime(2022, 2, 1, 0, 0, 0).strftime('%s%f')[:-3]
+            to_date = datetime.now().strftime('%s%f')[:-3]
+
+            request = \
+                {
+                    "fromDate": int(from_date),
+                    "toDate": int(to_date),
+                    "eventTypes": {
+                        "CAMPAIGN": {
+                            "filters": [
+                                "BUDGET_AMOUNT",
+                                "STATUS"
+                            ],
+                            "eventTypeIds": [
+                                "45662011530311"
+                            ]
+                        }
+                    }
+                }
+
+            get_history(request)
+
+    ### Example query.json
+
+    Download :download:`json <../../test/history/query.json>` the file to use:
+
+    .. literalinclude:: ../../test/history/query.json

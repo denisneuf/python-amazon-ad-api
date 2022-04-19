@@ -1,0 +1,42 @@
+{
+    "localizedKeywordResponses": [
+        {
+            "sourceKeyword": {"keyword": "anti-block system"},
+            "localizedKeywords": {
+                "DE": {"keyword": "Antiblockiersystem"},
+                "SE": {"keyword": "antiblocksystem"},
+                "IT": {"keyword": "sistema anti-blocco"},
+                "FR": {"keyword": "système anti-blocage"},
+                "ES": {"keyword": "sistema antibloqueo"},
+                "NL": {"keyword": "anti-blokkeersysteem"}
+            },
+            "localizedKeywordResults": {
+                "DE": {
+                    "localizedKeyword": {"keyword": "Antiblockiersystem"},
+                    "status": "SUCCESS"
+                },
+                "SE": {
+                    "localizedKeyword": {"keyword": "antiblocksystem"},
+                    "status": "SUCCESS"
+                },
+                "IT": {
+                    "localizedKeyword": {"keyword": "sistema anti-blocco"},
+                    "status": "SUCCESS"
+                },
+                "FR": {
+                    "localizedKeyword": {"keyword": "système anti-blocage"},
+                    "status": "SUCCESS"
+                },
+                "ES": {
+                    "localizedKeyword": {"keyword": "sistema antibloqueo"},
+                    "status": "SUCCESS"
+                },
+                "NL": {
+                    "localizedKeyword": {"keyword": "anti-blokkeersysteem"},
+                    "status": "SUCCESS"
+                }
+            },
+            "status": "SUCCESS"
+        }
+    ]
+}

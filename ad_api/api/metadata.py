@@ -2,7 +2,6 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 
 class Metadata(Client):
     r"""
-    The Amazon Product Selector API allows integrators to receive product metadata such as inventory status, price, eligibility status and product details for SKUS or ASINs in their Product Catalog in order to launch, manage or optimize Sponsored Product, Sponsored Brands or Sponsored Display advertising campaigns. The Product Selector API is available to Sellers, Vendors, and Authors.
     """
 
     @sp_endpoint('/product/metadata', method='POST')

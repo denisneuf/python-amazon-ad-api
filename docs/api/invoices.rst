@@ -1,16 +1,18 @@
 Invoices
 ========
 
+
+
+`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Billing_prod_3p.json`_
+
+.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Billing_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Billing_prod_3p.json
+
+Get invoice data by invoice ID
+
+
 .. autoclass:: ad_api.api.Invoices
 
-    Get invoice data by invoice ID
-
-    `Billing 3.0`_.
-
-    .. _Billing 3.0: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Billing_prod_3p.json
-
     .. autofunction:: ad_api.api.Invoices.list_invoices
-
 
     ### Example getting a list of invoices
 

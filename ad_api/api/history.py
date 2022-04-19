@@ -1,13 +1,13 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 class History(Client):
-    """History of entity changes.
-    Provides information about changes made to campaigns, adgroups, ads, etc
-
+    """
     """
     @sp_endpoint('/history', method='POST')
     def get_history(self, **kwargs) -> ApiResponse:
         r"""
+
+        get_history(body: (dict, str, file)) -> ApiResponse
 
         Returns history of changes for provided event sources that match the filters and time ranges specified. Only events that belong to the authenticated Advertiser can be queried. All times will be in UTC Epoch format. This API accepts identifiers in either the alphamumeric format (default), or the numeric format. If numeric IDs are supplied, then numeric IDs will be returned otherwise, alphanumeric IDs are returned.
 
@@ -25,4 +25,5 @@ class History(Client):
             | **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        body = Utils.convert_body(kwargs.pop('body'), wrap=False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs)

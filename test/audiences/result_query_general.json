@@ -1,0 +1,45 @@
+{
+    "audiences": [
+        {
+            "audienceId": "381539216349606208",
+            "audienceName": "LS - Vehicle Owners",
+            "description": "People who own vehicles",
+            "category": "Lifestyle",
+            "createDate": "2019-06-27T13:19:12.656Z",
+            "updateDate": "2021-03-10T06:52:21Z",
+            "status": "Active",
+            "forecasts": {
+                "inventoryForecasts": {
+                    "all": {
+                        "dailyReach": {
+                            "lowerBoundInclusive": 2000000,
+                            "upperBoundExclusive": 2500000,
+                        }
+                    }
+                }
+            },
+        },
+        {
+            "audienceId": "423091775444044780",
+            "audienceName": "IM - Coche y moto",
+            "description": "Personas cuyas actividades de compras\xa0 indican que estan inclinadas a comprar productos de Coche y moto",
+            "category": "In-market",
+            "createDate": "2013-04-19T00:00:00Z",
+            "updateDate": "2017-09-19T23:36:00.964Z",
+            "status": "Active",
+            "forecasts": {
+                "inventoryForecasts": {
+                    "all": {
+                        "dailyReach": {
+                            "lowerBoundInclusive": 1500000,
+                            "upperBoundExclusive": 2000000
+                        }
+                    }
+                }
+            },
+        },
+    ],
+    "matchCount": 44,
+    "nextToken": "RlYDS3X-i8zaLNutSzVIJIQ7RJZ2WYnHyi17DVEHBlZ-skWA-ubGpcNeuoUKas4uKXRen2DYddavk_QtvVRgl8swN6v5KSo86n6tuiy95u4R5OJcmKZ5_7ExV19KnFZIf-aEOnSslt9Kp84HJQjfFffTJRTzf3nIAa61kFPdVuGeW-fEuZvAgdZgowSuW5NhA76bR5wPL1jPcxATKqr4b2dZFYb36r9AYVzpRgEOcI2K6PxECaq4sVDjIztIgHf1BxyLO0ppZcuGFgpnzAKf-l_Bv5zNcWHLqo--"
+}
+

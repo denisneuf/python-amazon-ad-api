@@ -4,7 +4,6 @@ import logging
 
 class Eligibility(Client):
     r"""
-    Check advertising eligibility of products.
     """
 
     @sp_endpoint('/eligibility/product/list', method='POST')

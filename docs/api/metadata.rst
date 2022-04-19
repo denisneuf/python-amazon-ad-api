@@ -1,11 +1,12 @@
-Metadata
+Product Selector
 =================
+`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json`_
+
+.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json
+
+The Amazon Product Selector API allows integrators to receive product metadata such as inventory status, price, eligibility status and product details for SKUS or ASINs in their Product Catalog in order to launch, manage or optimize Sponsored Product, Sponsored Brands or Sponsored Display advertising campaigns. The Product Selector API is available to Sellers, Vendors, and Authors.
 
 .. autoclass:: ad_api.api.Metadata
-
-    `Product Selector 3.0`_.
-
-    .. _Product Selector 3.0: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json
 
     .. autofunction:: ad_api.api.Metadata.get_products_metadata
 

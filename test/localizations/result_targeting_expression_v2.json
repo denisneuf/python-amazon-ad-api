@@ -1,0 +1,30 @@
+{
+    "responses": [
+        {
+            "sourceTargetingExpression": {
+                "expression": [{"value": "1730635031", "type": "asinCategorySameAs"}],
+                "isForNegativeTargeting": false
+            },
+            "localizedTargetingExpressions": {
+                "ES": {
+                    "expression": [
+                        {"value": "1909320031", "type": "asinCategorySameAs"}
+                    ],
+                    "isForNegativeTargeting": false
+                }
+            },
+            "localizedTargetingExpressionResults": {
+                "ES": {
+                    "localizedTargetingExpression": {
+                        "expression": [
+                            {"value": "1909320031", "type": "asinCategorySameAs"}
+                        ],
+                        "isForNegativeTargeting": false
+                    },
+                    "status": "SUCCESS"
+                }
+            },
+            "status": "SUCCESS"
+        }
+    ]
+}

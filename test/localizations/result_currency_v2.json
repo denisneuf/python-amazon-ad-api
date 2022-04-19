@@ -1,0 +1,61 @@
+{
+    "localizedCurrencyResponses": [
+        {
+            "sourceCurrency": {"amount": 10.0},
+            "localizedCurrencies": {
+                "A1F83G8C2ARO7P": {"amount": 8.29},
+                "ATVPDKIKX0DER": {"amount": 10.83},
+                "A1VC38T7YXB528": {"amount": 1363.0}
+            },
+            "localizedCurrency": {
+                "A1F83G8C2ARO7P": {"amount": 8.29},
+                "ATVPDKIKX0DER": {"amount": 10.83},
+                "A1VC38T7YXB528": {"amount": 1363.0}
+            },
+            "localizedCurrencyResults": {
+                "A1F83G8C2ARO7P": {
+                    "localizedCurrency": {"amount": 8.29},
+                    "status": "SUCCESS"
+                },
+                "ATVPDKIKX0DER": {
+                    "localizedCurrency": {"amount": 10.83},
+                    "status": "SUCCESS"
+                },
+                "A1VC38T7YXB528": {
+                    "localizedCurrency": {"amount": 1363.0},
+                    "status": "SUCCESS"
+                },
+            },
+            "status": "SUCCESS"
+        },
+        {
+            "sourceCurrency": {"amount": 15.0},
+            "localizedCurrencies": {
+                "A1F83G8C2ARO7P": {"amount": 12.43},
+                "ATVPDKIKX0DER": {"amount": 16.25},
+                "A1VC38T7YXB528": {"amount": 2045.0}
+            },
+            "localizedCurrency": {
+                "A1F83G8C2ARO7P": {"amount": 12.43},
+                "ATVPDKIKX0DER": {"amount": 16.25},
+                "A1VC38T7YXB528": {"amount": 2045.0}
+            },
+            "localizedCurrencyResults": {
+                "A1F83G8C2ARO7P": {
+                    "localizedCurrency": {"amount": 12.43},
+                    "status": "SUCCESS"
+                },
+                "ATVPDKIKX0DER": {
+                    "localizedCurrency": {"amount": 16.25},
+                    "status": "SUCCESS"
+                },
+                "A1VC38T7YXB528": {
+                    "localizedCurrency": {"amount": 2045.0},
+                    "status": "SUCCESS"
+                }
+            },
+            "status": "SUCCESS"
+        }
+    ]
+}
+

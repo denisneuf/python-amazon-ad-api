@@ -1,0 +1,43 @@
+{
+    "localizedKeywordResponses": [
+        {
+            "sourceKeyword": {"keyword": "máquina"},
+            "localizedKeywords": {
+                "it_IT": {"keyword": "macchina"},
+                "en_GB": {"keyword": "machine"},
+                "sv_SE": {"keyword": "maskin"},
+                "fr_FR": {"keyword": "machine"},
+                "de_DE": {"keyword": "Maschine"},
+                "nl_NL": {"keyword": "machine"}
+            },
+            "localizedKeywordResults": {
+                "it_IT": {
+                    "localizedKeyword": {"keyword": "macchina"},
+                    "status": "SUCCESS"
+                },
+                "en_GB": {
+                    "localizedKeyword": {"keyword": "machine"},
+                    "status": "SUCCESS"
+                },
+                "sv_SE": {
+                    "localizedKeyword": {"keyword": "maskin"},
+                    "status": "SUCCESS"
+                },
+                "fr_FR": {
+                    "localizedKeyword": {"keyword": "machine"},
+                    "status": "SUCCESS"
+                },
+                "de_DE": {
+                    "localizedKeyword": {"keyword": "Maschine"},
+                    "status": "SUCCESS"
+                },
+                "nl_NL": {
+                    "localizedKeyword": {"keyword": "machine"},
+                    "status": "SUCCESS"
+                },
+            },
+            "status": "SUCCESS"
+        },
+        {...}
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "localizeCurrencyRequests": [
+        {"currency": {"amount": 10}},
+        {"currency": {"amount": 15}}
+    ],
+    "targetCountryCodes": ["GB", "US", "JP"],
+    "sourceCountryCode": "DE",
+    "sourceMarketplaceId": "A1PA6795UKMFR9",
+    "targetMarketplaces": ["A1F83G8C2ARO7P", "ATVPDKIKX0DER", "A1VC38T7YXB528"]
+}

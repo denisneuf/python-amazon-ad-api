@@ -1,0 +1,27 @@
+{
+    "localizedProductResponses": [
+        {
+            "localizedProductResults": {
+                "FR": {
+                    "localizedProduct": {
+                        "asin": "B000000000",
+                        "sku": "SKU-OF-B000000000"
+                    },
+                    "status": "SUCCESS"
+                }
+            },
+            "localizedProducts": {
+                "FR": {
+                    "asin": "B000000000",
+                    "sku": "SKU-OF-B000000000"
+                }
+            },
+            "sourceProduct": {
+                "asin": "B000000000",
+                "sku": "SKU-OF-B000000000"
+            },
+            "status": "SUCCESS"
+        }
+    ]
+}
+

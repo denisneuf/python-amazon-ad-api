@@ -1,11 +1,12 @@
 Eligibility
 =================
+`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json`_
+
+.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json
+
+Check advertising eligibility of products.
 
 .. autoclass:: ad_api.api.Eligibility
-
-    `Eligibility 3.0`_.
-
-    .. _Eligibility 3.0: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json
 
     .. autofunction:: ad_api.api.Eligibility.get_eligibility_assistant
 

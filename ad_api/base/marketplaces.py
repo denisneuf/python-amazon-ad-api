@@ -20,6 +20,92 @@ class AWS_ENV(Enum):
     SANDBOX = "SANDBOX"
 
 
+class CurrencySymbols(Enum):
+    EUR = "€"
+    SEK = "kr"
+    PLN = "zł"
+    TRY = "₺"
+    EGP = "£"
+    AED = "د.إ"
+    SAR = "﷼"
+    GBP = "£"
+    USD = "$"
+    MXN = "$"
+    BRL = "R$"
+    CAD = "$"
+    AUD = "$"
+    INR = "₹"
+    JPY = "¥"
+    SGD = "$"
+
+
+class Locales(Enum):
+    ES = "es_ES"
+    PT = "pt_PT"
+    DE = "de_DE"
+    FR = "fr_FR"
+    IT = "it_IT"
+    NL = "nl_NL"
+    SE = "sv_SE"
+    PL = "pl_PL"
+    TR = "tr_TR"
+    EG = "ar_EG"
+    AE = "en_AE"
+    SA = "en_SA"
+    GB = UK = "en_GB"
+    US = "en_US"
+    MX = "es_MX"
+    BR = "pt_BR"
+    CA = "en_CA"
+    AU = "en_AU"
+    IN = "en_IN"
+    JP = "ja_JP"
+    SG = "en_SG"
+    CN = "zh_CN"
+
+
+class Currencies(Enum):
+    EU = ES = DE = FR = IT = NL = "EUR"
+    SE = "SEK"
+    PL = "PLN"
+    TR = "TRY"
+    EG = "EGP"
+    AE = "AED"
+    SA = "SAR"
+    GB = UK = "GBP"
+    US = "USD"
+    MX = "MXN"
+    BR = "BRL"
+    CA = "CAD"
+    AU = "AUD"
+    IN = "INR"
+    JP = "JPY"
+    SG = "SGD"
+
+
+class MarketplacesIds(Enum):
+    CA = 'A2EUQ1WTGCTBG2'
+    US = 'ATVPDKIKX0DER'
+    MX = 'A1AM78C64UM0Y8'
+    BR = 'A2Q3Y263D00KWC'
+    ES = 'A1RKKUPIHCS9HS'
+    UK = GB = 'A1F83G8C2ARO7P'
+    FR = 'A13V1IB3VIYZZH'
+    NL = 'A1805IZSGTT6HS'
+    DE = 'A1PA6795UKMFR9'
+    IT = 'APJ6JRA9NG5V4'
+    SE = 'A2NODRKZP88ZB9'
+    PL = 'A1C3SOZRARQ6R3'
+    EG = 'ARBP9OOSHTCHU'
+    TR = 'A33AVAJ2PDY3EV'
+    SA = 'A17E79C6D8DWNP'
+    AE = 'A2VIGQ35RCS4UG'
+    IN = 'A21TJRUUN4KGV'
+    SG = 'A19VAU5U5O7RUS'
+    AU = 'A39IBJ37TRP1C6'
+    JP = 'A1VC38T7YXB528'
+
+
 class Marketplaces(Enum):
     # North America
     NA = US = {

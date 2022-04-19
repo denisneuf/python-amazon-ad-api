@@ -1,0 +1,14 @@
+[
+    {
+        "portfolioId": 183826157455614,
+        "name": "Apple-iMac",
+        "budget": {
+            "amount": 80.5,
+            "policy": "monthlyRecurring",
+            "startDate": "20220418"
+        },
+        "inBudget": true,
+        "state": "enabled"
+    }
+]
+

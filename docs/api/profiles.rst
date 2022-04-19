@@ -1,19 +1,20 @@
 Profiles
-=================
+========
+
+`https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml`_
+
+.. _https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml
+
+Profiles represent an advertiser and their account's marketplace, and are used in all subsequent API calls via a management scope, Amazon-Advertising-API-Scope. Reports and all entity management operations are associated with a single profile. Advertisers cannot have more than one profile for each marketplace.
+
+Advertisers who operate in more than one marketplace (for example, Amazon.com, Amazon.co.uk, Amazon.co.jp) will have only one profile associated with each marketplace. See `this link`_ for a list of marketplaces associated with each endpoint.
+
+.. _this link: https://advertising.amazon.com/API/docs/en-us/info/api-overview#api-endpoints
+
+To retrieve your profile IDs, call the listProfiles operation, and include a valid authorization access token in the header. Use a profileId from the returned list as the value for the management scope (Amazon-Advertising-API-Scope) in the headers for subsequent API calls.
+
 
 .. autoclass:: ad_api.api.Profiles
-
-    Profiles represent an advertiser and their account's marketplace, and are used in all subsequent API calls via a management scope, Amazon-Advertising-API-Scope. Reports and all entity management operations are associated with a single profile. Advertisers cannot have more than one profile for each marketplace.
-
-    Advertisers who operate in more than one marketplace (for example, Amazon.com, Amazon.co.uk, Amazon.co.jp) will have only one profile associated with each marketplace. See `this link`_ for a list of marketplaces associated with each endpoint.
-
-    .. _this link: https://advertising.amazon.com/API/docs/en-us/info/api-overview#api-endpoints
-
-    To retrieve your profile IDs, call the listProfiles operation, and include a valid authorization access token in the header. Use a profileId from the returned list as the value for the management scope (Amazon-Advertising-API-Scope) in the headers for subsequent API calls.
-
-    `Profiles 3.0`_.
-
-    .. _Profiles 3.0: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml
 
     .. autofunction:: ad_api.api.Profiles.list_profiles
 

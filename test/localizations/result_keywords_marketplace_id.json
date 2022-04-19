@@ -1,0 +1,28 @@
+{
+    "localizedKeywordResponses": [
+        {
+            "sourceKeyword": {"keyword": "rondelle d'essuie-glace"},
+            "localizedKeywords": {
+                "APJ6JRA9NG5V4": {"keyword": "tergicristallo"},
+                "A1RKKUPIHCS9HS": {"keyword": "limpiaparabrisas"},
+                "A1F83G8C2ARO7P": {"keyword": "windscreen wiper washer"}
+            },
+            "localizedKeywordResults": {
+                "APJ6JRA9NG5V4": {
+                    "localizedKeyword": {"keyword": "tergicristallo"},
+                    "status": "SUCCESS"
+                },
+                "A1RKKUPIHCS9HS": {
+                    "localizedKeyword": {"keyword": "limpiaparabrisas"},
+                    "status": "SUCCESS"
+                },
+                "A1F83G8C2ARO7P": {
+                    "localizedKeyword": {"keyword": "windscreen wiper washer"},
+                    "status": "SUCCESS"
+                },
+            },
+            "status": "SUCCESS"
+        }
+    ]
+}
+

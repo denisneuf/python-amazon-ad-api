@@ -1,0 +1,22 @@
+{
+    "localizedProductResponses": [
+        {
+            "errorCode": "INTERNAL_ERROR",
+            "localizedProductResults": {
+                "BR": {
+                    "errorCode": "INTERNAL_ERROR",
+                    "messages": [
+                        "Product(asin=B000000000, sku=SKU-OF-B000000000) failed to localize from A1RKKUPIHCS9HS to BR"
+                    ],
+                    "status": "FAILURE"
+                }
+            },
+            "localizedProducts": {},
+            "sourceProduct": {
+                "asin": "B000000000",
+                "sku": "SKU-OF-B000000000"
+            },
+            "status": "FAILURE"
+        }
+    ]
+}
