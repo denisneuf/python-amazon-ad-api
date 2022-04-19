@@ -72,7 +72,6 @@ germany:
 ```javascript
 from ad_api.api import sponsored_products
 
-
 # Leave empty will use the 'default' account
 result=sponsored_products.Campaigns().list_campaigns()
 # will use germany account data
