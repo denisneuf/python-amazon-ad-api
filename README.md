@@ -133,7 +133,7 @@ Use debug=True if you want see some logs like the header you submit to the api e
 
 ```python
 from ad_api.api import sponsored_products
-from ad_api.base import Marketplaces
+from ad_api.base import AdvertisingApiException
 
 try:
 
