@@ -113,7 +113,7 @@ You can use a [try](https://docs.python.org/3.10/reference/compound_stmts.html#t
 
 ```python
 from ad_api.api import sponsored_products
-from ad_api.base import Marketplaces
+from ad_api.base import AdvertisingApiException
 
 try:
 
@@ -304,7 +304,7 @@ curl \
 
 ```python
 import logging
-from ad_api.base import AdvertisingApiException, Marketplaces
+from ad_api.base import AdvertisingApiException
 from ad_api.api.sp import Campaigns
 
 logging.basicConfig(
