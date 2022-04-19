@@ -52,6 +52,8 @@ result=sponsored_products.Campaigns(credentials=my_credentials).list_campaigns()
 ### YAML Credentials
 Use a credentials.yml file with your credentials for more convenience and manage diferent accounts or profiles. Amazon requires one profile per marketplace so it is helpful to keep all in one file and switch directly from the code, using the account.
 
+Create a file credentials.yml
+
 ```javascript
 version: '1.0'
 
@@ -69,7 +71,9 @@ germany:
 
 ```
 
-```javascript
+Python code
+
+```python
 from ad_api.api import sponsored_products
 
 # Leave empty will use the 'default' account
