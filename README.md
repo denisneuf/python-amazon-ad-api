@@ -7,7 +7,7 @@
 
 ## Amazon's Advertising API
 
-A wrapper to access Amazon's Advertising API with an easy-to-use interface.
+A python 3 wrapper to access Amazon's Advertising API with an easy-to-use interface.
 
 ### Install
 
@@ -26,10 +26,28 @@ If you find this project is useful consider donating or [sponsor](https://github
 ![alt text](https://github.com/denisneuf/python-amazon-ad-api/blob/main/test/codigo-QR.png?raw=true)
 
 
-### Credentials
-Use a credentials.yml file with your credentials if you dont know how to obtain your refresh token, please visit:
+### Overview
 
-[Login with Amazon application](https://advertising.amazon.com/API/docs/en-us/setting-up/step-1-create-lwa-app)
+You need obtain your own credentials with Amazon that may include an amazon developper account and access as seller or vendor. Please view the checklist of [Amazon Ads API onboarding overview](https://advertising.amazon.com/API/docs/en-us/setting-up/overview) 
+
+
+### Code Credentials
+You can use your credentials as follows passing it to the client as a dict. Please review the full [documentation](https://github.com/sponsors/denisneuf) to see all posibilities to include your credentials.
+
+```javascript
+my_credentials = dict(
+    refresh_token='your-refresh_token',
+    client_id='your-client_id',
+    client_secret='your-client_secret',
+    profile_id='your-profile_id',
+)
+
+result=sponsored_products.Campaigns(credentials=my_credentials).list_campaigns()
+
+```
+
+### YAML Credentials
+Use a credentials.yml file with your credentials for more convenience and manage diferrent accounts or profiles. Amazon requires one profile per marketplace so it is helpful to keep all in one file and switch directly from the code, using the account.
 
 ```javascript
 version: '1.0'
@@ -40,7 +58,22 @@ default:
   client_secret: 'your-client-secret'
   profile_id: 'your-profile-id'
 
+germany:
+  refresh_token: 'other-refresh-token'
+  client_id: 'other-client-id'
+  client_secret: 'other-client-secret'
+  profile_id: 'other-profile-id'
+
 ```
+
+```javascript
+# will use default
+result=sponsored_products.Campaigns().list_campaigns()
+# will use germany account data
+result=sponsored_products.Campaigns(account="germany").list_campaigns()
+```
+
+
 
 ### Search path for credentials.yml
 
@@ -51,6 +84,19 @@ back to `%HOME%\AppData\Roaming` if undefined
 
 [Confuse Help](https://confuse.readthedocs.io/en/latest/usage.html#search-paths)
 
+
+### Marketplaces
+
+Marketplaces are used to define basically the [API endpoints](https://advertising.amazon.com/API/docs/en-us/info/api-overview#api-endpoints) Amazon need to use depending on the regions, by default it will use EU so if you are using one of the marketplaces that are under the Europe (EU). Covers UK, FR, IT, ES, DE, NL, AE, PL, and TR marketplaces. If you are using either North America (NA) or Far East (FE), you will need import from base and pass the marketplace as follows:
+
+```javascript
+from ad_api.base import Marketplaces
+
+# You can pass NA or US, CA, MX or BR for North America and JP, AU or SG for Far East
+result=sponsored_products.Campaigns(marketplace=Marketplaces.NA).list_campaigns()
+
+
+```
 
 ### Set Up
 
