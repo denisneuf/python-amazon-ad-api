@@ -47,7 +47,7 @@ Use a .env to manage the environment. Is high recommended try the SANDBOX enviro
 AWS_ENV=SANDBOX
 # AWS_ENV=PRODUCTION
 ```
-You may create a test profile id to include in your credentials with a curl command, note the ***{"countryCode":"ES"}*** that refers to the marketplace you will operate.
+You may create a test profile id to include in your credentials with thepython amazon advertising api note the ***amz_country_code = "ES"*** refers to the marketplace you will create the test sandbox account.
 
 ```javascript
 import logging
@@ -82,6 +82,7 @@ if __name__ == '__main__':
     amz_country_code = "ES"
     register_assistant(amz_country_code)
 ```
+Or you could do with a curl command, note the ***{"countryCode":"ES"}*** that refers to the marketplace you will operate.
 
 ```javascript
 curl \
