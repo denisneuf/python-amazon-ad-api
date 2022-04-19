@@ -47,7 +47,7 @@ result=sponsored_products.Campaigns(credentials=my_credentials).list_campaigns()
 ```
 
 ### YAML Credentials
-Use a credentials.yml file with your credentials for more convenience and manage diferrent accounts or profiles. Amazon requires one profile per marketplace so it is helpful to keep all in one file and switch directly from the code, using the account.
+Use a credentials.yml file with your credentials for more convenience and manage diferent accounts or profiles. Amazon requires one profile per marketplace so it is helpful to keep all in one file and switch directly from the code, using the account.
 
 ```javascript
 version: '1.0'
@@ -87,7 +87,7 @@ back to `%HOME%\AppData\Roaming` if undefined
 
 ### Marketplaces
 
-Marketplaces are used to define basically the [API endpoints](https://advertising.amazon.com/API/docs/en-us/info/api-overview#api-endpoints) Amazon need to use depending on the regions, by default it will use EU so if you are using one of the marketplaces that are under the Europe (EU). Covers UK, FR, IT, ES, DE, NL, AE, PL, and TR marketplaces. If you are using either North America (NA) or Far East (FE), you will need import from base and pass the marketplace as follows:
+Marketplaces are used to define basically the [API endpoints](https://advertising.amazon.com/API/docs/en-us/info/api-overview#api-endpoints) Amazon need to use depending on the regions, by default it will use EU so if you are using one of the marketplaces that are under the Europe (EU). Covers UK, FR, IT, ES, DE, NL, AE, PL, and TR marketplaces you can skip. If you are using either North America (NA) or Far East (FE), you will need import from base and pass the marketplace as follows:
 
 ```javascript
 from ad_api.base import Marketplaces
@@ -118,7 +118,7 @@ Use a .env to manage the environment. Is high recommended try the SANDBOX enviro
 AWS_ENV=SANDBOX
 # AWS_ENV=PRODUCTION
 ```
-You may create a test profile id to include in your credentials with this ***python amazon advertising api*** note the ***amz_country_code = "ES"*** refers to the marketplace you will create the test sandbox account.
+To use the sandbox you may create a test profile id to include in your credentials with this ***python amazon advertising api*** note the ***amz_country_code = "ES"*** refers to the marketplace you will create the test sandbox account.
 
 ```javascript
 import logging
