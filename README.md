@@ -98,7 +98,7 @@ back to `%HOME%\AppData\Roaming` if undefined
 
 Marketplaces are used to define basically the [API endpoints](https://advertising.amazon.com/API/docs/en-us/info/api-overview#api-endpoints) Amazon need to use depending on the regions, by default it will use EU so if you are using one of the marketplaces that are under the Europe (EU). Covers UK, FR, IT, ES, DE, NL, AE, PL, and TR marketplaces you can skip. If you are using either North America (NA) or Far East (FE), you will need import from base and pass the marketplace as follows:
 
-```javascript
+```python
 from ad_api.api import sponsored_products
 from ad_api.base import Marketplaces
 
@@ -111,7 +111,7 @@ result=sponsored_products.Campaigns(marketplace=Marketplaces.NA).list_campaigns(
 
 You can use a [try](https://docs.python.org/3.10/reference/compound_stmts.html#try) except statement when you call the API and catch exceptions if some problem ocurred:
 
-```javascript
+```python
 from ad_api.api import sponsored_products
 from ad_api.base import Marketplaces
 
@@ -131,7 +131,7 @@ except AdvertisingApiException as error:
 
 Use debug=True if you want see some logs like the header you submit to the api endpoint, the method and path used among the params and the data submitted if any, to trace possible errors.
 
-```javascript
+```python
 from ad_api.api import sponsored_products
 from ad_api.base import Marketplaces
 
@@ -170,7 +170,7 @@ AWS_ENV=SANDBOX
 ```
 To use the sandbox you may create a test profile id to include in your credentials with this ***python amazon advertising api*** note the ***amz_country_code = "ES"*** refers to the marketplace you will create the test sandbox account.
 
-```javascript
+```python
 import logging
 from ad_api.api import Profiles
 from ad_api.base import AdvertisingApiException
@@ -205,7 +205,7 @@ if __name__ == '__main__':
 ```
 Or you could do with a curl command, note the ***{"countryCode":"ES"}*** that refers to the marketplace you will operate.
 
-```javascript
+```curl
 curl \
     -X PUT \
     -H "Content-Type:application/json" \
