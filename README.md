@@ -216,17 +216,17 @@ curl \
 
 ```
 
-### Modules Available [Common Resources](https://python-amazon-ad-api.readthedocs.io/en/latest/api.html)
+### Modules Available Common Resources
 
-* Profiles
-* Portfolios
-* Invoices aka Billing
-* Audiences
-* Change History open Beta
-* Elegibility
-* Insights
-* Localization
-* Metadata aka Product metadata
+* [Profiles](https://python-amazon-ad-api.readthedocs.io/en/latest/api/profiles.html)
+* [Portfolios](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfolios.html)
+* [Invoices](https://python-amazon-ad-api.readthedocs.io/en/latest/api/invoices.html)
+* [Audiences](https://python-amazon-ad-api.readthedocs.io/en/latest/api/audiences.html)
+* [Change History open Beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/history.html)
+* [Elegibility](https://python-amazon-ad-api.readthedocs.io/en/latest/api/eligibility.html)
+* [Insights](https://python-amazon-ad-api.readthedocs.io/en/latest/api/insights.html)
+* [Localization](https://python-amazon-ad-api.readthedocs.io/en/latest/api/localization.html)
+* [Product Selector](https://python-amazon-ad-api.readthedocs.io/en/latest/api/metadata.html)
 
 
 ### Amazon Attribution open beta
@@ -235,12 +235,12 @@ curl \
 * Attribution tags
 * Reports
 
-### Brand Metrics open beta
+### [Brand Metrics open beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html)
 * Report
 
 ### Advertising Test Account
-* Create test account
-* Get test account information
+* [Create test account](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount)
+* [Get test account information](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount.AdvertisingTestAccount.get_test_account)
 
 ### Modules Available Sponsored Products 2.0
 
