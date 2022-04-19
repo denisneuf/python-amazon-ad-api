@@ -35,6 +35,9 @@ You need obtain your own credentials with Amazon that may include an amazon deve
 You can use your credentials as follows passing it to the client as a dict. Please review the full [documentation](https://github.com/sponsors/denisneuf) to see all posibilities to include your credentials.
 
 ```javascript
+from ad_api.api import sponsored_products
+
+
 my_credentials = dict(
     refresh_token='your-refresh_token',
     client_id='your-client_id',
@@ -67,6 +70,9 @@ germany:
 ```
 
 ```javascript
+from ad_api.api import sponsored_products
+
+
 # will use default
 result=sponsored_products.Campaigns().list_campaigns()
 # will use germany account data
@@ -90,13 +96,54 @@ back to `%HOME%\AppData\Roaming` if undefined
 Marketplaces are used to define basically the [API endpoints](https://advertising.amazon.com/API/docs/en-us/info/api-overview#api-endpoints) Amazon need to use depending on the regions, by default it will use EU so if you are using one of the marketplaces that are under the Europe (EU). Covers UK, FR, IT, ES, DE, NL, AE, PL, and TR marketplaces you can skip. If you are using either North America (NA) or Far East (FE), you will need import from base and pass the marketplace as follows:
 
 ```javascript
+from ad_api.api import sponsored_products
 from ad_api.base import Marketplaces
 
 # You can pass NA or US, CA, MX or BR for North America and JP, AU or SG for Far East
 result=sponsored_products.Campaigns(marketplace=Marketplaces.NA).list_campaigns()
 
-
 ```
+
+### Exceptions
+
+You can use a [try](https://docs.python.org/3.10/reference/compound_stmts.html#try) except statement when you call the API and catch exceptions if some problem ocurred:
+
+```javascript
+from ad_api.api import sponsored_products
+from ad_api.base import Marketplaces
+
+try:
+
+    result = sponsored_products.Campaigns().get_campaign_extended(
+        campaignId=campaign_id
+    )
+
+    logging.info(result)
+
+except AdvertisingApiException as error:
+    logging.info(error)
+```
+
+### Debug
+
+Use debug=True if you want see some logs like the header you submit to the api endpoint, the path with the params and the data submitted if any to trace possible errors.
+
+```javascript
+from ad_api.api import sponsored_products
+from ad_api.base import Marketplaces
+
+try:
+
+    result = sponsored_products.Campaigns(debug=True).get_campaign_extended(
+        campaignId=campaign_id
+    )
+
+    logging.info(result)
+
+except AdvertisingApiException as error:
+    logging.info(error)
+```
+
 
 ### Set Up
 
