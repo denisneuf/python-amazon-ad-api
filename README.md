@@ -204,7 +204,7 @@ curl \
 * Creatives
 
 
-### Example Usage Campaigns
+### Simple Example Usage Campaigns with Credentials
 
 ```python
 import logging
@@ -216,11 +216,19 @@ logging.basicConfig(
     format="%(asctime)s:%(levelname)s:%(message)s"
 )
 
+
+credentials = dict(
+    refresh_token='your-refresh_token',
+    client_id='your-client_id',
+    client_secret='your-client_secret',
+    profile_id='your-profile_id',
+)
+
 try:
 
     states = 'enabled'
 
-    res = Campaigns().list_campaigns_extended(
+    res = Campaigns(credentials=credentials, debug=True).list_campaigns_extended(
         stateFilter=states
     )
 
