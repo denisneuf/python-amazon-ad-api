@@ -73,7 +73,7 @@ germany:
 from ad_api.api import sponsored_products
 
 
-# will use default
+# Leave empty will use the 'default' account
 result=sponsored_products.Campaigns().list_campaigns()
 # will use germany account data
 result=sponsored_products.Campaigns(account="germany").list_campaigns()
