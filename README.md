@@ -4,6 +4,7 @@
 ![CodeQL](https://img.shields.io/badge/Docs-sphinx-green)
 ![CodeQL](https://img.shields.io/github/v/release/denisneuf/python-amazon-ad-api)
 [![Documentation Status](https://readthedocs.org/projects/python-amazon-ad-api/badge/?version=latest)](https://python-amazon-ad-api.readthedocs.io/en/latest/?badge=latest)
+[![Verified on Openbase](https://badges.openbase.com/python/verified/python-amazon-ad-api.svg?token=upNllBzLVJv/xZpn/LcPWzff0YEwlGXPszgv2vSJhgM=)](https://openbase.com/python/python-amazon-ad-api?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
 
 ## Amazon's Advertising API
 
