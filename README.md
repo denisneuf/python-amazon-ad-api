@@ -1,6 +1,6 @@
 # PYTHON-AMAZON-AD-API
 
-![CodeQL](https://img.shields.io/badge/coverage-85%25-green)
+![CodeQL](https://img.shields.io/badge/coverage-90%25-green)
 ![CodeQL](https://img.shields.io/badge/Docs-sphinx-green)
 ![CodeQL](https://img.shields.io/github/v/release/denisneuf/python-amazon-ad-api)
 [![Documentation Status](https://readthedocs.org/projects/python-amazon-ad-api/badge/?version=latest)](https://python-amazon-ad-api.readthedocs.io/en/latest/?badge=latest)
@@ -219,10 +219,13 @@ curl \
 ### Modules Available Common Resources
 
 * [Profiles](https://python-amazon-ad-api.readthedocs.io/en/latest/api/profiles.html)
+* [Manager Accounts](http://localhost:63342/python-amazon-ad-api-dev/build/api/manager_accounts.html)
 * [Portfolios](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfolios.html)
 * [Invoices](https://python-amazon-ad-api.readthedocs.io/en/latest/api/invoices.html)
+* Billing
 * [Audiences](https://python-amazon-ad-api.readthedocs.io/en/latest/api/audiences.html)
 * [Change History open Beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/history.html)
+* [Creative Assets open Beta](http://localhost:63342/python-amazon-ad-api-dev/build/api/creative_assets.html)
 * [Elegibility](https://python-amazon-ad-api.readthedocs.io/en/latest/api/eligibility.html)
 * [Insights](https://python-amazon-ad-api.readthedocs.io/en/latest/api/insights.html)
 * [Localization](https://python-amazon-ad-api.readthedocs.io/en/latest/api/localization.html)

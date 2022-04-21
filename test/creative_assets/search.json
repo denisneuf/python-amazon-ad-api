@@ -1,0 +1,34 @@
+{
+  "text": "string",
+  "filterCriteria": {
+    "valueFilters": [
+      {
+        "values": [
+          "string"
+        ],
+        "valueField": "TAG"
+      }
+    ],
+    "rangeFilters": [
+      {
+        "range": [
+          {
+            "start": "string",
+            "end": "string"
+          }
+        ]
+      }
+    ]
+  },
+  "sortCriteria": {
+    "field": "CREATED_TIME",
+    "order": "ASC"
+  },
+  "pageCriteria": {
+    "identifier": {
+      "pageNumber": 0,
+      "token": "string"
+    },
+    "size": 0
+  }
+}

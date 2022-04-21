@@ -1,8 +1,11 @@
 from .profiles import Profiles
+from .manager_accounts import ManagerAccounts
 from .invoices import Invoices
+from .billing import Billing
 from .eligibility import Eligibility
 from .metadata import Metadata
 from .history import History
+from .creative_assets import CreativeAssets
 from .localization import Localization
 from .audiences import Audiences
 from .portfolios import Portfolios
@@ -22,10 +25,13 @@ __all__ = [
     "sponsored_brands",
     "sponsored_display",
     "Profiles",
+    "ManagerAccounts",
     "Invoices",
+    "Billing",
     "Eligibility",
     "Metadata",
     "History",
+    "CreativeAssets",
     "Localization",
     "Audiences",
     "Portfolios",
