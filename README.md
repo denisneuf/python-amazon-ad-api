@@ -219,13 +219,13 @@ curl \
 ### Modules Available Common Resources
 
 * [Profiles](https://python-amazon-ad-api.readthedocs.io/en/latest/api/profiles.html)
-* [Manager Accounts](http://localhost:63342/python-amazon-ad-api-dev/build/api/manager_accounts.html)
+* [Manager Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/api/manager_accounts.html)
 * [Portfolios](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfolios.html)
 * [Invoices](https://python-amazon-ad-api.readthedocs.io/en/latest/api/invoices.html)
 * Billing
 * [Audiences](https://python-amazon-ad-api.readthedocs.io/en/latest/api/audiences.html)
 * [Change History open Beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/history.html)
-* [Creative Assets open Beta](http://localhost:63342/python-amazon-ad-api-dev/build/api/creative_assets.html)
+* [Creative Assets open Beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api//creative_assets.html)
 * [Elegibility](https://python-amazon-ad-api.readthedocs.io/en/latest/api/eligibility.html)
 * [Insights](https://python-amazon-ad-api.readthedocs.io/en/latest/api/insights.html)
 * [Localization](https://python-amazon-ad-api.readthedocs.io/en/latest/api/localization.html)
