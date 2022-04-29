@@ -27,9 +27,12 @@ class Targets(Client):
             ApiResponse
 
         """
-        contentType = 'application/vnd.sblisttargetsrequest.v3.0+json'
-        headers = {'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        # contentType = 'application/vnd.sblisttargetsrequest.v3.0+json'
+        # headers = {'Content-Type': contentType}
+        # return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+
+        # hotfix: up until now (2022-04-29) it just seems to consume application/json content
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
 
     @sp_endpoint('/sb/targets', method='PUT')
