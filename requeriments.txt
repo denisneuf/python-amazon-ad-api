@@ -1,7 +1,7 @@
 pytest
 requests~=2.27.1
 six>=1.16,<2
-cachetools~=5.0.0
+cachetools~=5.1.0
 setuptools~=62.2.0
 pycryptodome~=3.14.1
 python-dotenv~=0.20.0
