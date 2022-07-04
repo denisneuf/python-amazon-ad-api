@@ -1,5 +1,3 @@
-import json
-import os
 import requests
 import hashlib
 import logging
@@ -21,9 +19,9 @@ class AccessTokenClient(BaseClient):
     grant_type = 'refresh_token'
     path = '/auth/o2/token'
 
-    def __init__(self, account='default', credentials=None):
+    def __init__(self, account='default', credentials=None, credentials_class=Credentials):
         super().__init__(account, credentials)
-        self.cred = Credentials(self.credentials)
+        self.cred = credentials_class(self.credentials)
 
     def _request(self, url, data, headers):
         response = requests.post(url, data=data, headers=headers)
@@ -56,7 +54,6 @@ class AccessTokenClient(BaseClient):
             cache = TTLCache(maxsize=10, ttl=cache_ttl - 15)
             cache[cache_key] = access_token
         return AccessTokenResponse(**access_token)
-
 
     def authorize_auth_code(self, auth_code):
         request_url = self.scheme + self.host + self.path

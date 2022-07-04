@@ -305,6 +305,9 @@ curl \
 * Bid Recommendations
 * Creatives
 
+### Modules Available DSP
+
+* Reports
 
 ### Simple Example Usage Campaigns with Credentials
 

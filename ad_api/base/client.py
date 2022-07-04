@@ -1,12 +1,12 @@
 import json
-from datetime import datetime
 import logging
 from cachetools import TTLCache
 from requests import request
+from ad_api.auth.credentials import Credentials
 from ad_api.auth import AccessTokenClient, AccessTokenResponse
 from .api_response import ApiResponse
 from .base_client import BaseClient
-from .exceptions import get_exception_for_code, get_exception_for_content, AdvertisingApiBadRequestException
+from .exceptions import get_exception_for_content
 from .marketplaces import Marketplaces
 import sys
 import os
@@ -23,6 +23,8 @@ role_cache = TTLCache(maxsize=10, ttl=3600)
 
 
 class Client(BaseClient):
+    access_token_client_class = AccessTokenClient
+    credentials_class = Credentials
     grantless_scope = ''
 
     def __init__(
@@ -37,7 +39,9 @@ class Client(BaseClient):
         super().__init__(account, credentials)
         self.endpoint = marketplace.endpoint
         self.debug = debug
-        self._auth = AccessTokenClient(account=account, credentials=credentials)
+        self._auth = self.access_token_client_class(
+            account=account, credentials=credentials, credentials_class=self.credentials_class
+        )
 
     @property
     def headers(self):

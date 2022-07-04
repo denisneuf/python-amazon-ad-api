@@ -16,11 +16,12 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    sp_v3
    sb
    sd
+   dsp
    api/advertising_test_account
    disclaimer
 
 
-.. versionadded:: 0.3.1
+.. versionadded:: 0.3.2
    The *Manager Account* AND *Creative Assets* complete documentation with python examples
 
 .. literalinclude:: example.py
