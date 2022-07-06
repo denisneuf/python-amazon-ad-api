@@ -1,8 +1,8 @@
-import json
 import os
 import confuse
 from cachetools import Cache
-import sys
+
+from .config import Config
 
 
 class MissingCredentials(Exception):
@@ -14,6 +14,7 @@ class MissingCredentials(Exception):
 
 class CredentialProvider:
     credentials = None
+    config_class = Config
     cache = Cache(maxsize=10)
 
     def __init__(self, account='default', credentials=None):
@@ -23,7 +24,7 @@ class CredentialProvider:
             self.read_config
         ]
         if credentials:
-            self.credentials = self.Config(**credentials)
+            self.credentials = self.config_class(**credentials)
             missing = self.credentials.check_config()
             if len(missing):
                 raise MissingCredentials(f'The following configuration parameters are missing: {missing}')
@@ -42,7 +43,7 @@ class CredentialProvider:
             client_secret=self._get_env('AD_API_CLIENT_SECRET'),
             profile_id=self._get_env('AD_API_PROFILE_ID'),
         )
-        self.credentials = self.Config(**account_data)
+        self.credentials = self.config_class(**account_data)
         return len(self.credentials.check_config()) == 0
 
     def _get_env(self, key):
@@ -55,7 +56,7 @@ class CredentialProvider:
             config_filename = os.path.join(config.config_dir(), 'credentials.yml')
             config.set_file(config_filename)
             account_data = config[self.account].get()
-            self.credentials = self.Config(**account_data)
+            self.credentials = self.config_class(**account_data)
             missing = self.credentials.check_config()
             if len(missing):
                 raise MissingCredentials(f'The following configuration parameters are missing: {missing}')
@@ -69,22 +70,3 @@ class CredentialProvider:
             )
         else:
             return True
-
-    class Config:
-        def __init__(self,
-                     refresh_token,
-                     client_id,
-                     client_secret,
-                     profile_id
-                     ):
-            self.refresh_token = refresh_token
-            self.client_id = client_id
-            self.client_secret = client_secret
-            self.profile_id = profile_id
-
-        def check_config(self):
-            errors = []
-            for k, v in self.__dict__.items():
-                if not v and k != 'refresh_token':
-                    errors.append(k)
-            return errors
