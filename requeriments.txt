@@ -6,4 +6,4 @@ setuptools~=63.2.0
 pycryptodome~=3.15.0
 python-dotenv~=0.20.0
 pytz~=2022.1
-confuse~=1.7.0
+confuse~=2.0.0
