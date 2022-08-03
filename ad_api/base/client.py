@@ -18,7 +18,7 @@ import zipfile
 from urllib.parse import urlparse, quote
 
 log = logging.getLogger(__name__)
-role_cache = TTLCache(maxsize=int(os.environ.get('SP_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
+role_cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
 
 
 class Client(BaseClient):
