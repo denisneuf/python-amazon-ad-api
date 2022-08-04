@@ -7,9 +7,10 @@ from ad_api.base import BaseClient
 from .credentials import Credentials
 from .access_token_response import AccessTokenResponse
 from .exceptions import AuthorizationError
+import os
 
-cache = TTLCache(maxsize=10, ttl=3600)
-grantless_cache = TTLCache(maxsize=10, ttl=3600)
+cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
+grantless_cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
 
 logger = logging.getLogger(__name__)
 
@@ -37,21 +38,13 @@ class AccessTokenClient(BaseClient):
         Get's the access token
         :return:AccessTokenResponse
         """
-        global cache
-        cache_key = self._get_cache_key()
 
+        cache_key = self._get_cache_key()
         try:
             access_token = cache[cache_key]
         except KeyError:
-            cache_ttl = 3600
-            access_token = None
-
-            if not access_token:
-                request_url = self.scheme + self.host + self.path
-                access_token = self._request(request_url, self.data, self.headers)
-            else:
-                cache_ttl = access_token.get('expires_in')
-            cache = TTLCache(maxsize=10, ttl=cache_ttl - 15)
+            request_url = self.scheme + self.host + self.path
+            access_token = self._request(request_url, self.data, self.headers)
             cache[cache_key] = access_token
         return AccessTokenResponse(**access_token)
 
