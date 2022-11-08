@@ -41,7 +41,12 @@ class Client(BaseClient):
         self.endpoint = marketplace.endpoint
         self.debug = debug
         self._auth = self.access_token_client_class(
-            account=account, credentials=credentials, credentials_class=self.credentials_class
+            account=account,
+            credentials=credentials,
+            credentials_class=self.credentials_class,
+            proxies=proxies,
+            verify=verify,
+            timeout=timeout,
         )
         self.timeout = timeout
         self.proxies = proxies
