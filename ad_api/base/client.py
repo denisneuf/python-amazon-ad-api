@@ -8,7 +8,6 @@ from .api_response import ApiResponse
 from .base_client import BaseClient
 from .exceptions import get_exception_for_content
 from .marketplaces import Marketplaces
-import sys
 import os
 import requests
 from io import BytesIO
@@ -32,6 +31,9 @@ class Client(BaseClient):
             marketplace: Marketplaces = Marketplaces[os.environ[
                 'AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.EU,
             credentials=None,
+            proxies=None,
+            verify=True,
+            timeout=None,
             debug=False
     ):
 
@@ -41,6 +43,9 @@ class Client(BaseClient):
         self._auth = self.access_token_client_class(
             account=account, credentials=credentials, credentials_class=self.credentials_class
         )
+        self.timeout = timeout
+        self.proxies = proxies
+        self.verify = verify
 
     @property
     def headers(self):
@@ -62,7 +67,15 @@ class Client(BaseClient):
         location = params.get("url")
 
         try:
-            r = requests.get(location, headers=headers or self.headers, data=None, allow_redirects=True)
+            r = requests.get(
+                location,
+                headers=headers or self.headers,
+                data=None,
+                allow_redirects=True,
+                timeout=self.timeout,
+                proxies=self.proxies,
+                verify=self.verify,
+            )
 
         except requests.exceptions.InvalidSchema as e:
             error = {
@@ -194,7 +207,6 @@ class Client(BaseClient):
             next_token = None
             return ApiResponse(name + ".zip", next_token, headers=r.headers)
 
-
         else:
 
             error = {
@@ -206,8 +218,7 @@ class Client(BaseClient):
             next_token = None
             return ApiResponse(error, next_token, headers=self.headers)
 
-        sys.exit()
-
+        raise NotImplementedError("Unknown mode")
 
     def _request(self,
                  path: str,
@@ -226,38 +237,30 @@ class Client(BaseClient):
             base_header.pop("Content-Type")
             headers = base_header
 
-
         elif headers is not None:
 
             base_header = self.headers.copy()
             base_header.update(headers)
             headers = base_header
 
-        if method in ('POST', 'PUT', 'PATCH'):
-
-            res = request(method,
-                          self.endpoint + path,
-                          params=params,
-                          data=data,
-                          headers=headers or self.headers)
-
-        else:
-            res = request(method,
-                          self.endpoint + path,
-                          params=params,
-                          headers=headers or self.headers)
+        request_data = data if method in ('POST', 'PUT', 'PATCH') else None
+        res = request(
+            method,
+            self.endpoint + path,
+            params=params,
+            data=request_data,
+            headers=headers or self.headers,
+            timeout=self.timeout,
+            proxies=self.proxies,
+            verify=self.verify,
+        )
 
         if self.debug:
             logging.info(headers or self.headers)
 
-            # logging.info(params)
-            # logging.info(type(params))
-
             if params:
                 str_query = ""
                 for key, value in params.items():
-                    # logging.info(key)
-                    # logging.info(value)
                     str_query += key + "=" + quote(str(value))
                 message = method + " " + self.endpoint + path + "?" + str_query
             else:
