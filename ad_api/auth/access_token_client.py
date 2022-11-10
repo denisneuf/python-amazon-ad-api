@@ -20,12 +20,22 @@ class AccessTokenClient(BaseClient):
     grant_type = 'refresh_token'
     path = '/auth/o2/token'
 
-    def __init__(self, account='default', credentials=None, credentials_class=Credentials):
+    def __init__(self, account='default', credentials=None, credentials_class=Credentials, proxies=None, verify=True, timeout=None):
         super().__init__(account, credentials)
         self.cred = credentials_class(self.credentials)
+        self.timeout = timeout
+        self.proxies = proxies
+        self.verify = verify
 
     def _request(self, url, data, headers):
-        response = requests.post(url, data=data, headers=headers)
+        response = requests.post(
+            url,
+            data=data,
+            headers=headers,
+            timeout=self.timeout,
+            proxies=self.proxies,
+            verify=self.verify,
+        )
         response_data = response.json()
         if response.status_code != 200:
             error_message = response_data.get('error_description')
