@@ -15,3 +15,4 @@ Common Resources
     api/audiences
     api/portfolios
     api/insights
+    api/reports

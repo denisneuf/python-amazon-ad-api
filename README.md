@@ -307,6 +307,10 @@ curl \
 
 ### Modules Available DSP
 
+* Reports V3
+
+### Modules Available Reporting
+
 * Reports
 
 ### Simple Example Usage Campaigns with Credentials
