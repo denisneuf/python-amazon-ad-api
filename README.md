@@ -231,6 +231,7 @@ curl \
 * [Insights](https://python-amazon-ad-api.readthedocs.io/en/latest/api/insights.html)
 * [Localization](https://python-amazon-ad-api.readthedocs.io/en/latest/api/localization.html)
 * [Product Selector](https://python-amazon-ad-api.readthedocs.io/en/latest/api/metadata.html)
+* [Reporting](https://advertising.amazon.com/API/docs/en-us/reporting/overview)
 
 
 ### Amazon Attribution open beta
@@ -306,10 +307,6 @@ curl \
 * Creatives
 
 ### Modules Available DSP
-
-* Reports V3
-
-### Modules Available Reporting
 
 * Reports
 
