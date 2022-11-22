@@ -232,6 +232,7 @@ curl \
 * [Localization](https://python-amazon-ad-api.readthedocs.io/en/latest/api/localization.html)
 * [Product Selector](https://python-amazon-ad-api.readthedocs.io/en/latest/api/metadata.html)
 * [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/reports.html)
+* [Validation Configurations](https://python-amazon-ad-api.readthedocs.io/en/latest/api/validation_configurations.html)
 
 
 ### Amazon Attribution open beta
