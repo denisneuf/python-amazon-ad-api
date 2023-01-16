@@ -170,6 +170,24 @@ class Marketplaces(Enum):
         'currency': 'AED',
         'token_url': 'api.amazon.co.uk/auth/o2/token'
     }
+    SE = {
+        'sandbox': 'advertising-api-test.amazon.com',
+        'prod': 'advertising-api-eu.amazon.com',
+        'currency': 'SEK',
+        'token_url': 'api.amazon.co.uk/auth/o2/token'
+    }
+    PL = {
+        'sandbox': 'advertising-api-test.amazon.com',
+        'prod': 'advertising-api-eu.amazon.com',
+        'currency': 'PLN',
+        'token_url': 'api.amazon.co.uk/auth/o2/token'
+    }
+    TR = {
+        'sandbox': 'advertising-api-test.amazon.com',
+        'prod': 'advertising-api-eu.amazon.com',
+        'currency': 'TRY',
+        'token_url': 'api.amazon.co.uk/auth/o2/token'
+    }
     
     def __init__(self, info):
         config = dotenv_values(".env")
