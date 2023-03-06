@@ -44,6 +44,7 @@ class Locales(Enum):
     PT = "pt_PT"
     DE = "de_DE"
     FR = "fr_FR"
+    BE = "be_BE"
     IT = "it_IT"
     NL = "nl_NL"
     SE = "sv_SE"
@@ -65,7 +66,7 @@ class Locales(Enum):
 
 
 class Currencies(Enum):
-    EU = ES = DE = FR = IT = NL = "EUR"
+    EU = ES = DE = FR = IT = NL = BE = "EUR"
     SE = "SEK"
     PL = "PLN"
     TR = "TRY"
@@ -91,6 +92,7 @@ class MarketplacesIds(Enum):
     ES = 'A1RKKUPIHCS9HS'
     UK = GB = 'A1F83G8C2ARO7P'
     FR = 'A13V1IB3VIYZZH'
+    BE = 'AMEN7PMS3EDWL'
     NL = 'A1805IZSGTT6HS'
     DE = 'A1PA6795UKMFR9'
     IT = 'APJ6JRA9NG5V4'
@@ -152,7 +154,7 @@ class Marketplaces(Enum):
         'token_url': 'api.amazon.co.jp/auth/o2/token'
     }
     # Europe
-    EU = ES = DE = FR = IT = NL = {
+    EU = ES = DE = FR = IT = NL = BE = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'EUR',
