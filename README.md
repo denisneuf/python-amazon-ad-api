@@ -351,14 +351,14 @@ except AdvertisingApiException as error:
 
 ```
 
-### SELLING PARTNER API
+### API NOTICE
 
-This API is based on the [API Client](https://github.com/saleweaver/rapid_rest_client) created by [@saleweaver](https://github.com/saleweaver) which also build [Python-Amazon-Selling-Partner-API](https://github.com/saleweaver/python-amazon-sp-api) with an easy-to-use interface. If you need use the Amazon's Selling Partner API you can find it [here](https://github.com/saleweaver/python-amazon-sp-api)
+This API is based on the [API Client](https://github.com/saleweaver/rapid_rest_client) created by [@saleweaver](https://github.com/saleweaver) but adapted to paypal auth requeriments and improved system for token call
 
 ### DISCLAIMER
 
-We are not affiliated with Amazon
+We are not affiliated with PayPal
 
 ### LICENSE
 
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-apache-green)
