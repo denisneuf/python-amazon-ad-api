@@ -353,12 +353,12 @@ except AdvertisingApiException as error:
 
 ### API NOTICE
 
-This API is based on the [API Client](https://github.com/saleweaver/rapid_rest_client) created by [@saleweaver](https://github.com/saleweaver) but adapted to paypal auth requeriments and improved system for token call
+This API is based on the [API Client](https://github.com/saleweaver/rapid_rest_client) created by [@saleweaver](https://github.com/saleweaver) but adapted to amazon advertising authentication requeriments
 
 ### DISCLAIMER
 
-We are not affiliated with PayPal
+We are not affiliated with Amazon
 
 ### LICENSE
 
-![License](https://img.shields.io/badge/license-apache-green)
+![License](https://img.shields.io/badge/license-MIT-green)
