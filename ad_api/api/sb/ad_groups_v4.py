@@ -26,7 +26,7 @@ class AdGroupsV4(Client):
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
-    @sp_endpoint('/sb/v4/adGroups/list', method='POST')
+    @sp_endpoint('/sb/v4/adGroups/list', method='GET')
     def list_ad_group_v4(self, **kwargs) -> ApiResponse:
         """
         List Sponsored Brand Ad groups.
@@ -58,3 +58,15 @@ class AdGroupsV4(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs)
+
+    @sp_endpoint("/sb/v4/adGroups/delete", method="DELETE")
+    def delete_ad_groups(self, **kwargs) -> ApiResponse:
+        """
+
+        Request Body (optional) :
+            **adGroupIdFilter** (dict) : Filter entities by the list of objectIds. [optional]
+                include (list) : Entity object identifier.
+
+        """
+        return self._request(kwargs.pop('path'), params=kwargs)
+
