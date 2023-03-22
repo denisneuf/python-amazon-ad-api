@@ -48,6 +48,10 @@ class AdGroups(Client):
         """
         return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs)
 
+    """
+    Version 4 of Sponsored Brands
+    """
+
     @sp_endpoint('/sb/v4/adGroups', method='POST')
     def create_ad_group_v4(self, **kwargs) -> ApiResponse:
         """
@@ -81,3 +85,16 @@ class AdGroups(Client):
         """
         return self._request(kwargs.pop('path'), params=kwargs)
 
+    @sp_endpoint('/sb/v4/adGroups/{}', method='GET')
+    def get_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
+        """
+        Gets an ad group specified by identifier.
+
+        Keyword Args
+            | path **adGroupId**:*number* | Required. The identifier of an existing ad group.
+
+        Returns:
+            | ApiResponse
+
+        """
+        return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs)

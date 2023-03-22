@@ -187,15 +187,29 @@ class Campaigns(Client):
             ApiResponse
 
         """
-
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+    @sp_endpoint('/sb/v4/campaigns/{}', method='GET')
+    def get_campaign_v4(self, campaign_id, **kwargs) -> ApiResponse:
+        """
+        Get a specific Campaign by identifier
+
+        Keyword Args
+            | query **campaignId** (integer): The identifier of an existing campaign. [required]
+            | query **locale** (string): The returned array includes only keywords associated with locale matching those specified by identifier. [optional]
+
+        Returns
+            ApiResponse
+
+        """
+        return self._request(fill_query_params(kwargs.pop('path'), campaign_id), params=kwargs)
 
     @sp_endpoint('/sb/v4/campaigns/delete', method='DELETE')
     def delete_campaign_v4(self, **kwargs) -> ApiResponse:
         # Currently not supported.
         pass
 
-    @sp_endpoint('/sb/v4/campaigns/list', method='POST')
+    @sp_endpoint('/sb/v4/campaigns/list', method='GET')
     def list_campaigns_v4(self, **kwargs) -> ApiResponse:
         """
         Lists Sponsored Brands campaigns.
