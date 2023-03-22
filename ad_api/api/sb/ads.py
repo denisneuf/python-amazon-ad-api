@@ -30,7 +30,7 @@ class Ads(Client):
         Get a specific ad by its adId identifier.
 
         Keyword Args
-            | path **adGroupId**:*number* | Required. The identifier of an existing ad group.
+            | path **adId**:*number* | Required. The identifier of an existing ad.
 
         Returns
             ApiResponse

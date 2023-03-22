@@ -12,6 +12,12 @@ class AdGroupsV4(Client):
         Creates Sponsored Brand Ad Group.
 
         Request Body
+        | campaignId (string) : The identifier of the campaign to which the keyword is associated.
+        | name (string) : The name of the ad group.
+        | state (CreateOrUpdateEntityState > string) : Entity state for create or update operation. Enum : [ENABLED, PAUSED]
+
+        Returns
+            ApiResponse
 
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
@@ -21,7 +27,13 @@ class AdGroupsV4(Client):
         """
         Update Sponsored Brand Ad groups.
 
-        Request Body
+         Request Body
+        | campaignId (string) : The identifier of the campaign to which the keyword is associated. [optional]
+        | name (string) : The name of the ad group. [optional]
+        | state (CreateOrUpdateEntityState > string) : Entity state for create or update operation. Enum : [ENABLED, PAUSED]
+
+        Returns
+            ApiResponse
 
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
@@ -59,14 +71,30 @@ class AdGroupsV4(Client):
         """
         return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs)
 
-    @sp_endpoint("/sb/v4/adGroups/delete", method="DELETE")
+    @sp_endpoint("/sb/v4/adGroups/delete", method="POST")
     def delete_ad_groups(self, **kwargs) -> ApiResponse:
         """
+        Delete Sponsored Brands ad groups.
 
         Request Body (optional) :
             **adGroupIdFilter** (dict) : Filter entities by the list of objectIds. [optional]
                 include (list) : Entity object identifier.
 
+        Returns
+            ApiResponse
         """
         return self._request(kwargs.pop('path'), params=kwargs)
+
+    @sp_endpoint("/sb/v4/adGroups/{}", method="DELETE")
+    def delete_ad_group_by_id(self, ad_group_id, **kwargs) -> ApiResponse:
+        """
+        Delete a specific Sponsored Brand Ad Group by its identifier id.
+
+        Keyword Args
+            | query **adGroupId** (integer): The identifier of an existing AdGroup. [required]
+
+        Returns
+            ApiResponse
+        """
+        return self._request(fill_query_params(kwargs.pop('path'), ad_group_id), params=kwargs)
 

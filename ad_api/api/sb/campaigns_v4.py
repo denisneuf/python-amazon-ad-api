@@ -62,10 +62,18 @@ class CampaignsV4(Client):
         """
         return self._request(fill_query_params(kwargs.pop('path'), campaign_id), params=kwargs)
 
-    @sp_endpoint('/sb/v4/campaigns/delete', method='DELETE')
-    def delete_campaign_v4(self, **kwargs) -> ApiResponse:
-        # Currently not supported.
-        pass
+    @sp_endpoint('/sb/v4/campaigns/{}', method='DELETE')
+    def delete_campaign_v4(self, campaign_id, **kwargs) -> ApiResponse:
+        """
+        Delete a specific Sponsored Brand Campaign by its identifier id.
+
+        Keyword Args
+            | query **campaignId** (integer): The identifier of an existing campaign. [required]
+
+        Returns
+            ApiResponse
+        """
+        return self._request(fill_query_params(kwargs.pop('path'), campaign_id), params=kwargs)
 
     @sp_endpoint('/sb/v4/campaigns/list', method='GET')
     def list_campaigns_v4(self, **kwargs) -> ApiResponse:
@@ -88,5 +96,4 @@ class CampaignsV4(Client):
             ApiResponse
 
         """
-
         return self._request(kwargs.pop('path'), params=kwargs)
