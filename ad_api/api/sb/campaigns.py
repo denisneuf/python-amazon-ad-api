@@ -199,5 +199,22 @@ class Campaigns(Client):
     def list_campaigns_v4(self, **kwargs) -> ApiResponse:
         """
         Lists Sponsored Brands campaigns.
+
+        Response Body :
+            | **start_index** (int): Sets a zero-based offset into the requested set of campaigns. Use in conjunction with the `count` parameter to control pagination of the returned array.. [optional] if omitted the server will use the default value of 0. Default value : 0
+            | **state_filter** (State): The returned array is filtered to include only campaigns with state set to one of the values in the specified comma-delimited list. Defaults to `enabled` and `paused`.
+                Note that Campaigns rejected during moderation have state set to `archived`. Available values : enabled, paused, archived[optional]
+            | **name** (str): The returned array includes only campaigns with the specified name.. [optional]
+            | **portfolio_id_filter** (str): The returned array includes only campaigns associated with Portfolio identifiers matching those specified in the comma-delimited string.. [optional]
+            | **campaign_id_filter** (str): The returned array includes only campaigns with identifiers matching those specified in the comma-delimited string.. [optional]
+            | **ad_format_filter** (AdFormat): The returned array includes only campaigns with ad format matching those specified in the comma-delimited adFormats. Returns all campaigns if not specified. Available values : productCollection, video[optional]
+            | **max_results** (int) Number of records to include in the paginated response. Defaults to max page size for given API. Minimum 10 and a Maximum of 100 [optional]
+            | **next_token** (string) Token value allowing to navigate to the next response page. [optional]
+            | includeExtendedDataFields (boolean) Setting to true will slow down performance because the API needs to retrieve extra information for each campaign. [optional]
+
+        Returns
+            ApiResponse
+
         """
+
         return self._request(kwargs.pop('path'), params=kwargs)
