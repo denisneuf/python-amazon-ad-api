@@ -89,4 +89,9 @@ class Ads(Client):
 
     @sp_endpoint('/sb/v4/ads/delete', method='DELETE')
     def delete_ads(self, **kwargs) -> ApiResponse:
+        """
+        Deletes Sponsored Brands ads.
+
+        Request Body (optional)
+        """
         pass
