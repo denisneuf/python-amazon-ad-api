@@ -38,7 +38,7 @@ class AdGroupsV4(Client):
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
-    @sp_endpoint('/sb/v4/adGroups/list', method='GET')
+    @sp_endpoint('/sb/v4/adGroups/list', method='POST')
     def list_ad_group_v4(self, **kwargs) -> ApiResponse:
         """
         List Sponsored Brand Ad groups.

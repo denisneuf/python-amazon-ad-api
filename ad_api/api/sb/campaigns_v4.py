@@ -75,7 +75,7 @@ class CampaignsV4(Client):
         """
         return self._request(fill_query_params(kwargs.pop('path'), campaign_id), params=kwargs)
 
-    @sp_endpoint('/sb/v4/campaigns/list', method='GET')
+    @sp_endpoint('/sb/v4/campaigns/list', method='POST')
     def list_campaigns_v4(self, **kwargs) -> ApiResponse:
         """
         Lists Sponsored Brands campaigns.

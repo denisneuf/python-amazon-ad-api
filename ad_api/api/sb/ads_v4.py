@@ -1,9 +1,9 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
 
-class Ads(Client):
+class AdsV4(Client):
 
-    @sp_endpoint('/sb/v4/ads/list', method='GET')
+    @sp_endpoint('/sb/v4/ads/list', method='POST')
     def list_ads(self, **kwargs) -> ApiResponse:
         """
         Lists all Sponsored Brands ads.
