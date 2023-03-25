@@ -7,7 +7,7 @@ class AdGroupsV4(Client):
     """
 
     @sp_endpoint('/sb/v4/adGroups', method='POST')
-    def create_ad_group_v4(self, **kwargs) -> ApiResponse:
+    def create_ad_group_v4(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Creates Sponsored Brand Ad Group.
 
@@ -20,10 +20,16 @@ class AdGroupsV4(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_ressource
+        }
+
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/adGroups', method='PUT')
-    def update_ad_group_v4(self, **kwargs) -> ApiResponse:
+    def update_ad_group_v4(self,version: int = 4, **kwargs) -> ApiResponse:
         """
         Update Sponsored Brand Ad groups.
 
@@ -36,10 +42,16 @@ class AdGroupsV4(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_ressource
+        }
+
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/adGroups/list', method='POST')
-    def list_ad_group_v4(self, **kwargs) -> ApiResponse:
+    def list_ad_group_v4(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         List Sponsored Brand Ad groups.
 
@@ -55,10 +67,16 @@ class AdGroupsV4(Client):
          Returns:
             | ApiResponse
         """
-        return self._request(kwargs.pop('path'), params=kwargs)
+
+        json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_ressource
+        }
+
+        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/adGroups/{}', method='GET')
-    def get_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
+    def get_ad_group(self, adGroupId, version: int = 4, **kwargs) -> ApiResponse:
         """
         Gets an ad group specified by identifier.
 
@@ -69,10 +87,16 @@ class AdGroupsV4(Client):
             | ApiResponse
 
         """
-        return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs)
+
+        json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_ressource
+        }
+
+        return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs, headers=headers)
 
     @sp_endpoint("/sb/v4/adGroups/delete", method="POST")
-    def delete_ad_groups(self, **kwargs) -> ApiResponse:
+    def delete_ad_groups(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Delete Sponsored Brands ad groups.
 
@@ -83,10 +107,16 @@ class AdGroupsV4(Client):
         Returns
             ApiResponse
         """
-        return self._request(kwargs.pop('path'), params=kwargs)
+
+        json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_ressource
+        }
+
+        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
 
     @sp_endpoint("/sb/v4/adGroups/{}", method="DELETE")
-    def delete_ad_group_by_id(self, ad_group_id, **kwargs) -> ApiResponse:
+    def delete_ad_group_by_id(self, ad_group_id, version: int = 4, **kwargs) -> ApiResponse:
         """
         Delete a specific Sponsored Brand Ad Group by its identifier id.
 
@@ -96,5 +126,11 @@ class AdGroupsV4(Client):
         Returns
             ApiResponse
         """
-        return self._request(fill_query_params(kwargs.pop('path'), ad_group_id), params=kwargs)
+
+        json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_ressource
+        }
+
+        return self._request(fill_query_params(kwargs.pop('path'), ad_group_id), params=kwargs, headers=headers)
 

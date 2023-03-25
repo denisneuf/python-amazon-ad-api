@@ -4,7 +4,7 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 class AdsV4(Client):
 
     @sp_endpoint('/sb/v4/ads/list', method='POST')
-    def list_ads(self, **kwargs) -> ApiResponse:
+    def list_ads(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Lists all Sponsored Brands ads.
 
@@ -22,10 +22,16 @@ class AdsV4(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), params=kwargs)
+
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_version
+        }
+
+        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
 
     @sp_endpoint(path="/sb/v4/ads/{}", method="GET")
-    def get_ad_by_id(self, ad_id, **kwargs) -> ApiResponse:
+    def get_ad_by_id(self, ad_id, version: int = 4, **kwargs) -> ApiResponse:
         """
         Get a specific ad by its adId identifier.
 
@@ -36,10 +42,16 @@ class AdsV4(Client):
             ApiResponse
 
         """
-        return self._request(fill_query_params(kwargs.pop('path'), ad_id), params=kwargs)
+
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_version
+        }
+
+        return self._request(fill_query_params(kwargs.pop('path'), ad_id), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads/video', method='POST')
-    def create_video_ads(self, **kwargs) -> ApiResponse:
+    def create_video_ads(self, version: int = 4,  **kwargs) -> ApiResponse:
 
         """
         Creates Sponsored Brand video ads.
@@ -57,10 +69,16 @@ class AdsV4(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_version
+        }
+
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads/productCollection', method='POST')
-    def create_product_collection_ads(self, **kwargs) -> ApiResponse:
+    def create_product_collection_ads(self, version: int = 4,  **kwargs) -> ApiResponse:
         """
         Creates Sponsored Brands product collection ads.
 
@@ -85,10 +103,16 @@ class AdsV4(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_version
+        }
+
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads/brandVideo', method='POST')
-    def create_brand_video_ads(self, **kwargs) -> ApiResponse:
+    def create_brand_video_ads(self, version: int = 4,  **kwargs) -> ApiResponse:
         """
         Creates Sponsored Brands brand video ads.
 
@@ -112,10 +136,16 @@ class AdsV4(Client):
         Returns
             ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_version
+        }
+
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads/storeSpotlight', method='POST')
-    def create_store_spotlight_ads(self, **kwargs) -> ApiResponse:
+    def create_store_spotlight_ads(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Creates Sponsored Brands store spotlight ads.
 
@@ -138,10 +168,16 @@ class AdsV4(Client):
         Returns
             ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_version
+        }
+
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads', method='PUT')
-    def update_ads(self, **kwargs) -> ApiResponse:
+    def update_ads(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Updates the Sponsored Brands ads.
 
@@ -155,10 +191,16 @@ class AdsV4(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_version
+        }
+
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads/delete', method='POST')
-    def delete_ads(self, **kwargs) -> ApiResponse:
+    def delete_ads(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Deletes Sponsored Brands ads.
 
@@ -167,4 +209,10 @@ class AdsV4(Client):
             include : list of adIds as string
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {
+            'Accept': json_version
+        }
+
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)

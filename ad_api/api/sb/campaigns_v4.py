@@ -24,7 +24,11 @@ class CampaignsV4(Client):
         Returns
             ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        json_version = "application/vnd.sbcampaignresource.v4+json"
+        headers = {"Accept": json_version}
+
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns', method='PUT')
     def edit_campaigns_v4(self, **kwargs) -> ApiResponse:
@@ -45,7 +49,11 @@ class CampaignsV4(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+
+        json_version = "application/vnd.sbcampaignresource.v4+json"
+        headers = {"Accept": json_version}
+
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns/{}', method='GET')
     def get_campaign_v4(self, campaign_id, **kwargs) -> ApiResponse:
@@ -60,7 +68,11 @@ class CampaignsV4(Client):
             ApiResponse
 
         """
-        return self._request(fill_query_params(kwargs.pop('path'), campaign_id), params=kwargs)
+
+        json_version = "application/vnd.sbcampaignresource.v4+json"
+        headers = {"Accept": json_version}
+
+        return self._request(fill_query_params(kwargs.pop('path'), campaign_id), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns/{}', method='DELETE')
     def delete_campaign_v4(self, campaign_id, **kwargs) -> ApiResponse:
@@ -73,7 +85,11 @@ class CampaignsV4(Client):
         Returns
             ApiResponse
         """
-        return self._request(fill_query_params(kwargs.pop('path'), campaign_id), params=kwargs)
+
+        json_version = "application/vnd.sbcampaignresource.v4+json"
+        headers = {"Accept": json_version}
+
+        return self._request(fill_query_params(kwargs.pop('path'), campaign_id), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns/list', method='POST')
     def list_campaigns_v4(self, **kwargs) -> ApiResponse:
@@ -96,4 +112,8 @@ class CampaignsV4(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), params=kwargs)
+
+        json_version = "application/vnd.sbcampaignresource.v4+json"
+        headers = {"Accept": json_version}
+
+        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
