@@ -30,26 +30,6 @@ class AdsV4(Client):
 
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
 
-    @sp_endpoint(path="/sb/v4/ads/{}", method="GET")
-    def get_ad_by_id(self, ad_id, version: int = 4, **kwargs) -> ApiResponse:
-        """
-        Get a specific ad by its adId identifier.
-
-        Keyword Args
-            | path **adId**:*number* | Required. The identifier of an existing ad.
-
-        Returns
-            ApiResponse
-
-        """
-
-        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
-        headers = {
-            'Accept': json_version
-        }
-
-        return self._request(fill_query_params(kwargs.pop('path'), ad_id), params=kwargs, headers=headers)
-
     @sp_endpoint('/sb/v4/ads/video', method='POST')
     def create_video_ads(self, version: int = 4,  **kwargs) -> ApiResponse:
 

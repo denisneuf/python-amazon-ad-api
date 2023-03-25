@@ -7,7 +7,7 @@ class AdGroupsV4(Client):
     """
 
     @sp_endpoint('/sb/v4/adGroups', method='POST')
-    def create_ad_group_v4(self, version: int = 4, **kwargs) -> ApiResponse:
+    def create_ad_groups_v4(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Creates Sponsored Brand Ad Group.
 
@@ -74,26 +74,6 @@ class AdGroupsV4(Client):
         }
 
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
-
-    @sp_endpoint('/sb/v4/adGroups/{}', method='GET')
-    def get_ad_group(self, adGroupId, version: int = 4, **kwargs) -> ApiResponse:
-        """
-        Gets an ad group specified by identifier.
-
-        Keyword Args
-            | path **adGroupId**:*number* | Required. The identifier of an existing ad group.
-
-        Returns:
-            | ApiResponse
-
-        """
-
-        json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
-        headers = {
-            'Accept': json_ressource
-        }
-
-        return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs, headers=headers)
 
     @sp_endpoint("/sb/v4/adGroups/delete", method="POST")
     def delete_ad_groups(self, version: int = 4, **kwargs) -> ApiResponse:

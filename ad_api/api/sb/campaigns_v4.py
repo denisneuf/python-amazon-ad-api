@@ -55,25 +55,6 @@ class CampaignsV4(Client):
 
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
-    @sp_endpoint('/sb/v4/campaigns/{}', method='GET')
-    def get_campaign_v4(self, campaign_id, **kwargs) -> ApiResponse:
-        """
-        Get a specific Campaign by identifier
-
-        Keyword Args
-            | query **campaignId** (integer): The identifier of an existing campaign. [required]
-            | query **locale** (string): The returned array includes only keywords associated with locale matching those specified by identifier. [optional]
-
-        Returns
-            ApiResponse
-
-        """
-
-        json_version = "application/vnd.sbcampaignresource.v4+json"
-        headers = {"Accept": json_version}
-
-        return self._request(fill_query_params(kwargs.pop('path'), campaign_id), params=kwargs, headers=headers)
-
     @sp_endpoint('/sb/v4/campaigns/{}', method='DELETE')
     def delete_campaign_v4(self, campaign_id, **kwargs) -> ApiResponse:
         """
@@ -96,7 +77,7 @@ class CampaignsV4(Client):
         """
         Lists Sponsored Brands campaigns.
 
-        Request Body :
+        Request Body (optional) : Include the body for specific filtering, or leave empty to get all campaigns.
             | **start_index** (int): Sets a zero-based offset into the requested set of campaigns. Use in conjunction with the `count` parameter to control pagination of the returned array.. [optional] if omitted the server will use the default value of 0. Default value : 0
             | **state_filter** (State): The returned array is filtered to include only campaigns with state set to one of the values in the specified comma-delimited list. Defaults to `enabled` and `paused`.
                 Note that Campaigns rejected during moderation have state set to `archived`. Available values : enabled, paused, archived[optional]
