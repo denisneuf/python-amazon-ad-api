@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class CampaignsV4(Client):
@@ -7,7 +7,7 @@ class CampaignsV4(Client):
     """
 
     @sp_endpoint('/sb/v4/campaigns', method='POST')
-    def create_campaigns_v4(self, **kwargs) -> ApiResponse:
+    def create_campaigns_v4(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Creates Sponsored Brands campaigns.
 
@@ -25,13 +25,16 @@ class CampaignsV4(Client):
             ApiResponse
         """
 
-        json_version = "application/vnd.sbcampaignresource.v4+json"
-        headers = {"Accept": json_version}
+        json_version = 'application/vnd.sbcampaignresource.v' + str(version) + "+json"
 
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        headers = {
+            "Accept": json_version,
+        }
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns', method='PUT')
-    def edit_campaigns_v4(self, **kwargs) -> ApiResponse:
+    def edit_campaigns_v4(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Update Sponsored Brand Campaigns
 
@@ -50,13 +53,13 @@ class CampaignsV4(Client):
 
         """
 
-        json_version = "application/vnd.sbcampaignresource.v4+json"
+        json_version = 'application/vnd.sbcampaignresource.v' + str(version) + "+json"
         headers = {"Accept": json_version}
 
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/sb/v4/campaigns/{}', method='DELETE')
-    def delete_campaign_v4(self, campaign_id, **kwargs) -> ApiResponse:
+    @sp_endpoint('/sb/v4/campaigns/delete', method='POST')
+    def delete_campaign_v4(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Delete a specific Sponsored Brand Campaign by its identifier id.
 
@@ -67,13 +70,14 @@ class CampaignsV4(Client):
             ApiResponse
         """
 
-        json_version = "application/vnd.sbcampaignresource.v4+json"
+        json_version = 'application/vnd.sbcampaignresource.v' + str(version) + "+json"
         headers = {"Accept": json_version}
 
-        return self._request(fill_query_params(kwargs.pop('path'), campaign_id), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
+                             headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns/list', method='POST')
-    def list_campaigns_v4(self, **kwargs) -> ApiResponse:
+    def list_campaigns_v4(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Lists Sponsored Brands campaigns.
 
@@ -94,7 +98,7 @@ class CampaignsV4(Client):
 
         """
 
-        json_version = "application/vnd.sbcampaignresource.v4+json"
+        json_version = 'application/vnd.sbcampaignresource.v' + str(version) + "+json"
         headers = {"Accept": json_version}
 
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers)

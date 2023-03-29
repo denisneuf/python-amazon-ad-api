@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 
 
 class AdsV4(Client):
@@ -55,7 +55,7 @@ class AdsV4(Client):
             'Accept': json_version
         }
 
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads/productCollection', method='POST')
     def create_product_collection_ads(self, version: int = 4,  **kwargs) -> ApiResponse:
@@ -89,7 +89,7 @@ class AdsV4(Client):
             'Accept': json_version
         }
 
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads/brandVideo', method='POST')
     def create_brand_video_ads(self, version: int = 4,  **kwargs) -> ApiResponse:
@@ -122,7 +122,7 @@ class AdsV4(Client):
             'Accept': json_version
         }
 
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads/storeSpotlight', method='POST')
     def create_store_spotlight_ads(self, version: int = 4, **kwargs) -> ApiResponse:
@@ -154,7 +154,7 @@ class AdsV4(Client):
             'Accept': json_version
         }
 
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads', method='PUT')
     def update_ads(self, version: int = 4, **kwargs) -> ApiResponse:
@@ -177,7 +177,7 @@ class AdsV4(Client):
             'Accept': json_version
         }
 
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads/delete', method='POST')
     def delete_ads(self, version: int = 4, **kwargs) -> ApiResponse:
@@ -195,4 +195,4 @@ class AdsV4(Client):
             'Accept': json_version
         }
 
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
