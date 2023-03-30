@@ -4,8 +4,27 @@ import json
 from json.decoder import JSONDecodeError
 from io import TextIOWrapper
 from ad_api.base import AdvertisingTypeException
+import logging
 
 class Utils:
+
+    def deprecated(name:str = None, message:str = None):
+        """This is a decorator which can be used to mark functions
+        as deprecated. It will result in a warning being emitted
+        when the function is used."""
+
+        def decorator(function):
+            def wrapper(*args, **kwargs):
+                # res = function(*args, **kwargs)
+                # yield res
+                logging.warning(message.format(name))
+                res = function(*args, **kwargs)
+
+
+            wrapper.__doc__ = function.__doc__
+            return wrapper
+
+        return decorator
 
     @staticmethod
     def convert_body(body, wrap: bool = True):

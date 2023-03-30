@@ -7,7 +7,7 @@ class CampaignsV4(Client):
     """
 
     @sp_endpoint('/sb/v4/campaigns', method='POST')
-    def create_campaigns_v4(self, version: int = 4, **kwargs) -> ApiResponse:
+    def create_campaigns(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Creates Sponsored Brands campaigns.
 
@@ -34,7 +34,7 @@ class CampaignsV4(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns', method='PUT')
-    def edit_campaigns_v4(self, version: int = 4, **kwargs) -> ApiResponse:
+    def edit_campaigns(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Update Sponsored Brand Campaigns
 
@@ -58,15 +58,16 @@ class CampaignsV4(Client):
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
+    @Utils.deprecated(name="CampaignsV4.delete_campaigns()", message="This function {} is is currently not supported subject to potential change >> Use instead /sb/campaigns/campaignId - Campaigns.delete_campaign()")
     @sp_endpoint('/sb/v4/campaigns/delete', method='POST')
-    def delete_campaign_v4(self, version: int = 4, **kwargs) -> ApiResponse:
+    def delete_campaigns(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         The operation is currently not supported subject to potential change.
         Deletes Sponsored Brands campaigns.
 
         Request body (required)
             | **campaignIdFilter** (ObjectIdFilter): The identifier of an existing campaign. [required]
-                | **include** (list>str): Entity object identifier. [required] minItems: 0 
+                | **include** (list>str): Entity object identifier. [required] minItems: 0 maxItems: 10
 
         Returns
             ApiResponse
@@ -79,7 +80,7 @@ class CampaignsV4(Client):
                              headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns/list', method='POST')
-    def list_campaigns_v4(self, version: int = 4, **kwargs) -> ApiResponse:
+    def list_campaigns(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Lists Sponsored Brands campaigns.
 

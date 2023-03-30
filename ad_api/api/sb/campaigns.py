@@ -1,11 +1,11 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
-
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 class Campaigns(Client):
     """
     Use the Amazon Advertising API for Sponsored Brands for campaign, ad group, keyword, negative keyword, drafts, Stores, landing pages, and Brands management operations. For more information about Sponsored Brands, see the Sponsored Brands Support Center. For onboarding information, see the account setup topic.
     """
 
+    @Utils.deprecated(name="Campaigns.list_campaigns()", message="This function {} is deprecated >> Use instead /sb/v4/campaigns/list - CampaignsV4.list_campaigns()")
     @sp_endpoint('/sb/campaigns', method='GET')
     def list_campaigns(self, **kwargs) -> ApiResponse:
         """
@@ -28,6 +28,7 @@ class Campaigns(Client):
         """
         return self._request(kwargs.pop('path'), params=kwargs)
 
+    @Utils.deprecated(name="Campaigns.create_campaigns()", message="This function {} is deprecated >> Use instead /sb/v4/campaigns - CampaignsV4.create_campaigns()")
     @sp_endpoint('/sb/campaigns', method='POST')
     def create_campaigns(self, **kwargs) -> ApiResponse:
         """
@@ -86,6 +87,7 @@ class Campaigns(Client):
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
+    @Utils.deprecated(name="Campaigns.edit_campaigns()", message="This function {} is deprecated >> Use instead /sb/v4/campaigns - CampaignsV4.edit_campaigns()")
     @sp_endpoint('/sb/campaigns', method='PUT')
     def edit_campaigns(self, **kwargs) -> ApiResponse:
         """
