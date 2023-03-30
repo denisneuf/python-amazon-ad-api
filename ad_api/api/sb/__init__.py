@@ -1,7 +1,10 @@
 from .campaigns import Campaigns
+from .campaigns_v4 import CampaignsV4
 from .brands import Brands
 from .landing_page_asins import PageAsins
 from .ad_groups import AdGroups
+from .ad_groups_v4 import AdGroupsV4
+from .ads_v4 import AdsV4
 from .moderation import Moderation
 from .keywords import Keywords
 from .recommendations import Recommendations
@@ -21,7 +24,10 @@ __all__ = [
     "Brands",
     "PageAsins",
     "Campaigns",
+    "CampaignsV4",
     "AdGroups",
+    "AdGroupsV4",
+    "AdsV4",
     "Moderation",
     "Keywords",
     "Recommendations",
