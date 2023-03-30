@@ -15,12 +15,8 @@ class Utils:
 
         def decorator(function):
             def wrapper(*args, **kwargs):
-                # res = function(*args, **kwargs)
-                # yield res
                 logging.warning(message.format(name))
                 res = function(*args, **kwargs)
-
-
             wrapper.__doc__ = function.__doc__
             return wrapper
 

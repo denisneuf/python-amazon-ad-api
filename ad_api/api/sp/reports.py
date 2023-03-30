@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class Reports(Client):
@@ -8,7 +8,8 @@ class Reports(Client):
     
     Use the Amazon Advertising API for Sponsored Products for campaign, ad group, keyword, negative keyword, and product ad management operations. For more information about Sponsored Products, see the Sponsored Products Support Center. For onboarding information, see the account setup topic.
     """
-    
+
+    @Utils.deprecated(name="Reports.post_report()", message="This function {} we will be deprecating the version 2 Sponsored Products reporting endpoint by March 30, 2023 - use instead version 3 in api/reports")
     @sp_endpoint('/v2/sp/{}/report', method='POST')
     def post_report(self, recordType, **kwargs) -> ApiResponse:
         r"""
