@@ -5,7 +5,10 @@ Sponsored Brands
     :maxdepth: 1
 
     sb/campaigns
+    sb/campaigns_v4
     sb/ad_groups
+    sb/ad_groups_v4
+    sb/ads_v4
     sb/keywords
     sb/negative_keywords
     sb/product_targeting

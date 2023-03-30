@@ -280,7 +280,10 @@ curl \
 ### Modules Available Sponsored Brands
 
 * Campaigns
+* Campaigns V4
 * Ad Groups
+* Ad Groups V4
+* Ads Groups V4
 * Keywords
 * Negative Keywords
 * Product Targeting

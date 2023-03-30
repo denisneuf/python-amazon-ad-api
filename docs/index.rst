@@ -21,7 +21,7 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    disclaimer
 
 
-.. versionadded:: 0.3.5
-   The *Manager Account* AND *Creative Assets* complete documentation with python examples
+.. versionadded:: 0.3.9
+   The v4 of *Sponsored Brand*
 
 .. literalinclude:: example.py
