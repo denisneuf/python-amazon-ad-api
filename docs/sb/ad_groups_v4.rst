@@ -1,35 +1,19 @@
 Ad Groups
 =========
 
-.. autoclass:: ad_api.api.sb.AdGroups
+.. autoclass:: ad_api.api.sb.AdGroupsV4
 
-    .. autofunction:: ad_api.api.sb.AdGroups.list_ad_groups(self, **kwargs) -> ApiResponse:
-
-    ### Example python
-
-    .. code-block:: python
-
-        from ad_api.api.sb.ad_groups import AdGroups
-
-        res = AdGroups().list_ad_groups()
-
-        print(result)
+    .. autofunction:: ad_api.api.sb.AdGroupsV4.create_ad_groups_v4(self, version: int = 4, **kwargs) -> ApiResponse:
 
 
-    .. autofunction:: ad_api.api.sb.AdGroups.get_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
+    .. autofunction:: ad_api.api.sb.AdGroupsV4.update_ad_group_v4(self, version: int = 4, **kwargs) -> ApiResponse:
 
-    ### Example python
 
-    .. code-block:: python
+    .. autofunction:: ad_api.api.sb.AdGroupsV4.list_ad_group_v4(self, version: int = 4, **kwargs) -> ApiResponse:
 
-        from ad_api.api.sb.ad_groups import AdGroups
 
-        ad_group_id = 144356535815171236
+    .. autofunction:: ad_api.api.sb.AdGroupsV4.delete_ad_groups(self, version: int = 4, **kwargs) -> ApiResponse:
 
-        res = AdGroups().get_ad_group(
-            adGroupId=ad_group_id
-        )
 
-        print(res)
 
 
