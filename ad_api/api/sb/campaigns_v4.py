@@ -61,10 +61,12 @@ class CampaignsV4(Client):
     @sp_endpoint('/sb/v4/campaigns/delete', method='POST')
     def delete_campaign_v4(self, version: int = 4, **kwargs) -> ApiResponse:
         """
-        Delete a specific Sponsored Brand Campaign by its identifier id.
+        The operation is currently not supported subject to potential change.
+        Deletes Sponsored Brands campaigns.
 
-        Keyword Args
-            | query **campaignId** (integer): The identifier of an existing campaign. [required]
+        Request body (required)
+            | **campaignIdFilter** (ObjectIdFilter): The identifier of an existing campaign. [required]
+                | **include** (list>str): Entity object identifier. [required] minItems: 0 
 
         Returns
             ApiResponse
