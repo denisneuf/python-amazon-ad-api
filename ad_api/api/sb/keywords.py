@@ -1,9 +1,11 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
+
 class Keywords(Client):
     """
     Use the Amazon Advertising API for Sponsored Brands for campaign, ad group, keyword, negative keyword, drafts, Stores, landing pages, and Brands management operations. For more information about Sponsored Brands, see the Sponsored Brands Support Center. For onboarding information, see the account setup topic.
     """
+
     @sp_endpoint('/sb/keywords', method='GET')
     def list_keywords(self, **kwargs) -> ApiResponse:
         r"""
@@ -102,11 +104,3 @@ class Keywords(Client):
             | ApiResponse
         """
         return self._request(fill_query_params(kwargs.pop('path'), keywordId), params=kwargs)
-
-
-
-
-
-
-
-
