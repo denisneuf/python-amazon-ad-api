@@ -253,17 +253,17 @@ curl \
 ### Modules Available Sponsored Products 2.0
 
 * [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ad_groups.html)
-* Bid Recommendations
+* [Bid Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/bid_recommendations.html)
 * [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaigns.html)
-* Keywords
-* Negative Keywords
-* Product Ads
-* Suggested Keywords
-* Product Targeting
-* Negative Product Targeting
-* Campaign Negative Keywords
-* Reports
-* Snapshots
+* [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/keywords.html)
+* [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_keywords.html)
+* [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_ads.html)
+* [Suggested Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/suggested_keywords.html)
+* [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_targeting.html)
+* [Negative Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_product_targeting.html)
+* [Campaign Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_negative_keywords.html)
+* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/reports.html)
+* [Snapshots](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/snapshots.html)
 
 ### Modules Available Sponsored Products 3.0
 
