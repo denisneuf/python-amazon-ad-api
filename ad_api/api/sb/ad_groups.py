@@ -6,8 +6,8 @@ class AdGroups(Client):
     Use the Amazon Advertising API for Sponsored Brands for campaign, ad group, keyword, negative keyword, drafts, Stores, landing pages, and Brands management operations. For more information about Sponsored Brands, see the Sponsored Brands Support Center. For onboarding information, see the account setup topic.
     """
 
-    @Utils.deprecated(name="AdGroups.list_ad_groups()", message="This function {} is deprecated >> Use instead /sb/v4/adGroups/list - AdGroupsV4.list_ad_groups()")
     @sp_endpoint('/sb/adGroups', method='GET')
+    @Utils.deprecated
     def list_ad_groups(self, **kwargs) -> ApiResponse:
         r"""
 

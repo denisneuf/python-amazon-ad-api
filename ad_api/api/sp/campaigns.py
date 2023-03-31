@@ -310,6 +310,7 @@ class Campaigns(Client):
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns', method='GET')
+    @Utils.deprecated
     def list_campaigns(self, **kwargs) -> ApiResponse:
         r"""
         list_campaigns(**kwargs) -> ApiResponse
@@ -333,7 +334,7 @@ class Campaigns(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns/{}', method='GET')
     def get_campaign(self, campaignId, **kwargs) -> ApiResponse:

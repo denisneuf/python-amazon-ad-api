@@ -1,4 +1,5 @@
 from .campaigns import Campaigns
+from .campaigns_v3 import CampaignsV3
 from .ad_groups import AdGroups
 from .product_ads import ProductAds
 from .bid_recommendations import BidRecommendations

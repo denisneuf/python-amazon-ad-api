@@ -5,22 +5,35 @@ from json.decoder import JSONDecodeError
 from io import TextIOWrapper
 from ad_api.base import AdvertisingTypeException
 import logging
+import functools
 
 class Utils:
 
-    def deprecated(name:str = None, message:str = None):
+    def deprecated(func):
         """This is a decorator which can be used to mark functions
         as deprecated. It will result in a warning being emitted
         when the function is used."""
 
-        def decorator(function):
-            def wrapper(*args, **kwargs):
-                logging.warning(message.format(name))
-                res = function(*args, **kwargs)
-            wrapper.__doc__ = function.__doc__
-            return wrapper
+        @functools.wraps(func)
+        def new_func(*args, **kwargs):
+            logging.warning("Call to deprecated function {} endpoint: {} method: {}".format(func.__name__, kwargs.get('path'), kwargs.get('method')))
+            return func(*args, **kwargs)
 
-        return decorator
+        return new_func
+
+
+    def notsupported(func):
+        """This is a decorator which can be used to mark functions
+        as notsupported. It will result in a fatal being emitted
+        when the function is used."""
+
+        @functools.wraps(func)
+        def new_func(*args, **kwargs):
+            logging.fatal("The operation {} is currently not supported subject to potential change  endpoint: {} method: {}".format(func.__name__, kwargs.get('path'), kwargs.get('method')))
+            exit()
+
+        return new_func
+
 
     @staticmethod
     def convert_body(body, wrap: bool = True):
