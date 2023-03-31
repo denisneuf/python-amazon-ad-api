@@ -275,6 +275,7 @@ curl \
 * Budget Recommendations
 * Budget Rules Recommendations
 * Product Recommendations
+* Campaigns V3
 
 
 ### Modules Available Sponsored Brands
