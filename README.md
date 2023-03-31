@@ -275,7 +275,7 @@ curl \
 * Budget Recommendations
 * Budget Rules Recommendations
 * Product Recommendations
-* Campaigns V3
+* [Campaigns V3](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaignsv3.html)
 
 
 ### Modules Available Sponsored Brands
