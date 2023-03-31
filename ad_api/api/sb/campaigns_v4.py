@@ -31,7 +31,8 @@ class CampaignsV4(Client):
             "Accept": json_version,
         }
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False),
+                             params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns', method='PUT')
     def edit_campaigns(self, version: int = 4, **kwargs) -> ApiResponse:
@@ -56,7 +57,8 @@ class CampaignsV4(Client):
         json_version = 'application/vnd.sbcampaignresource.v' + str(version) + "+json"
         headers = {"Accept": json_version}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False),
+                             params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns/delete', method='POST')
     @Utils.notsupported
@@ -104,4 +106,5 @@ class CampaignsV4(Client):
         json_version = 'application/vnd.sbcampaignresource.v' + str(version) + "+json"
         headers = {"Accept": json_version}
 
-        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False),
+                             params=kwargs, headers=headers)

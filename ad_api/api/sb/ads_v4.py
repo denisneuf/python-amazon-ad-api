@@ -28,7 +28,8 @@ class AdsV4(Client):
             'Accept': json_version
         }
 
-        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False),
+                             params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/ads/video', method='POST')
     def create_video_ads(self, version: int = 4,  **kwargs) -> ApiResponse:
