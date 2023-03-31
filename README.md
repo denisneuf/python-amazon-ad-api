@@ -252,7 +252,7 @@ curl \
 
 ### Modules Available Sponsored Products 2.0
 
-* Ad Groups
+* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ad_groups.html)
 * Bid Recommendations
 * [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaigns.html)
 * Keywords
