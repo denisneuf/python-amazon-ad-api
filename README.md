@@ -254,7 +254,7 @@ curl \
 
 * Ad Groups
 * Bid Recommendations
-* Campaigns
+* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaigns.html)
 * Keywords
 * Negative Keywords
 * Product Ads

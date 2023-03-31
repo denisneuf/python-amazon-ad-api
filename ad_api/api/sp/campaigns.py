@@ -14,6 +14,7 @@ class Campaigns(Client):
     """
 
     @sp_endpoint('/v2/sp/campaigns', method='PUT')
+    @Utils.deprecated
     def edit_single_campaign_assistant(
             self,
             campaign_id: int,
@@ -144,6 +145,7 @@ class Campaigns(Client):
             return self._request(kwargs.pop('path'), data=data_str, params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns', method='POST')
+    @Utils.deprecated
     def create_single_campaign_assistant(self,
                                          campaign_name: str,
                                          targeting_type: str,
@@ -253,6 +255,7 @@ class Campaigns(Client):
         return self._request(kwargs.pop('path'), data=data_str, params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns', method='POST')
+    @Utils.deprecated
     def create_campaigns(self, **kwargs) -> ApiResponse:
         r"""
         create_campaigns(body: (dict, str, list)) -> ApiResponse
@@ -282,6 +285,7 @@ class Campaigns(Client):
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns', method='PUT')
+    @Utils.deprecated
     def edit_campaigns(self, **kwargs) -> ApiResponse:
         r"""
         edit_campaigns(body: (dict, str, list)) -> ApiResponse
@@ -337,6 +341,7 @@ class Campaigns(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns/{}', method='GET')
+    @Utils.deprecated
     def get_campaign(self, campaignId, **kwargs) -> ApiResponse:
         r"""
 
@@ -354,6 +359,7 @@ class Campaigns(Client):
         return self._request(fill_query_params(kwargs.pop('path'), campaignId), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns/{}', method='DELETE')
+    @Utils.deprecated
     def delete_campaign(self, campaignId, **kwargs) -> ApiResponse:
         r"""
 
@@ -371,6 +377,7 @@ class Campaigns(Client):
         return self._request(fill_query_params(kwargs.pop('path'), campaignId), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns/extended', method='GET')
+    @Utils.deprecated
     def list_campaigns_extended(self, **kwargs) -> ApiResponse:
         r"""
         list_campaigns_extended(**kwargs) -> ApiResponse
@@ -397,6 +404,7 @@ class Campaigns(Client):
         return self._request(kwargs.pop('path'),  params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns/extended/{}', method='GET')
+    @Utils.deprecated
     def get_campaign_extended(self, campaignId, **kwargs) -> ApiResponse:
         r"""
         get_campaign_extended(campaignId: int) -> ApiResponse
