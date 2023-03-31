@@ -12,8 +12,7 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    api
    api/attribution
    api/brand_metrics
-   sp_v2
-   sp_v3
+   sp
    sb
    sd
    dsp

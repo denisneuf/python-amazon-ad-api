@@ -1,6 +1,14 @@
 Campaigns
 =========
 
+.. deprecated:: 4.0.2
+
+.. warning::
+
+    There is a new version 3 of Sponsored Product API, please check the `migration guide`_.
+
+
+
 .. autoclass:: ad_api.api.sp.Campaigns
 
     .. warning::
@@ -740,3 +748,12 @@ Campaigns
 
         sp_campaign_id = 247123430252449
         sp_get_campaign_extended(sp_campaign_id)
+
+
+**********
+References
+**********
+
+.. target-notes::
+
+.. _`migration guide`: https://advertising.amazon.com/API/docs/en-us/sponsored-products/v3-migration-guide

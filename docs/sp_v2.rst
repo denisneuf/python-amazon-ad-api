@@ -1,5 +1,5 @@
-Sponsored Products 2.0
-======================
+2.0
+===
 
 Amazon Advertising API - Sponsored Products
 

@@ -1,5 +1,5 @@
-Campaigns V4
-============
+Campaigns
+=========
 
 .. autoclass:: ad_api.api.sb.CampaignsV4
 

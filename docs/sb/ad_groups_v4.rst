@@ -1,5 +1,5 @@
-Ad Groups V4
-============
+Ad Groups
+=========
 
 .. autoclass:: ad_api.api.sb.AdGroupsV4
 

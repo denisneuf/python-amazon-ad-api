@@ -1,5 +1,5 @@
-Ads V4
-======
+Ads
+===
 
 .. autoclass:: ad_api.api.sb.AdsV4
 

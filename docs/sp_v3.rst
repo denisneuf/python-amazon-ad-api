@@ -1,5 +1,5 @@
-Sponsored Products 3.0
-======================
+3.0
+===
 
 Sponsored Products
 

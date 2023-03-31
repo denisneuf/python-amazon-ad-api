@@ -3,6 +3,8 @@ Campaigns
 
 .. autoclass:: ad_api.api.sb.Campaigns
 
+    .. deprecated:: 4.0.2
+
     .. autofunction:: ad_api.api.sb.Campaigns.list_campaigns(self, **kwargs) -> ApiResponse:
 
     ### Example python
@@ -15,6 +17,10 @@ Campaigns
 
         print(result)
 
+
+
+
+    .. deprecated:: 4.0.2
 
     .. autofunction:: ad_api.api.sb.Campaigns.create_campaigns(self, **kwargs) -> ApiResponse:
 
@@ -37,6 +43,8 @@ Campaigns
 
     .. literalinclude:: ../../test/campaigns/sb-sx-create-campaign-keywords.json
 
+    .. deprecated:: 4.0.2
+
     .. autofunction:: ad_api.api.sb.Campaigns.edit_campaigns(self, **kwargs) -> ApiResponse:
 
     ### Example json
@@ -57,6 +65,9 @@ Campaigns
             campaignId=campaign_id
         )
         print(result)
+
+
+    .. deprecated:: 4.0.2
 
     .. autofunction:: ad_api.api.sb.Campaigns.delete_campaign(self, campaignId, **kwargs) -> ApiResponse:
 
