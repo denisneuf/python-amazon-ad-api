@@ -217,7 +217,7 @@ curl \
 
 ```
 
-### Modules Available Common Resources
+### [Modules Available Common Resources](https://python-amazon-ad-api.readthedocs.io/en/latest/api.html)
 
 * [Profiles](https://python-amazon-ad-api.readthedocs.io/en/latest/api/profiles.html)
 * [Manager Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/api/manager_accounts.html)
