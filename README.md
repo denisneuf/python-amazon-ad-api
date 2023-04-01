@@ -278,13 +278,10 @@ curl \
 * [Campaigns V3](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaignsv3.html)
 
 
-### Modules Available Sponsored Brands
+### Modules Available Sponsored Brands 3.0
 
 * Campaigns
-* Campaigns V4
 * Ad Groups
-* Ad Groups V4
-* Ads Groups V4
 * Keywords
 * Negative Keywords
 * Product Targeting
@@ -298,6 +295,12 @@ curl \
 * Moderation
 * Reports
 * Snapshots
+
+### Modules Available Sponsored Brands 4.0
+
+* Campaigns V4
+* Ad Groups V4
+* Ads Groups V4
 
 ### Modules Available Sponsored Display
 
