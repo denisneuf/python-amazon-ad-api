@@ -265,7 +265,7 @@ curl \
 * [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/reports.html)
 * [Snapshots](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/snapshots.html)
 
-### Modules Available Sponsored Products 3.0
+### [Modules Available Sponsored Products 3.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sp_v3.html)
 
 
 * Budget Rules
