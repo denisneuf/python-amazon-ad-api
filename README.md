@@ -298,9 +298,9 @@ curl \
 
 ### Modules Available Sponsored Brands 4.0
 
-* Campaigns
-* Ad Groups
-* Ads Groups
+* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/campaigns_v4.html)
+* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups_v4.html)
+* [Ads Groups]https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ads_v4.html()
 
 ### Modules Available Sponsored Display
 
