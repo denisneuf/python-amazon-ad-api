@@ -298,9 +298,9 @@ curl \
 
 ### Modules Available Sponsored Brands 4.0
 
-* Campaigns V4
-* Ad Groups V4
-* Ads Groups V4
+* Campaigns
+* Ad Groups
+* Ads Groups
 
 ### Modules Available Sponsored Display
 
