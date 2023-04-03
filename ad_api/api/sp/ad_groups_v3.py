@@ -35,7 +35,7 @@ class AdGroupsV3(Client):
                              headers=headers)
 
     @sp_endpoint("/sp/adGroups", method="PUT")
-    def edit_ad_groups(self, version : int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
+    def edit_ad_groups(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         Creates one or more ad groups.
 
@@ -63,9 +63,9 @@ class AdGroupsV3(Client):
                              headers=headers)
 
     @sp_endpoint("/sp/adGroups/delete", method="POST")
-    def delete_ad_groups(self, version, **kwargs) -> ApiResponse:
+    def delete_ad_groups(self, version: int = 3, **kwargs) -> ApiResponse:
         """
-        Deletes Sponsored Products ad groups.
+        Deletes Sponsored Products ad groups by changing it's state to "ARCHIVED".
 
         Request body (required)
             | **adGroupIdFilter** (ObjectIdFilter): The identifier of an existing ad group. [required]
@@ -86,7 +86,7 @@ class AdGroupsV3(Client):
                              headers=headers)
 
     @sp_endpoint("/sp/adGroups/list", method="POST")
-    def list_ad_groups(self, version, **kwargs) -> ApiResponse:
+    def list_ad_groups(self, version: int = 3, **kwargs) -> ApiResponse:
         """
         Lists Sponsored Products campaigns.
 
