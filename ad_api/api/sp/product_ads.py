@@ -1,7 +1,9 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+
 
 class ProductAds(Client):
     @sp_endpoint('/v2/sp/productAds', method='GET')
+    @Utils.deprecated
     def list_product_ads(self, **kwargs) -> ApiResponse:
         r"""
         list_product_ads(self, \*\*kwargs) -> ApiResponse
@@ -28,6 +30,7 @@ class ProductAds(Client):
         return self._request(kwargs.pop('path'),  params=kwargs)
 
     @sp_endpoint('/v2/sp/productAds/extended', method='GET')
+    @Utils.deprecated
     def list_product_ads_extended(self, **kwargs) -> ApiResponse:
         r"""
         list_product_ads_extended_request(self, \*\*kwargs) -> ApiResponse
@@ -54,6 +57,7 @@ class ProductAds(Client):
         return self._request(kwargs.pop('path'),  params=kwargs)
 
     @sp_endpoint('/v2/sp/productAds/{}', method='GET')
+    @Utils.deprecated
     def get_product_ad(self, adId, **kwargs) -> ApiResponse:
         r"""
 
@@ -71,6 +75,7 @@ class ProductAds(Client):
         return self._request(fill_query_params(kwargs.pop('path'), adId), params=kwargs)
 
     @sp_endpoint('/v2/sp/productAds/extended/{}', method='GET')
+    @Utils.deprecated
     def get_product_ad_extended(self, adId, **kwargs) -> ApiResponse:
         r"""
 
@@ -88,6 +93,7 @@ class ProductAds(Client):
         return self._request(fill_query_params(kwargs.pop('path'), adId), params=kwargs)
 
     @sp_endpoint('/v2/sp/productAds/{}', method='DELETE')
+    @Utils.deprecated
     def delete_product_ad(self, adId, **kwargs) -> ApiResponse:
         r"""
 
@@ -105,6 +111,7 @@ class ProductAds(Client):
         return self._request(fill_query_params(kwargs.pop('path'), adId), params=kwargs)
 
     @sp_endpoint('/v2/sp/productAds', method='PUT')
+    @Utils.deprecated
     def edit_product_ads(self, **kwargs) -> ApiResponse:
         r"""
         edit_product_ads(self, \*\*kwargs) -> ApiResponse
@@ -124,6 +131,7 @@ class ProductAds(Client):
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/sp/productAds', method='POST')
+    @Utils.deprecated
     def create_product_ads(self, **kwargs) -> ApiResponse:
         r"""
         create_product_ads(self, \*\*kwargs) -> ApiResponse

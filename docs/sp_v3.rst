@@ -14,6 +14,7 @@ This specification is available for download from the `Advertising API developer
 
     sp/campaignsv3
     sp/ad_groups_v3
+    sp/product_ads_v3
     sp/budget_rules
     sp/campaign_optimization_rules
     sp/ranked_keywords_recommendations
