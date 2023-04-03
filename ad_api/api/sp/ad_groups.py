@@ -1,8 +1,10 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+
 
 class AdGroups(Client):
 
     @sp_endpoint('/v2/sp/adGroups', method='POST')
+    @Utils.deprecated
     def create_ad_groups(self, **kwargs) -> ApiResponse:
         r"""
         create_ad_groups(self, \*\*kwargs) -> ApiResponse
@@ -25,6 +27,7 @@ class AdGroups(Client):
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/sp/adGroups', method='PUT')
+    @Utils.deprecated
     def edit_ad_groups(self, **kwargs) -> ApiResponse:
         r"""
         edit_ad_group(self, \*\*kwargs) -> ApiResponse
@@ -46,6 +49,7 @@ class AdGroups(Client):
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/sp/adGroups', method='GET')
+    @Utils.deprecated
     def list_ad_groups(self, **kwargs) -> ApiResponse:
         r"""
         list_ad_groups(self, \*\*kwargs) -> ApiResponse
@@ -74,6 +78,7 @@ class AdGroups(Client):
         return self._request(kwargs.pop('path'),  params=kwargs)
 
     @sp_endpoint('/v2/sp/adGroups/{}', method='GET')
+    @Utils.deprecated
     def get_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
         r"""
 
@@ -91,6 +96,7 @@ class AdGroups(Client):
         return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs)
 
     @sp_endpoint('/v2/sp/adGroups/{}', method='DELETE')
+    @Utils.deprecated
     def delete_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
         r"""
 
@@ -108,6 +114,7 @@ class AdGroups(Client):
         return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs)
 
     @sp_endpoint('/v2/sp/adGroups/extended', method='GET')
+    @Utils.deprecated
     def list_ad_groups_extended(self, **kwargs) -> ApiResponse:
         r"""
         list_ad_groups_extended(self, \*\*kwargs) -> ApiResponse
@@ -134,6 +141,7 @@ class AdGroups(Client):
         return self._request(kwargs.pop('path'),  params=kwargs)
 
     @sp_endpoint('/v2/sp/adGroups/extended/{}', method='GET')
+    @Utils.deprecated
     def get_ad_group_extended(self, adGroupId, **kwargs) -> ApiResponse:
         r"""
 
