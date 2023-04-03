@@ -252,6 +252,9 @@ curl \
 
 ### [Modules Available Sponsored Products 2.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sp_v2.html)
 
+Warning: [PLANNED DEPRECATION 6/30/2023]
+There is a new version 3 of Sponsored Product API, please check the [migration guide](https://advertising.amazon.com/API/docs/en-us/sponsored-products/v3-migration-guide).
+
 * [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ad_groups.html)
 * [Bid Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/bid_recommendations.html)
 * [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaigns.html)
@@ -268,6 +271,9 @@ curl \
 ### [Modules Available Sponsored Products 3.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sp_v3.html)
 
 
+* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaignsv3.html)
+* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ad_groups_v3.html)
+* [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_ads_v3.html)
 * Budget Rules
 * Campaign Optimization Rules
 * Ranked Keywords Recommendations
@@ -275,7 +281,7 @@ curl \
 * Budget Recommendations
 * Budget Rules Recommendations
 * Product Recommendations
-* [Campaigns V3](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaignsv3.html)
+
 
 
 ### Modules Available Sponsored Brands 3.0
