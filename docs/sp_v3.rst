@@ -13,6 +13,7 @@ This specification is available for download from the `Advertising API developer
     :maxdepth: 1
 
     sp/campaignsv3
+    sp/ad_groups_v3
     sp/budget_rules
     sp/campaign_optimization_rules
     sp/ranked_keywords_recommendations
