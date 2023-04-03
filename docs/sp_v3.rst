@@ -18,6 +18,9 @@ This specification is available for download from the `Advertising API developer
     sp/budget_rules
     sp/campaign_optimization_rules
     sp/ranked_keywords_recommendations
+    sp/keywords_v3
+    sp/negative_keywords_v3
+    sp/negative_product_targeting_v3
     sp/product_targeting
     sp/budget_recommendations
     sp/budget_rules_recommendations

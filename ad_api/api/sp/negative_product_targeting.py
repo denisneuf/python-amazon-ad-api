@@ -1,8 +1,10 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+
 
 class NegativeTargets(Client):
 
     @sp_endpoint('/v2/sp/negativeTargets', method='POST')
+    @Utils.deprecated
     def create_negative_targets(self, **kwargs) -> ApiResponse:
         r"""
         create_products_targets(self, \*\*kwargs) -> ApiResponse:
@@ -28,6 +30,7 @@ class NegativeTargets(Client):
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/sp/negativeTargets', method='PUT')
+    @Utils.deprecated
     def edit_negative_targets(self, **kwargs) -> ApiResponse:
         r"""
         edit_negative_targets(self, \*\*kwargs) -> ApiResponse:
@@ -53,6 +56,7 @@ class NegativeTargets(Client):
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/sp/negativeTargets', method='GET')
+    @Utils.deprecated
     def list_negative_targets(self, **kwargs) -> ApiResponse:
         r"""
         list_negative_targets(self, \*\*kwargs) -> ApiResponse
@@ -79,6 +83,7 @@ class NegativeTargets(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/negativeTargets/{}', method='GET')
+    @Utils.deprecated
     def get_negative_target(self, targetId, **kwargs) -> ApiResponse:
         r"""
 
@@ -96,6 +101,7 @@ class NegativeTargets(Client):
         return self._request(fill_query_params(kwargs.pop('path'), targetId), params=kwargs)
 
     @sp_endpoint('/v2/sp/negativeTargets/{}', method='DELETE')
+    @Utils.deprecated
     def delete_negative_targets(self, targetId, **kwargs) -> ApiResponse:
         r"""
 
@@ -113,6 +119,7 @@ class NegativeTargets(Client):
         return self._request(fill_query_params(kwargs.pop('path'), targetId), params=kwargs)
 
     @sp_endpoint('/v2/sp/negativeTargets/extended', method='GET')
+    @Utils.deprecated
     def list_negative_targets_extended(self, **kwargs) -> ApiResponse:
         r"""
         list_negative_targets_extended(self, \*\*kwargs) -> ApiResponse
@@ -139,6 +146,7 @@ class NegativeTargets(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/negativeTargets/extended/{}', method='GET')
+    @Utils.deprecated
     def get_negative_target_extended(self, targetId, **kwargs) -> ApiResponse:
         r"""
 

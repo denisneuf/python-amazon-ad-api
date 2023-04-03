@@ -2,12 +2,16 @@ from .campaigns import Campaigns
 from .campaigns_v3 import CampaignsV3
 from .ad_groups import AdGroups
 from .ad_groups_v3 import AdGroupsV3
+from .keywords_v3 import KeywordsV3
+from .negative_keywords_v3 import NegativeKeywordsV3
+from .negative_product_targeting_v3 import NegativeTargetsV3
 from .product_ads import ProductAds
 from .product_ads_v3 import ProductAdsV3
 from .bid_recommendations import BidRecommendations
 from .keywords import Keywords
 from .negative_keywords import NegativeKeywords
 from .campaign_negative_keywords import CampaignNegativeKeywords
+from .product_targeting_v3 import TargetsV3
 from .suggested_keywords import SuggestedKeywords
 from .product_targeting import Targets
 from .negative_product_targeting import NegativeTargets
@@ -29,11 +33,15 @@ __all__ = [
     "ProductAdsV3"
     "BidRecommendations",
     "Keywords",
+    "KeywordsV3",
     "NegativeKeywords",
+    "NegativeKeywordsV3",
     "CampaignNegativeKeywords",
     "SuggestedKeywords",
     "Targets",
+    "TargetsV3",
     "NegativeTargets",
+    "NegativeTargetsV3",
     "Reports",
     "Snapshots",
     "BudgetRules",
