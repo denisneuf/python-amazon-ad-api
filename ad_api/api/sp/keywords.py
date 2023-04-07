@@ -1,8 +1,10 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+
 
 class Keywords(Client):
 
     @sp_endpoint('/v2/sp/keywords/{}', method='GET')
+    @Utils.deprecated
     def get_keyword(self, keywordId, **kwargs) -> ApiResponse:
         r"""
 
@@ -21,6 +23,7 @@ class Keywords(Client):
         return self._request(fill_query_params(kwargs.pop('path'), keywordId), params=kwargs)
 
     @sp_endpoint('/v2/sp/keywords/{}', method='DELETE')
+    @Utils.deprecated
     def delete_keyword(self, keywordId, **kwargs) -> ApiResponse:
         r"""
         delete_keyword(self, keywordId, **kwargs) -> ApiResponse:
@@ -37,6 +40,7 @@ class Keywords(Client):
         return self._request(fill_query_params(kwargs.pop('path'), keywordId), params=kwargs)
 
     @sp_endpoint('/v2/sp/keywords/extended/{}', method='GET')
+    @Utils.deprecated
     def get_keyword_extended(self, keywordId, **kwargs) -> ApiResponse:
         r"""
 
@@ -55,6 +59,7 @@ class Keywords(Client):
         return self._request(fill_query_params(kwargs.pop('path'), keywordId), params=kwargs)
 
     @sp_endpoint('/v2/sp/keywords/extended', method='GET')
+    @Utils.deprecated
     def list_keywords_extended(self, **kwargs) -> ApiResponse:
         r"""
         list_keywords_extended(self, **kwargs) -> ApiResponse
@@ -87,6 +92,7 @@ class Keywords(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/keywords', method='GET')
+    @Utils.deprecated
     def list_keywords(self, **kwargs) -> ApiResponse:
         r"""
         list_keywords(self, **kwargs) -> ApiResponse
@@ -119,6 +125,7 @@ class Keywords(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/keywords', method='POST')
+    @Utils.deprecated
     def create_keywords(self, **kwargs) -> ApiResponse:
         r"""
         create_keywords(self, **kwargs) -> ApiResponse:
@@ -145,6 +152,7 @@ class Keywords(Client):
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/sp/keywords', method='PUT')
+    @Utils.deprecated
     def edit_keywords(self, **kwargs) -> ApiResponse:
         r"""
         edit_keywords(self, **kwargs) -> ApiResponse:

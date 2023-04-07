@@ -1,4 +1,5 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+
 
 class Targets(Client):
     """Amazon Advertising API - Sponsored Products - Product Targetting
@@ -22,6 +23,7 @@ class Targets(Client):
 
     """
     @sp_endpoint('/v2/sp/targets', method='POST')
+    @Utils.deprecated
     def create_products_targets(self, **kwargs) -> ApiResponse:
         r"""
         Creates one or more targeting expressions.
@@ -48,6 +50,7 @@ class Targets(Client):
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets', method='PUT')
+    @Utils.deprecated
     def edit_products_targets(self, **kwargs) -> ApiResponse:
         r"""
         Updates one or more targeting clauses.
@@ -73,6 +76,7 @@ class Targets(Client):
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets', method='GET')
+    @Utils.deprecated
     def list_products_targets(self, **kwargs) -> ApiResponse:
         r"""
         Gets a list of targeting clauses filtered by specified criteria.
@@ -97,6 +101,7 @@ class Targets(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets/{}', method='GET')
+    @Utils.deprecated
     def get_products_target(self, targetId, **kwargs) -> ApiResponse:
         r"""
         Get a targeting clause specified by identifier.
@@ -111,6 +116,7 @@ class Targets(Client):
         return self._request(fill_query_params(kwargs.pop('path'), targetId), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets/{}', method='DELETE')
+    @Utils.deprecated
     def delete_products_target(self, targetId, **kwargs) -> ApiResponse:
         r"""
         Archives a targeting clause.
@@ -125,6 +131,7 @@ class Targets(Client):
         return self._request(fill_query_params(kwargs.pop('path'), targetId), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets/extended', method='GET')
+    @Utils.deprecated
     def list_products_targets_extended(self, **kwargs) -> ApiResponse:
         r"""
         Gets a list of targeting clauses filtered by specified criteria.
@@ -149,6 +156,7 @@ class Targets(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets/extended/{}', method='GET')
+    @Utils.deprecated
     def get_products_target_extended(self, targetId, **kwargs) -> ApiResponse:
         r"""
         Get a targeting clause specified by identifier.
@@ -163,6 +171,7 @@ class Targets(Client):
         return self._request(fill_query_params(kwargs.pop('path'), targetId), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets/productRecommendations', method='POST')
+    @Utils.deprecated
     def get_products_targets_recommendations(self, **kwargs) -> ApiResponse:
         r"""
 
@@ -183,6 +192,7 @@ class Targets(Client):
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets/brands', method='GET')
+    @Utils.deprecated
     def get_brand_targets(self, **kwargs) -> ApiResponse:
         r"""
         Gets a list of recommended products for targeting.
