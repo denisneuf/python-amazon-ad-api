@@ -8,6 +8,7 @@ from .negative_product_targeting_v3 import NegativeTargetsV3
 from .product_ads import ProductAds
 from .product_ads_v3 import ProductAdsV3
 from .bid_recommendations import BidRecommendations
+from .bid_recommendations_v3 import BidRecommendationsV3
 from .keywords import Keywords
 from .negative_keywords import NegativeKeywords
 from .campaign_negative_keywords import CampaignNegativeKeywords

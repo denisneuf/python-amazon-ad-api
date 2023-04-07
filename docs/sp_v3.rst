@@ -12,8 +12,9 @@ This specification is available for download from the `Advertising API developer
     :caption: Table of Contents
     :maxdepth: 1
 
-    sp/campaignsv3
+    sp/campaigns_v3
     sp/ad_groups_v3
+    sp/bid_recommendations_v3
     sp/product_ads_v3
     sp/budget_rules
     sp/campaign_optimization_rules
