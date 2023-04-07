@@ -274,6 +274,11 @@ There is a new version 3 of Sponsored Product API, please check the [migration g
 * [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaignsv3.html)
 * [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ad_groups_v3.html)
 * [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_ads_v3.html)
+* [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/keywords_v3.html)
+* [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_keywords_v3.html)
+* [Negative Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_product_targeting_v3.html)
+* [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_targeting.html)
+* [Negative Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_product_targeting_v3.html)
 * Budget Rules
 * Campaign Optimization Rules
 * Ranked Keywords Recommendations
