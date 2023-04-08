@@ -21,7 +21,7 @@ Get Ranked Keywords Recommendations
 
         "POST", "/sp/targets/keywords/recommendations", "Get ranked keywords recommendations."
 
-    .. autofunction:: ad_api.api.sp.RankedKeywordsRecommendations.list_ranked_keywords_recommendations(self, **kwargs) -> ApiResponse:
+    .. autofunction:: ad_api.api.sp.RankedKeywordsRecommendations.list_ranked_keywords_recommendations(self,  version: int = 3, **kwargs) -> ApiResponse:
 
 
 
