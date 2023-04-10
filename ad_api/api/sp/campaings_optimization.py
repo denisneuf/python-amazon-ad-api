@@ -20,7 +20,7 @@ class CampaignOptimization(Client):
         """
         contentType = 'application/vnd.optimizationrules.v1+json'
         headers = {'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/rules/campaignOptimization/{}', method='GET')
     def get_budget_campaign_optimization(self, campaignOptimizationId, **kwargs) -> ApiResponse:
@@ -84,7 +84,7 @@ class CampaignOptimization(Client):
         """
         contentType = 'application/vnd.optimizationrules.v1+json'
         headers = {'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/rules/campaignOptimization', method='PUT')
     def edit_budget_campaign_optimization(self, **kwargs) -> ApiResponse:
@@ -118,7 +118,7 @@ class CampaignOptimization(Client):
         """
         contentType = 'application/vnd.optimizationrules.v1+json'
         headers = {'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/rules/campaignOptimization/state', method='POST')
     def get_state_budget_campaign_optimization(self, **kwargs) -> ApiResponse:
@@ -139,4 +139,4 @@ class CampaignOptimization(Client):
         """
         contentType = 'application/vnd.optimizationrules.v1+json'
         headers = {'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
