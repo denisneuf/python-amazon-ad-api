@@ -22,6 +22,7 @@ from .snapshots import Snapshots
 from .budget_rules import BudgetRules
 from .budget_initial_recommendation import InitialBudgetRecommendation
 from .campaings_optimization import CampaignOptimization
+from .campaign_consolidated_recommendations import CampaignsRecommendations
 from .ranked_keywords_recommendations import RankedKeywordsRecommendations
 from .budget_recommendations import BudgetRecommendations
 from .budget_rules_recommendations import BudgetRulesRecommendations
@@ -51,6 +52,7 @@ __all__ = [
     "BudgetRules",
     "InitialBudgetRecommendation",
     "CampaignOptimization",
+    "CampaignsRecommendations",
     "RankedKeywordsRecommendations",
     "BudgetRecommendations",
     "BudgetRulesRecommendations",
