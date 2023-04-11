@@ -4,7 +4,7 @@
 ![CodeQL](https://img.shields.io/badge/Docs-sphinx-green)
 ![CodeQL](https://img.shields.io/github/v/release/denisneuf/python-amazon-ad-api)
 [![Documentation Status](https://readthedocs.org/projects/python-amazon-ad-api/badge/?version=latest)](https://python-amazon-ad-api.readthedocs.io/en/latest/?badge=latest)
-[![Verified on Openbase](https://badges.openbase.com/python/verified/python-amazon-ad-api.svg?token=upNllBzLVJv/xZpn/LcPWzff0YEwlGXPszgv2vSJhgM=)](https://openbase.com/python/python-amazon-ad-api?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
+
 
 ## Amazon's Advertising API
 
@@ -255,39 +255,42 @@ curl \
 Warning: [PLANNED DEPRECATION 6/30/2023]
 There is a new version 3 of Sponsored Product API, please check the [migration guide](https://advertising.amazon.com/API/docs/en-us/sponsored-products/v3-migration-guide).
 
+* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaigns.html)
 * [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ad_groups.html)
 * [Bid Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/bid_recommendations.html)
-* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaigns.html)
 * [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/keywords.html)
 * [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_keywords.html)
-* [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_ads.html)
+* [Campaign Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_negative_keywords.html)
 * [Suggested Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/suggested_keywords.html)
+* [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_ads.html)
 * [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_targeting.html)
 * [Negative Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_product_targeting.html)
-* [Campaign Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_negative_keywords.html)
 * [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/reports.html)
 * [Snapshots](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/snapshots.html)
 
 ### [Modules Available Sponsored Products 3.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sp_v3.html)
 
 
-* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaignsv3.html)
-* [Bid Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/bid_recommendations_v3.html)
-* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ad_groups_v3.html)
-* [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_ads_v3.html)
+* [ThemeBased Bid Recommendation](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/bid_recommendations_v3.html)
+* [Keyword Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ranked_keywords_recommendations.html) TODO support endpoint v4 and v5 (RankedKeywordsRecommendations) create docs endpoint >> DONE
 * [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/keywords_v3.html)
 * [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_keywords_v3.html)
-* [Negative Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_product_targeting_v3.html)
-* [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_targeting.html)
-* [Negative Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_product_targeting_v3.html)
-* Budget Rules
-* Campaign Optimization Rules
-* Ranked Keywords Recommendations
-* Product Targeting
-* Budget Recommendations
-* Budget Rules Recommendations
-* Product Recommendations
-
+* [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_targeting.html) TODO split v2 from v3
+* [Campaign Optimization](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_optimization_rules.html) (Rules TODO docs methods) >> DONE
+* [Budget Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_rules.html) TODO docs methods >> DONE
+* [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_ads_v3.html)
+* [Negative Targeting Clauses](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_product_targeting_v3.html) aka Negative Product Targeting
+* Budget Recommendation New Campaigns TODO endpoint >> NOT WORKING
+* [Campaign Negative Targeting Clauses](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_negative_targets.html) TODO endpoint >> DONE
+* [Budget recommendations and missed opportunities](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_recommendations.html) TODO docs method (BudgetRecommendations) >> DONE
+* TargetingClauses TODO split docs v2 from v3 (TargetsV3)
+* [Budget Rules Recommendation](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_rules_recommendations.html) TODO docs method >> DONE
+* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaignsv3.html)
+* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ad_groups_v3.html)
+* [Consolidated Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaigns_consolidated_recommendations.html) TODO endpoint >> DONE
+* CampaignNegativeKeywords TODO endpoint >> DOING
+* [Product Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_recommendations.html) TODO docs methods (ProductRecommendations)
+* [Budget Usage TODO endpoint](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_budget_usage.html) >> DONE
 
 
 ### Modules Available Sponsored Brands 3.0

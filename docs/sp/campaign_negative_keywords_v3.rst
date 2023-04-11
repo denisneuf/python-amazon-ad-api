@@ -26,4 +26,4 @@ Campaign Negative Keywords
     .. autofunction:: ad_api.api.sp.CampaignNegativeKeywordsV3.delete_campaign_negative_keyword(self, version: int = 3, **kwargs) -> ApiResponse:
     .. autofunction:: ad_api.api.sp.CampaignNegativeKeywordsV3.list_campaign_negative_keywords(self, version: int = 3, **kwargs) -> ApiResponse:
     .. autofunction:: ad_api.api.sp.CampaignNegativeKeywordsV3.create_campaign_negative_keywords(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.CampaignNegativeKeywordsV3.edit_campaign_negative_keywords(self, version: int = 3, **kwargs) -> ApiResponse:
+    .. autofunction:: ad_api.api.sp.CampaignNegativeKeywordsV3.edit_campaign_negative_keywords(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:

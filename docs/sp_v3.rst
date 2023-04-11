@@ -23,7 +23,7 @@ This specification is available for download from the `Advertising API developer
     sp/keywords_v3
     sp/negative_keywords_v3
     sp/negative_product_targeting_v3
-    sp/product_targeting
+    sp/product_targeting_v3
     sp/budget_recommendations
     sp/campaign_negative_targets
     sp/budget_rules_recommendations

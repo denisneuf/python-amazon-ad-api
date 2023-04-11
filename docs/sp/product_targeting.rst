@@ -7,7 +7,7 @@ Product Targeting
 
 .. note::
 
-    This API contains version 2.0 and 3.0
+    This API contains version 2.0 and some endpoints of 3.0 for older version compatibility please migrate to v3.0
 
 
 .. autoclass:: ad_api.api.sp.Targets

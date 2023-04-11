@@ -100,3 +100,60 @@ class NegativeTargetsV3(Client):
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
                              headers=headers)
+
+    #MOVE TO NegativeTargetsV3
+
+
+    # Maybe need to move to NegativeTargetsV3 and add the prefer header boolen and param the version in case upper version amazon release
+    @sp_endpoint('/sp/negativeTargets/brands/search', method='POST')
+    def list_negative_targets_brands_search(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
+
+        r"""
+        Returns brands related to keyword input for negative targeting.
+
+            | header **Prefer**:*string* | Used to indicate the behavior preferred by the client but is not required for successful completion of the request. Supported values will be updated in the future.
+
+        Returns:
+
+            ApiResponse
+
+
+        """
+        json_version = 'application/vnd.spproducttargeting.v' + str(version) + "+json"
+        headers = {
+            "Accept": json_version,
+            "Content-Type": json_version
+        }
+
+        prefer_value = 'return=representation'
+        if prefer:
+            headers.update({"Prefer": prefer_value})
+        # contentType = 'application/vnd.spproducttargeting.v3+json'
+        # headers = {'Content-Type': contentType}
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers or False)
+
+    # Maybe need to move to NegativeTargetsV3 and add the prefer header boolen and param the version in case upper version amazon release
+    @sp_endpoint('/sp/negativeTargets/brands/recommendations', method='GET')
+    def list_negative_targets_brands_recommendations(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
+
+        r"""
+        Returns brands recommended for negative targeting. Only available for Sellers and Vendors. These recommendations include your own brands because targeting your own brands usually results in lower performance than targeting competitors' brands.
+
+            | header **Prefer**:*string* | Used to indicate the behavior preferred by the client but is not required for successful completion of the request. Supported values will be updated in the future.
+
+        Returns:
+
+            ApiResponse
+
+
+        """
+        json_version = 'application/vnd.spproducttargeting.v' + str(version) + "+json"
+        headers = {
+            "Accept": json_version,
+            "Content-Type": json_version
+        }
+
+        prefer_value = 'return=representation'
+        if prefer:
+            headers.update({"Prefer": prefer_value})
+        return self._request(kwargs.pop('path'), params=kwargs, headers=headers or False)

@@ -5,5 +5,5 @@ Negative Product Targeting
 
         This replaces the version 2 of Negative Product Targeting
 
-.. autoclass:: ad_api.api.sp.NegativeKeywordsV3
+.. autoclass:: ad_api.api.sp.NegativeTargetsV3
     :members:
