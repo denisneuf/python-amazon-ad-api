@@ -28,3 +28,4 @@ This specification is available for download from the `Advertising API developer
     sp/campaign_negative_targets
     sp/budget_rules_recommendations
     sp/product_recommendations
+    sp/campaign_budget_usage
