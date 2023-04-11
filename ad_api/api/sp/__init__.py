@@ -12,6 +12,7 @@ from .bid_recommendations_v3 import BidRecommendationsV3
 from .keywords import Keywords
 from .negative_keywords import NegativeKeywords
 from .campaign_negative_keywords import CampaignNegativeKeywords
+from .campaign_negative_targets import CampaignNegativeTargets
 from .product_targeting_v3 import TargetsV3
 from .suggested_keywords import SuggestedKeywords
 from .product_targeting import Targets
@@ -19,6 +20,7 @@ from .negative_product_targeting import NegativeTargets
 from .reports import Reports
 from .snapshots import Snapshots
 from .budget_rules import BudgetRules
+from .budget_initial_recommendation import InitialBudgetRecommendation
 from .campaings_optimization import CampaignOptimization
 from .ranked_keywords_recommendations import RankedKeywordsRecommendations
 from .budget_recommendations import BudgetRecommendations
@@ -38,6 +40,7 @@ __all__ = [
     "NegativeKeywords",
     "NegativeKeywordsV3",
     "CampaignNegativeKeywords",
+    "CampaignNegativeTargets",
     "SuggestedKeywords",
     "Targets",
     "TargetsV3",
@@ -46,6 +49,7 @@ __all__ = [
     "Reports",
     "Snapshots",
     "BudgetRules",
+    "InitialBudgetRecommendation",
     "CampaignOptimization",
     "RankedKeywordsRecommendations",
     "BudgetRecommendations",
