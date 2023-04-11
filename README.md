@@ -288,7 +288,7 @@ There is a new version 3 of Sponsored Product API, please check the [migration g
 * [Consolidated Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaigns_consolidated_recommendations.html)
 * [Campaign Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_negative_keywords_v3.html)
 * [Product Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_recommendations.html)
-* [Budget Usage TODO endpoint](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_budget_usage.html)
+* [Budget Usage](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_budget_usage.html)
 
 
 ### Modules Available Sponsored Brands 3.0
