@@ -377,7 +377,7 @@ This API is based on the [API Client](https://github.com/saleweaver/rapid_rest_c
 
 ### DISCLAIMER
 
-We are not affiliated with Amazon
+We are not affiliated with Amazon but they used our api :)
 
 ### LICENSE
 
