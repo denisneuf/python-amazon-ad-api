@@ -1,9 +1,6 @@
 Sponsored Products
 ==================
 
-.. deprecated:: 4.0.2
-
-
 ..  toctree::
     :maxdepth: 1
 

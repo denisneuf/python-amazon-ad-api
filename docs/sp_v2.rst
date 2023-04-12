@@ -1,6 +1,8 @@
 2.0
 ===
 
+.. deprecated:: 4.0.2
+
 .. warning::
 
     There is a new version 3 of Sponsored Product API, please check the `migration guide`_.
