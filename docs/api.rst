@@ -7,6 +7,7 @@ Common Resources
     api/profiles
     api/manager_accounts
     api/invoices
+    api/billing
     api/metadata
     api/eligibility
     api/history
