@@ -223,7 +223,7 @@ curl \
 * [Manager Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/api/manager_accounts.html)
 * [Portfolios](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfolios.html)
 * [Invoices](https://python-amazon-ad-api.readthedocs.io/en/latest/api/invoices.html)
-* Billing
+* [Billing](https://python-amazon-ad-api.readthedocs.io/en/latest/api/billing.html)
 * [Audiences](https://python-amazon-ad-api.readthedocs.io/en/latest/api/audiences.html)
 * [Change History open Beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/history.html)
 * [Creative Assets open Beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api//creative_assets.html)
