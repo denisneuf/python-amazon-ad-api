@@ -18,3 +18,4 @@ Common Resources
     api/insights
     api/reports
     api/validation_configurations
+    api/recommendations

@@ -18,6 +18,7 @@ from .brand_metrics import BrandMetrics
 from .advertising_test_account import AdvertisingTestAccount
 from .reports import Reports
 from .validation_configurations import ValidationConfigurations
+from .recommendations import Recommendations
 
 __all__ = [
     "sp",
@@ -42,5 +43,6 @@ __all__ = [
     "BrandMetrics",
     "AdvertisingTestAccount",
     "Reports",
-    "ValidationConfigurations"
+    "ValidationConfigurations",
+    "Recommendations"
 ]
