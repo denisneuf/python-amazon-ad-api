@@ -1,3 +1,5 @@
+import json
+
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
 
@@ -10,7 +12,7 @@ class Reports(Client):
     """
 
     @sp_endpoint('/reporting/reports', method='POST')
-    def post_report(self, **kwargs) -> ApiResponse:
+    def post_report(self, body: dict | str, **kwargs) -> ApiResponse:
         r"""
         Requests a Sponsored Products report.
 
@@ -35,7 +37,10 @@ class Reports(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        if isinstance(body, dict):
+            body = json.dumps(body)
+
+        return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/reporting/reports/{}', method='GET')
     def get_report(self, reportId, **kwargs) -> ApiResponse:
