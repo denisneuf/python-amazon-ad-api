@@ -20,7 +20,10 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    disclaimer
 
 
-.. versionadded:: 0.3.9
+.. versionadded:: 0.4.3
    The v4 of *Sponsored Brand*
+   Deprecated *Sponsored Products v2*
+   Created new endpoints in *Sponsored Display*: Brand Safety, Budget Rules, Campaigns Budget Usage, Forecast and Recommendations.
+   Created new endpoint in *Common Resources*: Tactical recommendations beta
 
 .. literalinclude:: example.py
