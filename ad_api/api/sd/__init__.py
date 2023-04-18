@@ -8,6 +8,11 @@ from .product_targeting import Targets
 from .negative_product_targeting import NegativeTargets
 from .targeting_recommendations import TargetsRecommendations
 from .bid_recommendations import BidRecommendations
+from .brand_safety import BrandSafety
+from .forecast import Forecast
+from .recommendations import Recommendations
+from .campaigns_budget_usage import CampaignsBudgetUsage
+from .budget_rules import BudgetRules
 
 __all__ = [
     "Campaigns",
@@ -18,5 +23,10 @@ __all__ = [
     "NegativeTargets",
     "TargetsRecommendations",
     "BidRecommendations",
-    "Creatives"
+    "Creatives",
+    "BrandSafety",
+    "Forecast",
+    "Recommendations",
+    "CampaignsBudgetUsage"
+    "BudgetRules"
 ]

@@ -13,3 +13,8 @@ Sponsored Display
     sd/bid_recommendations
     sd/negative_product_targeting
     sd/creatives
+    sd/brand_safety
+    sd/budget_rules
+    sd/campaign_budget_usage
+    sd/forecast
+    sd/recommendations

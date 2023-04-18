@@ -1,8 +1,9 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 class CampaignNegativeKeywords(Client):
 
     @sp_endpoint('/v2/sp/campaignNegativeKeywords/{}', method='GET')
+    @Utils.deprecated
     def get_campaign_negative_keyword(self, keywordId, **kwargs) -> ApiResponse:
         r"""
 
@@ -21,6 +22,7 @@ class CampaignNegativeKeywords(Client):
         return self._request(fill_query_params(kwargs.pop('path'), keywordId), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaignNegativeKeywords/{}', method='DELETE')
+    @Utils.deprecated
     def delete_campaign_negative_keyword(self, keywordId, **kwargs) -> ApiResponse:
         r"""
 
@@ -39,6 +41,7 @@ class CampaignNegativeKeywords(Client):
         return self._request(fill_query_params(kwargs.pop('path'), keywordId), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaignNegativeKeywords/extended/{}', method='GET')
+    @Utils.deprecated
     def get_campaign_negative_keyword_extended(self, keywordId, **kwargs) -> ApiResponse:
         r"""
 
@@ -56,6 +59,7 @@ class CampaignNegativeKeywords(Client):
         return self._request(fill_query_params(kwargs.pop('path'), keywordId), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaignNegativeKeywords/extended', method='GET')
+    @Utils.deprecated
     def list_campaign_negative_keywords_extended(self, **kwargs) -> ApiResponse:
         r"""
         list_campaign_negative_keywords_extended(self, \*\*kwargs) -> ApiResponse
@@ -82,6 +86,7 @@ class CampaignNegativeKeywords(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaignNegativeKeywords', method='GET')
+    @Utils.deprecated
     def list_campaign_negative_keywords(self, **kwargs) -> ApiResponse:
         r"""
         list_campaign_negative_keywords(self, \*\*kwargs) -> ApiResponse
@@ -108,6 +113,7 @@ class CampaignNegativeKeywords(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaignNegativeKeywords', method='POST')
+    @Utils.deprecated
     def create_campaign_negative_keywords(self, **kwargs) -> ApiResponse:
         r"""
         create_campaign_negative_keywords(self, \*\*kwargs) -> ApiResponse:
@@ -129,6 +135,7 @@ class CampaignNegativeKeywords(Client):
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaignNegativeKeywords', method='PUT')
+    @Utils.deprecated
     def edit_campaign_negative_keywords(self, **kwargs) -> ApiResponse:
         r"""
         edit_campaign_negative_keywords(self, \*\*kwargs) -> ApiResponse:

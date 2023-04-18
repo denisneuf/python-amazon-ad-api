@@ -235,11 +235,12 @@ curl \
 * [Tactical recommendations beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/recommendations.html)
 
 
-### Amazon Attribution open beta
-* Advertisers
-* Publishers
-* Attribution tags
-* Reports
+### [Amazon Attribution open beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html)
+* [Advertisers](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_advertisers)
+* [Publishers](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_publishers)
+* [Macro tags](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_macro_tag)
+* [Non Macro tags](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_non_macro_template_tag)
+* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.post_report)
 
 ### [Brand Metrics open beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html)
 * [Post Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html#ad_api.api.BrandMetrics.BrandMetrics.post_report)
@@ -281,25 +282,25 @@ There is a new version 3 of Sponsored Product API, please check the [migration g
 * [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/reports.html)
 
 
-### Modules Available Sponsored Brands 3.0
+### [Modules Available Sponsored Brands 3.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sb_v3.html)
 
-* Campaigns
-* Ad Groups
-* Keywords
-* Negative Keywords
-* Product Targeting
-* Negative Product Targeting
-* Targeting Recommendations
-* Bid Recommendations
-* Stores
-* Landing Page Asins
-* Media
-* Brands
-* Moderation
-* Reports
+* Campaigns(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/campaigns.html)
+* Ad Groups(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups.html)
+* Keywords(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/keywords.html)
+* Negative Keywords(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/negative_keywords.html)
+* Product Targeting(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/product_targeting.html)
+* Negative Product Targeting(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/negative_product_targeting.html)
+* Targeting Recommendations(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/targeting_recommendations.html)
+* Bid Recommendations(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/bid_recommendations.html)
+* Stores(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/stores.html)
+* Landing Page Asins(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/landing_page_asins.html)
+* Media(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/media.html)
+* Brands(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/brands.html)
+* Moderation(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/moderation.html)
+* Reports(https://python-amazon-ad-api.readthedocs.io/en/latest/sb/reports.html)
 * Snapshots
 
-### Modules Available Sponsored Brands 4.0
+### [Modules Available Sponsored Brands 4.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sb_v4.html)
 
 * [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/campaigns_v4.html)
 * [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups_v4.html)
@@ -316,6 +317,7 @@ There is a new version 3 of Sponsored Product API, please check the [migration g
 * Targets Recommendations
 * Bid Recommendations
 * Creatives
+* Brand Safety List
 
 ### Modules Available DSP
 
