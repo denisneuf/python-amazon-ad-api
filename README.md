@@ -306,18 +306,22 @@ There is a new version 3 of Sponsored Product API, please check the [migration g
 * [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups_v4.html)
 * [Ads Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ads_v4.html)
 
-### Modules Available Sponsored Display
+### [Modules Available Sponsored Display](https://python-amazon-ad-api.readthedocs.io/en/latest/sd.html)
 
-* Campaigns
-* Ad Groups
-* Reports
-* Product Ads
-* Targets
-* Negative Targets
-* Targets Recommendations
-* Bid Recommendations
-* Creatives
-* Brand Safety List
+* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/campaigns.html)
+* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/ad_groups.html)
+* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/reports.html)
+* [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/product_ads.html)
+* [Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/product_targeting.html)
+* [Negative Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/negative_product_targeting.html)
+* [Targets Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/targeting_recommendations.html)
+* [Bid Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/bid_recommendations.html)
+* [Creatives](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/creatives.html)
+* [Brand Safety List](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/brand_safety.html)
+* [Budget Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/budget_rules.html)
+* [Campaigns Budget Usage](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/campaign_budget_usage.html)
+* [Forecasts](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/forecast.html)
+* [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/recommendations.html)
 
 ### Modules Available DSP
 
