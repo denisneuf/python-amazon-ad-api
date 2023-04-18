@@ -323,9 +323,9 @@ There is a new version 3 of Sponsored Product API, please check the [migration g
 * [Forecasts](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/forecast.html)
 * [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/recommendations.html)
 
-### Modules Available DSP
+### [Modules Available DSP](https://python-amazon-ad-api.readthedocs.io/en/latest/dsp.html)
 
-* Reports
+* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/dsp/reports.html)
 
 ### Simple Example Usage Campaigns with Credentials
 
