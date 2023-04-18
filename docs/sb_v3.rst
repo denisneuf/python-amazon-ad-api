@@ -18,4 +18,5 @@
     sb/brands
     sb/moderation
     sb/reports
+    sb/snapshots
 
