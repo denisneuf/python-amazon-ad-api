@@ -296,7 +296,10 @@ class Client(BaseClient):
             except JSONDecodeError:
                 js = {}
 
-            error = js.get('error', None)
+            try:
+                error = js.get('error', None) # Dict.get(key, default=None)
+            except AttributeError:
+                error = None
 
             if error:
                 exception = get_exception_for_content(error[0].get('code'))
