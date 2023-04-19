@@ -1,4 +1,5 @@
 import json
+from json import JSONDecodeError
 import logging
 from cachetools import TTLCache
 from requests import request
@@ -6,7 +7,7 @@ from ad_api.auth.credentials import Credentials
 from ad_api.auth import AccessTokenClient, AccessTokenResponse
 from .api_response import ApiResponse
 from .base_client import BaseClient
-from .exceptions import get_exception_for_content
+from .exceptions import get_exception_for_code, get_exception_for_content
 from .marketplaces import Marketplaces
 import os
 import requests
@@ -15,6 +16,7 @@ import gzip
 from zipfile import ZipFile
 import zipfile
 from urllib.parse import urlparse, quote
+
 
 log = logging.getLogger(__name__)
 role_cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
@@ -263,6 +265,7 @@ class Client(BaseClient):
         if self.debug:
             logging.info(headers or self.headers)
 
+
             if params:
                 str_query = ""
                 for key, value in params.items():
@@ -275,69 +278,45 @@ class Client(BaseClient):
             if data is not None:
                 logging.info(data)
 
-        return self._check_response(res)
-
-    # @staticmethod
-    def _check_response(self, res) -> ApiResponse:
-
-        if self.debug:
             logging.info(vars(res))
 
+        return self._check_response(res)
+
+    @staticmethod
+    def _check_response(res) -> ApiResponse:
+
         content = vars(res).get('_content')
-        str_content = content.decode('utf8')
-
-        if type(str_content) is str and str_content[0:50] == '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">' and vars(res).get('_content_consumed') is True:
-
-            dictionary = {"status_code": vars(res).get('status_code'), "msg": "Unauthorized"}
-            exception = get_exception_for_content(dictionary)
-            raise exception(dictionary)
-
-        if type(str_content) is str and str_content[0:15] == 'Invalid request' and vars(res).get('_content_consumed') is True:
-            dictionary = {"status_code": vars(res).get('status_code'), "msg": str_content}
-            exception = get_exception_for_content(dictionary)
-            raise exception(dictionary)
-
-        data = json.loads(str_content)
-
-        if type(data) is dict and data.get('code') == 'UNAUTHORIZED':
-            exception = get_exception_for_content(data)
-            raise exception(data)
-
-        if type(data) is dict and data.get('message') == 'Too Many Requests' and vars(res).get('_content_consumed') is True:
-            exception = get_exception_for_content(data)
-            raise exception(data)
-
-        if type(data) is dict and data.get('code') == 'NOT_FOUND' and vars(res).get('_content_consumed') is True:
-            dictionary = {"status_code": vars(res).get('status_code'), "code": data.get('code'), "details": data.get('details'), "requestId": data.get('requestId')}
-            exception = get_exception_for_content(data)
-            raise exception(dictionary)
-
-        if type(data) is dict and data.get('code') == 'SERVER_IS_BUSY' and vars(res).get('_content_consumed') is True:
-            dictionary = {"status_code": vars(res).get('status_code'), "code": data.get('code'), "details": data.get('details'), "requestId": data.get('requestId')}
-            exception = get_exception_for_content(data)
-            raise exception(dictionary)
-
-        if type(data) is dict and data.get('message') == 'Unauthorized' and vars(res).get('_content_consumed') is True:
-            dictionary = {"status_code": vars(res).get('status_code'), "message": "Unauthorized"}
-            exception = get_exception_for_content(dictionary)
-            raise exception(dictionary)
-
-        if type(data) is dict and data.get('details') == 'Invalid authorization inputs' and vars(res).get('_content_consumed') is True:
-            dictionary = {"status_code": vars(res).get('status_code'), "message": "Invalid authorization inputs"}
-            exception = get_exception_for_content(dictionary)
-            raise exception(dictionary)
-
-        if type(data) is dict and data.get('message') == 'Missing Authentication Token' and vars(res).get('_content_consumed') is True:
-            dictionary = {"status_code": vars(res).get('status_code'), "message": "Missing Authentication Token"}
-            exception = get_exception_for_content(dictionary)
-            raise exception(dictionary)
-
-        if type(data) is dict and data.get('details') == 'Cannot consume content type' and vars(res).get('_content_consumed') is True:
-            dictionary = {"status_code": vars(res).get('status_code'), "message": data.get('details')}
-            exception = get_exception_for_content(dictionary)
-            raise exception(dictionary)
-
         headers = vars(res).get('headers')
         status_code = vars(res).get('status_code')
-        next_token = vars(res).get('_next')
-        return ApiResponse(data, next_token, headers=headers)
+
+        if 200 <= res.status_code < 300:
+
+            try:
+                js = res.json() or {}
+            except JSONDecodeError:
+                js = {}
+
+            error = js.get('error', None)
+
+            if error:
+                exception = get_exception_for_content(error[0].get('code'))
+                raise exception(error[0].get('code'), error[0], headers)
+
+            next_token = vars(res).get('_next')
+
+            return ApiResponse(js, next_token, headers=headers)
+
+        else:
+
+            exception = get_exception_for_code(res.status_code)
+
+            try:
+                js = res.json()
+            except JSONDecodeError:
+                js = res.content
+
+
+            raise exception(status_code, js, headers)
+            exit(res.status_code)
+
+
