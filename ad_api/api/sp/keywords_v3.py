@@ -13,7 +13,7 @@ class KeywordsV3(Client):
         Returns
             ApiResponse
         """
-        json_version = 'application/vnd.spKeyword.v3+json' + str(version) + "+json"
+        json_version = 'application/vnd.spKeyword.v' + str(version) + "+json"
         headers = {
             "Accept": json_version,
             "Content-Type": json_version
@@ -39,7 +39,7 @@ class KeywordsV3(Client):
         Returns
             ApiResponse
         """
-        json_version = 'application/vnd.spKeyword.v3+json' + str(version) + "+json"
+        json_version = 'application/vnd.spKeyword.v' + str(version) + "+json"
 
         headers = {
             "Accept": json_version,
@@ -67,7 +67,7 @@ class KeywordsV3(Client):
             ApiResponse
         """
 
-        json_version = 'application/vnd.spKeyword.v3+json' + str(version) + "+json"
+        json_version = 'application/vnd.spKeyword.v' + str(version) + "+json"
         headers = {
             "Accept": json_version,
             "Content-Type": json_version
@@ -93,7 +93,7 @@ class KeywordsV3(Client):
             ApiResponse
         """
 
-        json_version = 'application/vnd.spKeyword.v3+json' + str(version) + "+json"
+        json_version = 'application/vnd.spKeyword.v' + str(version) + "+json"
         headers = {
             "Accept": json_version,
             "Content-Type": json_version
