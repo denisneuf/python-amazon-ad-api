@@ -4,7 +4,7 @@ setup(
     name='python-amazon-ad-api',
     version='0.4.4',
     install_requires=[
-        "requests>=2.27.1,<2.29.0",
+        "requests>=2.27.1,<2.30.0",
         "six~=1.16.0",
         "cachetools>=5.0,<5.4",
         "pycryptodome>=3.13,<3.18",
