@@ -126,8 +126,10 @@ class CredentialProvider():
 
         client_id_env = self._get_env('AD_API_CLIENT_ID'),
         client_secret_env = self._get_env('AD_API_CLIENT_SECRET')
+        refresh_token_env = self._get_env('AD_API_REFRESH_TOKEN')
+        profile_id_env = self._get_env('AD_API_PROFILE_ID')
 
-        if client_id_env is not None and client_secret_env is not None:
+        if client_id_env is not None and client_secret_env is not None and refresh_token_env is not None and profile_id_env is not None:
 
             try:
                 self.credentials = FromEnvCredentialProvider().load_credentials()
