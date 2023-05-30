@@ -7,6 +7,8 @@ from ad_api.base import BaseClient
 from .credentials import Credentials
 from .access_token_response import AccessTokenResponse
 from .exceptions import AuthorizationError
+# from .credential_provider import CredentialProvider
+
 import os
 
 cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
@@ -20,9 +22,9 @@ class AccessTokenClient(BaseClient):
     grant_type = 'refresh_token'
     path = '/auth/o2/token'
 
-    def __init__(self, account='default', credentials=None, credentials_class=Credentials, proxies=None, verify=True, timeout=None):
-        super().__init__(account, credentials)
-        self.cred = credentials_class(self.credentials)
+    def __init__(self, credentials=None, proxies=None, verify=True, timeout=None):
+
+        self.cred = Credentials(credentials)
         self.timeout = timeout
         self.proxies = proxies
         self.verify = verify

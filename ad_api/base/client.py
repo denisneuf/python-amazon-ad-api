@@ -16,16 +16,13 @@ import gzip
 from zipfile import ZipFile
 import zipfile
 from urllib.parse import urlparse, quote
-
+from ad_api.base.credential_provider import CredentialProvider
 
 log = logging.getLogger(__name__)
 role_cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
 
 
 class Client(BaseClient):
-    access_token_client_class = AccessTokenClient
-    credentials_class = Credentials
-    grantless_scope = ''
 
     def __init__(
             self,
@@ -39,17 +36,15 @@ class Client(BaseClient):
             debug=False
     ):
 
-        super().__init__(account, credentials)
-        self.endpoint = marketplace.endpoint
-        self.debug = debug
-        self._auth = self.access_token_client_class(
-            account=account,
-            credentials=credentials,
-            credentials_class=self.credentials_class,
+        self.credentials = CredentialProvider(account, credentials).credentials
+        self._auth = AccessTokenClient(
+            credentials=self.credentials,
             proxies=proxies,
             verify=verify,
             timeout=timeout,
         )
+        self.endpoint = marketplace.endpoint
+        self.debug = debug
         self.timeout = timeout
         self.proxies = proxies
         self.verify = verify
@@ -58,9 +53,9 @@ class Client(BaseClient):
     def headers(self):
         return {
             'User-Agent': self.user_agent,
-            'Amazon-Advertising-API-ClientId': self.credentials.client_id,
+            'Amazon-Advertising-API-ClientId': self.credentials['client_id'],
             'Authorization': 'Bearer %s' % self.auth.access_token,
-            'Amazon-Advertising-API-Scope': self.credentials.profile_id,
+            'Amazon-Advertising-API-Scope': self.credentials['profile_id'],
             'Content-Type': 'application/json'
         }
 
