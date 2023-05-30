@@ -22,7 +22,7 @@ class NegativeKeywordsV3(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
                              headers=headers)
 
-    @sp_endpoint('/sp/negativeKeywords/', method='POST')
+    @sp_endpoint('/sp/negativeKeywords', method='POST')
     def create_negative_keyword(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         Creating negative product keywords.
