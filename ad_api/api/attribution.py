@@ -1,3 +1,4 @@
+import json
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
 class Attribution(Client):
