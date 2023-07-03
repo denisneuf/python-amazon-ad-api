@@ -34,9 +34,9 @@ __all__ = [
     "Campaigns",
     "CampaignsV3",
     "AdGroups",
-    "AdGroupsV3"
+    "AdGroupsV3",
     "ProductAds",
-    "ProductAdsV3"
+    "ProductAdsV3",
     "BidRecommendations",
     "Keywords",
     "KeywordsV3",
@@ -60,5 +60,5 @@ __all__ = [
     "BudgetRecommendations",
     "BudgetRulesRecommendations",
     "ProductRecommendations",
-    "CampaignsBudgetUsage"
+    "CampaignsBudgetUsage",
 ]

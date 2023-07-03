@@ -41,5 +41,5 @@ __all__ = [
     "Stores",
     "Media",
     "Reports",
-    "Snapshots"
+    "Snapshots",
 ]

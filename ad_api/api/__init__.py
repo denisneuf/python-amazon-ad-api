@@ -44,5 +44,5 @@ __all__ = [
     "AdvertisingTestAccount",
     "Reports",
     "ValidationConfigurations",
-    "Recommendations"
+    "Recommendations",
 ]
