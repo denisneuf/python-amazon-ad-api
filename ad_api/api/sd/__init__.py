@@ -27,6 +27,6 @@ __all__ = [
     "BrandSafety",
     "Forecast",
     "Recommendations",
-    "CampaignsBudgetUsage"
-    "BudgetRules"
+    "CampaignsBudgetUsage",
+    "BudgetRules",
 ]

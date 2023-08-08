@@ -7,5 +7,5 @@ __all__ = [
     "Reports",
     "DspClient",
     "DspAccessTokenClient",
-    "DspCredentialProvider"
+    "DspCredentialProvider",
 ]
