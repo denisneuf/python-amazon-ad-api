@@ -90,7 +90,7 @@ class Client(BaseClient):
         except requests.exceptions.ConnectionError as e:
             error = {
                 'success': False,
-                'code': e.status_code,
+                'code': 503,
                 'response': e
             }
             next_token = None
