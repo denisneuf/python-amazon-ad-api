@@ -130,7 +130,7 @@ class Client(BaseClient):
         elif mode == "data":
 
             if bytes[0:2] == b'\x1f\x8b':
-                logging.info("Is gzip report")
+                log.info("Is gzip report")
                 buf = BytesIO(bytes)
                 f = gzip.GzipFile(fileobj=buf)
                 read_data = f.read()
@@ -138,7 +138,7 @@ class Client(BaseClient):
                 return ApiResponse(json.loads(read_data.decode('utf-8')), next_token, headers=r.headers)
 
             else:
-                logging.info("Is bytes snapshot")
+                log.info("Is bytes snapshot")
                 next_token = None
                 return ApiResponse(json.loads(r.text), next_token, headers=r.headers)
 
@@ -258,7 +258,7 @@ class Client(BaseClient):
         )
 
         if self.debug:
-            logging.info(headers or self.headers)
+            log.info(headers or self.headers)
 
 
             if params:
@@ -269,11 +269,11 @@ class Client(BaseClient):
             else:
                 message = method + " " + self.endpoint + path
 
-            logging.info(message)
+            log.info(message)
             if data is not None:
-                logging.info(data)
+                log.info(data)
 
-            logging.info(vars(res))
+            log.info(vars(res))
 
         return self._check_response(res)
 
