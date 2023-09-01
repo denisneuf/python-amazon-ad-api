@@ -33,7 +33,8 @@ class Client(BaseClient):
             proxies=None,
             verify=True,
             timeout=None,
-            debug=False
+            debug=False,
+            access_token=None,
     ):
 
         self.credentials = CredentialProvider(account, credentials).credentials
@@ -43,6 +44,7 @@ class Client(BaseClient):
             verify=verify,
             timeout=timeout,
         )
+        self._access_token = access_token
         self.endpoint = marketplace.endpoint
         self.debug = debug
         self.timeout = timeout
@@ -61,7 +63,7 @@ class Client(BaseClient):
 
     @property
     def auth(self) -> AccessTokenResponse:
-        return self._auth.get_auth()
+        return self._auth.get_auth() if self._access_token is None else AccessTokenResponse(access_token=self._access_token)
 
     @staticmethod
     def _download(self, params: dict = None, headers=None) -> ApiResponse:
