@@ -17,6 +17,7 @@ from zipfile import ZipFile
 import zipfile
 from urllib.parse import urlparse, quote
 from ad_api.base.credential_provider import CredentialProvider
+import ad_api.version as vd
 
 log = logging.getLogger(__name__)
 role_cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
@@ -50,6 +51,9 @@ class Client(BaseClient):
         self.timeout = timeout
         self.proxies = proxies
         self.verify = verify
+
+        version = vd.__version__
+        self.user_agent += f'-{version}'
 
     @property
     def headers(self):
