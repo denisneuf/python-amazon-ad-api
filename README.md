@@ -29,7 +29,7 @@ If you find this project is useful consider donating or [sponsor](https://github
 
 ### Overview
 
-You need obtain your own credentials with Amazon that may include an amazon developper account and access as seller or vendor. Please view the checklist of [Amazon Ads API onboarding overview](https://advertising.amazon.com/API/docs/en-us/setting-up/overview) 
+You need obtain your own credentials with Amazon that may include an amazon developer account and access as seller or vendor. Please view the checklist of [Amazon Ads API onboarding overview](https://advertising.amazon.com/API/docs/en-us/setting-up/overview) 
 
 
 ### Code Credentials
