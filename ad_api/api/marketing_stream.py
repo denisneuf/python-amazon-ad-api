@@ -24,8 +24,10 @@ class MarketingStream(Client):
             "Accept": json_version,
             "Content-Type": json_version
         }
-        body = Utils.convert_body(kwargs.pop('body'))
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'),
+                             data=Utils.convert_body(kwargs.pop('body'), False),
+                             params=kwargs,
+                             headers=headers)
 
     @sp_endpoint('/streams/subscriptions', method='GET')
     def list_stream_subscription(self, version: float = 1.0, **kwargs) -> ApiResponse:
@@ -45,7 +47,9 @@ class MarketingStream(Client):
             "Accept": json_version,
             "Content-Type": json_version
         }
-        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'),
+                             params=kwargs,
+                             headers=headers)
 
     @sp_endpoint('/streams/subscriptions/{}', method='GET')
     def get_stream_subscription(self, subscriptionId, version: float = 1.0, **kwargs) -> ApiResponse:
@@ -64,7 +68,9 @@ class MarketingStream(Client):
             "Accept": json_version,
             "Content-Type": json_version
         }
-        return self._request(fill_query_params(kwargs.pop('path'), subscriptionId), params=kwargs, headers=headers)
+        return self._request(fill_query_params(kwargs.pop('path'), subscriptionId),
+                             params=kwargs,
+                             headers=headers)
 
     @sp_endpoint('/streams/subscriptions/{}', method='PUT')
     def update_stream_subscription(self, subscriptionId, version: float = 1.0, **kwargs) -> ApiResponse:
@@ -88,6 +94,7 @@ class MarketingStream(Client):
             "Accept": json_version,
             "Content-Type": json_version
         }
-        body = Utils.convert_body(kwargs.pop('body'))
-        return self._request(fill_query_params(kwargs.pop('path'), subscriptionId), data=body, params=kwargs,
+        return self._request(fill_query_params(kwargs.pop('path'), subscriptionId),
+                             data=Utils.convert_body(kwargs.pop('body'), False),
+                             params=kwargs,
                              headers=headers)
