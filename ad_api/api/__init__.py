@@ -20,6 +20,7 @@ from .reports import Reports
 from .validation_configurations import ValidationConfigurations
 from .recommendations import Recommendations
 from .marketing_stream import MarketingStream
+from .stream import Stream
 
 __all__ = [
     "sp",
@@ -47,4 +48,5 @@ __all__ = [
     "ValidationConfigurations",
     "Recommendations",
     "MarketingStream",
+    "Stream",
 ]
