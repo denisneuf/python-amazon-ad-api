@@ -52,9 +52,8 @@ class AccessTokenClient(BaseClient):
         """
 
         cache_key = self._get_cache_key()
-        try:
-            access_token = cache[cache_key]
-        except KeyError:
+        access_token = cache.get(cache_key)
+        if access_token is None:
             request_url = self.scheme + self.host + self.path
             access_token = self._request(request_url, self.data, self.headers)
             cache[cache_key] = access_token
