@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class Stream(Client):
@@ -21,7 +21,8 @@ class Stream(Client):
         Returns:
             ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        body = Utils.convert_body(kwargs.pop('body'), wrap=False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/streams/subscriptions/{}', method='PUT')
     def update_subscription(self, subscription_id: str, **kwargs) -> ApiResponse:
@@ -35,8 +36,9 @@ class Stream(Client):
         Returns:
             ApiResponse
         """
+        body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(
-            fill_query_params(kwargs.pop('path'), subscription_id), data=kwargs.pop('body'), params=kwargs
+            fill_query_params(kwargs.pop('path'), subscription_id), data=body, params=kwargs
         )
 
     @sp_endpoint('/streams/subscriptions/{}', method='GET')
