@@ -1,7 +1,7 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
-class Campaigns(Client):
 
+class Campaigns(Client):
     @sp_endpoint('/sd/campaigns', method='GET')
     def list_campaigns(self, **kwargs) -> ApiResponse:
         r"""
@@ -26,7 +26,7 @@ class Campaigns(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/sd/campaigns', method='PUT')
     def edit_campaigns(self, **kwargs) -> ApiResponse:
@@ -82,10 +82,6 @@ class Campaigns(Client):
 
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
-
-
-
-
 
     @sp_endpoint('/sd/campaigns/{}', method='GET')
     def get_campaign(self, campaignId, **kwargs) -> ApiResponse:
@@ -145,7 +141,7 @@ class Campaigns(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/sd/campaigns/extended/{}', method='GET')
     def get_campaign_extended(self, campaignId, **kwargs) -> ApiResponse:

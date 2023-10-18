@@ -1,8 +1,5 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
-import os
 import json
-from json.decoder import JSONDecodeError
-from io import TextIOWrapper
 
 
 class Campaigns(Client):
@@ -16,23 +13,22 @@ class Campaigns(Client):
     @sp_endpoint('/v2/sp/campaigns', method='PUT')
     @Utils.deprecated
     def edit_single_campaign_assistant(
-            self,
-            campaign_id: int,
-            portfolio_id: int = None,
-            campaign_name: str = None,
-            po_number: str = None,
-            account_manager: str = None,
-            campaign_status: str = None,
-            daily_budget: int = None,
-            start_date: str = None,
-            end_date: str = None,
-            premium_bid_adjustment: bool = None,
-            strategy: str = None,
-            predicate: str or tuple = None,
-            percentage: str or tuple = None,
-            **kwargs
+        self,
+        campaign_id: int,
+        portfolio_id: int = None,
+        campaign_name: str = None,
+        po_number: str = None,
+        account_manager: str = None,
+        campaign_status: str = None,
+        daily_budget: int = None,
+        start_date: str = None,
+        end_date: str = None,
+        premium_bid_adjustment: bool = None,
+        strategy: str = None,
+        predicate: str or tuple = None,
+        percentage: str or tuple = None,
+        **kwargs,
     ) -> ApiResponse:
-
         r"""
         edit_single_campaign_assistant(campaign_id: int, portfolio_id: int = None, campaign_name: str, po_number: str = None, account_manager: str = None, campaign_status: str = None, daily_budget: int, start_date: str, end_date: str = None, premium_bid_adjustment: bool = None, strategy:str = None, predicate:str or tuple = None, percentage:int or tuple = None, **kwargs) -> ApiResponse
 
@@ -86,54 +82,35 @@ class Campaigns(Client):
             optional.update({'premiumBidAdjustment': premium_bid_adjustment})
 
         if strategy is not None and predicate is None and percentage is None:
-            optional.update(
-                {
-                    'bidding': {
-                        'strategy': strategy,
-                        'adjustments':[]
-                    }
-                }
-            )
+            optional.update({'bidding': {'strategy': strategy, 'adjustments': []}})
 
         if strategy is not None and predicate is not None and percentage is not None:
-
             if isinstance(predicate, str):
                 optional.update(
                     {
                         'bidding': {
                             'strategy': strategy,
-                            'adjustments':
-                                [
-                                    {
-                                        'predicate': predicate,
-                                        'percentage': percentage
-                                    }
-                                ]
+                            'adjustments': [{'predicate': predicate, 'percentage': percentage}],
                         }
                     }
                 )
 
             if isinstance(predicate, tuple) and len(predicate) == 2 and len(percentage) == 2:
-
                 options = []
                 for i in range(len(predicate)):
                     option = {"predicate": predicate[i], "percentage": percentage[i]}
                     options.append(option)
 
-                bidding = {
-                    'strategy': strategy,
-                    'adjustments': options
-                }
+                bidding = {'strategy': strategy, 'adjustments': options}
 
                 dictionary = {}
                 dictionary["bidding"] = bidding
 
                 optional.update(dictionary)
 
-        required = \
-            {
-                'campaignId': campaign_id,
-            }
+        required = {
+            'campaignId': campaign_id,
+        }
 
         if not optional:
             description = 'No changes submitted for entity %s' % campaign_id
@@ -146,21 +123,23 @@ class Campaigns(Client):
 
     @sp_endpoint('/v2/sp/campaigns', method='POST')
     @Utils.deprecated
-    def create_single_campaign_assistant(self,
-                                         campaign_name: str,
-                                         targeting_type: str,
-                                         daily_budget: int,
-                                         start_date: str,
-                                         end_date: str = None,
-                                         campaign_status: str = "enabled",
-                                         portfolio_id: int = None,
-                                         po_number: str = None,
-                                         account_manager: str = None,
-                                         premium_bid_adjustment: bool = None,
-                                         strategy:str = None,
-                                         predicate:str or tuple = None,
-                                         percentage:int or tuple = None,
-                                         **kwargs) -> ApiResponse:
+    def create_single_campaign_assistant(
+        self,
+        campaign_name: str,
+        targeting_type: str,
+        daily_budget: int,
+        start_date: str,
+        end_date: str = None,
+        campaign_status: str = "enabled",
+        portfolio_id: int = None,
+        po_number: str = None,
+        account_manager: str = None,
+        premium_bid_adjustment: bool = None,
+        strategy: str = None,
+        predicate: str or tuple = None,
+        percentage: int or tuple = None,
+        **kwargs,
+    ) -> ApiResponse:
         r"""
         create_single_campaign_assistant(campaign_name: str,targeting_type: str, daily_budget: int, start_date: str, end_date: str = None, campaign_status: str = "enabled", portfolio_id: int = None, po_number: str = None, account_manager: str = None, premium_bid_adjustment: bool = False, strategy:str = None, predicate:str = None, percentage:int = None, **kwargs) -> ApiResponse
 
@@ -201,7 +180,6 @@ class Campaigns(Client):
             optional.update({'endDate': end_date})
 
         if premium_bid_adjustment is not None:
-
             optional.update({'premiumBidAdjustment': premium_bid_adjustment})
 
         if strategy is not None and predicate is not None and percentage is not None:
@@ -210,43 +188,32 @@ class Campaigns(Client):
                     {
                         'bidding': {
                             'strategy': strategy,
-                            'adjustments':
-                                [
-                                    {
-                                        'predicate': predicate,
-                                        'percentage': percentage
-                                    }
-                                ]
+                            'adjustments': [{'predicate': predicate, 'percentage': percentage}],
                         }
                     }
                 )
 
             if isinstance(predicate, tuple) and len(predicate) == 2 and len(percentage) == 2:
-
                 options = []
                 for i in range(len(predicate)):
                     option = {"predicate": predicate[i], "percentage": percentage[i]}
                     options.append(option)
 
-                bidding = {
-                    'strategy': strategy,
-                    'adjustments': options
-                }
+                bidding = {'strategy': strategy, 'adjustments': options}
 
                 dictionary = {}
                 dictionary["bidding"] = bidding
 
                 optional.update(dictionary)
-        
-        required = \
-            {
-                'name': campaign_name,
-                'campaignType': 'sponsoredProducts',
-                'targetingType': targeting_type,
-                'state': campaign_status,
-                'dailyBudget': daily_budget,
-                'startDate': start_date,
-            }
+
+        required = {
+            'name': campaign_name,
+            'campaignType': 'sponsoredProducts',
+            'targetingType': targeting_type,
+            'state': campaign_status,
+            'dailyBudget': daily_budget,
+            'startDate': start_date,
+        }
 
         if optional:
             required.update(optional)
@@ -401,7 +368,7 @@ class Campaigns(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaigns/extended/{}', method='GET')
     @Utils.deprecated

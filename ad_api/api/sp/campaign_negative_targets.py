@@ -1,7 +1,7 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class CampaignNegativeTargets(Client):
-
     @sp_endpoint('/sp/campaignNegativeTargets/delete', method='POST')
     def delete_campaign_negative_targets(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""
@@ -21,13 +21,9 @@ class CampaignNegativeTargets(Client):
             ApiResponse
         """
         json_version = 'application/vnd.spcampaignNegativeTargetingClause.v' + str(version) + "+json"
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/campaignNegativeTargets', method='POST')
     def create_campaign_negative_targets(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
@@ -57,16 +53,12 @@ class CampaignNegativeTargets(Client):
             ApiResponse
         """
         json_version = 'application/vnd.spCampaignNegativeTargetingClause.v' + str(version) + "+json"
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
         prefer_value = 'return=representation'
         if prefer:
             headers.update({"Prefer": prefer_value})
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/campaignNegativeTargets', method='PUT')
     def edit_negative_product_targets(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
@@ -96,17 +88,13 @@ class CampaignNegativeTargets(Client):
             ApiResponse
         """
         json_version = 'application/vnd.spNegativeTargetingClause.v' + str(version) + "+json"
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
 
         prefer_value = 'return=representation'
         if prefer:
             headers.update({"Prefer": prefer_value})
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/campaignNegativeTargets/list', method='POST')
     def list_campaign_negative_targets(self, version: int = 3, **kwargs) -> ApiResponse:
@@ -150,10 +138,6 @@ class CampaignNegativeTargets(Client):
         """
         content_type = 'application/vnd.spcampaignNegativeTargetingClause.v' + str(version) + '+json'
         accept = 'application/vnd.spCampaignNegativeTargetingClause.v' + str(version) + '+json'
-        headers = {
-            "Accept": accept,
-            "Content-Type": content_type
-        }
+        headers = {"Accept": accept, "Content-Type": content_type}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

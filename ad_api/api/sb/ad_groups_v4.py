@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 
 
 class AdGroupsV4(Client):
@@ -22,9 +22,7 @@ class AdGroupsV4(Client):
         """
 
         json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
-        headers = {
-            'Accept': json_ressource
-        }
+        headers = {'Accept': json_ressource}
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
@@ -44,9 +42,7 @@ class AdGroupsV4(Client):
         """
 
         json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
-        headers = {
-            'Accept': json_ressource
-        }
+        headers = {'Accept': json_ressource}
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
@@ -69,12 +65,9 @@ class AdGroupsV4(Client):
         """
 
         json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
-        headers = {
-            'Accept': json_ressource
-        }
+        headers = {'Accept': json_ressource}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False),
-                             params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint("/sb/v4/adGroups/delete", method="POST")
     def delete_ad_groups(self, version: int = 4, **kwargs) -> ApiResponse:
@@ -90,10 +83,6 @@ class AdGroupsV4(Client):
         """
 
         json_ressource = 'application/vnd.sbadgroupresource.v' + str(version) + "+json"
-        headers = {
-            'Accept': json_ressource
-        }
+        headers = {'Accept': json_ressource}
 
-        return self._request(kwargs.pop('path'), Utils.convert_body(kwargs.pop('body'), False),
-                             params=kwargs, headers=headers)
-
+        return self._request(kwargs.pop('path'), Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

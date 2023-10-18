@@ -7,6 +7,7 @@ from ad_api.base import BaseClient
 from .credentials import Credentials
 from .access_token_response import AccessTokenResponse
 from .exceptions import AuthorizationError
+
 # from .credential_provider import CredentialProvider
 
 import os
@@ -23,7 +24,6 @@ class AccessTokenClient(BaseClient):
     path = '/auth/o2/token'
 
     def __init__(self, credentials=None, proxies=None, verify=True, timeout=None):
-
         self.cred = Credentials(credentials)
         self.timeout = timeout
         self.proxies = proxies
@@ -61,11 +61,7 @@ class AccessTokenClient(BaseClient):
 
     def authorize_auth_code(self, auth_code):
         request_url = self.scheme + self.host + self.path
-        res = self._request(
-            request_url,
-            data=self._auth_code_request_body(auth_code),
-            headers=self.headers
-        )
+        res = self._request(request_url, data=self._auth_code_request_body(auth_code), headers=self.headers)
         return res
 
     def _auth_code_request_body(self, auth_code):
@@ -73,7 +69,7 @@ class AccessTokenClient(BaseClient):
             'grant_type': 'authorization_code',
             'code': auth_code,
             'client_id': self.cred.client_id,
-            'client_secret': self.cred.client_secret
+            'client_secret': self.cred.client_secret,
         }
 
     @property
@@ -82,17 +78,12 @@ class AccessTokenClient(BaseClient):
             'grant_type': self.grant_type,
             'client_id': self.cred.client_id,
             'refresh_token': self.cred.refresh_token,
-            'client_secret': self.cred.client_secret
+            'client_secret': self.cred.client_secret,
         }
 
     @property
     def headers(self):
-        return {
-            'User-Agent': self.user_agent,
-            'content-type': self.content_type
-        }
+        return {'User-Agent': self.user_agent, 'content-type': self.content_type}
 
     def _get_cache_key(self, token_flavor=''):
-        return 'access_token_' + hashlib.md5(
-            (token_flavor + self.cred.refresh_token).encode('utf-8')
-        ).hexdigest()
+        return 'access_token_' + hashlib.md5((token_flavor + self.cred.refresh_token).encode('utf-8')).hexdigest()

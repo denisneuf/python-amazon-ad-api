@@ -1,7 +1,7 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
-class BidRecommendationsV3(Client):
 
+class BidRecommendationsV3(Client):
     @sp_endpoint('/sp/targets/bid/recommendations', method='POST')
     def get_bid_recommendations(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""
@@ -54,8 +54,6 @@ class BidRecommendationsV3(Client):
 
         json_version = 'application/vnd.spthemebasedbidrecommendation.v' + str(version) + "+json"
 
-        headers = {
-            "Content-Type": json_version
-        }
+        headers = {"Content-Type": json_version}
 
         return self._request(fill_query_params(kwargs.pop('path')), data=kwargs.pop('body'), params=kwargs, headers=headers)

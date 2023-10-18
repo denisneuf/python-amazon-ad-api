@@ -37,9 +37,7 @@ class Stream(Client):
             ApiResponse
         """
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
-        return self._request(
-            fill_query_params(kwargs.pop('path'), subscription_id), data=body, params=kwargs
-        )
+        return self._request(fill_query_params(kwargs.pop('path'), subscription_id), data=body, params=kwargs)
 
     @sp_endpoint('/streams/subscriptions/{}', method='GET')
     def get_subscription(self, subscription_id: str, **kwargs) -> ApiResponse:

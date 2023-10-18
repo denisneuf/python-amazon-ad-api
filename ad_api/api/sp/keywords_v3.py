@@ -1,8 +1,7 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 
 
 class KeywordsV3(Client):
-
     @sp_endpoint('/sp/keywords/list', method='POST')
     def list_keywords(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""
@@ -14,13 +13,9 @@ class KeywordsV3(Client):
             ApiResponse
         """
         json_version = 'application/vnd.spKeyword.v' + str(version) + "+json"
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/keywords', method='POST')
     def create_keyword(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
@@ -41,17 +36,13 @@ class KeywordsV3(Client):
         """
         json_version = 'application/vnd.spKeyword.v' + str(version) + "+json"
 
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
 
         prefer_value = 'return=representation'
         if prefer:
             headers.update({"Prefer": prefer_value})
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/keywords', method='PUT')
     def edit_keyword(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
@@ -68,17 +59,13 @@ class KeywordsV3(Client):
         """
 
         json_version = 'application/vnd.spKeyword.v' + str(version) + "+json"
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
 
         prefer_value = 'return=representation'
         if prefer:
             headers.update({"Prefer": prefer_value})
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/keywords/delete', method='POST')
     def delete_keywords(self, version: int = 3, **kwargs) -> ApiResponse:
@@ -94,10 +81,6 @@ class KeywordsV3(Client):
         """
 
         json_version = 'application/vnd.spKeyword.v' + str(version) + "+json"
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

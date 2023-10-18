@@ -1,8 +1,9 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
+
 class Recommendations(Client):
-    """
-    """
+    """ """
+
     @sp_endpoint('/recommendations/list', method='POST')
     def list_recommendations(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
@@ -85,4 +86,9 @@ class Recommendations(Client):
         """
         schema_version = 'application/vnd.updateRecommendationRequest.v' + str(version) + '+json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
-        return self._request(fill_query_params(kwargs.pop('path'), recommendationId), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+        return self._request(
+            fill_query_params(kwargs.pop('path'), recommendationId),
+            data=Utils.convert_body(kwargs.pop('body'), False),
+            params=kwargs,
+            headers=headers,
+        )

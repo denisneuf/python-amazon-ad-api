@@ -1,7 +1,7 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
-class BrandSafety(Client):
 
+class BrandSafety(Client):
     @sp_endpoint('/sd/brandSafety/deny', method='GET')
     def list_brand_safety(self, **kwargs) -> ApiResponse:
         r"""
@@ -17,7 +17,6 @@ class BrandSafety(Client):
 
         """
         return self._request(kwargs.pop('path'), params=kwargs)
-
 
     @sp_endpoint('/sd/brandSafety/deny', method='POST')
     def post_brand_safety(self, **kwargs) -> ApiResponse:
@@ -82,7 +81,6 @@ class BrandSafety(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), requestId), params=kwargs)
-
 
     @sp_endpoint('/sd/brandSafety/status', method='GET')
     def list_brand_safety_requests_history(self, **kwargs) -> ApiResponse:

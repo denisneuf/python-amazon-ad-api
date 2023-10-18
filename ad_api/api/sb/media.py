@@ -1,9 +1,11 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, ApiResponse
+
 
 class Media(Client):
     """
     Use this interface to request and retrieve store information. This can be used for Sponsored Brands campaign creation, to pull the store URL information, and for asset registration for Stores.
     """
+
     @sp_endpoint('/media/upload', method='POST')
     def create_media(self, **kwargs) -> ApiResponse:
         """

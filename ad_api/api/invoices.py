@@ -1,7 +1,7 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
-class Invoices(Client):
 
+class Invoices(Client):
     @sp_endpoint('/invoices', method='GET')
     def list_invoices(self, **kwargs) -> ApiResponse:
         r"""
@@ -22,7 +22,7 @@ class Invoices(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/invoices/{}', method='GET')
     def get_invoice(self, invoiceId, **kwargs) -> ApiResponse:

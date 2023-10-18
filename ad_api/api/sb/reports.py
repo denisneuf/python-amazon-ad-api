@@ -3,11 +3,11 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
 class Reports(Client):
     """Sponsored Brand Reports
-    
+
     Documentation: https://advertising.amazon.com/API/docs/en-us/reference/sponsored-brands/2/reports
-    
+
     """
-    
+
     @sp_endpoint('/v2/hsa/{}/report', method='POST')
     def post_report(self, recordType, **kwargs) -> ApiResponse:
         r"""Requests a Sponsored Brands report.
@@ -28,14 +28,14 @@ class Reports(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), recordType), data=kwargs.pop('body'), params=kwargs)
-    
+
     @sp_endpoint('/v2/reports/{}', method='GET')
     def get_report(self, reportId, **kwargs) -> ApiResponse:
         r"""Gets a previously requested report specified by identifier.
 
         Keyword Args
             | path **reportId** (string): [required] The report identifier.
-        
+
         Request body
             | **creativeType** (string): [optional] Set to `video` to retrieve a Sponsored Brands video report.
 
@@ -43,7 +43,7 @@ class Reports(Client):
             ApiResponse
         """
         return self._request(fill_query_params(kwargs.pop('path'), reportId), params=kwargs)
-    
+
     def download_report(self, **kwargs) -> ApiResponse:
         r"""Downloads the report previously get report specified by location
         (this is not part of the official Amazon Advertising API, is a helper

@@ -2,7 +2,6 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 
 
 class TargetsV3(Client):
-
     @sp_endpoint('/sp/targets/list', method='POST')
     def list_product_targets(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""
@@ -14,13 +13,9 @@ class TargetsV3(Client):
             ApiResponse
         """
         json_version = 'application/vnd.spTargetingClause.v' + str(version) + "+json"
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/targets', method='POST')
     def create_product_targets(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
@@ -42,17 +37,13 @@ class TargetsV3(Client):
             ApiResponse
         """
         json_version = 'application/vnd.spTargetingClause.v' + str(version) + "+json"
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
 
         prefer_value = 'return=representation'
         if prefer:
             headers.update({"Prefer": prefer_value})
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/targets', method='PUT')
     def edit_product_targets(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
@@ -72,17 +63,13 @@ class TargetsV3(Client):
             ApiResponse
         """
         json_version = 'application/vnd.spTargetingClause.v' + str(version) + "+json"
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
 
         prefer_value = 'return=representation'
         if prefer:
             headers.update({"Prefer": prefer_value})
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/targets/delete', method='POST')
     def delete_product_targets(self, version: int = 3, **kwargs) -> ApiResponse:
@@ -98,14 +85,9 @@ class TargetsV3(Client):
             ApiResponse
         """
         json_version = 'application/vnd.spTargetingClause.v' + str(version) + "+json"
-        headers = {
-            "Accept": json_version,
-            "Content-Type": json_version
-        }
+        headers = {"Accept": json_version, "Content-Type": json_version}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
-
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     # New adding from Targets v2
 
@@ -134,17 +116,13 @@ class TargetsV3(Client):
         prefer_value = 'return=representation'
         if prefer:
             headers.update({"Prefer": prefer_value})
-        # contentType = 'application/vnd.spproducttargeting.v3+json'
-        # headers = {'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
-
-
+        # contentType = 'application/vnd.spproducttargeting.v3+json'
+        # headers = {'Content-Type': contentType}
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     # TODO add the prefer header boolen and param the version in case upper version amazon release
     @sp_endpoint('/sp/targets/products/count', method='POST')
     def get_products_targets_count(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
-
         r"""
         Get number of targetable asins based on refinements provided by the user. Please use the GetTargetableCategories API or the GetCategoryRecommendationsForASINs API to retrieve the category ID. Please use the GetRefinementsByCategory API to retrieve refinements data for a category.
 
@@ -162,8 +140,7 @@ class TargetsV3(Client):
         prefer_value = 'return=representation'
         if prefer:
             headers.update({"Prefer": prefer_value})
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     # TODO add the prefer header boolen
     @sp_endpoint('/sp/targets/categories', method='GET')
@@ -185,11 +162,8 @@ class TargetsV3(Client):
             headers.update({"Prefer": prefer_value})
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers or False)
 
-
-
     @sp_endpoint('/sp/targets/category/{}/refinements', method='GET')
     def list_products_targets_category_refinements(self, categoryId, prefer: bool = False, **kwargs) -> ApiResponse:
-
         r"""
         Get a targeting clause specified by identifier.
 

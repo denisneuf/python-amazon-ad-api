@@ -1,9 +1,9 @@
 import json
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
+
 class Attribution(Client):
-    r"""
-    """
+    r""" """
 
     @sp_endpoint("/attribution/advertisers", method="GET")
     def get_advertisers(self, **kwargs) -> ApiResponse:
@@ -18,7 +18,6 @@ class Attribution(Client):
         Gets a list of all available publishers.
         """
         return self._request(fill_query_params(kwargs.pop("path")), params=kwargs)
-
 
     @sp_endpoint("/attribution/report", method="POST")
     def post_report(self, **kwargs) -> ApiResponse:
@@ -54,7 +53,6 @@ class Attribution(Client):
         resp.set_next_token(resp.payload.pop("cursorId"))
         return resp
 
-
     @sp_endpoint("/attribution/tags/macroTag", method="GET")
     def get_macro_tag(self, **kwargs) -> ApiResponse:
         r"""
@@ -74,7 +72,6 @@ class Attribution(Client):
 
         """
         return self._request(kwargs.pop('path'), params=kwargs)
-
 
     @sp_endpoint("/attribution/tags/nonMacroTemplateTag", method="GET")
     def get_non_macro_template_tag(self, **kwargs) -> ApiResponse:

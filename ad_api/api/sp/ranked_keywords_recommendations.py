@@ -1,4 +1,5 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class RankedKeywordsRecommendations(Client):
     """
@@ -7,8 +8,6 @@ class RankedKeywordsRecommendations(Client):
 
     @sp_endpoint('/sp/targets/keywords/recommendations', method='POST')
     def list_ranked_keywords_recommendations(self, version: int = 3, **kwargs) -> ApiResponse:
-
-
         r"""
         Get keyword recommendations
 

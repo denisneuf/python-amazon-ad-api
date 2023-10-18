@@ -1,9 +1,11 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
+
 class NegativeTargets(Client):
     """
     Use the Amazon Advertising API for Sponsored Brands for campaign, ad group, keyword, negative keyword, drafts, Stores, landing pages, and Brands management operations. For more information about Sponsored Brands, see the Sponsored Brands Support Center. For onboarding information, see the account setup topic.
     """
+
     @sp_endpoint('/sb/negativeTargets/list', method='POST')
     def list_negative_targets(self, **kwargs) -> ApiResponse:
         r"""

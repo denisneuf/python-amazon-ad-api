@@ -22,6 +22,7 @@ class Targets(Client):
 
 
     """
+
     @sp_endpoint('/v2/sp/targets', method='POST')
     @Utils.deprecated
     def create_products_targets(self, **kwargs) -> ApiResponse:
@@ -209,7 +210,6 @@ class Targets(Client):
         """
         return self._request(kwargs.pop('path'), params=kwargs)
 
-
     """
     Sponsored Products Targeting API. v3.0
     """
@@ -237,10 +237,8 @@ class Targets(Client):
         headers = {'Content-Type': contentType}
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
-
     @sp_endpoint('/sp/negativeTargets/brands/recommendations', method='GET')
     def list_negative_targets_brands_recommendations(self, **kwargs) -> ApiResponse:
-
         r"""
         Returns brands recommended for negative targeting. Only available for Sellers and Vendors. These recommendations include your own brands because targeting your own brands usually results in lower performance than targeting competitors' brands.
 
@@ -258,7 +256,6 @@ class Targets(Client):
 
     @sp_endpoint('/sp/targets/products/count', method='POST')
     def get_products_targets_count(self, **kwargs) -> ApiResponse:
-
         r"""
         Get number of targetable asins based on refinements provided by the user. Please use the GetTargetableCategories API or the GetCategoryRecommendationsForASINs API to retrieve the category ID. Please use the GetRefinementsByCategory API to retrieve refinements data for a category.
 
@@ -292,7 +289,6 @@ class Targets(Client):
 
     @sp_endpoint('/sp/negativeTargets/brands/search', method='POST')
     def list_negative_targets_brands_search(self, **kwargs) -> ApiResponse:
-
         r"""
         Returns brands related to keyword input for negative targeting.
 
@@ -311,7 +307,6 @@ class Targets(Client):
 
     @sp_endpoint('/sp/targets/category/{}/refinements', method='GET')
     def list_products_targets_category_refinements(self, categoryId, **kwargs) -> ApiResponse:
-
         r"""
         Get a targeting clause specified by identifier.
 

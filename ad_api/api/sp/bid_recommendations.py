@@ -1,7 +1,7 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
-class BidRecommendations(Client):
 
+class BidRecommendations(Client):
     @sp_endpoint('/v2/sp/adGroups/{}/bidRecommendations', method='GET')
     def get_ad_group_bid_recommendations(self, adGroupId, **kwargs) -> ApiResponse:
         r"""
@@ -17,7 +17,6 @@ class BidRecommendations(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs)
-
 
     @sp_endpoint('/v2/sp/keywords/{}/bidRecommendations', method='GET')
     def get_keyword_bid_recommendations(self, keywordId, **kwargs) -> ApiResponse:

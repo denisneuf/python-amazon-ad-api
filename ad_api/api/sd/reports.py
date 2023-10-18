@@ -3,12 +3,12 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
 class Reports(Client):
     """Sponsored Display Reports
-    
+
     Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-display/3-0/openapi#/
-    
+
     The Sponsored Display API supports creation of reports for campaigns, ad groups, product ads, targets, and asins. Create a ReportRequest object specifying the fields corresponding to performance data metrics to include in the report. See ReportRequest object for more information about the performance data metric fields and their descriptions.
     """
-    
+
     @sp_endpoint('/sd/{}/report', method='POST')
     def post_report(self, recordType, **kwargs) -> ApiResponse:
         r"""Requests a Sponsored Display report.
@@ -33,25 +33,25 @@ class Reports(Client):
             | **reportDate** (string): [optional] The date for which to retrieve the performance report in YYYYMMDD format. The time zone is specified by the profile used to request the report. If this date is today, then the performance report may contain partial information. Reports are not available for data older than 60 days. For details on data latency, see the Service Guarantees in the developer notes section.
             | **tactic** (string): [optional] The advertising tactic associated with the campaign. The following table lists available tactic names: T00001, T00020, T00030, remarketing
             | **metrics** (string) [optional] A comma-separated list of the metrics to be included in the report. The following tables summarize report metrics which can be requested via the reports interface. Different report types can use different metrics. Note that ASIN reports only return data for either keywords or targets, but not both.
-        
+
         Returns:
             ApiResponse
-        
+
         """
         return self._request(fill_query_params(kwargs.pop('path'), recordType), data=kwargs.pop('body'), params=kwargs)
-    
+
     @sp_endpoint('/v2/reports/{}', method='GET')
     def get_report(self, reportId, **kwargs) -> ApiResponse:
         r"""Gets a previously requested report specified by identifier.
 
         Keyword Args
             | path **reportId** (string): [required] The report identifier.
-        
+
         Returns:
             ApiResponse
         """
         return self._request(fill_query_params(kwargs.pop('path'), reportId), params=kwargs)
-    
+
     def download_report(self, **kwargs) -> ApiResponse:
         r"""Downloads the report previously get report specified by location
         (this is not part of the official Amazon Advertising API, is a helper

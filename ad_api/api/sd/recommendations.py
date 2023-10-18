@@ -1,7 +1,7 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class Recommendations(Client):
-
     @sp_endpoint('/sd/recommendations/creative/headline', method='POST')
     def list_headline_recommendations(self, version: float = 4.0, **kwargs) -> ApiResponse:
         r"""
@@ -20,7 +20,5 @@ class Recommendations(Client):
             ApiResponse
         """
         schema = 'application/vnd.sdheadlinerecommendationrequest.v' + str(version) + "+json"
-        headers = {
-            'Content-Type': schema
-        }
+        headers = {'Content-Type': schema}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

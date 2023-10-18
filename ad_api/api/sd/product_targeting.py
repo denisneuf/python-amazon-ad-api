@@ -1,5 +1,6 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
+
 class Targets(Client):
     """Amazon Advertising API for Sponsored Display
 
@@ -10,6 +11,7 @@ class Targets(Client):
     This specification is available for download from the `Advertising API developer portal <https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-display/3-0/openapi.yaml>`_.
 
     """
+
     @sp_endpoint('/sd/targets', method='GET')
     def list_products_targets(self, **kwargs) -> ApiResponse:
         r"""
@@ -133,8 +135,6 @@ class Targets(Client):
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
-
-
     @sp_endpoint('/sd/targets/{}', method='GET')
     def get_products_target(self, targetId, **kwargs) -> ApiResponse:
         r"""
@@ -195,4 +195,3 @@ class Targets(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), targetId), params=kwargs)
-

@@ -1,7 +1,7 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class BudgetRulesRecommendations(Client):
-
     @sp_endpoint('/sp/campaigns/budgetRules/recommendations', method='POST')
     def list_campaigns_budget_rules_recommendations(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""

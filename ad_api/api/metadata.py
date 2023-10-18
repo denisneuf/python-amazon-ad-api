@@ -1,8 +1,8 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class Metadata(Client):
-    r"""
-    """
+    r""" """
 
     @sp_endpoint('/product/metadata', method='POST')
     def get_products_metadata(self, **kwargs) -> ApiResponse:

@@ -1,7 +1,7 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
-class AdGroups(Client):
 
+class AdGroups(Client):
     @sp_endpoint('/sd/adGroups', method='GET')
     def list_ad_groups(self, **kwargs) -> ApiResponse:
         r"""
@@ -28,7 +28,7 @@ class AdGroups(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/sd/adGroups', method='PUT')
     def edit_ad_groups(self, **kwargs) -> ApiResponse:
@@ -73,7 +73,6 @@ class AdGroups(Client):
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
-
     @sp_endpoint('/sd/adGroups/{}', method='GET')
     def get_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
         r"""
@@ -90,7 +89,6 @@ class AdGroups(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), adGroupId), params=kwargs)
-
 
     @sp_endpoint('/sd/adGroups/{}', method='DELETE')
     def delete_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
@@ -133,7 +131,7 @@ class AdGroups(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/sd/adGroups/extended/{}', method='GET')
     def get_ad_group_extended(self, adGroupId, **kwargs) -> ApiResponse:

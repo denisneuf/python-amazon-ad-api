@@ -27,7 +27,7 @@ class ProductAds(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/productAds/extended', method='GET')
     @Utils.deprecated
@@ -54,7 +54,7 @@ class ProductAds(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/productAds/{}', method='GET')
     @Utils.deprecated

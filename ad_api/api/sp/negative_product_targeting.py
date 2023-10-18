@@ -2,7 +2,6 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 
 
 class NegativeTargets(Client):
-
     @sp_endpoint('/v2/sp/negativeTargets', method='POST')
     @Utils.deprecated
     def create_negative_targets(self, **kwargs) -> ApiResponse:

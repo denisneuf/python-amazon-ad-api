@@ -1,9 +1,17 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils, MarketplacesIds, Currencies, CurrencySymbols
+from ad_api.base import (
+    Client,
+    sp_endpoint,
+    ApiResponse,
+    Utils,
+    MarketplacesIds,
+    Currencies,
+)
 import json
 
+
 class Localization(Client):
-    """
-    """
+    """ """
+
     @sp_endpoint('/currencies/localize', method='POST')
     def get_currency_extended(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
@@ -33,7 +41,7 @@ class Localization(Client):
         }
 
         """
-        json_version = "application/vnd.currencylocalization.v"+str(version)+"+json"
+        json_version = "application/vnd.currencylocalization.v" + str(version) + "+json"
         headers = {"Content-Type": json_version}
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         source = json.loads(body)
@@ -48,7 +56,6 @@ class Localization(Client):
 
         # "application/vnd.currencylocalization.v1+json"
         if version == 1:
-
             localized_currency_responses = api_response.payload.get("localizedCurrencyResponses")
             for i in range(len(source_currency_requests)):
                 amount = source_currency_requests[i].get("currency")['amount']
@@ -57,7 +64,7 @@ class Localization(Client):
                         'amount': amount,
                         'country_code': source_country_code,
                         'currency': source_currency,
-                        'source_marketplace_id': source_marketplace_id
+                        'source_marketplace_id': source_marketplace_id,
                     }
                 )
                 localized_currencies = localized_currency_responses[i].get("localizedCurrencies")
@@ -69,15 +76,11 @@ class Localization(Client):
 
         # # "application/vnd.currencylocalization.v1+json"
         if version == 2:
-
             localized_currency_responses = api_response.payload.get("localizedCurrencyResponses")
             for localized_localized_currency_response in localized_currency_responses:
-                localized_localized_currency_response.get("sourceCurrency").update(
-                    {'country_code': source_country_code})
-                localized_localized_currency_response.get("sourceCurrency").update(
-                    {'currency': source_currency})
-                localized_localized_currency_response.get("sourceCurrency").update(
-                    {'source_marketplace_id': source_marketplace_id})
+                localized_localized_currency_response.get("sourceCurrency").update({'country_code': source_country_code})
+                localized_localized_currency_response.get("sourceCurrency").update({'currency': source_currency})
+                localized_localized_currency_response.get("sourceCurrency").update({'source_marketplace_id': source_marketplace_id})
 
                 localized_currencies = localized_localized_currency_response.get("localizedCurrencies")
                 for key, value in localized_currencies.items():
@@ -96,7 +99,6 @@ class Localization(Client):
                     localized_currency.update({'country_code': MarketplacesIds(key).name})
 
         return api_response
-
 
     @sp_endpoint('/currencies/localize', method='POST')
     def get_currency(self, version: int = 1, **kwargs) -> ApiResponse:
@@ -131,7 +133,7 @@ class Localization(Client):
 
         """
 
-        json_version = "application/vnd.currencylocalization.v"+str(version)+"+json"
+        json_version = "application/vnd.currencylocalization.v" + str(version) + "+json"
         headers = {"Content-Type": json_version}
 
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
@@ -175,7 +177,7 @@ class Localization(Client):
         }
         """
 
-        json_version = "application/vnd.productlocalization.v"+str(version)+"+json"
+        json_version = "application/vnd.productlocalization.v" + str(version) + "+json"
         headers = {"Content-Type": json_version}
 
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
@@ -223,7 +225,7 @@ class Localization(Client):
         }
 
         """
-        json_version = "application/vnd.keywordlocalization.v"+str(version)+"+json"
+        json_version = "application/vnd.keywordlocalization.v" + str(version) + "+json"
         headers = {"Content-Type": json_version}
 
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
@@ -274,4 +276,3 @@ class Localization(Client):
 
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
-

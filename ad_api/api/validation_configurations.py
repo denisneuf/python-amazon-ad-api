@@ -1,5 +1,5 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
-import logging
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class ValidationConfigurations(Client):
     """Validation Configurations API Version 3
@@ -29,7 +29,6 @@ class ValidationConfigurations(Client):
         headers = {'Accept': accept, 'Content-Type': contentType}
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
-
 
     @sp_endpoint('/validationConfigurations/targetingClauses', method='POST')
     def retrieve_validation_targeting_clauses(self, **kwargs) -> ApiResponse:

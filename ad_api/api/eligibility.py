@@ -1,10 +1,10 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 import json
 import logging
 
+
 class Eligibility(Client):
-    r"""
-    """
+    r""" """
 
     @sp_endpoint('/eligibility/product/list', method='POST')
     def get_eligibility(self, **kwargs) -> ApiResponse:
@@ -30,9 +30,8 @@ class Eligibility(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
-
     @sp_endpoint('/eligibility/product/list', method='POST')
-    def get_eligibility_assistant(self, asin_list: list, sku_list: list = None, ad_type: str = "sp", locale:str = "en-GB", **kwargs) -> ApiResponse:
+    def get_eligibility_assistant(self, asin_list: list, sku_list: list = None, ad_type: str = "sp", locale: str = "en-GB", **kwargs) -> ApiResponse:
         r"""
 
         get_eligibility_assistant(asin_list: list, sku_list: list = None, ad_type: str = "sp", locale:str = "en-GB") -> ApiResponse

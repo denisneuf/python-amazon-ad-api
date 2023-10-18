@@ -1,8 +1,9 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class Audiences(Client):
-    """
-    """
+    """ """
+
     @sp_endpoint('/audiences/taxonomy/list', method='POST')
     def list_audiences_taxonomy(self, **kwargs) -> ApiResponse:
         r"""

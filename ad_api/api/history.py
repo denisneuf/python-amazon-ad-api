@@ -1,8 +1,9 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class History(Client):
-    """
-    """
+    """ """
+
     @sp_endpoint('/history', method='POST')
     def get_history(self, **kwargs) -> ApiResponse:
         r"""
