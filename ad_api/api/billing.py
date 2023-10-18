@@ -57,3 +57,42 @@ class Billing(Client):
 
         body = Utils.convert_body(kwargs.pop('body'))
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+
+
+    @sp_endpoint('/billing/paymentMethods/list', method='POST')
+    def get_customer_payment_methods(self, **kwargs) -> ApiResponse:
+        r"""
+        """
+        accept_contentType = 'application/vnd.paymentmethods.v1+json'
+        headers = {'Accept': accept_contentType}
+        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
+
+
+
+    @sp_endpoint('/billing/invoices/pay', method='POST')
+    def pay_invoices(self, **kwargs) -> ApiResponse:
+        r"""
+        """
+        accept_contentType = 'application/vnd.invoices.v1+json'
+        headers = {'Accept': accept_contentType}
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/billing/paymentAgreements/list', method='POST')
+    def get_payment_agreements(self, **kwargs) -> ApiResponse:
+        r"""
+        """
+        accept_contentType = 'application/vnd.paymentagreements.v1+json'
+        headers = {'Accept': accept_contentType}
+        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
+
+
+    @sp_endpoint('/billing/paymentAgreements', method='POST')
+    def create_payment_agreements(self, **kwargs) -> ApiResponse:
+        r"""
+        """
+        accept_contentType = 'application/vnd.paymentagreements.v1+json'
+        headers = {'Accept': accept_contentType}
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)

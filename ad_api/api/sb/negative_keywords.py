@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 class NegativeKeywords(Client):
     """
@@ -47,7 +47,8 @@ class NegativeKeywords(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        body = Utils.convert_body(kwargs.pop('body'), wrap=False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/sb/negativeKeywords', method='POST')
     def create_negative_keywords(self, **kwargs) -> ApiResponse:
@@ -73,7 +74,8 @@ class NegativeKeywords(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        body = Utils.convert_body(kwargs.pop('body'), wrap=False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/sb/negativeKeywords/{}', method='GET')
     def get_negative_keyword(self, keywordId, **kwargs) -> ApiResponse:
