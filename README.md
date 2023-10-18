@@ -130,7 +130,7 @@ except AdvertisingApiException as error:
 
 ### Debug
 
-Use debug=True if you want see some logs like the header you submit to the api endpoint, the method and path used among the params and the data submitted if any, to trace possible errors.
+Use debug=True if you want see some logs like the header you submit to the api endpoint, the method and path used among the params and the data submitted if any, to trace some possible errors.
 
 ```python
 from ad_api.api import sponsored_products
