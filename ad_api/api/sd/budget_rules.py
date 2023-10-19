@@ -1,7 +1,7 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+
 
 class BudgetRules(Client):
-
     @sp_endpoint('/sd/campaigns/{}/budgetRules', method='POST')
     def create_campaign_budget_rules(self, campaignId, **kwargs) -> ApiResponse:
         r"""
@@ -15,7 +15,11 @@ class BudgetRules(Client):
             ApiResponse
 
         """
-        return self._request(fill_query_params(kwargs.pop('path'), campaignId), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
+        return self._request(
+            fill_query_params(kwargs.pop('path'), campaignId),
+            data=Utils.convert_body(kwargs.pop('body'), False),
+            params=kwargs,
+        )
 
     @sp_endpoint('/sd/campaigns/{}/budgetRules', method='GET')
     def get_budget_rules_campaign(self, campaignId, **kwargs) -> ApiResponse:
@@ -234,11 +238,3 @@ class BudgetRules(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), budgetRuleId), params=kwargs)
-
-
-
-
-
-
-
-

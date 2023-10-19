@@ -1,4 +1,5 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, ApiResponse
+
 
 class BidRecommendations(Client):
     """Amazon Advertising API for Sponsored Display
@@ -10,6 +11,7 @@ class BidRecommendations(Client):
     This specification is available for download from the `Advertising API developer portal <https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-display/3-0/openapi.yaml>`_.
 
     """
+
     @sp_endpoint('/sd/targets/bid/recommendations', method='POST')
     def list_targets_bid_recommendations(self, **kwargs) -> ApiResponse:
         r"""

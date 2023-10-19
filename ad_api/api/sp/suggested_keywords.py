@@ -1,7 +1,7 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
-class SuggestedKeywords(Client):
 
+class SuggestedKeywords(Client):
     @sp_endpoint('/v2/sp/adGroups/{}/suggested/keywords', method='GET')
     def get_keywords(self, adGroupId, **kwargs) -> ApiResponse:
         r"""

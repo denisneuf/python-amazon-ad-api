@@ -2,7 +2,6 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 
 
 class Keywords(Client):
-
     @sp_endpoint('/v2/sp/keywords/{}', method='GET')
     @Utils.deprecated
     def get_keyword(self, keywordId, **kwargs) -> ApiResponse:

@@ -1,7 +1,7 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class Forecast(Client):
-
     @sp_endpoint('/sd/forecasts', method='POST')
     def list_forecasts(self, **kwargs) -> ApiResponse:
         r"""

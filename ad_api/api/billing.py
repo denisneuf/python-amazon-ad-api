@@ -1,10 +1,9 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class Billing(Client):
-
     @sp_endpoint('/billing/statuses', method='POST')
     def list_billing_status(self, **kwargs) -> ApiResponse:
-
         r"""
         Get the billing status for a list of advertising accounts.
 
@@ -29,7 +28,6 @@ class Billing(Client):
 
         body = Utils.convert_body(kwargs.pop('body'), False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
-
 
     @sp_endpoint('/billing/notifications', method='POST')
     def list_billing_notifications(self, **kwargs) -> ApiResponse:
@@ -58,22 +56,16 @@ class Billing(Client):
         body = Utils.convert_body(kwargs.pop('body'))
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
 
-
-
     @sp_endpoint('/billing/paymentMethods/list', method='POST')
     def get_customer_payment_methods(self, **kwargs) -> ApiResponse:
-        r"""
-        """
+        r""" """
         accept_contentType = 'application/vnd.paymentmethods.v1+json'
         headers = {'Accept': accept_contentType}
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
 
-
-
     @sp_endpoint('/billing/invoices/pay', method='POST')
     def pay_invoices(self, **kwargs) -> ApiResponse:
-        r"""
-        """
+        r""" """
         accept_contentType = 'application/vnd.invoices.v1+json'
         headers = {'Accept': accept_contentType}
         body = Utils.convert_body(kwargs.pop('body'), False)
@@ -81,17 +73,14 @@ class Billing(Client):
 
     @sp_endpoint('/billing/paymentAgreements/list', method='POST')
     def get_payment_agreements(self, **kwargs) -> ApiResponse:
-        r"""
-        """
+        r""" """
         accept_contentType = 'application/vnd.paymentagreements.v1+json'
         headers = {'Accept': accept_contentType}
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
 
-
     @sp_endpoint('/billing/paymentAgreements', method='POST')
     def create_payment_agreements(self, **kwargs) -> ApiResponse:
-        r"""
-        """
+        r""" """
         accept_contentType = 'application/vnd.paymentagreements.v1+json'
         headers = {'Accept': accept_contentType}
         body = Utils.convert_body(kwargs.pop('body'), False)

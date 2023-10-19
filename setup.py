@@ -12,10 +12,19 @@ setup(
         "pytz>=2021.3,<2024.0",
         "confuse>=1.7,<2.1",
     ],
-    packages=['ad_api','ad_api.api','ad_api.auth','ad_api.base','ad_api.api.sp','ad_api.api.sb','ad_api.api.sd', 'ad_api.api.dsp'],
+    packages=[
+        'ad_api',
+        'ad_api.api',
+        'ad_api.auth',
+        'ad_api.base',
+        'ad_api.api.sp',
+        'ad_api.api.sb',
+        'ad_api.api.sd',
+        'ad_api.api.dsp',
+    ],
     url='https://github.com/denisneuf/python-amazon-ad-api',
     license='MIT',
     author='Daniel Alvaro',
     author_email='info@leadtech.es',
-    description='Python wrapper for the Amazon Advertising API'
+    description='Python wrapper for the Amazon Advertising API',
 )

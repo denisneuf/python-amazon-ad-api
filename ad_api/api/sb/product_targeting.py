@@ -1,9 +1,11 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
+
 class Targets(Client):
     """
     Use the Amazon Advertising API for Sponsored Brands for campaign, ad group, keyword, negative keyword, drafts, Stores, landing pages, and Brands management operations. For more information about Sponsored Brands, see the Sponsored Brands Support Center. For onboarding information, see the account setup topic.
     """
+
     @sp_endpoint('/sb/targets/list', method='POST')
     def list_products_targets(self, **kwargs) -> ApiResponse:
         r"""
@@ -33,7 +35,6 @@ class Targets(Client):
 
         # hotfix: up until now (2022-04-29) it just seems to consume application/json content
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
-
 
     @sp_endpoint('/sb/targets', method='PUT')
     def edit_products_targets(self, **kwargs) -> ApiResponse:

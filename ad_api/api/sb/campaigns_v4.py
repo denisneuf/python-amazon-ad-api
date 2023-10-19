@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 
 
 class CampaignsV4(Client):
@@ -19,7 +19,7 @@ class CampaignsV4(Client):
             | **budget** (float): [optional] The budget amount associated with the campaign.
             | **bid_optimization** (bool) [optional] Set to `true` to allow Amazon to automatically optimize bids for placements below top of search if omitted the server will use the default value of True
             | **bid_multiplier** (float minimum: -99 maximum: 99) [optional] A bid multiplier. Note that this field can only be set when 'bidOptimization' is set to false. Value is a percentage to two decimal places. Example: If set to -40.00 for a $5.00 bid, the resulting bid is $3.00.
-            | **end_date** (EndDate > string) [optional] The YYYYMMDD end date of the campaign. Must be greater than the value specified in the startDate field. If this property is not included in the request, the endDate value is not updated. If set to null, endDate is deleted from the draft campaign. [nullable: true] [pattern: ^\d{8}$]
+            | **end_date** (EndDate > string) [optional] The YYYYMMDD end date of the campaign. Must be greater than the value specified in the startDate field. If this property is not included in the request, the endDate value is not updated. If set to null, endDate is deleted from the draft campaign. [nullable: true] [pattern: ^\\d{8}$]
 
         Returns
             ApiResponse
@@ -31,8 +31,7 @@ class CampaignsV4(Client):
             "Accept": json_version,
         }
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False),
-                             params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns', method='PUT')
     def edit_campaigns(self, version: int = 4, **kwargs) -> ApiResponse:
@@ -47,7 +46,7 @@ class CampaignsV4(Client):
             | **budget** (float): [optional] The budget amount associated with the campaign.
             | **bid_optimization** (bool) [optional] Set to `true` to allow Amazon to automatically optimize bids for placements below top of search if omitted the server will use the default value of True
             | **bid_multiplier** (float minimum: -99 maximum: 99) [optional] A bid multiplier. Note that this field can only be set when 'bidOptimization' is set to false. Value is a percentage to two decimal places. Example: If set to -40.00 for a $5.00 bid, the resulting bid is $3.00.
-            | **end_date** (EndDate > string) [optional] The YYYYMMDD end date of the campaign. Must be greater than the value specified in the startDate field. If this property is not included in the request, the endDate value is not updated. If set to null, endDate is deleted from the draft campaign. [nullable: true] [pattern: ^\d{8}$]
+            | **end_date** (EndDate > string) [optional] The YYYYMMDD end date of the campaign. Must be greater than the value specified in the startDate field. If this property is not included in the request, the endDate value is not updated. If set to null, endDate is deleted from the draft campaign. [nullable: true] [pattern: ^\\d{8}$]
 
         Returns
             ApiResponse
@@ -57,8 +56,7 @@ class CampaignsV4(Client):
         json_version = 'application/vnd.sbcampaignresource.v' + str(version) + "+json"
         headers = {"Accept": json_version}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False),
-                             params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns/delete', method='POST')
     @Utils.notsupported
@@ -78,8 +76,7 @@ class CampaignsV4(Client):
         json_version = 'application/vnd.sbcampaignresource.v' + str(version) + "+json"
         headers = {"Accept": json_version}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs,
-                             headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns/list', method='POST')
     def list_campaigns(self, version: int = 4, **kwargs) -> ApiResponse:
@@ -106,5 +103,4 @@ class CampaignsV4(Client):
         json_version = 'application/vnd.sbcampaignresource.v' + str(version) + "+json"
         headers = {"Accept": json_version}
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False),
-                             params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

@@ -2,7 +2,6 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 
 
 class AdGroups(Client):
-
     @sp_endpoint('/v2/sp/adGroups', method='POST')
     @Utils.deprecated
     def create_ad_groups(self, **kwargs) -> ApiResponse:
@@ -75,7 +74,7 @@ class AdGroups(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/adGroups/{}', method='GET')
     @Utils.deprecated
@@ -138,7 +137,7 @@ class AdGroups(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/adGroups/extended/{}', method='GET')
     @Utils.deprecated

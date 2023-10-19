@@ -1,8 +1,7 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
-import logging
+
 
 class ManagerAccounts(Client):
-
     @sp_endpoint('/managerAccounts', method='GET')
     def list_manager_accounts(self, **kwargs) -> ApiResponse:
         r"""
@@ -37,7 +36,6 @@ class ManagerAccounts(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
-
     @sp_endpoint('/managerAccounts/{}/associate', method='POST')
     def associate_manager_accounts(self, managerAccountId: str, **kwargs) -> ApiResponse:
         r"""
@@ -69,7 +67,6 @@ class ManagerAccounts(Client):
 
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(fill_query_params(kwargs.pop('path'), managerAccountId), data=body, params=kwargs, headers=headers)
-
 
     @sp_endpoint('/managerAccounts/{}/disassociate', method='POST')
     def disassociate_manager_accounts(self, managerAccountId: str, **kwargs) -> ApiResponse:

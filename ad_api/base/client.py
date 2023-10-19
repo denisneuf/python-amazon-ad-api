@@ -3,7 +3,6 @@ from json import JSONDecodeError
 import logging
 from cachetools import TTLCache
 from requests import request
-from ad_api.auth.credentials import Credentials
 from ad_api.auth import AccessTokenClient, AccessTokenResponse
 from .api_response import ApiResponse
 from .base_client import BaseClient
@@ -24,20 +23,17 @@ role_cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)),
 
 
 class Client(BaseClient):
-
     def __init__(
-            self,
-            account='default',
-            marketplace: Marketplaces = Marketplaces[os.environ[
-                'AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.EU,
-            credentials=None,
-            proxies=None,
-            verify=True,
-            timeout=None,
-            debug=False,
-            access_token=None,
+        self,
+        account='default',
+        marketplace: Marketplaces = Marketplaces[os.environ['AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.EU,
+        credentials=None,
+        proxies=None,
+        verify=True,
+        timeout=None,
+        debug=False,
+        access_token=None,
     ):
-
         self.credentials = CredentialProvider(account, credentials).credentials
         self._auth = AccessTokenClient(
             credentials=self.credentials,
@@ -62,7 +58,7 @@ class Client(BaseClient):
             'Amazon-Advertising-API-ClientId': self.credentials['client_id'],
             'Authorization': 'Bearer %s' % self.auth.access_token,
             'Amazon-Advertising-API-Scope': self.credentials['profile_id'],
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         }
 
     @property
@@ -71,7 +67,6 @@ class Client(BaseClient):
 
     @staticmethod
     def _download(self, params: dict = None, headers=None) -> ApiResponse:
-
         location = params.get("url")
 
         try:
@@ -86,27 +81,15 @@ class Client(BaseClient):
             )
 
         except requests.exceptions.InvalidSchema as e:
-            error = {
-                'success': False,
-                'code': 400,
-                'response': e
-            }
+            error = {'success': False, 'code': 400, 'response': e}
             next_token = None
             return ApiResponse(error, next_token, headers=self.headers)
         except requests.exceptions.ConnectionError as e:
-            error = {
-                'success': False,
-                'code': 503,
-                'response': e
-            }
+            error = {'success': False, 'code': 503, 'response': e}
             next_token = None
             return ApiResponse(error, next_token, headers=self.headers)
         except requests.exceptions.RequestException as e:
-            error = {
-                'success': False,
-                'code': 503,
-                'response': e
-            }
+            error = {'success': False, 'code': 503, 'response': e}
             next_token = None
             return ApiResponse(error, next_token, headers=self.headers)
 
@@ -120,21 +103,18 @@ class Client(BaseClient):
 
         if name is None:
             o = urlparse(r.url)
-            file_name = o.path[1:o.path.find('.')]
+            file_name = o.path[1 : o.path.find('.')]
             name = file_name.replace("/", "-")
 
         if mode == "raw":
-
             next_token = None
             return ApiResponse(bytes, next_token, headers=r.headers)
 
         elif mode == "url":
-
             next_token = None
             return ApiResponse(r.url, next_token, headers=r.headers)
 
         elif mode == "data":
-
             if bytes[0:2] == b'\x1f\x8b':
                 log.info("Is gzip report")
                 buf = BytesIO(bytes)
@@ -188,7 +168,6 @@ class Client(BaseClient):
             return ApiResponse(name + ".json.gz", next_token, headers=r.headers)
 
         elif mode == "zip":
-
             if bytes[0:2] == b'\x1f\x8b':
                 buf = BytesIO(bytes)
                 f = gzip.GzipFile(fileobj=buf)
@@ -216,25 +195,23 @@ class Client(BaseClient):
             return ApiResponse(name + ".zip", next_token, headers=r.headers)
 
         else:
-
             error = {
                 'success': False,
                 'code': 400,
-                'response': 'The mode "%s" is not supported perhaps you could use "data", "raw", "url", "json", "zip" or "gzip"' % (
-                    mode)
+                'response': 'The mode "%s" is not supported perhaps you could use "data", "raw", "url", "json", "zip" or "gzip"' % (mode),
             }
             next_token = None
             return ApiResponse(error, next_token, headers=self.headers)
 
         raise NotImplementedError("Unknown mode")
 
-    def _request(self,
-                 path: str,
-                 data: str = None,
-                 params: dict = None,
-                 headers = None,
-                 ) -> ApiResponse:
-
+    def _request(
+        self,
+        path: str,
+        data: str = None,
+        params: dict = None,
+        headers=None,
+    ) -> ApiResponse:
         if params is None:
             params = {}
 
@@ -246,7 +223,6 @@ class Client(BaseClient):
             headers = base_header
 
         elif headers is not None:
-
             base_header = self.headers.copy()
             base_header.update(headers)
             headers = base_header
@@ -266,7 +242,6 @@ class Client(BaseClient):
         if self.debug:
             log.info(headers or self.headers)
 
-
             if params:
                 str_query = ""
                 for key, value in params.items():
@@ -285,20 +260,17 @@ class Client(BaseClient):
 
     @staticmethod
     def _check_response(res) -> ApiResponse:
-
-        content = vars(res).get('_content')
         headers = vars(res).get('headers')
         status_code = vars(res).get('status_code')
 
         if 200 <= res.status_code < 300:
-
             try:
                 js = res.json() or {}
             except JSONDecodeError:
                 js = {}
 
             try:
-                error = js.get('error', None) # Dict.get(key, default=None)
+                error = js.get('error', None)  # Dict.get(key, default=None)
             except AttributeError:
                 error = None
 
@@ -311,7 +283,6 @@ class Client(BaseClient):
             return ApiResponse(js, next_token, headers=headers)
 
         else:
-
             exception = get_exception_for_code(res.status_code)
 
             try:
@@ -319,8 +290,5 @@ class Client(BaseClient):
             except JSONDecodeError:
                 js = res.content
 
-
             raise exception(status_code, js, headers)
             exit(res.status_code)
-
-

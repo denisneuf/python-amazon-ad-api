@@ -1,8 +1,8 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 import json
 
-class Profiles(Client):
 
+class Profiles(Client):
     @sp_endpoint('/v2/profiles', method='GET')
     def list_profiles(self, **kwargs) -> ApiResponse:
         r"""
@@ -27,7 +27,6 @@ class Profiles(Client):
         """
         return self._request(kwargs.pop('path'), params=kwargs)
 
-
     @sp_endpoint('/v2/profiles', method='PUT')
     def update_single_profile_assistant(self, profile_id: int, daily_budget: int, **kwargs) -> ApiResponse:
         r"""
@@ -46,11 +45,10 @@ class Profiles(Client):
 
         """
 
-        required = \
-            {
-                'profileId': profile_id,
-                'dailyBudget': daily_budget,
-            }
+        required = {
+            'profileId': profile_id,
+            'dailyBudget': daily_budget,
+        }
 
         options = {}
         options.update({'path': kwargs.pop("path")})
@@ -60,7 +58,6 @@ class Profiles(Client):
 
         data_str = json.dumps([required])
         return self._request(options.pop('path'), data=data_str, params=options)
-
 
     @sp_endpoint('/v2/profiles', method='PUT')
     def update_profile(self, **kwargs) -> ApiResponse:
@@ -105,9 +102,8 @@ class Profiles(Client):
         """
         return self._request(fill_query_params(kwargs.pop('path'), profileId), params=kwargs)
 
-
     @sp_endpoint('/v2/profiles/registerBrand', method='PUT')
-    def register_brand_assistant(self, country_code:str, brand:str, **kwargs) -> ApiResponse:
+    def register_brand_assistant(self, country_code: str, brand: str, **kwargs) -> ApiResponse:
         r"""
         register_brand_assistant(country_code:str, brand:str) -> ApiResponse
 
@@ -122,11 +118,7 @@ class Profiles(Client):
             ApiResponse
 
         """
-        body = \
-        {
-            'countryCode': country_code,
-            'brand': brand
-        }
+        body = {'countryCode': country_code, 'brand': brand}
 
         data_str = json.dumps(body)
         return self._request(kwargs.pop('path'), data=data_str, params=kwargs)
@@ -168,8 +160,7 @@ class Profiles(Client):
             ApiResponse
 
         """
-        body = \
-        {
+        body = {
             'countryCode': country_code,
         }
 

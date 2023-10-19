@@ -7,8 +7,8 @@ from ad_api.base import AdvertisingTypeException
 import logging
 import functools
 
-class Utils:
 
+class Utils:
     def deprecated(func):
         """This is a decorator which can be used to mark functions
         as deprecated. It will result in a warning being emitted
@@ -20,7 +20,6 @@ class Utils:
             return func(*args, **kwargs)
 
         return new_func
-
 
     def notsupported(func):
         """This is a decorator which can be used to mark functions
@@ -34,12 +33,9 @@ class Utils:
 
         return new_func
 
-
     @staticmethod
     def convert_body(body, wrap: bool = True):
-
         if isinstance(body, str):
-
             if os.path.isfile(body):
                 body = open(body, mode="r", encoding="utf-8")
                 body = body.read()
@@ -81,9 +77,12 @@ class Utils:
 
         return body
 
-    def load_all_pages(throttle_by_seconds: float = 2, next_token_param='NextToken',
-                       use_rate_limit_header: bool = False,
-                       extras: dict = None):
+    def load_all_pages(
+        throttle_by_seconds: float = 2,
+        next_token_param='NextToken',
+        use_rate_limit_header: bool = False,
+        extras: dict = None,
+    ):
         """
         Load all pages if a next token is returned
 
@@ -116,10 +115,12 @@ class Utils:
 
         return decorator
 
-
-    def load_all_categories(throttle_by_seconds: float = 2, next_token_param='NextToken',
-                       use_rate_limit_header: bool = False,
-                       extras: dict = None):
+    def load_all_categories(
+        throttle_by_seconds: float = 2,
+        next_token_param='NextToken',
+        use_rate_limit_header: bool = False,
+        extras: dict = None,
+    ):
         """
         Load all pages if a next token is returned
 

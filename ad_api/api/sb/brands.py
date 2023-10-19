@@ -1,9 +1,11 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, ApiResponse
+
 
 class Brands(Client):
     """
     Use the Amazon Advertising API for Sponsored Brands for campaign, ad group, keyword, negative keyword, drafts, Stores, landing pages, and Brands management operations. For more information about Sponsored Brands, see the Sponsored Brands Support Center. For onboarding information, see the account setup topic.
     """
+
     @sp_endpoint('/brands', method='GET')
     def list_brands(self, **kwargs) -> ApiResponse:
         """
@@ -20,4 +22,4 @@ class Brands(Client):
             | '**brandRegistryName**': *string*, {'description': 'The Brand name.'}
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)

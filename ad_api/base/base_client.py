@@ -1,5 +1,6 @@
 import ad_api.version as vd
 
+
 class BaseClient:
     scheme = 'https://'
     method = 'GET'
@@ -10,5 +11,5 @@ class BaseClient:
         try:
             version = vd.__version__
             self.user_agent += f'-{version}'
-        except:
+        except Exception:
             pass

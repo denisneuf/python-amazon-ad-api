@@ -28,5 +28,5 @@ __all__ = [
     'AdvertisingTypeException',
     'CredentialProvider',
     'MissingCredentials',
-    'Utils'
+    'Utils',
 ]

@@ -1,10 +1,11 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 
 
 class AdvertisingTestAccount(Client):
     """
     Create test advertising account for 3P API integrators
     """
+
     @sp_endpoint('/testAccounts', method='POST')
     def create_test_account(self, **kwargs) -> ApiResponse:
         r"""
@@ -25,7 +26,6 @@ class AdvertisingTestAccount(Client):
         """
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
-
 
     @sp_endpoint('/testAccounts', method='GET')
     def get_test_account(self, **kwargs) -> ApiResponse:

@@ -2,7 +2,6 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 
 
 class NegativeKeywords(Client):
-
     @sp_endpoint('/v2/sp/negativeKeywords/{}', method='GET')
     @Utils.deprecated
     def get_negative_keyword(self, keywordId, **kwargs) -> ApiResponse:
@@ -87,7 +86,7 @@ class NegativeKeywords(Client):
 
             ApiResponse
 
-            """
+        """
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/negativeKeywords', method='GET')

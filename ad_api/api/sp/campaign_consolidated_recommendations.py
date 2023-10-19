@@ -1,7 +1,7 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse
+
 
 class CampaignsRecommendations(Client):
-
     @sp_endpoint('/sp/campaign/recommendations', method='GET')
     def list_campaigns_recommendations(self, **kwargs) -> ApiResponse:
         r"""

@@ -1,8 +1,8 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class CreativeAssets(Client):
-    """
-    """
+    """ """
 
     @sp_endpoint('/assets/register', method='POST')
     def register_asset(self, **kwargs) -> ApiResponse:

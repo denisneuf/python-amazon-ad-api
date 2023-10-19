@@ -1,7 +1,7 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
-class CampaignNegativeKeywords(Client):
 
+class CampaignNegativeKeywords(Client):
     @sp_endpoint('/v2/sp/campaignNegativeKeywords/{}', method='GET')
     @Utils.deprecated
     def get_campaign_negative_keyword(self, keywordId, **kwargs) -> ApiResponse:
@@ -82,7 +82,7 @@ class CampaignNegativeKeywords(Client):
 
             ApiResponse
 
-            """
+        """
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaignNegativeKeywords', method='GET')
@@ -109,7 +109,7 @@ class CampaignNegativeKeywords(Client):
 
             ApiResponse
 
-            """
+        """
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/sp/campaignNegativeKeywords', method='POST')

@@ -1,7 +1,7 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+
 
 class Creatives(Client):
-
     @sp_endpoint('/sd/creatives', method='GET')
     def list_creatives(self, **kwargs) -> ApiResponse:
         r"""

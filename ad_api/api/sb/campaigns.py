@@ -1,5 +1,6 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
+
 class Campaigns(Client):
     """
     Use the Amazon Advertising API for Sponsored Brands for campaign, ad group, keyword, negative keyword, drafts, Stores, landing pages, and Brands management operations. For more information about Sponsored Brands, see the Sponsored Brands Support Center. For onboarding information, see the account setup topic.
@@ -39,8 +40,8 @@ class Campaigns(Client):
             | **tags** (CampaignTags > string): [optional] A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers.
             | **budget** (float): [optional] The budget amount associated with the campaign.
             | **budget_type** (BudgetType > string) [optional] Note that for the lifetime budget type, `startDate` and `endDate` must be specified. The lifetime budget range is from 100 to 20,000,000 and daily budget range is 1 to 1,000,000 by default for most marketplaces. For the JP marketplace, the lifetime budget range is fromt 10,000 to 2,000,000,000, and the daily budget range is 100 to 21,000,000.., must be one of ["lifetime", "daily", ]
-            | **start_date** (StartDate > string) [optional] The YYYYMMDD start date of the campaign. Must be equal to or greater than the current date. If this property is not included in the request, the startDate value is not updated. If set to null, startDate is set to the current date. [nullable: true] [pattern: ^\d{8}$]
-            | **end_date** (EndDate > string) [optional] The YYYYMMDD end date of the campaign. Must be greater than the value specified in the startDate field. If this property is not included in the request, the endDate value is not updated. If set to null, endDate is deleted from the draft campaign. [nullable: true] [pattern: ^\d{8}$]
+            | **start_date** (StartDate > string) [optional] The YYYYMMDD start date of the campaign. Must be equal to or greater than the current date. If this property is not included in the request, the startDate value is not updated. If set to null, startDate is set to the current date. [nullable: true] [pattern: ^\\d{8}$]
+            | **end_date** (EndDate > string) [optional] The YYYYMMDD end date of the campaign. Must be greater than the value specified in the startDate field. If this property is not included in the request, the endDate value is not updated. If set to null, endDate is deleted from the draft campaign. [nullable: true] [pattern: ^\\d{8}$]
             | **ad_format** (AdFormat > string) [optional] The type of ad format. Enum: [ productCollection, video ]
             | **state** (State > string): [optional] Enum: [ enabled, paused, archived ]
             | **brand_entity_id** (str, writeOnly: true) [optional] The brand entity identifier. Note that this field is required for sellers. For more information, see the [Stores reference](https://advertising.amazon.com/API/docs/v2/reference/stores) or [Brands reference](https://advertising.amazon.com/API/docs/v3/reference/SponsoredBrands/Brands).
@@ -109,7 +110,7 @@ class Campaigns(Client):
             | **budget** (float): [optional] The budget amount associated with the campaign.
             | **bid_optimization** (bool) [optional] Set to `true` to allow Amazon to automatically optimize bids for placements below top of search if omitted the server will use the default value of True
             | **bid_multiplier** (float minimum: -99 maximum: 99) [optional] A bid multiplier. Note that this field can only be set when 'bidOptimization' is set to false. Value is a percentage to two decimal places. Example: If set to -40.00 for a $5.00 bid, the resulting bid is $3.00.
-            | **end_date** (EndDate > string) [optional] The YYYYMMDD end date of the campaign. Must be greater than the value specified in the startDate field. If this property is not included in the request, the endDate value is not updated. If set to null, endDate is deleted from the draft campaign. [nullable: true] [pattern: ^\d{8}$]
+            | **end_date** (EndDate > string) [optional] The YYYYMMDD end date of the campaign. Must be greater than the value specified in the startDate field. If this property is not included in the request, the endDate value is not updated. If set to null, endDate is deleted from the draft campaign. [nullable: true] [pattern: ^\\d{8}$]
 
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)

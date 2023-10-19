@@ -1,8 +1,9 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
+
 class Insights(Client):
-    """
-    """
+    """ """
+
     @sp_endpoint('/insights/audiences/{}/overlappingAudiences', method='GET')
     def get_insights(self, audienceId: str, version: int = 1, **kwargs) -> ApiResponse:
         r"""
@@ -36,6 +37,6 @@ class Insights(Client):
 
         """
 
-        contentType = 'application/vnd.insightsaudiencesoverlap.v'+str(version)+'+json'
+        contentType = 'application/vnd.insightsaudiencesoverlap.v' + str(version) + '+json'
         headers = {'Accept': contentType}
         return self._request(fill_query_params(kwargs.pop('path'), audienceId), params=kwargs, headers=headers)

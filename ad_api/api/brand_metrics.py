@@ -1,11 +1,11 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
-import requests
-import logging
+
 
 class BrandMetrics(Client):
     """
     Brand Metrics provides a new measurement solution that quantifies opportunities for your brand at each stage of the customer journey on Amazon, and helps brands understand the value of different shopping engagements that impact stages of that journey. You can now access Awareness and Consideration indices that compare your performance to peers using models predictive of consideration and sales. Brand Metrics quantifies the number of customers in the awareness and consideration marketing funnel stages and is built at scale to measure all shopping engagements with your brand on Amazon, not just ad-attributed engagements. Additionally, BM breaks out key shopping engagements at each stage of the shopping journey, along with the Return on Engagement, so you can measure the historical sales following a consideration event or purchase.
     """
+
     @sp_endpoint('/insights/brandMetrics/report', method='POST')
     def post_report(self, **kwargs) -> ApiResponse:
         r"""Requests a Sponsored Brands report.
@@ -39,7 +39,6 @@ class BrandMetrics(Client):
             ApiResponse
         """
         return self._request(fill_query_params(kwargs.pop('path'), reportId), params=kwargs)
-
 
     def download_report(self, **kwargs) -> ApiResponse:
         r"""Downloads the report previously get report specified by location

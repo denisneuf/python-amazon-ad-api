@@ -1,5 +1,6 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
+
 class NegativeTargets(Client):
     """Amazon Advertising API for Sponsored Display
 
@@ -50,7 +51,6 @@ class NegativeTargets(Client):
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
 
-
     @sp_endpoint('/sd/negativeTargets', method='POST')
     def create_negative_targets(self, **kwargs) -> ApiResponse:
         r"""
@@ -74,7 +74,6 @@ class NegativeTargets(Client):
 
         """
         return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
-
 
     @sp_endpoint('/sd/negativeTargets/{}', method='GET')
     def get_negative_target(self, targetId, **kwargs) -> ApiResponse:

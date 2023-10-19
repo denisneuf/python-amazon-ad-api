@@ -1,5 +1,6 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 
+
 class ProductAds(Client):
     """Sponsored Display Product Ads
 
@@ -31,7 +32,7 @@ class ProductAds(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/sd/productAds', method='PUT')
     def edit_product_ads(self, **kwargs) -> ApiResponse:
@@ -132,9 +133,7 @@ class ProductAds(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
-
-
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/sd/productAds/extended/{}', method='GET')
     def get_product_ad_extended(self, adId, **kwargs) -> ApiResponse:
@@ -152,7 +151,3 @@ class ProductAds(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), adId), params=kwargs)
-
-
-
-

@@ -1,13 +1,9 @@
-import sys
 import os
 import logging
 from enum import Enum
 from dotenv import dotenv_values
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s:%(levelname)s:%(message)s"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s:%(levelname)s:%(message)s")
 
 
 class AuthorizationError(Exception):
@@ -114,101 +110,101 @@ class Marketplaces(Enum):
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api.amazon.com',
         'currency': 'USD',
-        'token_url': 'api.amazon.com/auth/o2/token'
+        'token_url': 'api.amazon.com/auth/o2/token',
     }
     CA = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api.amazon.com',
         'currency': 'CAD',
-        'token_url': 'api.amazon.com/auth/o2/token'
+        'token_url': 'api.amazon.com/auth/o2/token',
     }
     MX = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api.amazon.com',
         'currency': 'MXN',
-        'token_url': 'api.amazon.com/auth/o2/token'
+        'token_url': 'api.amazon.com/auth/o2/token',
     }
     BR = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api.amazon.com',
         'currency': 'BRL',
-        'token_url': 'api.amazon.com/auth/o2/token'
+        'token_url': 'api.amazon.com/auth/o2/token',
     }
     # Far East
     JP = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-fe.amazon.com',
         'currency': 'JPY',
-        'token_url': 'api.amazon.co.jp/auth/o2/token'
+        'token_url': 'api.amazon.co.jp/auth/o2/token',
     }
     AU = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-fe.amazon.com',
         'currency': 'AUD',
-        'token_url': 'api.amazon.co.jp/auth/o2/token'
+        'token_url': 'api.amazon.co.jp/auth/o2/token',
     }
     SG = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-fe.amazon.com',
         'currency': 'SGD',
-        'token_url': 'api.amazon.co.jp/auth/o2/token'
+        'token_url': 'api.amazon.co.jp/auth/o2/token',
     }
     # Europe
     EU = ES = DE = FR = IT = NL = BE = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'EUR',
-        'token_url': 'api.amazon.co.uk/auth/o2/token'
+        'token_url': 'api.amazon.co.uk/auth/o2/token',
     }
     UK = GB = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'GBP',
-        'token_url': 'api.amazon.co.uk/auth/o2/token'
+        'token_url': 'api.amazon.co.uk/auth/o2/token',
     }
     AE = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'AED',
-        'token_url': 'api.amazon.co.uk/auth/o2/token'
+        'token_url': 'api.amazon.co.uk/auth/o2/token',
     }
     SE = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'SEK',
-        'token_url': 'api.amazon.co.uk/auth/o2/token'
+        'token_url': 'api.amazon.co.uk/auth/o2/token',
     }
     PL = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'PLN',
-        'token_url': 'api.amazon.co.uk/auth/o2/token'
+        'token_url': 'api.amazon.co.uk/auth/o2/token',
     }
     TR = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'TRY',
-        'token_url': 'api.amazon.co.uk/auth/o2/token'
+        'token_url': 'api.amazon.co.uk/auth/o2/token',
     }
     IN = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'INR',
-        'token_url': 'api.amazon.co.uk/auth/o2/token'
+        'token_url': 'api.amazon.co.uk/auth/o2/token',
     }
     SA = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'SAR',
-        'token_url': 'api.amazon.co.uk/auth/o2/token'
+        'token_url': 'api.amazon.co.uk/auth/o2/token',
     }
     EG = {
         'sandbox': 'advertising-api-test.amazon.com',
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'EGP',
-        'token_url': 'api.amazon.co.uk/auth/o2/token'
+        'token_url': 'api.amazon.co.uk/auth/o2/token',
     }
-    
+
     def __init__(self, info):
         config = dotenv_values(".env")
         AWS_ENVIRONMENT = os.environ.get('AWS_ENV') or config.get('AWS_ENV')

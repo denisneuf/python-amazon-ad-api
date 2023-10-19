@@ -1,8 +1,8 @@
 from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
+
 class Portfolios(Client):
-    """
-    """
+    """ """
 
     @sp_endpoint('/v2/portfolios', method='GET')
     def list_portfolios(self, **kwargs) -> ApiResponse:
@@ -24,7 +24,7 @@ class Portfolios(Client):
 
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/portfolios/extended', method='GET')
     def list_portfolios_extended(self, **kwargs) -> ApiResponse:
@@ -44,7 +44,7 @@ class Portfolios(Client):
         query **portfolioStateFilter**:string | Optional. The returned list includes portfolios with states matching those in the specified comma-delimited list. Available values : enabled, paused, archived
 
         """
-        return self._request(kwargs.pop('path'),  params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/portfolios/{}', method='GET')
     def get_portfolio(self, portfolioId, **kwargs) -> ApiResponse:
@@ -96,7 +96,6 @@ class Portfolios(Client):
         """
         body = Utils.convert_body(kwargs.pop('body'))
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
-
 
     @sp_endpoint('/v2/portfolios', method='PUT')
     def edit_portfolios(self, **kwargs) -> ApiResponse:
