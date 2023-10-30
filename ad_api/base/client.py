@@ -33,8 +33,9 @@ class Client(BaseClient):
         timeout=None,
         debug=False,
         access_token=None,
+        verify_additional_credentials=True,
     ):
-        self.credentials = CredentialProvider(account, credentials).credentials
+        self.credentials = CredentialProvider(account, credentials, verify_additional_credentials).credentials
         self._auth = AccessTokenClient(
             credentials=self.credentials,
             proxies=proxies,
