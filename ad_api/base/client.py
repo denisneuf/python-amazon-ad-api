@@ -54,13 +54,15 @@ class Client(BaseClient):
 
     @property
     def headers(self):
-        return {
+        data = {
             'User-Agent': self.user_agent,
             'Amazon-Advertising-API-ClientId': self.credentials['client_id'],
             'Authorization': 'Bearer %s' % self.auth.access_token,
-            'Amazon-Advertising-API-Scope': self.credentials['profile_id'],
             'Content-Type': 'application/json',
         }
+        if profile_id := self.credentials.get('profile_id'):
+            data['Amazon-Advertising-API-Scope'] = profile_id
+        return data
 
     @property
     def auth(self) -> AccessTokenResponse:
