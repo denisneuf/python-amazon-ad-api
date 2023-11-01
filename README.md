@@ -149,28 +149,6 @@ except AdvertisingApiException as error:
 ```
 
 
-### Set Up
-
-Create a .env file and put in the root of your project ( SANDBOX or PRODUCTION )
-```
-# environment variables defined inside a .env file
-AWS_ENV=SANDBOX
-```
-<pre><code>.
-├── .env
-└── campaign_client.py
-</code></pre>
-
-
-### Switcher SandBox Environment
-Use a .env to manage the environment. Is high recommended try the SANDBOX environment as some features may delete (archive) modules as campaigns, ad groups,...etc and this cannot be undone.
-
-```javascript
-AWS_ENV=SANDBOX
-# AWS_ENV=PRODUCTION
-```
-To use the sandbox you may create a test profile id to include in your credentials with this ***python amazon advertising api*** note the ***amz_country_code = "ES"*** refers to the marketplace you will create the test sandbox account.
-
 ```python
 import logging
 from ad_api.api import Profiles
