@@ -17,23 +17,25 @@ import zipfile
 from urllib.parse import urlparse, quote
 from ad_api.base.credential_provider import CredentialProvider
 import ad_api.version as vd
+from typing import Any, Dict, Optional
 
 log = logging.getLogger(__name__)
 role_cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
+_DEFAULT_MARKETPLACE = Marketplaces[os.environ['AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.EU
 
 
 class Client(BaseClient):
     def __init__(
         self,
-        account='default',
-        marketplace: Marketplaces = Marketplaces[os.environ['AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.EU,
-        credentials=None,
-        proxies=None,
-        verify=True,
-        timeout=None,
-        debug=False,
-        access_token=None,
-        verify_additional_credentials=True,
+        account: str = 'default',
+        marketplace: Marketplaces = _DEFAULT_MARKETPLACE,
+        credentials: Optional[Dict[str, str]] = None,
+        proxies: Optional[Dict[str, str]] = None,
+        verify: bool = True,
+        timeout: Optional[int] = None,
+        debug: bool = False,
+        access_token: Optional[str] = None,
+        verify_additional_credentials: bool = True,
     ):
         self.credentials = CredentialProvider(account, credentials, verify_additional_credentials).credentials
         self._auth = AccessTokenClient(
@@ -53,7 +55,7 @@ class Client(BaseClient):
         self.user_agent += f'-{version}'
 
     @property
-    def headers(self):
+    def headers(self) -> Dict[str, str]:
         data = {
             'User-Agent': self.user_agent,
             'Amazon-Advertising-API-ClientId': self.credentials['client_id'],
@@ -69,7 +71,7 @@ class Client(BaseClient):
         return self._auth.get_auth() if self._access_token is None else AccessTokenResponse(access_token=self._access_token)
 
     @staticmethod
-    def _download(self, params: dict = None, headers=None) -> ApiResponse:
+    def _download(self: Any, params: Optional[dict] = None, headers: Optional[dict] = None) -> ApiResponse:
         location = params.get("url")
 
         try:
@@ -211,9 +213,9 @@ class Client(BaseClient):
     def _request(
         self,
         path: str,
-        data: str = None,
-        params: dict = None,
-        headers=None,
+        data: Optional[str] = None,
+        params: Optional[dict] = None,
+        headers: Optional[dict] = None,
     ) -> ApiResponse:
         if params is None:
             params = {}
@@ -262,7 +264,7 @@ class Client(BaseClient):
         return self._check_response(res)
 
     @staticmethod
-    def _check_response(res) -> ApiResponse:
+    def _check_response(res: requests.Response) -> ApiResponse:
         headers = vars(res).get('headers')
         status_code = vars(res).get('status_code')
 
@@ -294,4 +296,3 @@ class Client(BaseClient):
                 js = res.content
 
             raise exception(status_code, js, headers)
-            exit(res.status_code)
