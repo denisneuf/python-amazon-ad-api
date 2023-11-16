@@ -29,6 +29,7 @@ from .budget_recommendations import BudgetRecommendations
 from .budget_rules_recommendations import BudgetRulesRecommendations
 from .product_recommendations import ProductRecommendations
 from .campaigns_budget_usage import CampaignsBudgetUsage
+from .schedule_based_bid_optimization import ScheduleBasedBidOptimizationRules
 
 __all__ = [
     "Campaigns",
@@ -61,4 +62,6 @@ __all__ = [
     "BudgetRulesRecommendations",
     "ProductRecommendations",
     "CampaignsBudgetUsage",
+    "ScheduleBasedBidOptimizationRules",
+    "BidRecommendationsV3",
 ]
