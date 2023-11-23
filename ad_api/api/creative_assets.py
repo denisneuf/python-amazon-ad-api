@@ -44,7 +44,7 @@ class CreativeAssets(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
-    @sp_endpoint('/assets/upload/', method='POST')
+    @sp_endpoint('/assets/upload', method='POST')
     def upload_asset(self, **kwargs) -> ApiResponse:
         r"""
 
@@ -60,7 +60,7 @@ class CreativeAssets(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
-    @sp_endpoint('/assets/search/', method='POST')
+    @sp_endpoint('/assets/search', method='POST')
     def search_assets(self, **kwargs) -> ApiResponse:
         r"""
 
@@ -107,7 +107,7 @@ class CreativeAssets(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
-    @sp_endpoint('/assets/', method='GET')
+    @sp_endpoint('/assets', method='GET')
     def get_asset(self, **kwargs) -> ApiResponse:
         r"""
 
