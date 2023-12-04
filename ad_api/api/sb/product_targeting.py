@@ -7,7 +7,7 @@ class Targets(Client):
     """
 
     @sp_endpoint('/sb/targets/list', method='POST')
-    def list_products_targets(self, **kwargs) -> ApiResponse:
+    def list_products_targets(self, version: float = 3.2, **kwargs) -> ApiResponse:
         r"""
         Gets a list of product targets associated with the client identifier passed in the authorization header, filtered by specified criteria.
 
@@ -29,12 +29,9 @@ class Targets(Client):
             ApiResponse
 
         """
-        # contentType = 'application/vnd.sblisttargetsrequest.v3.0+json'
-        # headers = {'Content-Type': contentType}
-        # return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
-
-        # hotfix: up until now (2022-04-29) it just seems to consume application/json content
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        json_version = 'application/vnd.sblisttargetsresponse.v' + str(version) + "+json"
+        headers = {'Accept': json_version}
+        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/targets', method='PUT')
     def edit_products_targets(self, **kwargs) -> ApiResponse:
