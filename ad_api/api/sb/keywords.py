@@ -7,7 +7,7 @@ class Keywords(Client):
     """
 
     @sp_endpoint('/sb/keywords', method='GET')
-    def list_keywords(self, **kwargs) -> ApiResponse:
+    def list_keywords(self, version: float = 3.2, **kwargs) -> ApiResponse:
         r"""
         Gets an array of keywords, filtered by optional criteria.
 
@@ -27,7 +27,9 @@ class Keywords(Client):
             | ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), params=kwargs)
+        json_version = 'application/vnd.sbkeyword.v' + str(version) + "+json"
+        headers = {'Accept': json_version}
+        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/keywords', method='PUT')
     def edit_keywords(self, **kwargs) -> ApiResponse:
