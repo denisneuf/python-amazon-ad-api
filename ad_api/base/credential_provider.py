@@ -7,7 +7,14 @@ import confuse
 import logging
 
 logger = logging.getLogger(__name__)
-required_credentials = ['refresh_token', 'client_id', 'client_secret', 'profile_id']
+REQUIRED_CREDENTIALS = [
+    'refresh_token',
+    'client_id',
+    'client_secret',
+]
+ADDITIONAL_CREDENTIALS = [
+    'profile_id'
+]
 
 
 class MissingCredentials(Exception):
@@ -23,17 +30,20 @@ class BaseCredentialProvider(abc.ABC):
         self.credentials = credentials
 
     @abc.abstractmethod
-    def load_credentials(self):
+    def load_credentials(self, verify_additional_credentials):
         pass
 
     def _get_env(self, key):
         return os.environ.get(f'{key}', os.environ.get(key))
 
-    def check_credentials(self):
+    def check_credentials(self, verify_additional_credentials):
+        creds_to_check = REQUIRED_CREDENTIALS[:]
+        if verify_additional_credentials:
+            creds_to_check += ADDITIONAL_CREDENTIALS
         try:
-            self.errors = [c for c in required_credentials if c not in self.credentials.keys() or not self.credentials[c]]
+            self.errors = [c for c in creds_to_check if c not in self.credentials.keys() or not self.credentials[c]]
         except (AttributeError, TypeError):
-            raise MissingCredentials(f'Credentials are missing: {", ".join(required_credentials)}')
+            raise MissingCredentials(f'Credentials are missing: {", ".join(creds_to_check)}')
         if not len(self.errors):
             return self.credentials
         raise MissingCredentials(f'Credentials are missing: {", ".join(self.errors)}')
@@ -43,7 +53,7 @@ class FromEnvCredentialProvider(BaseCredentialProvider):
     def __init__(self, *args, **kwargs):
         pass
 
-    def load_credentials(self):
+    def load_credentials(self, verify_additional_credentials):
         account_data = dict(
             refresh_token=self._get_env('AD_API_REFRESH_TOKEN'),
             client_id=self._get_env('AD_API_CLIENT_ID'),
@@ -51,7 +61,7 @@ class FromEnvCredentialProvider(BaseCredentialProvider):
             profile_id=self._get_env('AD_API_PROFILE_ID'),
         )
         self.credentials = account_data
-        self.check_credentials()
+        self.check_credentials(verify_additional_credentials)
         return self.credentials
 
     def _get_env(self, key):
@@ -62,8 +72,8 @@ class FromCodeCredentialProvider(BaseCredentialProvider):
     def __init__(self, credentials: dict, *args, **kwargs):
         super().__init__(credentials)
 
-    def load_credentials(self):
-        self.check_credentials()
+    def load_credentials(self, verify_additional_credentials):
+        self.check_credentials(verify_additional_credentials)
         return self.credentials
 
 
@@ -73,14 +83,14 @@ class FromConfigFileCredentialProvider(BaseCredentialProvider):
     def __init__(self, account: str, *args, **kwargs):
         self.account = account
 
-    def load_credentials(self):
+    def load_credentials(self, verify_additional_credentials):
         try:
             config = confuse.Configuration('python-ad-api')
             config_filename = os.path.join(config.config_dir(), self.file)
             config.set_file(config_filename)
             account_data = config[self.account].get()
             super().__init__(account_data)
-            self.check_credentials()
+            self.check_credentials(verify_additional_credentials)
             return account_data
 
         except confuse.exceptions.NotFoundError:
@@ -94,7 +104,7 @@ class FromConfigFileCredentialProvider(BaseCredentialProvider):
 
 
 class CredentialProvider:
-    def load_credentials(self):
+    def load_credentials(self, verify_additional_credentials):
         pass
 
     def _get_env(self, key):
@@ -104,22 +114,22 @@ class CredentialProvider:
         self,
         account: str = 'default',
         credentials: Optional[Dict[str, str]] = None,
+        verify_additional_credentials: bool = True,
     ):
-        client_id_env = (self._get_env('AD_API_CLIENT_ID'),)
+        client_id_env = self._get_env('AD_API_CLIENT_ID')
         client_secret_env = self._get_env('AD_API_CLIENT_SECRET')
         refresh_token_env = self._get_env('AD_API_REFRESH_TOKEN')
-        profile_id_env = self._get_env('AD_API_PROFILE_ID')
 
-        if client_id_env is not None and client_secret_env is not None and refresh_token_env is not None and profile_id_env is not None:
+        if client_id_env is not None and client_secret_env is not None and refresh_token_env is not None:
             try:
-                self.credentials = FromEnvCredentialProvider().load_credentials()
+                self.credentials = FromEnvCredentialProvider().load_credentials(verify_additional_credentials)
             except MissingCredentials:
                 logging.error("MissingCredentials")
                 logging.error(MissingCredentials)
 
         elif isinstance(credentials, dict):
             try:
-                self.credentials = FromCodeCredentialProvider(credentials).load_credentials()
+                self.credentials = FromCodeCredentialProvider(credentials).load_credentials(verify_additional_credentials)
 
             except MissingCredentials:
                 logging.error("MissingCredentials")
@@ -127,7 +137,7 @@ class CredentialProvider:
 
         else:
             try:
-                self.credentials = FromConfigFileCredentialProvider(account).load_credentials()
+                self.credentials = FromConfigFileCredentialProvider(account).load_credentials(verify_additional_credentials)
 
             except MissingCredentials:
                 logging.error("MissingCredentials")
