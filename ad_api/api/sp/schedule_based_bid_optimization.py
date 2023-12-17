@@ -27,7 +27,7 @@ class ScheduleBasedBidOptimizationRules(Client):
     }
 
     @sp_endpoint('/sp/rules/optimization', method='POST')
-    def create_optimization_rules(self, **kwargs: dict[str, Any]) -> ApiResponse:
+    def create_optimization_rules(self, **kwargs) -> ApiResponse:
         return self._request(
             str(kwargs.pop('path')),
             data=Utils.convert_body(kwargs.pop('body'), False),
@@ -36,7 +36,7 @@ class ScheduleBasedBidOptimizationRules(Client):
         )
 
     @sp_endpoint('/sp/rules/optimization', method='PUT')
-    def update_optimization_rules(self, **kwargs: dict[str, Any]) -> ApiResponse:
+    def update_optimization_rules(self, **kwargs) -> ApiResponse:
         return self._request(
             str(kwargs.pop('path')),
             data=Utils.convert_body(kwargs.pop('body'), False),
@@ -45,7 +45,7 @@ class ScheduleBasedBidOptimizationRules(Client):
         )
 
     @sp_endpoint('/sp/campaigns/{}/optimizationRules', method='POST')
-    def associate_optimization_rules_with_campaign(self, campaignId: str, **kwargs: dict[str, Any]) -> ApiResponse:
+    def associate_optimization_rules_with_campaign(self, campaignId: str, **kwargs) -> ApiResponse:
         return self._request(
             fill_query_params(kwargs.pop('path'), campaignId),
             data=Utils.convert_body(kwargs.pop('body'), False),
@@ -54,7 +54,7 @@ class ScheduleBasedBidOptimizationRules(Client):
         )
 
     @sp_endpoint('/sp/rules/optimization/search', method='POST')
-    def searches_optimization_rules(self, **kwargs: dict[str, Any]) -> ApiResponse:
+    def searches_optimization_rules(self, **kwargs) -> ApiResponse:
         return self._request(
             str(kwargs.pop('path')),
             data=Utils.convert_body(kwargs.pop('body'), False),
