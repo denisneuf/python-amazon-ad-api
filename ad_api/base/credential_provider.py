@@ -1,7 +1,7 @@
 import abc
 import os
 
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 
 import confuse
 import logging
@@ -26,17 +26,17 @@ class MissingCredentials(Exception):
 
 
 class BaseCredentialProvider(abc.ABC):
-    def __init__(self, credentials: dict or str, *args, **kwargs):
+    def __init__(self, credentials: Dict[str, str], *args: Any, **kwargs: Any):
         self.credentials = credentials
 
     @abc.abstractmethod
-    def load_credentials(self, verify_additional_credentials):
+    def load_credentials(self, verify_additional_credentials: bool) -> Dict[str, str]:
         pass
 
-    def _get_env(self, key):
-        return os.environ.get(f'{key}', os.environ.get(key))
+    def _get_env(self, key: str) -> str:
+        return os.environ.get(key)
 
-    def check_credentials(self, verify_additional_credentials):
+    def check_credentials(self, verify_additional_credentials: bool) -> Dict[str, str]:
         creds_to_check = REQUIRED_CREDENTIALS[:]
         if verify_additional_credentials:
             creds_to_check += ADDITIONAL_CREDENTIALS
@@ -50,10 +50,10 @@ class BaseCredentialProvider(abc.ABC):
 
 
 class FromEnvCredentialProvider(BaseCredentialProvider):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: Any, **kwargs: Any):
         pass
 
-    def load_credentials(self, verify_additional_credentials):
+    def load_credentials(self, verify_additional_credentials: bool) -> Dict[str, str]:
         account_data = dict(
             refresh_token=self._get_env('AD_API_REFRESH_TOKEN'),
             client_id=self._get_env('AD_API_CLIENT_ID'),
@@ -64,15 +64,12 @@ class FromEnvCredentialProvider(BaseCredentialProvider):
         self.check_credentials(verify_additional_credentials)
         return self.credentials
 
-    def _get_env(self, key):
-        return os.environ.get(f'{key}', os.environ.get(key))
-
 
 class FromCodeCredentialProvider(BaseCredentialProvider):
-    def __init__(self, credentials: dict, *args, **kwargs):
+    def __init__(self, credentials: Dict, *args: Any, **kwargs: Any):
         super().__init__(credentials)
 
-    def load_credentials(self, verify_additional_credentials):
+    def load_credentials(self, verify_additional_credentials: bool) -> Dict[str, str]:
         self.check_credentials(verify_additional_credentials)
         return self.credentials
 
@@ -80,10 +77,10 @@ class FromCodeCredentialProvider(BaseCredentialProvider):
 class FromConfigFileCredentialProvider(BaseCredentialProvider):
     file = 'credentials.yml'  # Will moved to default confuse config.yaml
 
-    def __init__(self, account: str, *args, **kwargs):
+    def __init__(self, account: str, *args: Any, **kwargs: Any):
         self.account = account
 
-    def load_credentials(self, verify_additional_credentials):
+    def load_credentials(self, verify_additional_credentials: bool) -> Dict[str, str]:
         try:
             config = confuse.Configuration('python-ad-api')
             config_filename = os.path.join(config.config_dir(), self.file)
@@ -104,10 +101,10 @@ class FromConfigFileCredentialProvider(BaseCredentialProvider):
 
 
 class CredentialProvider:
-    def load_credentials(self, verify_additional_credentials):
-        pass
+    def load_credentials(self, verify_additional_credentials: bool) -> Dict[str, str]:
+        return {}
 
-    def _get_env(self, key):
+    def _get_env(self, key: str) -> Optional[str]:
         return os.environ.get(f'{key}', os.environ.get(key))
 
     def __init__(
@@ -144,7 +141,7 @@ class CredentialProvider:
                 logging.error(MissingCredentials)
 
     class Config:
-        def __init__(self, **kwargs):
+        def __init__(self, **kwargs: Any):
             self.refresh_token = kwargs.get('refresh_token')
             self.client_id = kwargs.get('client_id')
             self.client_secret = kwargs.get('client_secret')
