@@ -237,7 +237,7 @@ class Client(BaseClient):
             method,
             self.endpoint + path,
             params=params,
-            data=request_data,
+            json=request_data,
             headers=headers or self.headers,
             timeout=self.timeout,
             proxies=self.proxies,
