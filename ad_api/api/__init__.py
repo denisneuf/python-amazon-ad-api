@@ -21,6 +21,7 @@ from .validation_configurations import ValidationConfigurations
 from .recommendations import Recommendations
 from .stream import Stream
 from .exports import Exports
+from .stores import Stores
 
 __all__ = [
     "sp",
@@ -49,4 +50,5 @@ __all__ = [
     "Recommendations",
     "Stream",
     "Exports",
+    "Stores"
 ]
