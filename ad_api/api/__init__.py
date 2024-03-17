@@ -1,3 +1,4 @@
+from .account import Account
 from .profiles import Profiles
 from .manager_accounts import ManagerAccounts
 from .invoices import Invoices
@@ -50,5 +51,6 @@ __all__ = [
     "Recommendations",
     "Stream",
     "Exports",
-    "Stores"
+    "Stores",
+    "Account"
 ]
