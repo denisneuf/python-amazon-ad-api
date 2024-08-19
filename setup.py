@@ -6,7 +6,7 @@ setup(
     install_requires=[
         "requests>=2.27.1,<2.33.0",
         "six~=1.16.0",
-        "cachetools>=5.0,<5.5",
+        "cachetools>=5.0,<5.6",
         "pycryptodome>=3.13,<3.21",
         "pytz>=2021.3,<2025.0",
         "confuse>=1.7,<2.1",
