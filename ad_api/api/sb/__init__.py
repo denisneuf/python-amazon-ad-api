@@ -20,6 +20,7 @@ from .stores import Stores
 from .media import Media
 from .reports import Reports
 from .snapshots import Snapshots
+from .benchmarks import Benchmarks
 
 __all__ = [
     "Brands",
@@ -44,4 +45,5 @@ __all__ = [
     "Media",
     "Reports",
     "Snapshots",
+    "Benchmarks"
 ]
