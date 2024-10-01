@@ -211,6 +211,7 @@ curl \
 * [Product Selector](https://python-amazon-ad-api.readthedocs.io/en/latest/api/metadata.html)
 * [Validation Configurations](https://python-amazon-ad-api.readthedocs.io/en/latest/api/validation_configurations.html)
 * [Tactical recommendations beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/recommendations.html)
+* [Exports](https://advertising.amazon.com/API/docs/en-us/exports)
 
 
 ### [Amazon Attribution open beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html)

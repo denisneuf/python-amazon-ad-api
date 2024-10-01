@@ -7,6 +7,7 @@ class Snapshots(Client):
     """
 
     @sp_endpoint('/v2/hsa/{}/snapshot', method='POST')
+    @Utils.deprecated
     def post_snapshot(self, recordType, **kwargs) -> ApiResponse:
         """
 
@@ -16,6 +17,7 @@ class Snapshots(Client):
         return self._request(fill_query_params(kwargs.pop('path'), recordType), data=kwargs.pop('body'), params=kwargs)
 
     @sp_endpoint('/v2/hsa/snapshots/{}', method='GET')
+    @Utils.deprecated
     def get_snapshot(self, snapshotId, **kwargs) -> ApiResponse:
         r"""
         Gets the status of a requested snapshot.
@@ -25,6 +27,7 @@ class Snapshots(Client):
         """
         return self._request(fill_query_params(kwargs.pop('path'), snapshotId), params=kwargs)
 
+    @Utils.deprecated
     def download_snapshot(self, **kwargs) -> ApiResponse:
         r"""
         Downloads the snapshot previously get report specified by location (this is not part of the official Amazon Advertising API, is a helper method to download the snapshot). Take in mind that a direct download of location returned in get_snapshot will return 401 - Unauthorized.
