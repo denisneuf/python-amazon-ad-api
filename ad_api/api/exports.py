@@ -4,6 +4,16 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 class Exports(Client):
     """Amazon Ads API Exports Version 3
     """
+    @sp_endpoint('/ads/export', method='POST')
+    def ads_export(self, version: int = 1, **kwargs) -> ApiResponse:
+        r"""
+        application/vnd.adsexport.v1+json
+        """
+        content_type = 'application/vnd.adsexport.v'+ str(version) +'+json'
+        accept = 'application/vnd.adsexport.v'+ str(version) +'+json'
+        headers = {'Content-Type': content_type, 'Accept': accept}
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+
     @sp_endpoint('/campaigns/export', method='POST')
     def campaigns_export(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
