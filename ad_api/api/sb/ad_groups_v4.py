@@ -27,7 +27,7 @@ class AdGroupsV4(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/adGroups', method='PUT')
-    def update_ad_groups(self, version: int = 4, **kwargs) -> ApiResponse:
+    def edit_ad_groups(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Update Sponsored Brand Ad groups.
 
