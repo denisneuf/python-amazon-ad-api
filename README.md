@@ -5,7 +5,8 @@
 ![CodeQL](https://img.shields.io/github/v/release/denisneuf/python-amazon-ad-api)
 [![Documentation Status](https://readthedocs.org/projects/python-amazon-ad-api/badge/?version=latest)](https://python-amazon-ad-api.readthedocs.io/en/latest/?badge=latest)
 ![PyPI Downloads](https://static.pepy.tech/badge/python-amazon-ad-api)
-
+[![Downloads](https://static.pepy.tech/badge/python-amazon-ad-api/month)](https://pepy.tech/project/python-amazon-ad-api)
+[![Downloads](https://static.pepy.tech/badge/python-amazon-ad-api/week)](https://pepy.tech/project/python-amazon-ad-api)
 
 ## Amazon's Advertising API
 
