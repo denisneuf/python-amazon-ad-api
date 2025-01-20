@@ -48,7 +48,19 @@ my_credentials = dict(
     profile_id='your-profile_id',
 )
 
-result=sponsored_products.Campaigns(credentials=my_credentials).list_campaigns()
+info = \
+    {
+        "stateFilter":
+            {
+                "include": [
+                    "ENABLED"
+                ]
+            }
+    }
+
+result = sponsored_products.CampaignsV3(credentials=my_credentials).list_campaigns(
+    body=info
+)
 
 ```
 
@@ -80,9 +92,9 @@ Python code
 from ad_api.api import sponsored_products
 
 # Leave empty will use the 'default' account
-result=sponsored_products.Campaigns().list_campaigns()
+result=sponsored_products.CampaignsV3().list_campaigns()
 # will use germany account data
-result=sponsored_products.Campaigns(account="germany").list_campaigns()
+result=sponsored_products.CampaignsV3(account="germany").list_campaigns()
 ```
 
 
@@ -106,7 +118,7 @@ from ad_api.api import sponsored_products
 from ad_api.base import Marketplaces
 
 # You can pass NA or US, CA, MX or BR for North America and JP, AU or SG for Far East
-result=sponsored_products.Campaigns(marketplace=Marketplaces.NA).list_campaigns()
+result=sponsored_products.CampaignsV3(marketplace=Marketplaces.NA).list_campaigns()
 
 ```
 
@@ -118,10 +130,20 @@ You can use a [try](https://docs.python.org/3.10/reference/compound_stmts.html#t
 from ad_api.api import sponsored_products
 from ad_api.base import AdvertisingApiException
 
+info = \
+    {
+        "stateFilter":
+            {
+                "include": [
+                    "ENABLED"
+                ]
+            }
+    }
+
 try:
 
-    result = sponsored_products.Campaigns().get_campaign_extended(
-        campaignId=campaign_id
+    result = sponsored_products.CampaignsV3().list_campaigns(
+        body=info
     )
 
     logging.info(result)
@@ -138,10 +160,21 @@ Use debug=True if you want see some logs like the header you submit to the api e
 from ad_api.api import sponsored_products
 from ad_api.base import AdvertisingApiException
 
+
+info = \
+    {
+        "stateFilter":
+            {
+                "include": [
+                    "ENABLED"
+                ]
+            }
+    }
+
 try:
 
-    result = sponsored_products.Campaigns(debug=True).get_campaign_extended(
-        campaignId=campaign_id
+    result = sponsored_products.CampaignsV3(debug=True).list_campaigns(
+        body=info
     )
 
     logging.info(result)
@@ -313,38 +346,52 @@ There is a new version 3 of Sponsored Product API, please check the [migration g
 ```python
 import logging
 from ad_api.base import AdvertisingApiException
-from ad_api.api.sp import Campaigns
+from ad_api.api import sponsored_products
 
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s:%(levelname)s:%(message)s"
 )
 
+def sp_list_campaigns_v3(info: dict = None):
 
-credentials = dict(
-    refresh_token='your-refresh_token',
-    client_id='your-client_id',
-    client_secret='your-client_secret',
-    profile_id='your-profile_id',
-)
-
-try:
-
-    states = 'enabled'
-
-    res = Campaigns(credentials=credentials, debug=True).list_campaigns_extended(
-        stateFilter=states
+    credentials = dict(
+        refresh_token='your-refresh_token',
+        client_id='your-client_id',
+        client_secret='your-client_secret',
+        profile_id='your-profile_id',
     )
 
-    campaigns = res.payload
-    for campaign in campaigns:
-        logging.info(campaign)
+    try:
+        result = sponsored_products.CampaignsV3(credentials=credentials, debug=True).list_campaigns(
+            body=info
+        )
+        payload = result.payload
+        return payload
+    except AdvertisingApiException as error:
+        logging.error(error)
+        logging.error(error.code)
 
-    logging.info(len(campaigns))
+
+state_filter = \
+    {
+        "stateFilter":
+            {
+                "include": [
+                    "ENABLED"
+                ]
+            }
+    }
+
+enabled_campaigns = sp_list_campaigns_v3(state_filter).get("campaigns")
 
 
-except AdvertisingApiException as error:
-    logging.info(error)
+for campaign in enabled_campaigns:
+    logging.info(campaign)
+
+logging.info(len(campaigns))
+
+
 
 ```
 
