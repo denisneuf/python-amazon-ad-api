@@ -1,7 +1,7 @@
 pytest
 requests~=2.32.3
 six>=1.16,<2
-cachetools~=5.5.0
+cachetools~=5.5.1
 pycryptodome~=3.21
 pytz~=2024.2
 confuse~=2.0.1
