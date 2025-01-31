@@ -8,7 +8,7 @@ setup(
         "six>=1.16,<1.18",
         "cachetools>=5.0,<5.6",
         "pycryptodome>=3.13,<3.22",
-        "pytz>=2021.3,<2025.0",
+        "pytz>=2021.3,<2026.0",
         "confuse>=1.7,<2.1",
     ],
     packages=[
