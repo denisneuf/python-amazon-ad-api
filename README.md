@@ -239,7 +239,7 @@ Warning: [PLANNED DEPRECATION 1/3/2025]
 There is a new version 3 Portfolios API, please check the [migration guide](https://advertising.amazon.com/API/docs/en-us/reference/migration-guides/portfolios-v2-v3).
 
 * [Portfolios](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfolios.html)
-* [PortfoliosV3](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfolios_v3.html)
+* [PortfoliosV3](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfoliosV3.html)
 * [Invoices](https://python-amazon-ad-api.readthedocs.io/en/latest/api/invoices.html)
 * [Billing](https://python-amazon-ad-api.readthedocs.io/en/latest/api/billing.html)
 * [Audiences](https://python-amazon-ad-api.readthedocs.io/en/latest/api/audiences.html)
