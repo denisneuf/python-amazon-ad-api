@@ -12,10 +12,10 @@ Manage portfolios that group together campaigns.
 
         This API **Portfolios** can be used as sandbox environment for testing
 
-    .. autofunction:: ad_api.api.Portfolios.list_portfolios
+    .. autofunction:: ad_api.api.PortfoliosV3.list_portfolios
 
-    .. autofunction:: ad_api.api.Portfolios.create_portfolios
+    .. autofunction:: ad_api.api.PortfoliosV3.create_portfolios
 
-    .. autofunction:: ad_api.api.Portfolios.edit_portfolios
+    .. autofunction:: ad_api.api.PortfoliosV3.edit_portfolios
 
-    .. autofunction:: ad_api.api.Portfolios.get_budget_usage_for_portfolios
+    .. autofunction:: ad_api.api.PortfoliosV3.get_budget_usage_for_portfolios
