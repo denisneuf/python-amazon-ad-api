@@ -5,6 +5,7 @@ class Portfolios(Client):
     """ """
 
     @sp_endpoint('/v2/portfolios', method='GET')
+    @Utils.deprecated
     def list_portfolios(self, **kwargs) -> ApiResponse:
         r"""
 
@@ -27,6 +28,7 @@ class Portfolios(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/portfolios/extended', method='GET')
+    @Utils.deprecated
     def list_portfolios_extended(self, **kwargs) -> ApiResponse:
         r"""
         list_portfolios_extended(**kwargs) -> ApiResponse
@@ -47,6 +49,7 @@ class Portfolios(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/v2/portfolios/{}', method='GET')
+    @Utils.deprecated
     def get_portfolio(self, portfolioId, **kwargs) -> ApiResponse:
         r"""
         get_portfolio(portfolioId) -> ApiResponse
@@ -59,6 +62,7 @@ class Portfolios(Client):
         return self._request(fill_query_params(kwargs.pop('path'), portfolioId), params=kwargs)
 
     @sp_endpoint('/v2/portfolios/extended/{}', method='GET')
+    @Utils.deprecated
     def get_portfolio_extended(self, portfolioId, **kwargs) -> ApiResponse:
         r"""
         get_portfolio_extended(portfolioId) -> ApiResponse
@@ -71,6 +75,7 @@ class Portfolios(Client):
         return self._request(fill_query_params(kwargs.pop('path'), portfolioId), params=kwargs)
 
     @sp_endpoint('/v2/portfolios', method='POST')
+    @Utils.deprecated
     def create_portfolios(self, **kwargs) -> ApiResponse:
         r"""
 
@@ -98,6 +103,7 @@ class Portfolios(Client):
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/v2/portfolios', method='PUT')
+    @Utils.deprecated
     def edit_portfolios(self, **kwargs) -> ApiResponse:
         r"""
 
