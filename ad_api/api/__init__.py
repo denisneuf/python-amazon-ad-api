@@ -10,6 +10,7 @@ from .creative_assets import CreativeAssets
 from .localization import Localization
 from .audiences import Audiences
 from .portfolios import Portfolios
+from .portfolios_v3 import PortfoliosV3
 from .insights import Insights
 from . import sp as sponsored_products
 from . import sb as sponsored_brands
