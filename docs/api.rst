@@ -15,6 +15,7 @@ Common Resources
     api/localization
     api/audiences
     api/portfolios
+    api/portfoliosV3
     api/insights
     api/reports
     api/validation_configurations

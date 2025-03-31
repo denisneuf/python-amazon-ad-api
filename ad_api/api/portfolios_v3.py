@@ -8,7 +8,7 @@ class PortfoliosV3(Client):
     def list_portfolios(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
 
-        list_portfolios(**kwargs) -> ApiResponse
+        list_portfolios(body: (str, dict)) -> ApiResponse
 
         """
 
@@ -26,7 +26,7 @@ class PortfoliosV3(Client):
     def create_portfolios(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
 
-        create_portfolios(body: (list, str, dict)) -> ApiResponse
+        create_portfolios(body: (str, dict)) -> ApiResponse
 
 
         """
@@ -42,7 +42,7 @@ class PortfoliosV3(Client):
     def edit_portfolios(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
 
-        edit_portfolios(body: (list, str, dict)) -> ApiResponse
+        edit_portfolios(body: (str, dict)) -> ApiResponse
 
 
         """
@@ -59,13 +59,10 @@ class PortfoliosV3(Client):
     def get_budget_usage_for_portfolios(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
 
-        get_budget_usage_for_portfolios(body: (list, str, dict)) -> ApiResponse
+        get_budget_usage_for_portfolios(body: (str, dict)) -> ApiResponse
 
 
         """
-
-
         schema_version = 'application/vnd.portfoliobudgetusage.v' + str(version) + '+json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
-
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
