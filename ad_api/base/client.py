@@ -21,8 +21,6 @@ from typing import Any, Dict, Optional
 
 log = logging.getLogger(__name__)
 role_cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
-_DEFAULT_MARKETPLACE = Marketplaces[os.environ['AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.EU
-
 
 class Client(BaseClient):
     def __init__(
@@ -37,6 +35,9 @@ class Client(BaseClient):
         access_token: Optional[str] = None,
         verify_additional_credentials: bool = True,
     ):
+        if marketplace is None:
+            marketplace = Marketplaces[os.environ['AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.EU
+
         self.credentials = CredentialProvider(account, credentials, verify_additional_credentials).credentials
         self._auth = AccessTokenClient(
             credentials=self.credentials,
