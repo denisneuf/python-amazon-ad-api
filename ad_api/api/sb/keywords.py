@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class Keywords(Client):
@@ -50,7 +50,7 @@ class Keywords(Client):
         Returns:
             | ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sb/keywords', method='POST')
     def create_keywords(self, **kwargs) -> ApiResponse:
@@ -75,7 +75,7 @@ class Keywords(Client):
         Returns:
             | ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sb/keywords/{}', method='GET')
     def get_keyword(self, keywordId, **kwargs) -> ApiResponse:

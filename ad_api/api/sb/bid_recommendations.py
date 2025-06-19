@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, ApiResponse
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 
 
 class BidRecommendations(Client):
@@ -32,4 +32,4 @@ class BidRecommendations(Client):
 
         """
 
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)

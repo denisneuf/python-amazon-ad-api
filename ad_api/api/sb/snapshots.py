@@ -14,7 +14,7 @@ class Snapshots(Client):
         Returns:
             ApiResponse
         """
-        return self._request(fill_query_params(kwargs.pop('path'), recordType), data=kwargs.pop('body'), params=kwargs)
+        return self._request(fill_query_params(kwargs.pop('path'), recordType), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/v2/hsa/snapshots/{}', method='GET')
     @Utils.deprecated

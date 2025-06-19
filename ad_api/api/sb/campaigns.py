@@ -86,7 +86,7 @@ class Campaigns(Client):
 
                 **match_type** (NegativeMatchType): [optional] The negative match type. For more information, see negative keyword match types in the Amazon Advertising support center. Enum:[ negativeExact, negativePhrase ]
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sb/campaigns', method='PUT')
     @Utils.deprecated
@@ -113,7 +113,7 @@ class Campaigns(Client):
             | **end_date** (EndDate > string) [optional] The YYYYMMDD end date of the campaign. Must be greater than the value specified in the startDate field. If this property is not included in the request, the endDate value is not updated. If set to null, endDate is deleted from the draft campaign. [nullable: true] [pattern: ^\\d{8}$]
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sb/campaigns/{}', method='GET')
     def get_campaign(self, campaignId, **kwargs) -> ApiResponse:

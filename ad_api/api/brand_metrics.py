@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class BrandMetrics(Client):
@@ -26,7 +26,7 @@ class BrandMetrics(Client):
             ApiResponse
 
         """
-        return self._request(fill_query_params(kwargs.pop('path')), data=kwargs.pop('body'), params=kwargs)
+        return self._request(fill_query_params(kwargs.pop('path')), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/insights/brandMetrics/report/{}', method='GET')
     def get_report(self, reportId, **kwargs) -> ApiResponse:

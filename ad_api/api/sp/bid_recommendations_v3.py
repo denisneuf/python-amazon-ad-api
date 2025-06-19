@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class BidRecommendationsV3(Client):
@@ -56,4 +56,4 @@ class BidRecommendationsV3(Client):
 
         headers = {"Content-Type": json_version}
 
-        return self._request(fill_query_params(kwargs.pop('path')), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(fill_query_params(kwargs.pop('path')), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

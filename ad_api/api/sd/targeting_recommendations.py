@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, ApiResponse
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 
 
 class TargetsRecommendations(Client):
@@ -46,4 +46,4 @@ class TargetsRecommendations(Client):
         """
         contentType = 'application/vnd.sdtargetingrecommendations.v3.1+json'
         headers = {'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class Targets(Client):
@@ -31,7 +31,7 @@ class Targets(Client):
         """
         json_version = 'application/vnd.sblisttargetsresponse.v' + str(version) + "+json"
         headers = {'Accept': json_version}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/targets', method='PUT')
     def edit_products_targets(self, **kwargs) -> ApiResponse:
@@ -49,7 +49,7 @@ class Targets(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sb/targets', method='POST')
     def create_products_targets(self, **kwargs) -> ApiResponse:
@@ -65,7 +65,7 @@ class Targets(Client):
         Returns:
             ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sb/targets/{}', method='GET')
     def get_products_target(self, targetId, **kwargs) -> ApiResponse:
