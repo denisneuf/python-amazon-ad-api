@@ -62,10 +62,12 @@ class Locales(Enum):
     JP = "ja_JP"
     SG = "en_SG"
     CN = "zh_CN"
+    IE = "en_IE"
+
 
 
 class Currencies(Enum):
-    EU = ES = DE = FR = IT = NL = BE = "EUR"
+    EU = ES = DE = FR = IT = NL = BE = IE = "EUR"
     SE = "SEK"
     PL = "PLN"
     TR = "TRY"
@@ -105,6 +107,7 @@ class MarketplacesIds(Enum):
     SG = 'A19VAU5U5O7RUS'
     AU = 'A39IBJ37TRP1C6'
     JP = 'A1VC38T7YXB528'
+    IE = 'A28R8C7NBKEWEA'
 
 
 class Marketplaces(Enum):
@@ -146,7 +149,7 @@ class Marketplaces(Enum):
         'token_url': 'api.amazon.co.jp/auth/o2/token'
     }
     # Europe
-    EU = ES = DE = FR = IT = NL = BE = {
+    EU = ES = DE = FR = IT = NL = BE = IE = {
         'prod': 'advertising-api-eu.amazon.com',
         'currency': 'EUR',
         'token_url': 'api.amazon.co.uk/auth/o2/token'
