@@ -19,4 +19,5 @@
     sb/moderation
     sb/reports
     sb/snapshots
+    sb/themes
 
