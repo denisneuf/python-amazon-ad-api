@@ -1,5 +1,5 @@
 pytest
-requests~=2.32.4
+requests~=2.32.5
 six>=1.16,<2
 cachetools~=6.1.0
 pycryptodome~=3.23
