@@ -318,6 +318,7 @@ There is a new version 3 of Sponsored Product API, please check the [migration g
 * [Moderation](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/moderation.html)
 * [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/reports.html)
 * [Snapshots](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/snapshots.html)
+* [Themes](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/themes.html)
 
 ### [Modules Available Sponsored Brands 4.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sb_v4.html)
 
