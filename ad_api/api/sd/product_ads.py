@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class ProductAds(Client):
@@ -51,7 +51,7 @@ class ProductAds(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sd/productAds', method='POST')
     def create_product_ads(self, **kwargs) -> ApiResponse:
@@ -73,7 +73,7 @@ class ProductAds(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sd/productAds/{}', method='GET')
     def get_product_ad(self, adId, **kwargs) -> ApiResponse:

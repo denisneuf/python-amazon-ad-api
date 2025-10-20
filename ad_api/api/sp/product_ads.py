@@ -128,7 +128,7 @@ class ProductAds(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/v2/sp/productAds', method='POST')
     @Utils.deprecated
@@ -151,4 +151,4 @@ class ProductAds(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)

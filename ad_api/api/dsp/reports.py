@@ -1,5 +1,5 @@
 from ad_api.api.dsp.client import DspClient as Client
-from ad_api.base import sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class Reports(Client):
@@ -35,7 +35,7 @@ class Reports(Client):
             ApiResponse
         """
         path = fill_query_params(kwargs.pop('path'), dspAccountId)
-        return self._request(path, data=kwargs.pop('body'), headers={'Accept': accept}, params=kwargs)
+        return self._request(path, data=Utils.convert_body(kwargs.pop('body'), False), headers={'Accept': accept}, params=kwargs)
 
     @sp_endpoint('/accounts/{}/dsp/reports/{}', method='GET')
     def get_report(self, dspAccountId, reportId, accept='application/vnd.dspgetreports.v3+json', **kwargs) -> ApiResponse:

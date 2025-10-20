@@ -31,7 +31,7 @@ class Reports(Client):
             ApiResponse
 
         """
-        return self._request(fill_query_params(kwargs.pop('path'), recordType), data=kwargs.pop('body'), params=kwargs)
+        return self._request(fill_query_params(kwargs.pop('path'), recordType), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/v2/reports/{}', method='GET')
     def get_report(self, reportId, **kwargs) -> ApiResponse:

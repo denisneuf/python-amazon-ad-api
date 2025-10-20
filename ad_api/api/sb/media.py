@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, ApiResponse
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 
 
 class Media(Client):
@@ -23,12 +23,12 @@ class Media(Client):
             | ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/media/complete', method='PUT')
     def complete_media(self, **kwargs) -> ApiResponse:
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/media/describe', method='GET')
     def describe_media(self, **kwargs) -> ApiResponse:
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)

@@ -48,7 +48,7 @@ class Targets(Client):
 
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets', method='PUT')
     @Utils.deprecated
@@ -74,7 +74,7 @@ class Targets(Client):
             ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets', method='GET')
     @Utils.deprecated
@@ -190,7 +190,7 @@ class Targets(Client):
 
 
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/v2/sp/targets/brands', method='GET')
     @Utils.deprecated
@@ -235,7 +235,7 @@ class Targets(Client):
         """
         contentType = 'application/vnd.spproducttargeting.v3+json'
         headers = {'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/negativeTargets/brands/recommendations', method='GET')
     def list_negative_targets_brands_recommendations(self, **kwargs) -> ApiResponse:
@@ -270,7 +270,7 @@ class Targets(Client):
 
         contentType = 'application/vnd.spproducttargeting.v3+json'
         headers = {'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/targets/categories', method='GET')
     def list_targets_categories(self, **kwargs) -> ApiResponse:
@@ -303,7 +303,7 @@ class Targets(Client):
 
         contentType = 'application/vnd.spproducttargeting.v3+json'
         headers = {'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/targets/category/{}/refinements', method='GET')
     def list_products_targets_category_refinements(self, categoryId, **kwargs) -> ApiResponse:

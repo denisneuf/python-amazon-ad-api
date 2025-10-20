@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, ApiResponse
+from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 
 
 class TargetsRecommendations(Client):
@@ -21,7 +21,7 @@ class TargetsRecommendations(Client):
         Returns:
             ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sb/recommendations/targets/category', method='POST')
     def list_category_targets(self, **kwargs) -> ApiResponse:
@@ -36,7 +36,7 @@ class TargetsRecommendations(Client):
         Returns:
             ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sb/recommendations/targets/brand', method='POST')
     def list_brand_targets(self, **kwargs) -> ApiResponse:
@@ -52,4 +52,4 @@ class TargetsRecommendations(Client):
         Returns:
             ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)

@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class Stores(Client):
@@ -41,4 +41,4 @@ class Stores(Client):
     @sp_endpoint('/stores/assets', method='POST')
     def create_asset(self, contentDisposition, contentType, **kwargs) -> ApiResponse:
         headers = {'Content-Disposition': contentDisposition, 'Content-Type': contentType}
-        return self._request(kwargs.pop('path'), data=kwargs.pop('body'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
