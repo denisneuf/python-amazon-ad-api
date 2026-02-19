@@ -23,10 +23,13 @@ class Stores(Client):
         """
         content_type = 'application/vnd.GetInsightsForStoreRequest.v'+ str(version) +'+json'
         # accept = 'application/vnd.GetInsightsForStoreResponse.v'+ str(version) +'+json'
-        # headers = {'Content-Type': content_type, 'Accept': accept}
-        return self._request(fill_query_params(kwargs.pop('path'), brandEntityId),
-                             data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
-        # return self._request(fill_query_params(kwargs.pop('path'), brandEntityId), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+        headers = {
+            'Content-Type': content_type, 
+            # 'Accept': accept,
+        }
+        # return self._request(fill_query_params(kwargs.pop('path'), brandEntityId),
+        #                      data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
+        return self._request(fill_query_params(kwargs.pop('path'), brandEntityId), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
         
         
 
