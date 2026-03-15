@@ -33,6 +33,21 @@ sys.path.insert(0, os.path.abspath('..'))
 # ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx_rtd_theme']
 
+# Mockear importaciones problemáticas para que autodoc funcione
+autodoc_mock_imports = [
+    "requests",
+    "cachetools", 
+    "pycryptodome",
+    "pytz",
+    "confuse",
+    "six",
+    "python-dotenv",
+    "pyyaml",
+    # El paquete principal se mockea como respaldo
+    "ad_api",
+]
+
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
