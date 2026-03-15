@@ -415,4 +415,4 @@ We are not affiliated with Amazon but they used our api :)
 
 
 ---
-*Last release: v0.7.7 (via automated release process)*
+*Last release: v0.7.7 (via electropaco automated release process no memory)*
