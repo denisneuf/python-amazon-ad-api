@@ -133,6 +133,28 @@ pygments_style = 'sphinx'
 todo_include_todos = False
 
 
+
+# -- Configuración adicional para autodoc --
+
+# Configuración adicional para autodoc con decoradores
+autodoc_default_options = {
+    "members": True,
+    "member-order": "bysource",
+    "special-members": "__init__",
+    "undoc-members": True,
+    "exclude-members": "__weakref__"
+}
+
+# Importante para métodos decorados
+autodoc_inherit_docstrings = True
+
+# Para preservar signatures con decoradores
+autodoc_preserve_defaults = True
+
+# Configurar cómo se muestran los type hints
+autodoc_typehints = "signature"
+autodoc_typehints_format = "short"
+
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
