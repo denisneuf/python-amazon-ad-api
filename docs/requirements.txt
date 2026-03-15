@@ -1,6 +1,7 @@
 # Dependencias para construir la documentación
 sphinx
-sphinx-rtd-theme
+sphinx_rtd_theme
+sphinxcontrib-napoleon  # ¡IMPORTANTE para docstrings estilo Google!
 
 # Dependencias del paquete principal (necesarias para autodoc)
 requests>=2.27.1,<2.33.0
