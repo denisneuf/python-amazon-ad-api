@@ -1,6 +1,4 @@
-# Read the Docs configuration file for Sphinx projects
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-
+# Read the Docs configuration file - CON INSTALACIÓN DEL PAQUETE
 version: 2
 
 build:
@@ -14,3 +12,6 @@ sphinx:
 python:
    install:
    - requirements: docs/requirements.txt
+   # INSTALAR EL PAQUETE - IMPORTANTE
+   - method: pip
+     path: .
