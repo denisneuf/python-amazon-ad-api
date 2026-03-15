@@ -1,16 +1,6 @@
-# Dependencias para construir la documentación
+# Dependencias básicas para Sphinx
 sphinx
 sphinx_rtd_theme
-sphinxcontrib-napoleon  # ¡IMPORTANTE para docstrings estilo Google!
+sphinxcontrib-napoleon
 
-# Dependencias del paquete principal (necesarias para autodoc)
-requests>=2.27.1,<2.33.0
-cachetools>=5.0,<7.1
-pycryptodome>=3.13,<3.24
-pytz>=2021.3,<2027.0
-confuse>=1.7,<2.3
-six>=1.16,<1.18
-python-dotenv
-pyyaml
-
-# Nota: El paquete principal se instala via .readthedocs.yaml
+# Dependencias del proyecto (instaladas via .readthedocs.yaml)
