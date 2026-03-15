@@ -20,3 +20,6 @@ sphinx:
 python:
    install:
    - requirements: docs/requirements.txt
+   # Instalar el paquete principal para que autodoc pueda importar los módulos
+   - method: pip
+     path: .
