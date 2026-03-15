@@ -17,20 +17,38 @@ extensions = [
     'sphinx_rtd_theme'
 ]
 
-# Configuración de napoleon
-napoleon_google_docstring = True
-napoleon_numpy_docstring = False
-napoleon_include_init_with_doc = True
-
-# Configuración de autodoc
+# Configuración CRÍTICA para métodos decorados
 autodoc_default_options = {
     'members': True,
     'undoc-members': True,
-    'member-order': 'bysource'
+    'member-order': 'bysource',
+    'special-members': '__init__',
+    'private-members': False,
+    'show-inheritance': True,
+    'inherited-members': False,
 }
 
-# Para métodos decorados
+# IMPORTANTE para preservar docstrings con decoradores
 autodoc_inherit_docstrings = True
+autodoc_preserve_defaults = True  # Preserva valores por defecto
+autodoc_typehints = 'signature'   # Muestra type hints
+autodoc_typehints_format = 'short'
+autodoc_class_signature = 'separated'
+
+# Configuración de napoleon para docstrings estilo Google
+napoleon_google_docstring = True
+napoleon_numpy_docstring = False
+napoleon_include_init_with_doc = True
+napoleon_include_private_with_doc = False
+napoleon_include_special_with_doc = True
+napoleon_use_admonition_for_examples = True
+napoleon_use_admonition_for_notes = True
+napoleon_use_admonition_for_references = True
+napoleon_use_ivar = True
+napoleon_use_param = True
+napoleon_use_rtype = True
+napoleon_use_keyword = True
+napoleon_preprocess_types = True
 
 # Mockear importaciones problemáticas
 autodoc_mock_imports = [
@@ -42,7 +60,10 @@ autodoc_mock_imports = [
     'six',
     'python-dotenv',
     'pyyaml',
-    'ad_api',  # Mockear el paquete principal
+    # Mockear módulos específicos de ad_api si es necesario
+    'ad_api.base',
+    'ad_api.api',
+    'ad_api.api.sp',
 ]
 
 # Templates
