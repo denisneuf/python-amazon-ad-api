@@ -412,3 +412,7 @@ We are not affiliated with Amazon but they used our api :)
 ### LICENSE
 
 ![License](https://img.shields.io/badge/license-MIT-green)
+
+
+---
+*Last release: v0.7.7 (via automated release process)*
