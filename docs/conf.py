@@ -36,8 +36,10 @@ version = '0.7.4'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx_rtd_theme", 'button', 'cookieconsent',
-    'sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.napoleon',
+    'sphinx_rtd_theme',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.coverage',
+    'sphinx.ext.napoleon',
     'enum_tools.autoenum',
 
 ]
@@ -67,11 +69,11 @@ html_theme_options = {
     'github_banner': True,
     'github_button': True,
     'description': '''
-A wrapper to access Amazon's Selling Partner API with an easy-to-use interface.
+A wrapper to access Amazon's Advertising API with an easy-to-use interface.
     ''',
-    'donate_url': 'https://github.com/sponsors/saleweaver',
-    'github_user': 'saleweaver',
-    'github_repo': 'python-amazon-sp-api',
+    'donate_url': 'https://github.com/sponsors/denisneuf',
+    'github_user': 'denisneuf',
+    'github_repo': 'python-amazon-ad-api',
     "github_type": "star",  # watch|star|fork
 'fixed_sidebar': True
 }
