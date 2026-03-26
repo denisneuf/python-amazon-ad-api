@@ -8,7 +8,7 @@ enum-tools[sphinx]
 pydata-sphinx-theme
 
 # Dependencias REALES del paquete (para que autodoc pueda importar)
-requests>=2.27.1,<2.33.0
+requests>=2.27.1,<2.34.0
 six>=1.16,<1.18
 cachetools>=5.0,<7.1
 pycryptodome>=3.13,<3.24
