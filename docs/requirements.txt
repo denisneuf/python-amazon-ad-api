@@ -10,9 +10,9 @@ pydata-sphinx-theme
 # Dependencias REALES del paquete (para que autodoc pueda importar)
 requests>=2.27.1,<2.34.0
 six>=1.17.0,<1.18
-cachetools>=5.0,<7.1
+cachetools>=7.0.6,<7.1
 pycryptodome>=3.23.0,<3.24
-pytz>=2021.3,<2027.0
+pytz>=2026.1.post1,<2027.0
 confuse>=2.2.0,<2.3
 python-dotenv
 pyyaml
