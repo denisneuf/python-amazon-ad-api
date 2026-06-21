@@ -3,7 +3,7 @@ sphinx
 sphinx_rtd_theme
 sphinxcontrib-napoleon
 sphinx-jinja2-compat>=0.4.1
-sphinx-toolbox>=2.16.0
+sphinx-toolbox>=4.2.0
 enum-tools[sphinx]
 pydata-sphinx-theme
 
