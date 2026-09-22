@@ -415,4 +415,4 @@ We are not affiliated with Amazon but they used our api :)
 
 
 ---
-*Last release: v0.8.7 (via electroduende automated release random access memory)*
+*Last release: v0.8.8 (via electroduende automated release random access memory)*
