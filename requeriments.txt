@@ -3,5 +3,5 @@ requests~=2.34.2
 six>=1.16,<2
 cachetools~=7.2.0
 pycryptodome~=3.23
-pytz~=2026.3
+pytz~=2026.4
 confuse~=2.2.1
