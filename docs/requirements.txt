@@ -1,6 +1,6 @@
 # MÍNIMO necesario para construir documentación
 # sphinx<9: enum-tools 0.13.0 (última) rompe en Sphinx 9 (eliminado sphinx.ext.autodoc.logger)
-sphinx>=8,<9
+sphinx>=9.1.0,<10
 sphinx_rtd_theme
 sphinxcontrib-napoleon
 sphinx-jinja2-compat>=0.4.1
