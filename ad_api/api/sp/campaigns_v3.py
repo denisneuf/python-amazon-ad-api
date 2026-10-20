@@ -95,7 +95,9 @@ class CampaignsV3(Client):
         """
         schema_version = 'application/vnd.spCampaign.v' + str(version) + '+json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+        body = kwargs.pop('body', None)
+        return self._request(kwargs.pop('path'), params=kwargs, headers=headers, **({'data': Utils.convert_body(body, False)} if body is not None else {})
+        )
 
     @sp_endpoint('/sp/campaigns/delete', method='POST')
     def delete_campaigns(self, version: int = 3, **kwargs) -> ApiResponse:
