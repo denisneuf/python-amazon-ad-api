@@ -1,5 +1,9 @@
+# MÍNIMO necesario para construir documentación
+# sphinx<9: enum-tools 0.13.0 (última) rompe en Sphinx 9 (eliminado sphinx.ext.autodoc.logger)
+sphinx>=8,<9
 sphinx_rtd_theme
 sphinxcontrib-napoleon
+sphinx-jinja2-compat>=0.4.1
 sphinx-toolbox>=4.3.1
 enum-tools[sphinx]
 pydata-sphinx-theme
@@ -13,3 +17,4 @@ pytz>=2026.5,<2027.0
 confuse>=2.3.0,<2.4
 python-dotenv
 pyyaml
+
