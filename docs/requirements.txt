@@ -18,4 +18,4 @@ confuse>=2.3.0,<2.4
 python-dotenv
 pyyaml
 
-alabaster<1.0
+alabaster<2.0
