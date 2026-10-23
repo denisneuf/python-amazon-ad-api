@@ -20,6 +20,7 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 import ad_api
+from ad_api.version import __version__
 
 # -- Project information -----------------------------------------------------
 
@@ -27,8 +28,8 @@ import ad_api
 project = 'Python Amazon Advertising API'
 copyright = '2023, Daniel Alvaro'
 author = 'Daniel Alvaro'
-release = ad_api.__version__
-version = ad_api.__version__
+release = __version__
+version = __version__
 
 # -- General configuration ---------------------------------------------------
 
