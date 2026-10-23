@@ -275,10 +275,14 @@ There is a new version 3 Portfolios API, please check the [migration guide](http
 
 New unified endpoint generation. Campaigns are queried with a single `POST /adsApi/v1/query/campaigns` resource instead of the versioned v2/v3 endpoints.
 
-* `query_campaigns` -> `POST /adsApi/v1/query/campaigns`
-* `create_campaigns` -> `POST /adsApi/v1/create/campaigns` (not implemented yet)
-* `update_campaigns` -> `POST /adsApi/v1/update/campaigns` (not implemented yet)
-* `delete_campaigns` -> `POST /adsApi/v1/delete/campaigns` (not implemented yet)
+| Method | Endpoint | Body |
+|---|---|---|
+| `query_campaigns` | `POST /adsApi/v1/query/campaigns` | filters + `maxResults`/`nextToken` |
+| `create_campaigns` | `POST /adsApi/v1/create/campaigns` | `campaigns[]` (`adProduct`, `name`, `state` required) |
+| `update_campaigns` | `POST /adsApi/v1/update/campaigns` | `campaigns[]` (`campaignId` required) |
+| `delete_campaigns` | `POST /adsApi/v1/delete/campaigns` | `campaignIds[]` |
+
+All four return a **207 MultiStatus** response (except `query_campaigns`, which returns 200), so check the payload for per-entity errors.
 
 ```python
 from ad_api.api import sponsored_products
