@@ -271,6 +271,30 @@ There is a new version 3 Portfolios API, please check the [migration guide](http
 * [Get test account information](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount.AdvertisingTestAccount.get_test_account)
 
 
+### Sponsored Products v1 (new)
+
+New unified endpoint generation. Campaigns are queried with a single `POST /adsApi/v1/query/campaigns` resource instead of the versioned v2/v3 endpoints.
+
+* `query_campaigns` -> `POST /adsApi/v1/query/campaigns`
+* `create_campaigns` -> `POST /adsApi/v1/create/campaigns` (not implemented yet)
+* `update_campaigns` -> `POST /adsApi/v1/update/campaigns` (not implemented yet)
+* `delete_campaigns` -> `POST /adsApi/v1/delete/campaigns` (not implemented yet)
+
+```python
+from ad_api.api import sponsored_products
+
+result = sponsored_products.Campaigns(credentials=credentials, debug=True).query_campaigns(
+    body={
+        "adProductFilter": {"include": ["SPONSORED_PRODUCTS"]},
+        "stateFilter": {"include": ["ENABLED"]},
+        "maxResults": 100,
+    }
+)
+
+campaigns = result.payload.get("campaigns")
+next_token = result.payload.get("nextToken")
+```
+
 ### [Modules Available Sponsored Products 2.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sp_v2.html)
 
 Warning: [PLANNED DEPRECATION 6/30/2023]
@@ -278,6 +302,8 @@ There is a new version 3 of Sponsored Product API, please check the [migration g
 
 
 ### [Modules Available Sponsored Products 3.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sp_v3.html)
+
+Warning: `list_campaigns` is deprecated. Use the v1 `query_campaigns` method instead.
 
 
 * [ThemeBased Bid Recommendation](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/bid_recommendations_v3.html)
@@ -347,7 +373,9 @@ There is a new version 3 of Sponsored Product API, please check the [migration g
 
 * [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/dsp/reports.html)
 
-### Simple Example Usage Campaigns with Credentials
+### Simple Example Usage Campaigns with Credentials (v3, legacy)
+
+Warning: this example uses `CampaignsV3.list_campaigns`, which is deprecated. See the v1 `query_campaigns` example above.
 
 ```python
 import logging
@@ -415,4 +443,4 @@ We are not affiliated with Amazon but they used our api :)
 
 
 ---
-*Last release: v0.8.9 (via electroduende automated release random access memory)*
+*Last release: v0.9.7*
