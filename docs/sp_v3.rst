@@ -3,6 +3,12 @@
 
 Sponsored Products
 
+The v1 endpoints (``/adsApi/v1/``) are the current generation and supersede v3.
+
+.. warning::
+
+    ``list_campaigns`` is deprecated. Use the v1 ``query_campaigns`` method instead.
+
 Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod#/
 
 This specification is available for download from the `Advertising API developer portal <https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json>`_.
