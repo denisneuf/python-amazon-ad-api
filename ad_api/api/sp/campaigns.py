@@ -386,3 +386,43 @@ class Campaigns(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), campaignId), params=kwargs)
+
+    @sp_endpoint('/adsApi/v1/query/campaigns', method='POST')
+    def query_campaigns(self, **kwargs) -> ApiResponse:
+        r"""
+        query_campaigns(body: dict) -> ApiResponse
+
+        Amazon Ads API v1 - Query Campaigns (operationId: QueryCampaign)
+
+        Request Body [Required]
+            | **adProductFilter** (dict): [required]
+                | **include** (list<AdProduct>) : Enum [ AMAZON_DSP, SPONSORED_BRANDS, SPONSORED_DISPLAY, SPONSORED_PRODUCTS, SPONSORED_TELEVISION ]
+            | **campaignIdFilter** (dict) [optional]
+                | **include** (list<string>) : Campaign identifiers
+            | **goalFilter** (dict) [optional]
+                | **include** (list<Goal>) : Enum [ AWARENESS, CONSIDERATION, CONVERSIONS ]
+            | **marketplaceScopeFilter** (dict) [optional]
+                | **include** (list<MarketplaceScope>) : Enum [ GLOBAL, SINGLE_MARKETPLACE ]
+            | **nameFilter** (dict) [optional]
+                | **include** (list<string>) : Campaign names
+                | **queryTermMatchType** (string) : [required] Enum [ BROAD_MATCH, EXACT_MATCH ]
+            | **portfolioIdFilter** (dict) [optional]
+                | **include** (list<string>) : Portfolio identifiers
+            | **retailerScopeFilter** (dict) [optional]
+                | **include** (list<RetailerScope>) : Enum [ AMAZON, OTHER_RETAILERS ]
+            | **stateFilter** (dict) [optional]
+                | **include** (list<State>) : Enum [ ARCHIVED, DRAFT, ENABLED, PAUSED ]
+            | **maxResults** (int) [optional] Minimum 1, Maximum 1000
+            | **nextToken** (string) [optional] Token to navigate to the next page
+
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
+        Returns
+            ApiResponse
+                | **campaigns** (list), **nextToken** (string)
+
+        """
+        schema_version = 'application/json'
+        headers = {"Accept": schema_version, "Content-Type": schema_version}
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
