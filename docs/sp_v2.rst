@@ -5,7 +5,9 @@
 
 .. warning::
 
-    There is a new version 3 of Sponsored Product API, please check the `migration guide`_.
+    Version 2 is deprecated and its methods are commented out in the source. Use the
+    v1 endpoints (``/adsApi/v1/``) for campaigns. The remaining v2 modules listed
+    below are kept for reference only.
 
 Amazon Advertising API - Sponsored Products
 
@@ -18,7 +20,6 @@ This specification is available for download from the `Advertising API developer
 ..  toctree::
     :maxdepth: 1
 
-    sp/campaigns
     sp/ad_groups
     sp/bid_recommendations
     sp/keywords
@@ -36,5 +37,3 @@ References
 **********
 
 .. target-notes::
-
-.. _`migration guide`: https://advertising.amazon.com/API/docs/en-us/sponsored-products/v3-migration-guide
