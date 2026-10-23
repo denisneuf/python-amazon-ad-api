@@ -27,8 +27,8 @@ import ad_api
 project = 'Python Amazon Advertising API'
 copyright = '2023, Daniel Alvaro'
 author = 'Daniel Alvaro'
-release = '0.7.4'
-version = '0.7.4'
+release = ad_api.__version__
+version = ad_api.__version__
 
 # -- General configuration ---------------------------------------------------
 
@@ -50,7 +50,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', '_legacy', 'Thumbs.db', '.DS_Store']
 autodoc_default_options = {"members": True, "undoc-members": True, 'member-order': 'bysource'}
 # html_theme_options = {
 #     "collapse_navigation": False
