@@ -458,3 +458,51 @@ class Campaigns(Client):
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+
+    @sp_endpoint('/adsApi/v1/update/campaigns', method='POST')
+    def update_campaigns(self, **kwargs) -> ApiResponse:
+        r"""
+        update_campaigns(body: dict) -> ApiResponse
+
+        Amazon Ads API v1 - Update Campaigns (operationId: UpdateCampaign)
+
+        Request Body [Required]
+            | **campaigns** (list<dict>) : [required] One or more campaign objects to update.
+              Each object requires **campaignId** and may include any of the fields below.
+
+        Campaign fields [optional except campaignId]
+            | **campaignId** (string) : [required] The identifier of the campaign to update.
+            | **adProduct** (string) : Enum [ AMAZON_DSP, SPONSORED_BRANDS, SPONSORED_DISPLAY, SPONSORED_PRODUCTS, SPONSORED_TELEVISION ]
+            | **name** (string) : The name of the campaign.
+            | **state** (string) : Enum [ DRAFT, ENABLED, PAUSED ]
+            | **budgets** (list<dict>) : Budget objects for the campaign.
+            | **startDateTime** (string) : Campaign start date and time.
+            | **endDateTime** (string) : Campaign end date and time.
+            | **portfolioId** (string) : The identifier of the portfolio.
+            | **purchaseOrderNumber** (string) : Advertiser purchase order number.
+            | **tags** (list<dict>) : Advertiser-specified custom identifiers.
+            | **marketplaces** (list<dict>) : Marketplaces where the campaign runs.
+            | **marketplaceConfigurations** (list<dict>) : Per-marketplace overrides.
+            | **countries** (list<string>) : Country codes.
+            | **costType** (string) : Enum [ CPC, CPM, FIXED_PRICE, VCPM ]
+            | **fees** (list<dict>) : Fee definitions.
+            | **flights** (list<dict>) : Flight schedules.
+            | **frequencies** (list<dict>) : Frequency cap definitions.
+            | **optimizations** (dict) : Campaign optimization settings.
+            | **siteRestrictions** (list<dict>) : Site restrictions.
+            | **skanAppId** (string) : SKAdNetwork app id.
+            | **targetedPGDealId** (string) : Targeted programmatic guaranteed deal id.
+            | **adomains** (list<string>) : Ad domains.
+
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
+        Returns
+            ApiResponse
+                | **207** MultiStatus response with partial errors. Inspect the payload
+                  to know which campaigns succeeded and which failed.
+
+        """
+        schema_version = 'application/json'
+        headers = {"Accept": schema_version, "Content-Type": schema_version}
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
