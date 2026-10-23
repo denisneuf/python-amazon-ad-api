@@ -9,13 +9,18 @@ Campaigns
 
 
 
+.. note::
+   This class only exposes the v1 ``query_campaigns`` method. The v2 methods are deprecated and commented out in the source.
+
 .. autoclass:: ad_api.api.sp.Campaigns
 
     .. warning::
 
         This method is a helper that basically will build the json body for you based on params. If you are happy building your own dictinary and passing to the api as json you could use the **create_campaigns** method who follow the Amazon api strictly accepting only the keyword argument body which is a json string and allow to create more than one campaign at the same time.
 
-    .. autofunction:: ad_api.api.sp.Campaigns.create_single_campaign_assistant
+
+.. note::
+   Deprecated: this function has been removed from the class. See the v1 endpoints.
 
     .. note::
 
@@ -180,7 +185,9 @@ Campaigns
        This method is a helper that basically will build the json body for you based on params. If you are happy building your own dictinary and passing to the api as json you could use the **edit_campaign** method who follow the Amazon api strictly accepting only the keyword argument body which is a json string.
 
 
-    .. autofunction:: ad_api.api.sp.Campaigns.edit_single_campaign_assistant
+
+.. note::
+   Deprecated: this function has been removed from the class. See the v1 endpoints.
 
     .. note::
 
@@ -230,7 +237,9 @@ Campaigns
 
 
 
-    .. autofunction:: ad_api.api.sp.Campaigns.create_campaigns
+
+.. note::
+   Deprecated: this function has been removed from the class. See the v1 endpoints.
 
     .. versionadded:: 0.2.7
         The support to pass the body as dictionary, list, path to file or content of file.
@@ -419,7 +428,9 @@ Campaigns
 
     .. literalinclude:: ../../test/campaigns/sp-sx-create-campaigns.json
 
-    .. autofunction:: ad_api.api.sp.Campaigns.edit_campaigns
+
+.. note::
+   Deprecated: this function has been removed from the class. See the v1 endpoints.
 
     .. versionadded:: 0.2.7
         The support to pass the body as dictionary, list, path to file or content of file.
@@ -576,7 +587,9 @@ Campaigns
 
     .. literalinclude:: ../../test/campaigns/sp-sx-edit-campaigns.json
 
-    .. autofunction:: ad_api.api.sp.Campaigns.list_campaigns
+
+.. note::
+   Deprecated: this function has been removed from the class. See the v1 endpoints.
 
     ### Example getting a list of campaigns
 
@@ -617,7 +630,9 @@ Campaigns
         # sp_list_campaigns(name="API.ES.Campaign.Manual.JSON.Edit.3")
         # sp_list_campaigns(campaignIdFilter="247123430252449,1280722862611,7164447325502")
 
-    .. autofunction:: ad_api.api.sp.Campaigns.get_campaign
+
+.. note::
+   Deprecated: this function has been removed from the class. See the v1 endpoints.
 
     ### Example getting a campaign
 
@@ -647,7 +662,9 @@ Campaigns
         sp_campaign_id = 247123430252449
         sp_get_campaign(sp_campaign_id)
 
-    .. autofunction:: ad_api.api.sp.Campaigns.delete_campaign
+
+.. note::
+   Deprecated: this function has been removed from the class. See the v1 endpoints.
 
 
     .. warning::
@@ -684,7 +701,9 @@ Campaigns
         sp_delete_campaign(sp_campaign_id)
 
 
-    .. autofunction:: ad_api.api.sp.Campaigns.list_campaigns_extended
+
+.. note::
+   Deprecated: this function has been removed from the class. See the v1 endpoints.
 
 
     ### Example getting a list of campaigns with extended data
@@ -719,7 +738,9 @@ Campaigns
         sp_list_campaigns_extended(stateFilter="paused")
 
 
-    .. autofunction:: ad_api.api.sp.Campaigns.get_campaign_extended
+
+.. note::
+   Deprecated: this function has been removed from the class. See the v1 endpoints.
 
     ### Example getting a campaign with extended fields
 
