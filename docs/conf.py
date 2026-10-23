@@ -61,23 +61,28 @@ autodoc_default_options = {"members": True, "undoc-members": True, 'member-order
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-# html_theme = 'sphinx_rtd_theme'
-# html_theme = "pydata_sphinx_theme"
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
-    'github_button': True,    # optional tweaks
-    'github_banner': True,
-    'github_button': True,
-    'description': '''
-A wrapper to access Amazon's Advertising API with an easy-to-use interface.
-    ''',
-    'donate_url': 'https://github.com/sponsors/denisneuf',
-    'github_user': 'denisneuf',
-    'github_repo': 'python-amazon-ad-api',
-    "github_type": "star",  # watch|star|fork
-'fixed_sidebar': True
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'navigation_depth': 3,
 }
+
+# Alabaster theme options, kept for reference in case we switch back.
+# html_theme = 'alabaster'
+# html_theme_options = {
+#     'github_button': True,
+#     'github_banner': True,
+#     'description': '''
+# A wrapper to access Amazon's Advertising API with an easy-to-use interface.
+#     ''',
+#     'donate_url': 'https://github.com/sponsors/denisneuf',
+#     'github_user': 'denisneuf',
+#     'github_repo': 'python-amazon-ad-api',
+#     'github_type': 'star',  # watch|star|fork
+#     'fixed_sidebar': True,
+# }
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
