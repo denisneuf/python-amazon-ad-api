@@ -271,9 +271,13 @@ There is a new version 3 Portfolios API, please check the [migration guide](http
 * [Get test account information](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount.AdvertisingTestAccount.get_test_account)
 
 
-### Sponsored Products v1 (new)
+### Amazon Ads API v1 (new, unified)
 
-New unified endpoint generation. Campaigns are queried with a single `POST /adsApi/v1/query/campaigns` resource instead of the versioned v2/v3 endpoints.
+The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call targets the same resource and the product is selected in the request body with `adProductFilter`. It supersedes the per-product v2/v3 endpoints.
+
+```python
+from ad_api.api import v1
+```
 
 | Method | Endpoint | Body |
 |---|---|---|
@@ -285,9 +289,9 @@ New unified endpoint generation. Campaigns are queried with a single `POST /adsA
 All four return a **207 MultiStatus** response (except `query_campaigns`, which returns 200), so check the payload for per-entity errors.
 
 ```python
-from ad_api.api import sponsored_products
+from ad_api.api import v1
 
-result = sponsored_products.Campaigns(credentials=credentials, debug=True).query_campaigns(
+result = v1.Campaigns(credentials=credentials, debug=True).query_campaigns(
     body={
         "adProductFilter": {"include": ["SPONSORED_PRODUCTS"]},
         "stateFilter": {"include": ["ENABLED"]},
