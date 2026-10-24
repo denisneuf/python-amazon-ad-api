@@ -1,0 +1,17 @@
+1.0
+===
+
+Amazon Ads API v1 - unified generation
+
+The v1 endpoints live under ``/adsApi/v1/`` and are **not** split by product.
+Every call targets the same resource and the product is selected in the request
+body through ``adProductFilter``. This supersedes the per-product v2/v3 endpoints
+(``/v2/sp/...``, ``/sp/...``).
+
+Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-campaigns
+
+..  toctree::
+    :caption: Table of Contents
+    :maxdepth: 1
+
+    v1/campaigns
