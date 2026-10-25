@@ -24,7 +24,8 @@ class Stores(Client):
         Returns:
             | ApiResponse
         """
-        return self._request(kwargs.pop('path'), params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs,
+                             headers={'Accept': 'application/vnd.mediaasset.v3+json'})
 
     @sp_endpoint('/stores/assets', method='POST')
     def create_asset(self, image, brandEntityId, mediaType='brandLogo', filename=None, **kwargs) -> ApiResponse:

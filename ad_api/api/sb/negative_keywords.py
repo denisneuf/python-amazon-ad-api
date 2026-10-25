@@ -6,6 +6,13 @@ class NegativeKeywords(Client):
     Use the Amazon Advertising API for Sponsored Brands for campaign, ad group, keyword, negative keyword, drafts, Stores, landing pages, and Brands management operations. For more information about Sponsored Brands, see the Sponsored Brands Support Center. For onboarding information, see the account setup topic.
     """
 
+    _ACCEPT = 'application/vnd.sbnegativekeyword.v3.2+json'
+
+    @classmethod
+    def _accept(cls):
+        """Response media type the v3 contract declares for these routes."""
+        return {"Accept": cls._ACCEPT}
+
     @sp_endpoint('/sb/negativeKeywords', method='GET')
     def list_negative_keywords(self, **kwargs) -> ApiResponse:
         r"""
@@ -26,7 +33,7 @@ class NegativeKeywords(Client):
             | ApiResponse
 
         """
-        return self._request(kwargs.pop('path'), params=kwargs)
+        return self._request(kwargs.pop('path'), params=kwargs, headers=self._accept())
 
     @sp_endpoint('/sb/negativeKeywords', method='PUT')
     def edit_negative_keywords(self, **kwargs) -> ApiResponse:

@@ -6,6 +6,13 @@ class NegativeTargets(Client):
     Use the Amazon Advertising API for Sponsored Brands for campaign, ad group, keyword, negative keyword, drafts, Stores, landing pages, and Brands management operations. For more information about Sponsored Brands, see the Sponsored Brands Support Center. For onboarding information, see the account setup topic.
     """
 
+    _ACCEPT = 'application/vnd.sblistnegativetargetsresponse.v3.2+json'
+
+    @classmethod
+    def _accept(cls):
+        """Response media type the v3 contract declares for the listing route."""
+        return {'Accept': cls._ACCEPT}
+
     @sp_endpoint('/sb/negativeTargets/list', method='POST')
     def list_negative_targets(self, **kwargs) -> ApiResponse:
         r"""
@@ -28,7 +35,8 @@ class NegativeTargets(Client):
         Returns:
             ApiResponse
         """
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False),
+                             params=kwargs, headers=self._accept())
 
     @sp_endpoint('/sb/negativeTargets', method='PUT')
     def edit_negative_targets(self, **kwargs) -> ApiResponse:

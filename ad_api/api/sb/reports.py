@@ -8,6 +8,13 @@ class Reports(Client):
 
     """
 
+    _ACCEPT = 'application/json'
+
+    @classmethod
+    def _accept(cls):
+        """Response media type the v3 contract declares for these routes."""
+        return {"Accept": cls._ACCEPT}
+
     @sp_endpoint('/v2/hsa/{}/report', method='POST')
     def post_report(self, recordType, **kwargs) -> ApiResponse:
         r"""Requests a Sponsored Brands report.
@@ -27,7 +34,8 @@ class Reports(Client):
             ApiResponse
 
         """
-        return self._request(fill_query_params(kwargs.pop('path'), recordType), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
+        return self._request(fill_query_params(kwargs.pop('path'), recordType), data=Utils.convert_body(kwargs.pop('body'), False),
+                             params=kwargs, headers=self._accept())
 
     @sp_endpoint('/v2/reports/{}', method='GET')
     def get_report(self, reportId, **kwargs) -> ApiResponse:
@@ -42,7 +50,7 @@ class Reports(Client):
         Returns:
             ApiResponse
         """
-        return self._request(fill_query_params(kwargs.pop('path'), reportId), params=kwargs)
+        return self._request(fill_query_params(kwargs.pop('path'), reportId), params=kwargs, headers=self._accept())
 
     def download_report(self, **kwargs) -> ApiResponse:
         r"""Downloads the report previously get report specified by location
