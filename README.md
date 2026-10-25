@@ -355,10 +355,6 @@ Warning: `list_campaigns` is deprecated. Use the v1 `query_campaigns` method ins
 * [Forecasts](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/forecast.html)
 * [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/recommendations.html)
 
-### [Modules Available DSP](https://python-amazon-ad-api.readthedocs.io/en/latest/dsp.html)
-
-* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/dsp/reports.html)
-
 ### Amazon Ads API v1 - basic example
 
 ```python

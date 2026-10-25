@@ -19,7 +19,6 @@ setup(
         'ad_api.api.sp',
         'ad_api.api.sb',
         'ad_api.api.sd',
-        'ad_api.api.dsp',
         'ad_api.api.v1',
     ],
     url='https://github.com/denisneuf/python-amazon-ad-api',
