@@ -18,7 +18,6 @@ from .bid_recommendations import BidRecommendations
 from .stores import Stores
 from .media import Media
 from .reports import Reports
-from .snapshots import Snapshots
 from .benchmarks import Benchmarks
 from .themes import Themes
 
@@ -43,7 +42,6 @@ __all__ = [
     "Stores",
     "Media",
     "Reports",
-    "Snapshots",
     "Benchmarks",
     "Themes"
 ]

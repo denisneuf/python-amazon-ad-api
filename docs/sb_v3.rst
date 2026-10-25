@@ -12,11 +12,11 @@
     sb/negative_product_targeting
     sb/targeting_recommendations
     sb/bid_recommendations
+    sb/keywords_recommendations
     sb/stores
     sb/landing_page_asins
     sb/media
     sb/brands
     sb/reports
-    sb/snapshots
     sb/themes
 
