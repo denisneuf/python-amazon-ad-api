@@ -8,7 +8,27 @@ Every call targets the same resource and the product is selected in the request
 body through ``adProductFilter``. This supersedes the per-product v2/v3 endpoints
 (``/v2/sp/...``, ``/sp/...``).
 
-Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-campaigns
+Specifications
+--------------
+
+.. list-table::
+    :header-rows: 1
+
+    * - Resource
+      - Documentation
+      - OpenAPI
+    * - Campaigns
+      - `api-spec-v1-campaigns <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-campaigns>`_
+      - `AmazonAdsAPIALLCampaignsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLCampaignsContract_prod_3p.json>`_
+    * - Ad Groups
+      - `api-spec-v1-adgroups <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-adgroups>`_
+      - `AmazonAdsAPIALLAdGroupsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdGroupsContract_prod_3p.json>`_
+    * - Ads
+      - `api-spec-v1-ads <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-ads>`_
+      - `AmazonAdsAPIALLAdsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdsContract_prod_3p.json>`_
+    * - Targets
+      - `api-spec-v1-targets <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-targets>`_
+      - `AmazonAdsAPIALLTargetsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLTargetsContract_prod_3p.json>`_
 
 ..  toctree::
     :caption: Table of Contents

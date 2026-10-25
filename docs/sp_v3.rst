@@ -7,7 +7,11 @@ The v1 endpoints (``/adsApi/v1/``) are the current generation and supersede v3.
 
 .. warning::
 
-    ``list_campaigns`` is deprecated. Use the v1 ``query_campaigns`` method instead.
+    The campaign, ad group and product ad operations are deprecated in favour of
+    the v1 endpoints (``/adsApi/v1/``). In product targeting only the four CRUD
+    operations are deprecated; its helper endpoints remain supported. Keywords,
+    negative keywords and negative product targeting have no v1 equivalent yet
+    and stay supported.
 
 Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod#/
 
