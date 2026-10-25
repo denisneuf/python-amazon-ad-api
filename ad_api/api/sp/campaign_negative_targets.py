@@ -87,7 +87,7 @@ class CampaignNegativeTargets(Client):
         Returns
             ApiResponse
         """
-        json_version = 'application/vnd.spNegativeTargetingClause.v' + str(version) + "+json"
+        json_version = 'application/vnd.spCampaignNegativeTargetingClause.v' + str(version) + "+json"
         headers = {"Accept": json_version, "Content-Type": json_version}
 
         prefer_value = 'return=representation'
