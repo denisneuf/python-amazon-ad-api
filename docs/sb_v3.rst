@@ -16,7 +16,6 @@
     sb/landing_page_asins
     sb/media
     sb/brands
-    sb/moderation
     sb/reports
     sb/snapshots
     sb/themes

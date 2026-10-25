@@ -6,7 +6,6 @@ from .ad_groups import AdGroups
 from .ad_groups_v4 import AdGroupsV4
 from .ad_creatives_v4 import AdCreativesV4
 from .ads_v4 import AdsV4
-from .moderation import Moderation
 from .keywords import Keywords
 from .recommendations import Recommendations
 from .keywords_recommendations import KeywordsRecommendations
@@ -32,7 +31,6 @@ __all__ = [
     "AdGroups",
     "AdGroupsV4",
     "AdsV4",
-    "Moderation",
     "Keywords",
     "Recommendations",
     "KeywordsRecommendations",
