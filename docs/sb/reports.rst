@@ -1,6 +1,18 @@
 Reports
 =======
 
+.. note::
+    These endpoints keep the historical ``/v2/`` path prefix but are part of the
+    Sponsored Brands 3.0 documentation
+    (see `Amazon's Reports tag <https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi#tag/Reports>`_).
+    The path prefix does **not** indicate the API generation: Sponsored Brands
+    mixes ``/sb/...``, ``/v2/hsa/...`` and ``/v2/reports/...`` under the same
+    version, and all of them answer.
+
+    Do not delete anything here based on the prefix alone. Only ``404`` with
+    *"Could not find resource for full path"* proves a route is gone; a ``404``
+    that names a missing identifier means the route is alive.
+
 .. autoclass:: ad_api.api.sb.Reports
 
     .. autofunction:: ad_api.api.sb.Reports.post_report(self, recordType, **kwargs) -> ApiResponse:
