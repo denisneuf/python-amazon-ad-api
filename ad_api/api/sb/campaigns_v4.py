@@ -59,7 +59,6 @@ class CampaignsV4(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/v4/campaigns/delete', method='POST')
-    @Utils.notsupported
     def delete_campaigns(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         The operation is currently not supported subject to potential change.

@@ -309,8 +309,10 @@ Warning: the campaign, ad group and product ad operations are deprecated in favo
 
 ### [Modules Available Sponsored Brands 3.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sb_v3.html)
 
-* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/campaigns.html)
-* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups.html)
+> Campaigns and Ad Groups are deprecated in v3: Amazon answers `403 Endpoint has been deprecated` and points to the v4 API. Use the 4.0 section below for those two.
+
+* [Campaigns (deprecated)](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/campaigns.html)
+* [Ad Groups (deprecated)](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups.html)
 * [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/keywords.html)
 * [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/negative_keywords.html)
 * [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/product_targeting.html)

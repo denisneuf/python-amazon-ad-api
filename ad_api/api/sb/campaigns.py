@@ -116,6 +116,7 @@ class Campaigns(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
     @sp_endpoint('/sb/campaigns/{}', method='GET')
+    @Utils.deprecated
     def get_campaign(self, campaignId, **kwargs) -> ApiResponse:
         """
         Gets a campaign specified by identifier.
@@ -131,6 +132,7 @@ class Campaigns(Client):
         return self._request(fill_query_params(kwargs.pop('path'), campaignId), params=kwargs)
 
     @sp_endpoint('/sb/campaigns/{}', method='DELETE')
+    @Utils.deprecated
     def delete_campaign(self, campaignId, **kwargs) -> ApiResponse:
         """
         Archives a campaign specified by identifier.

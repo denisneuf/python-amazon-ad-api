@@ -1,9 +1,12 @@
 Campaigns
 =========
 
-.. autoclass:: ad_api.api.sb.Campaigns
+.. deprecated:: 1.0.8
+    The Sponsored Brands v3 campaign endpoints are closed. Amazon answers
+    ``403 Endpoint has been deprecated`` and points to the v4 API. Use
+    :doc:`campaigns_v4` instead.
 
-    .. deprecated:: 4.0.2
+.. autoclass:: ad_api.api.sb.Campaigns
 
     .. autofunction:: ad_api.api.sb.Campaigns.list_campaigns(self, **kwargs) -> ApiResponse:
 

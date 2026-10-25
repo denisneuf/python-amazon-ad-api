@@ -33,6 +33,7 @@ class AdGroups(Client):
         return self._request(kwargs.pop('path'), params=kwargs)
 
     @sp_endpoint('/sb/adGroups/{}', method='GET')
+    @Utils.deprecated
     def get_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
         r"""
 
