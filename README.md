@@ -281,12 +281,6 @@ The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call
 * [Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/targets.html#ad_api.api.v1.Targets.Targets.query_targets)
 
 
-### [Modules Available Sponsored Products 2.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sp_v2.html)
-
-Warning: [PLANNED DEPRECATION 6/30/2023]
-There is a new version 3 of Sponsored Product API, please check the [migration guide](https://advertising.amazon.com/API/docs/en-us/sponsored-products/v3-migration-guide).
-
-
 ### [Modules Available Sponsored Products 3.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sp_v3.html)
 
 Warning: `list_campaigns` is deprecated. Use the v1 `query_campaigns` method instead.
@@ -296,7 +290,7 @@ Warning: `list_campaigns` is deprecated. Use the v1 `query_campaigns` method ins
 * [Keyword Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ranked_keywords_recommendations.html)
 * [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/keywords_v3.html)
 * [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_keywords_v3.html)
-* [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_targeting.html)
+* [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_targeting_v3.html)
 * [Campaign Optimization](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_optimization_rules.html)
 * [Budget Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_rules.html)
 * [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_ads_v3.html)
