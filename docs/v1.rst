@@ -17,3 +17,4 @@ Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-campaig
     v1/campaigns
     v1/ad_groups
     v1/ads
+    v1/targets
