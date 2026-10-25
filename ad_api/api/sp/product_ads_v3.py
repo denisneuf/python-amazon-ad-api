@@ -26,7 +26,7 @@ class ProductAdsV3(Client):
             ApiResponse
         """
 
-        json_version = 'application/vnd.spproductAd.v' + str(version) + "+json"
+        json_version = "application/vnd.spProductAd.v" + str(version) + "+json"
 
         headers = {"Accept": json_version, "Content-Type": json_version}
 
