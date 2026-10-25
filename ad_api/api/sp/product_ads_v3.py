@@ -7,6 +7,7 @@ class ProductAdsV3(Client):
     """
 
     @sp_endpoint('/sp/productAds/list', method='POST')
+    @Utils.deprecated
     def list_product_ads(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""
         Lists Sponsored Products Ads.
@@ -32,6 +33,7 @@ class ProductAdsV3(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/productAds', method='POST')
+    @Utils.deprecated
     def create_product_ads(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         Create one or more SP Product Ads.
@@ -61,6 +63,7 @@ class ProductAdsV3(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/productAds', method='PUT')
+    @Utils.deprecated
     def edit_product_ads(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         Updates one or more product ads specified by identifier.
@@ -87,6 +90,7 @@ class ProductAdsV3(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/productAds/delete', method='POST')
+    @Utils.deprecated
     def delete_product_ads(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""
         Delete one or multiple sponsored product ads.

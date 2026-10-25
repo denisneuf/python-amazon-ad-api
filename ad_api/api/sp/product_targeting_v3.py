@@ -3,6 +3,7 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 
 class TargetsV3(Client):
     @sp_endpoint('/sp/targets/list', method='POST')
+    @Utils.deprecated
     def list_product_targets(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""
         Listing product targets.
@@ -18,6 +19,7 @@ class TargetsV3(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/targets', method='POST')
+    @Utils.deprecated
     def create_product_targets(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         Creating product targets.
@@ -46,6 +48,7 @@ class TargetsV3(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/targets', method='PUT')
+    @Utils.deprecated
     def edit_product_targets(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         Updating product targets.
@@ -72,6 +75,7 @@ class TargetsV3(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/targets/delete', method='POST')
+    @Utils.deprecated
     def delete_product_targets(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""
         Deleting product targets

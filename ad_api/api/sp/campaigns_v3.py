@@ -7,6 +7,7 @@ class CampaignsV3(Client):
     """
 
     @sp_endpoint('/sp/campaigns', method='POST')
+    @Utils.deprecated
     def create_campaigns(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         create_campaigns(body: (dict, str, list)) -> ApiResponse
@@ -39,6 +40,7 @@ class CampaignsV3(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sp/campaigns', method='PUT')
+    @Utils.deprecated
     def edit_campaigns(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         edit_campaigns(body: (dict, str, list)) -> ApiResponse
@@ -101,6 +103,7 @@ class CampaignsV3(Client):
         )
 
     @sp_endpoint('/sp/campaigns/delete', method='POST')
+    @Utils.deprecated
     def delete_campaigns(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""
         delete_campaigns(body: (dict, str, list)) -> ApiResponse
