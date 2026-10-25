@@ -281,9 +281,9 @@ The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call
 * [Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/targets.html#ad_api.api.v1.Targets.Targets.query_targets)
 
 
-### [Modules Available Sponsored Products 3.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sp_v3.html)
+### [Modules Available Sponsored Products](https://python-amazon-ad-api.readthedocs.io/en/latest/sp.html)
 
-Warning: `list_campaigns` is deprecated. Use the v1 `query_campaigns` method instead.
+Warning: the campaign, ad group and product ad operations are deprecated in favour of the v1 endpoints. In product targeting only the four CRUD operations are deprecated; its helper endpoints remain supported. Keywords, negative keywords and negative product targeting have no v1 equivalent yet and stay supported.
 
 
 * [ThemeBased Bid Recommendation](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/bid_recommendations_v3.html)
