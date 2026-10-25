@@ -1,7 +1,7 @@
-1.0
-===
+Amazon Ads API v1
+=================
 
-Amazon Ads API v1 - unified generation
+The unified generation
 
 The v1 endpoints live under ``/adsApi/v1/`` and are **not** split by product.
 Every call targets the same resource and the product is selected in the request

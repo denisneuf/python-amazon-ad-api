@@ -1,0 +1,16 @@
+Amazon Ads API v0
+=================
+
+The per-product endpoints, superseded by :doc:`v1`.
+
+Each product keeps its own path prefix and its own generations — Sponsored
+Products, Sponsored Brands and Sponsored Display were separate APIs, not
+versions of one API. They stay here for reference and for the products that have
+no unified equivalent yet.
+
+..  toctree::
+    :maxdepth: 1
+
+    sp
+    sb
+    sd

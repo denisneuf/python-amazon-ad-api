@@ -5,7 +5,6 @@ Sponsored Products
     :maxdepth: 1
 
     sp_v3
-    sp_v2
 
 .. warning::
 

@@ -9,14 +9,11 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    
    installation
    credentials
+   v1
+   v0
    api
    api/attribution
    api/brand_metrics
-   v1
-   sp
-   sb
-   sd
-   dsp
    api/advertising_test_account
    disclaimer
 
