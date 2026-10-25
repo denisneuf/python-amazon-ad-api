@@ -271,37 +271,13 @@ There is a new version 3 Portfolios API, please check the [migration guide](http
 * [Get test account information](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount.AdvertisingTestAccount.get_test_account)
 
 
-### Amazon Ads API v1 (new, unified)
+### [Amazon Ads API v1 (new, unified)](https://python-amazon-ad-api.readthedocs.io/en/latest/v1.html)
 
 The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call targets the same resource and the product is selected in the request body with `adProductFilter`. It supersedes the per-product v2/v3 endpoints.
 
-```python
-from ad_api.api import v1
-```
+* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/campaigns.html#ad_api.api.v1.Campaigns.Campaigns.query_campaigns)
+* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ad_groups.html#ad_api.api.v1.AdGroups.AdGroups.query_ad_groups)
 
-| Method | Endpoint | Body |
-|---|---|---|
-| `query_campaigns` | `POST /adsApi/v1/query/campaigns` | filters + `maxResults`/`nextToken` |
-| `create_campaigns` | `POST /adsApi/v1/create/campaigns` | `campaigns[]` (`adProduct`, `name`, `state` required) |
-| `update_campaigns` | `POST /adsApi/v1/update/campaigns` | `campaigns[]` (`campaignId` required) |
-| `delete_campaigns` | `POST /adsApi/v1/delete/campaigns` | `campaignIds[]` |
-
-All four return a **207 MultiStatus** response (except `query_campaigns`, which returns 200), so check the payload for per-entity errors.
-
-```python
-from ad_api.api import v1
-
-result = v1.Campaigns(credentials=credentials, debug=True).query_campaigns(
-    body={
-        "adProductFilter": {"include": ["SPONSORED_PRODUCTS"]},
-        "stateFilter": {"include": ["ENABLED"]},
-        "maxResults": 100,
-    }
-)
-
-campaigns = result.payload.get("campaigns")
-next_token = result.payload.get("nextToken")
-```
 
 ### [Modules Available Sponsored Products 2.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sp_v2.html)
 
@@ -380,6 +356,23 @@ Warning: `list_campaigns` is deprecated. Use the v1 `query_campaigns` method ins
 ### [Modules Available DSP](https://python-amazon-ad-api.readthedocs.io/en/latest/dsp.html)
 
 * [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/dsp/reports.html)
+
+### Amazon Ads API v1 - basic example
+
+```python
+from ad_api.api import v1
+
+result = v1.Campaigns(credentials=credentials, debug=True).query_campaigns(
+    body={
+        "adProductFilter": {"include": ["SPONSORED_PRODUCTS"]},
+        "stateFilter": {"include": ["ENABLED"]},
+        "maxResults": 100,
+    }
+)
+
+campaigns = result.payload.get("campaigns")
+next_token = result.payload.get("nextToken")
+```
 
 ### Simple Example Usage Campaigns with Credentials (v3, legacy)
 

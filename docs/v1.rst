@@ -15,3 +15,4 @@ Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-campaig
     :maxdepth: 1
 
     v1/campaigns
+    v1/ad_groups
