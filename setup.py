@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='python-amazon-ad-api',
-    version='1.0.0',
+    version='1.0.1',
     install_requires=[
         "requests>=2.27.1,<2.35.0",
         "six>=1.16,<1.18",
@@ -20,6 +20,7 @@ setup(
         'ad_api.api.sb',
         'ad_api.api.sd',
         'ad_api.api.dsp',
+        'ad_api.api.v1',
     ],
     url='https://github.com/denisneuf/python-amazon-ad-api',
     license='MIT',
