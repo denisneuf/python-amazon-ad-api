@@ -395,3 +395,157 @@ class Billing(Client):
         headers = {'Accept': 'application/vnd.createbillingstatementsrequest.v1+json'}
         return self._request(fill_query_params(kwargs.pop('path'), billingStatementRequestId),
                              params=kwargs, headers=headers)
+
+    @sp_endpoint('/billingStatements', method='POST')
+    def create_billing_statement(self, **kwargs) -> ApiResponse:
+        r"""
+        Asks the service to generate a billing statement for a period.
+
+        The work is asynchronous. This answers a ``requestId``, and
+        ``get_billing_statement`` reads the state of that request.
+
+        Request Body (required)
+
+        - ``startDate`` (string): required. The first day of the period.
+        - ``endDate`` (string): required. The last day of the period.
+        - ``locale`` (string): required. The language the statement comes back
+          in.
+        - ``countryCodes`` (array): the countries to cover.
+        - ``format`` (string): ``CSV`` is the only value the contract lists.
+
+        Returns
+            ApiResponse with the request identifier. The contract answers
+            ``207``, a multi-status, not ``200``.
+
+        """
+        headers = {
+            'Accept': 'application/vnd.createbillingstatementsrequest.v1+json',
+            'Content-Type': 'application/vnd.createbillingstatementsrequest.v1+json',
+        }
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/billingProfileUsages', method='POST')
+    def apply_billing_profile(self, **kwargs) -> ApiResponse:
+        r"""
+        Links one or more countries to a billing profile.
+
+        The service calls this applying a profile: after it, the countries named
+        charge through that profile.
+
+        Request Body (required)
+
+        - ``billingProfileUsages`` (array): required. One entry per country and
+          profile pairing, which reads back in the same shape
+          ``list_billing_profile_usages`` returns.
+
+        The contract does not describe the fields inside each entry, so read one
+        back from ``list_billing_profile_usages`` before building a body here.
+
+        .. warning::
+
+            Not exercised. Applying a profile changes how an account gets
+            charged.
+
+        Returns
+            ApiResponse. The contract answers ``207``, a multi-status, not
+            ``200``.
+
+        """
+        headers = {
+            'Accept': 'application/vnd.billingProfileUsage.v1+json',
+            'Content-Type': 'application/vnd.billingProfileUsage.v1+json',
+        }
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/billingProfiles', method='POST')
+    def create_billing_profiles(self, **kwargs) -> ApiResponse:
+        r"""
+        Creates one or more billing profiles.
+
+        Request Body (required)
+
+        - ``billingProfiles`` (array): required, between 0 and 100 entries. Each
+          one describes a profile to create.
+
+        The contract names the list and stops there: the fields of an entry are
+        not described. Read one back from ``list_billing_profiles`` for the
+        shape, rather than guessing at it.
+
+        .. warning::
+
+            Not exercised. Creating a billing profile changes how an account gets
+            invoiced.
+
+        Returns
+            ApiResponse. The contract answers ``207``, a multi-status, not
+            ``200``.
+
+        """
+        headers = {
+            'Accept': 'application/vnd.billingProfile.v1+json',
+            'Content-Type': 'application/json',
+        }
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/billingProfiles', method='PUT')
+    def update_billing_profiles(self, **kwargs) -> ApiResponse:
+        r"""
+        Updates one or more billing profiles.
+
+        Request Body
+
+        - ``billingProfiles`` (array): between 0 and 100 entries. Each one names
+          a profile and the fields to change.
+
+        The same gap as ``create_billing_profiles``: the contract does not
+        describe the fields inside an entry.
+
+        .. warning::
+
+            Not exercised, for the same reason as the create route.
+
+        Returns
+            ApiResponse. The contract answers ``207``, a multi-status, not
+            ``200``.
+
+        """
+        headers = {
+            'Accept': 'application/vnd.billingProfile.v1+json',
+            'Content-Type': 'application/json',
+        }
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/billing/paymentProfiles', method='POST')
+    def create_payment_profiles(self, **kwargs) -> ApiResponse:
+        r"""
+        Creates one or more payment profiles.
+
+        Request Body (required)
+
+        - ``paymentProfiles`` (array): required. Each entry describes a profile:
+          which payment methods to use and in what order.
+
+        The contract names the list and does not describe its entries. The shape
+        of a payment method reads back from ``get_payment_agreements``, whose
+        agreements carry a ``paymentProfile`` holding ``paymentMethods`` ordered
+        by ``priority``.
+
+        .. warning::
+
+            Not exercised. A payment profile decides where money is taken from.
+
+        Returns
+            ApiResponse. The contract answers ``207``, a multi-status, not
+            ``200``.
+
+        """
+        headers = {
+            'Accept': 'application/vnd.paymentprofiles.v1+json',
+            'Content-Type': 'application/json',
+        }
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
