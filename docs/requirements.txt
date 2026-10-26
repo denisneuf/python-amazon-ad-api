@@ -1,5 +1,11 @@
 # MÍNIMO necesario para construir documentación
-# sphinx<9: enum-tools 0.13.0 (última) rompe en Sphinx 9 (eliminado sphinx.ext.autodoc.logger)
+#
+# sphinx<9 — NO quitar el techo sin resolver enum-tools primero.
+# enum-tools 0.13.0 (última, abr-2025) importa sphinx.ext.autodoc.logger,
+# eliminado en Sphinx 9, así que el build falla al importar.
+# Este pin es lo ÚNICO que frena Sphinx 9: sphinx-rtd-theme y
+# pydata-sphinx-theme ya admiten <10, y sphinx-toolbox no pone techo.
+# Revisar cuando enum-tools publique soporte para Sphinx 9.
 sphinx>=8,<9
 sphinx_rtd_theme
 sphinxcontrib-napoleon
