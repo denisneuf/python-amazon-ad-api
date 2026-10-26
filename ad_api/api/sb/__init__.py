@@ -20,6 +20,7 @@ from .media import Media
 from .reports import Reports
 from .benchmarks import Benchmarks
 from .themes import Themes
+from .budget_rules import BudgetRules
 
 __all__ = [
     "Brands",
@@ -43,5 +44,6 @@ __all__ = [
     "Media",
     "Reports",
     "Benchmarks",
-    "Themes"
+    "Themes",
+    "BudgetRules",
 ]

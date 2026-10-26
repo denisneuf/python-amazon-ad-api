@@ -10,4 +10,5 @@
     sb/ad_creatives_v4
     sb/forecast
     sb/recommendations
+    sb/budget_rules
 
