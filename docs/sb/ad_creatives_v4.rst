@@ -12,14 +12,19 @@ Sponsored Brands 4.0 ad creatives.
     routes take the ads family one, ``application/vnd.sbadresource.v4+json``;
     the rest take ``application/vnd.sbAdCreativeResource.v4+json``:
 
-    ============================================================  ======================================
-    Route                                                         Media type
-    ============================================================  ======================================
-    ``/sb/ads/creatives/autoCollection``                          ``vnd.sbadresource.v4``
-    ``/sb/ads/creatives/manualCollection``                        ``vnd.sbadresource.v4``
-    ``/sb/ads/creatives/productCollectionExtended``               ``vnd.sbAdCreativeResource.v4``
-    every other route in this class                               ``vnd.sbAdCreativeResource.v4``
-    ============================================================  ======================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Route
+         - Media type
+       * - ``/sb/ads/creatives/autoCollection``
+         - ``vnd.sbadresource.v4``
+       * - ``/sb/ads/creatives/manualCollection``
+         - ``vnd.sbadresource.v4``
+       * - ``/sb/ads/creatives/productCollectionExtended``
+         - ``vnd.sbAdCreativeResource.v4``
+       * - every other route in this class
+         - ``vnd.sbAdCreativeResource.v4``
 
     .. note::
         ``autoCollection`` and ``manualCollection`` answered ``400`` when called
@@ -30,18 +35,27 @@ Sponsored Brands 4.0 ad creatives.
 
     ### Endpoint map
 
-    ==========================================================  =========================================
-    Path                                                        Method
-    ==========================================================  =========================================
-    ``POST /sb/ads/creatives/list``                             ``list_ad_creatives``
-    ``POST /sb/ads/creatives/brandVideo``                       ``create_video_ad_creative``
-    ``POST /sb/ads/creatives/video``                            ``create_new_version_video_ad_creative``
-    ``POST /sb/ads/creatives/productCollection``                ``create_new_version_product_collection_ad_creative``
-    ``POST /sb/ads/creatives/storeSpotlight``                   ``create_new_version_store_spotlight_ad_creative``
-    ``POST /sb/ads/creatives/autoCollection``                   ``create_auto_collection_ad_creative``
-    ``POST /sb/ads/creatives/manualCollection``                 ``create_manual_collection_ad_creative``
-    ``POST /sb/ads/creatives/productCollectionExtended``        ``create_new_version_product_collection_extended_ad_creative``
-    ==========================================================  =========================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Path
+         - Method
+       * - ``POST /sb/ads/creatives/list``
+         - ``list_ad_creatives``
+       * - ``POST /sb/ads/creatives/brandVideo``
+         - ``create_video_ad_creative``
+       * - ``POST /sb/ads/creatives/video``
+         - ``create_new_version_video_ad_creative``
+       * - ``POST /sb/ads/creatives/productCollection``
+         - ``create_new_version_product_collection_ad_creative``
+       * - ``POST /sb/ads/creatives/storeSpotlight``
+         - ``create_new_version_store_spotlight_ad_creative``
+       * - ``POST /sb/ads/creatives/autoCollection``
+         - ``create_auto_collection_ad_creative``
+       * - ``POST /sb/ads/creatives/manualCollection``
+         - ``create_manual_collection_ad_creative``
+       * - ``POST /sb/ads/creatives/productCollectionExtended``
+         - ``create_new_version_product_collection_extended_ad_creative``
 
     .. warning::
         ``POST /sb/ads/creatives/productCollection`` is flagged **deprecated** in

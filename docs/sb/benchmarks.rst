@@ -13,13 +13,17 @@ Brand and category benchmark data.
 
     ### Endpoint map
 
-    ================================================================  ===================================
-    Path                                                              Method
-    ================================================================  ===================================
-    ``GET  /benchmarks/brands``                                       ``list_brands``
-    ``POST /benchmarks/brands/{brandName}/categories/{categoryId}``   ``list_brand_and_category``
-    ``POST /benchmarks/brandsAndCategories``                          ``list_brands_and_categories``
-    ================================================================  ===================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Path
+         - Method
+       * - ``GET  /benchmarks/brands``
+         - ``list_brands``
+       * - ``POST /benchmarks/brands/{brandName}/categories/{categoryId}``
+         - ``list_brand_and_category``
+       * - ``POST /benchmarks/brandsAndCategories``
+         - ``list_brands_and_categories``
 
     ### Example python
 

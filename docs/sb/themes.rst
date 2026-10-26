@@ -14,28 +14,51 @@ Sponsored Brands theme targets.
 
     ### Endpoint map
 
-    ==========================================  ==============================  =====================================
-    Path                                        Method                          Response media type
-    ==========================================  ==============================  =====================================
-    ``POST /sb/themes/list``                    ``list_themes``                 ``vnd.sbthemeslistresponse.v3``
-    ``POST /sb/themes``                         ``create_themes``               ``vnd.sbthemescreateresponse.v3``
-    ``PUT  /sb/themes``                         ``update_themes``               ``vnd.sbthemesupdateresponse.v3``
-    ==========================================  ==============================  =====================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Path
+         - Method
+         - Response media type
+       * - ``POST /sb/themes/list``
+         - ``list_themes``
+         - ``vnd.sbthemeslistresponse.v3``
+       * - ``POST /sb/themes``
+         - ``create_themes``
+         - ``vnd.sbthemescreateresponse.v3``
+       * - ``PUT  /sb/themes``
+         - ``update_themes``
+         - ``vnd.sbthemesupdateresponse.v3``
 
     ### list_themes request body
 
-    ====================  ========  ==============================================================
-    Field                 Type      Description
-    ====================  ========  ==============================================================
-    ``nextToken``         string    Pagination token.
-    ``maxResults``        number    Maximum results; defaults to the API maximum.
-    ``campaignIdFilter``  object    Campaign ids, max 100.
-    ``adGroupIdFilter``   object    Ad group ids, max 100.
-    ``themeIdFilter``     object    Theme ids, max 100.
-    ``stateFilter``       object    ``enabled``, ``paused``, ``archived``. Default enabled and paused.
-    ``themeTypeFilter``   object    ``KEYWORDS_RELATED_TO_YOUR_BRAND`` or
-                                    ``KEYWORDS_RELATED_TO_YOUR_LANDING_PAGES``.
-    ====================  ========  ==============================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - ``nextToken``
+         - string
+         - Pagination token.
+       * - ``maxResults``
+         - number
+         - Maximum results; defaults to the API maximum.
+       * - ``campaignIdFilter``
+         - object
+         - Campaign ids, max 100.
+       * - ``adGroupIdFilter``
+         - object
+         - Ad group ids, max 100.
+       * - ``themeIdFilter``
+         - object
+         - Theme ids, max 100.
+       * - ``stateFilter``
+         - object
+         - ``enabled``, ``paused``, ``archived``. Default enabled and paused.
+       * - ``themeTypeFilter``
+         - object
+         - ``KEYWORDS_RELATED_TO_YOUR_BRAND`` or ``KEYWORDS_RELATED_TO_YOUR_LANDING_PAGES``.
 
     ### create_themes request body
 

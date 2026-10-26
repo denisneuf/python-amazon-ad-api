@@ -9,16 +9,30 @@ entities, and optimization recommendations.
 
     ### Endpoint map
 
-    ==========================================================  =====================================  ======================================================
-    Path                                                        Method                                 Media type
-    ==========================================================  =====================================  ======================================================
-    ``POST /sb/rules/optimization/list``                        ``list_optimization_rules``            ``vnd.sbruleoptimization.v4``
-    ``POST /sb/recommendations/optimization``                   ``get_optimization_recommendation``    ``vnd.sboptimizationrecommendationresource.v4``
-    ``POST /sb/rules/optimization``                             ``create_optimization_rules``          ``vnd.sbruleoptimization.v4``
-    ``PUT  /sb/rules/optimization``                             ``update_optimization_rules``          ``vnd.sbruleoptimization.v4``
-    ``POST /sb/rules/optimization/associate``                   ``associate_optimization_rules``       ``vnd.sbruleoptimization.v4``
-    ``POST /sb/rules/optimization/disassociate``                ``disassociate_optimization_rules``    ``vnd.sbruleoptimization.v4``
-    ==========================================================  =====================================  ======================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Path
+         - Method
+         - Media type
+       * - ``POST /sb/rules/optimization/list``
+         - ``list_optimization_rules``
+         - ``vnd.sbruleoptimization.v4``
+       * - ``POST /sb/recommendations/optimization``
+         - ``get_optimization_recommendation``
+         - ``vnd.sboptimizationrecommendationresource.v4``
+       * - ``POST /sb/rules/optimization``
+         - ``create_optimization_rules``
+         - ``vnd.sbruleoptimization.v4``
+       * - ``PUT  /sb/rules/optimization``
+         - ``update_optimization_rules``
+         - ``vnd.sbruleoptimization.v4``
+       * - ``POST /sb/rules/optimization/associate``
+         - ``associate_optimization_rules``
+         - ``vnd.sbruleoptimization.v4``
+       * - ``POST /sb/rules/optimization/disassociate``
+         - ``disassociate_optimization_rules``
+         - ``vnd.sbruleoptimization.v4``
 
     ### Media type, again
 
@@ -33,14 +47,15 @@ entities, and optimization recommendations.
 
     ### What is verified
 
-    ============================================  ==========================================
-    Route                                         Answer
-    ============================================  ==========================================
-    ``POST /sb/rules/optimization/list``          ``200``, ``{"optimizationRules": [],
-                                                  "totalCount": 0}``
-    ``POST /sb/recommendations/optimization``     ``400`` naming both required members,
-                                                  so the route lives
-    ============================================  ==========================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Route
+         - Answer
+       * - ``POST /sb/rules/optimization/list``
+         - ``200``, ``{"optimizationRules": [], "totalCount": 0}``
+       * - ``POST /sb/recommendations/optimization``
+         - ``400`` naming both required members, so the route lives
 
     The four write routes are built from the contract and not exercised, because
     they change optimization rules on live campaigns.

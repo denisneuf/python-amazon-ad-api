@@ -22,33 +22,63 @@ Gets performance forecasts for new Sponsored Brands campaigns.
 
     Campaign object:
 
-    ====================  ========  ==============================================================
-    Field                 Type      Description
-    ====================  ========  ==============================================================
-    ``budget``            number    Required. Budget amount.
-    ``budgetType``        string    Required. ``DAILY`` or ``LIFETIME``.
-    ``forecastType``      string    Required. ``WEEKLY`` or ``MONTHLY``.
-    ``adGroups``          array     Required. Ad groups to forecast.
-    ``startDate``         string    ``YYYY-MM-DD``.
-    ``endDate``           string    ``YYYY-MM-DD``, later than ``startDate``.
-    ``goal``              string    ``PAGE_VISIT``, ``BRAND_IMPRESSION_SHARE``,
-                                    ``ACQUIRE_NEW_CUSTOMERS`` or ``AD_VIEWS``.
-                                    Defaults to ``PAGE_VISIT``.
-    ====================  ========  ==============================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - ``budget``
+         - number
+         - Required. Budget amount.
+       * - ``budgetType``
+         - string
+         - Required. ``DAILY`` or ``LIFETIME``.
+       * - ``forecastType``
+         - string
+         - Required. ``WEEKLY`` or ``MONTHLY``.
+       * - ``adGroups``
+         - array
+         - Required. Ad groups to forecast.
+       * - ``startDate``
+         - string
+         - ``YYYY-MM-DD``.
+       * - ``endDate``
+         - string
+         - ``YYYY-MM-DD``, later than ``startDate``.
+       * - ``goal``
+         - string
+         - ``PAGE_VISIT``, ``BRAND_IMPRESSION_SHARE``, ``ACQUIRE_NEW_CUSTOMERS`` or ``AD_VIEWS``. Defaults to ``PAGE_VISIT``.
 
     Ad group object:
 
-    ====================  ========  ==============================================================
-    Field                 Type      Description
-    ====================  ========  ==============================================================
-    ``keywords``          array     ``keywordText``, ``matchType``, ``bid``.
-    ``targets``           array     ``expressions``, ``bid``.
-    ``themes``            array     ``themeType``, ``bid``. Requires ``landingPages``.
-    ``landingPages``      array     ``landingPageUrl``.
-    ``negativeKeywords``  array     ``keywordText``, ``matchType``.
-    ``negativeTargets``   array     ``expressions``.
-    ``creativeAsins``     array     ASINs used by the creative.
-    ====================  ========  ==============================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - ``keywords``
+         - array
+         - ``keywordText``, ``matchType``, ``bid``.
+       * - ``targets``
+         - array
+         - ``expressions``, ``bid``.
+       * - ``themes``
+         - array
+         - ``themeType``, ``bid``. Requires ``landingPages``.
+       * - ``landingPages``
+         - array
+         - ``landingPageUrl``.
+       * - ``negativeKeywords``
+         - array
+         - ``keywordText``, ``matchType``.
+       * - ``negativeTargets``
+         - array
+         - ``expressions``.
+       * - ``creativeAsins``
+         - array
+         - ASINs used by the creative.
 
     ### Rules found by probing, not in the contract
 
@@ -59,17 +89,25 @@ Gets performance forecasts for new Sponsored Brands campaigns.
 
     ### Responses
 
-    ===========  ===========================================================================
-    Status       Meaning
-    ===========  ===========================================================================
-    ``207``      Success. Multi-status is the documented success code, not ``200``.
-    ``400``      Bad request; the message names the member that failed.
-    ``401``      Unauthorized.
-    ``403``      Access denied.
-    ``422``      Unprocessable entity.
-    ``429``      Throttled.
-    ``500``      Internal failure. Empty body at the time of writing.
-    ===========  ===========================================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Status
+         - Meaning
+       * - ``207``
+         - Success. Multi-status is the documented success code, not ``200``.
+       * - ``400``
+         - Bad request; the message names the member that failed.
+       * - ``401``
+         - Unauthorized.
+       * - ``403``
+         - Access denied.
+       * - ``422``
+         - Unprocessable entity.
+       * - ``429``
+         - Throttled.
+       * - ``500``
+         - Internal failure. Empty body at the time of writing.
 
     ### Example python
 
