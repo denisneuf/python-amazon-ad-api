@@ -79,8 +79,8 @@ class PortfoliosV3(Client):
 
         Returns
             ApiResponse with ``success`` and ``error`` lists, each item keyed by
-            the ``index`` it held in the body. Answers ``207``, a multi-status,
-            not ``200``.
+            the ``index`` it held in the body. The contract answers ``207``, a
+            multi-status, not ``200``.
 
         """
         schema_version = 'application/vnd.spPortfolio.v' + str(version) + '+json'
@@ -118,8 +118,8 @@ class PortfoliosV3(Client):
 
         Returns
             ApiResponse with ``success`` and ``error`` lists, each item keyed by
-            the ``index`` it held in the body. Answers ``207``, a multi-status,
-            not ``200``.
+            the ``index`` it held in the body. The contract answers ``207``, a
+            multi-status, not ``200``.
 
         """
         schema_version = 'application/vnd.spPortfolio.v' + str(version) + '+json'
@@ -143,8 +143,14 @@ class PortfoliosV3(Client):
         Returns
             ApiResponse split into ``success`` and ``error``. A successful entry
             carries ``portfolioId``, ``index``, ``budget``,
-            ``budgetUsagePercent`` and ``usageUpdatedTimestamp``. Answers
-            ``207``, a multi-status, not ``200``.
+            ``budgetUsagePercent`` and ``usageUpdatedTimestamp``. The contract
+            answers ``207``, a multi-status, not ``200``.
+
+        A portfolio set to ``NO_CAP`` answers ``9999999999.0`` here rather than
+        an absent figure, and ``budgetUsagePercent`` reads ``0.0`` against it.
+        The same portfolio carries no ``amount`` at all in ``list_portfolios``.
+        Treat that number as no ceiling, not as money, or a sum over the account
+        comes out in the billions.
 
         """
         schema_version = 'application/vnd.portfoliobudgetusage.v' + str(version) + '+json'
