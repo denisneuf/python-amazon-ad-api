@@ -1,22 +1,6 @@
 Sponsored Products
 ==================
 
-The v1 endpoints (``/adsApi/v1/``) are the current generation and supersede the
-per-product ones.
-
-.. warning::
-
-    The campaign, ad group and product ad operations are deprecated in favour of
-    the v1 endpoints (``/adsApi/v1/``). In product targeting only the four CRUD
-    operations are deprecated; its helper endpoints remain supported. Keywords,
-    negative keywords and negative product targeting have no v1 equivalent yet
-    and stay supported.
-
-The 3.0 contract is published by Amazon as:
-
-* `Documentation <https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod>`_
-* `OpenAPI specification <https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json>`_
-
 ..  toctree::
     :maxdepth: 1
 
