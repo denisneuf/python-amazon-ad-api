@@ -18,10 +18,16 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    disclaimer
 
 
-.. versionadded:: 0.4.3
-   The v4 of *Sponsored Brand*
-   Deprecated *Sponsored Products v2*
-   Created new endpoints in *Sponsored Display*: Brand Safety, Budget Rules, Campaigns Budget Usage, Forecast and Recommendations.
-   Created new endpoint in *Common Resources*: Tactical recommendations beta
+.. note::
+   The Sponsored Brands 4.0 contract is covered end to end, including budget
+   rules, optimization rules, targeting categories, migration and the collection
+   creatives. The 3.0 campaigns and ad groups remain only as reference: Amazon
+   answers ``403 Endpoint has been deprecated`` and points to 4.0.
+
+.. note::
+   Most per-product routes take a versioned media type and the service routes on
+   it. Sending ``application/json`` where a versioned type is expected answers
+   ``404 Could not find resource``, which reads like a missing route but is only
+   the wrong media type.
 
 .. literalinclude:: example.py
