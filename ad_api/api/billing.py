@@ -186,3 +186,66 @@ class Billing(Client):
         headers = {'Accept': accept_contentType}
         body = Utils.convert_body(kwargs.pop('body'), False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/invoiceSummaries/list', method='POST')
+    def invoice_summaries(self, **kwargs) -> ApiResponse:
+        r"""
+        Lists invoice summaries with filters, sorting and paging.
+
+        This is the route to reach for when the question is "which invoices fall
+        in this period". ``Invoices.list_invoices`` returns a flat page and leaves
+        the filtering to the caller; this one filters on the service, by issued
+        date, due date, status, country, invoice number and payment method.
+
+        Note the date format. Here it is ISO-8601 with the date alone,
+        ``"2026-09-01"``. ``Invoices.list_invoices`` answers dates as
+        ``"20260902"``. The two shapes are not interchangeable.
+
+        Request Body (optional)
+
+        Every member is optional. An empty object returns the first page.
+
+        - ``invoiceIssuedDateRangeFilter`` (object): ``startDate`` and
+          ``endDate``, both inclusive, both ``"YYYY-MM-DD"``.
+        - ``invoiceDueDateRangeFilter`` (object): same shape, for the due date.
+        - ``statusValueFilter`` (object): ``include``, a list of statuses such as
+          ``PAID_IN_FULL`` or ``ACCUMULATING``.
+        - ``countryValueFilter`` (object): ``include``, up to 30 country codes.
+        - ``invoiceNumberFilter`` (object): ``include``, up to 30 invoice numbers.
+        - ``paymentMethodTypeValueFilter`` (object): ``include``, up to 10 method
+          types.
+        - ``reserveOrderNumberFilter`` (object): ``include``, up to 30 reserve
+          order numbers.
+        - ``sort`` (object): ``attribute`` and ``direction``. The only
+          attributes the service accepts are ``invoiceIssuedDate`` and
+          ``invoiceDueDate``; anything else answers
+          ``400 Invalid input because of error(s): [sort:attribute field is
+          invalid]``. Those are the names the answer uses, not the filter names:
+          ``invoiceDate``, ``issuedDate``, ``dueDate``, ``amountDue`` and
+          ``status`` are all refused.
+        - ``maxResults`` (integer): page size.
+        - ``nextToken`` (string): token from a previous answer.
+        - ``aggregation`` (object): ``attribute`` and ``groupBy``, to total
+          rather than list.
+
+        The ``include`` filters also accept ``queryTermMatchType``, which decides
+        how the term is matched.
+
+        Returns
+            ApiResponse with ``invoiceSummaries``. Each entry is richer than what
+            ``Invoices.list_invoices`` returns and shaped differently: dates come
+            as ``"2026-10-26"`` rather than ``"20261026"``, and most fields are
+            ``{"code": ..., "value": ...}`` pairs rather than plain strings. A
+            summary carries ``id``, ``invoiceIssuedDate``, ``invoiceDueDate``,
+            ``amountDue`` and ``remainingAmountDue`` (each with a
+            ``currencyCode`` and a ``value``), ``status``, ``paymentStatus``,
+            ``country``, ``product``, ``paymentMethodType``, ``invoicingLevel``
+            and ``fxInformation``.
+
+        """
+        headers = {
+            'Accept': 'application/vnd.billingInvoiceSummary.v1+json',
+            'Content-Type': 'application/vnd.billingInvoiceSummary.v1+json',
+        }
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
