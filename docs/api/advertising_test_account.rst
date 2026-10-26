@@ -2,8 +2,7 @@ Advertising Test Account
 ========================
 
 .. autoclass:: ad_api.api.AdvertisingTestAccount
-
-    .. autofunction:: ad_api.api.AdvertisingTestAccount.create_test_account
+    :members:
 
     ### Example python
 
@@ -32,8 +31,6 @@ Advertising Test Account
         'requestId': 'A7BCDGCEVXQ1CJJ4301V'
         }
 
-    .. autofunction:: ad_api.api.AdvertisingTestAccount.get_test_account
-
     ### Example python
 
     .. code-block:: python
@@ -45,7 +42,6 @@ Advertising Test Account
         result = AdvertisingTestAccount(account=store, marketplace=marketplace, debug=True).get_test_account(
             requestId=request_id
         )
-
 
     .. code-block:: python
 

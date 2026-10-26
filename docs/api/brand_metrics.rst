@@ -2,8 +2,7 @@ Brand Metrics API open beta
 ===========================
 
 .. autoclass:: ad_api.api.BrandMetrics
-
-    .. autofunction:: ad_api.api.BrandMetrics.post_report
+    :members:
 
     ### Example python
 
@@ -43,8 +42,6 @@ Brand Metrics API open beta
 
     .. literalinclude:: ../../test/brand_metrics/result.json
 
-    .. autofunction:: ad_api.api.BrandMetrics.get_report
-
     ### Example python
 
     .. code-block:: python
@@ -70,9 +67,6 @@ Brand Metrics API open beta
 
     .. literalinclude:: ../../test/brand_metrics/location.json
 
-    .. autofunction:: ad_api.api.BrandMetrics.download_report
-
-
     ### Example python
 
     .. code-block:: python
@@ -81,7 +75,6 @@ Brand Metrics API open beta
         from ad_api.base import Marketplaces, AdvertisingApiException
 
         location = "https://infrastack-prod-eu-eu-we-generatedreportsbucket49-96329mbigajd.s3.eu-west-1.amazonaws.com/[...]"
-
 
         try:
 

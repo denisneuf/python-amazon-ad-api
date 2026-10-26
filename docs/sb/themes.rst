@@ -10,12 +10,7 @@ Sponsored Brands theme targets.
     change campaign data.
 
 .. autoclass:: ad_api.api.sb.Themes
-
-    .. autofunction:: ad_api.api.sb.Themes.list_themes(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.Themes.create_themes(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.Themes.update_themes(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Endpoint map
 

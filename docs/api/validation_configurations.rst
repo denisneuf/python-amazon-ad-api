@@ -2,8 +2,7 @@ Validation Configuration
 ========================
 
 .. autoclass:: ad_api.api.ValidationConfigurations
-
-    .. autofunction:: ad_api.api.ValidationConfigurations.retrieve_validation_campaigns(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Example python
 
@@ -29,9 +28,6 @@ Validation Configuration
         )
         payload = result.payload
 
-
-.. autofunction:: ad_api.api.ValidationConfigurations.retrieve_validation_targeting_clauses(self, **kwargs) -> ApiResponse:
-
     ### Example python
 
     .. code-block:: python
@@ -55,5 +51,3 @@ Validation Configuration
             body=dictionary
         )
         payload = result.payload
-
-

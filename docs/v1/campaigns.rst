@@ -10,11 +10,4 @@ Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-campaig
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLCampaignsContract_prod_3p.json
 
 .. autoclass:: ad_api.api.v1.Campaigns
-
-    .. autofunction:: ad_api.api.v1.Campaigns.query_campaigns
-
-    .. autofunction:: ad_api.api.v1.Campaigns.create_campaigns
-
-    .. autofunction:: ad_api.api.v1.Campaigns.update_campaigns
-
-    .. autofunction:: ad_api.api.v1.Campaigns.delete_campaigns
+    :members:

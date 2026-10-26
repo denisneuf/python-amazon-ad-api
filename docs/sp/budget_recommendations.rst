@@ -9,9 +9,8 @@ Product Recommendation Service
 
     This API is version 3.0
 
-
-
 .. autoclass:: ad_api.api.sp.ProductRecommendations
+    :members:
 
     Endpoint available
 
@@ -20,8 +19,3 @@ Product Recommendation Service
         :header: "Method", "Endpoint", "Description"
 
         "POST", "/sp/targets/products/recommendations", "Suggested target ASINs for your advertised product."
-
-
-    .. autofunction:: ad_api.api.sp.ProductRecommendations.list_products_recommendations(self, **kwargs) -> ApiResponse:
-
-

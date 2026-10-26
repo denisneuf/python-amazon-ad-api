@@ -6,8 +6,7 @@ Insights
 .. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json
 
 .. autoclass:: ad_api.api.Insights
-
-    .. autofunction:: ad_api.api.Insights.get_insights
+    :members:
 
     .. note::
 
@@ -21,7 +20,6 @@ Insights
         import logging
         from ad_api.api import Insights
         from ad_api.base import AdvertisingApiException
-
 
         def get_insights(audience_id: str, ad_type: str, version:int = 1, **kwargs):
 
@@ -57,13 +55,11 @@ Insights
             # With a maxResults filter (version 2)
             # get_insights(id_audience, ad_type, 2, maxResults=10)
 
-
     .. note::
 
         If you do not provide any filter it will return all the audiences
 
     ### Example python retrieving all the audiences with Utils a decorator in sets of 10 with a delay of 5 seconds between query and query
-
 
     .. code-block:: python
 

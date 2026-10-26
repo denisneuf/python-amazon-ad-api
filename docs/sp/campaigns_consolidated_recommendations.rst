@@ -13,7 +13,6 @@ Campaign Consolidated Recommendations
 
     This API is not clear which marketplaces are supported
 
-
 .. code-block:: python
 
     {
@@ -23,8 +22,8 @@ Campaign Consolidated Recommendations
     "message":"Marketplace is not supported"
     }
 
-
 .. autoclass:: ad_api.api.sp.CampaignsRecommendations
+    :members:
 
     Endpoints available
 
@@ -33,6 +32,3 @@ Campaign Consolidated Recommendations
         :header: "Method", "Endpoint", "Description"
 
         "GET", "/sp/campaign/recommendations", "Gets the top consolidated recommendations."
-
-
-    .. autofunction:: ad_api.api.sp.CampaignsRecommendations.list_campaigns_recommendations(self, **kwargs) -> ApiResponse:

@@ -7,8 +7,7 @@ Eligibility
 Check advertising eligibility of products.
 
 .. autoclass:: ad_api.api.Eligibility
-
-    .. autofunction:: ad_api.api.Eligibility.get_eligibility_assistant
+    :members:
 
     ### Example getting the elegibility of asin and asin/sku
 
@@ -18,12 +17,10 @@ Check advertising eligibility of products.
         from ad_api.api import Eligibility
         from ad_api.base import AdvertisingApiException
 
-
         logging.basicConfig(
             level=logging.INFO,
             format="%(asctime)s:%(levelname)s:%(message)s"
         )
-
 
         def get_eligibility_assistant(**kwargs):
 
@@ -38,8 +35,6 @@ Check advertising eligibility of products.
             except AdvertisingApiException as error:
                 logging.info(error)
 
-
-
         if __name__ == '__main__':
 
             d_asin_list = ['B08C1KN5J2', 'B08XM9C8P6']
@@ -53,9 +48,6 @@ Check advertising eligibility of products.
             get_eligibility_assistant(asin_list=d_asin_list, locale=lang)
             # the minimal call must send at least a list with one ASIN. Default: (adType="sp", locale="en-GB")
             get_eligibility_assistant(asin_list=['B08C1KN5J2'])
-
-
-    .. autofunction:: ad_api.api.Eligibility.get_eligibility
 
     ### Example getting the elegibility in the regular way sending a dict
 
@@ -74,7 +66,6 @@ Check advertising eligibility of products.
                 )
 
                 logging.info(result)
-
 
             except AdvertisingApiException as error:
                 logging.info(error)

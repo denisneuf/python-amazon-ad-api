@@ -2,8 +2,7 @@ Landing Page Asins
 ==================
 
 .. autoclass:: ad_api.api.sb.PageAsins
-
-    .. autofunction:: ad_api.api.sb.PageAsins.get_page_asins(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Example python
 
@@ -18,7 +17,6 @@ Landing Page Asins
         )
 
         logging.info(result)
-
 
     ### Payload
 

@@ -2,8 +2,7 @@ Reports
 =======
 
 .. autoclass:: ad_api.api.sd.Reports
-
-    .. autofunction:: ad_api.api.sd.Reports.post_report(self, recordType, **kwargs) -> ApiResponse:
+    :members:
 
     ### Example python
 
@@ -31,11 +30,6 @@ Reports
 
     .. literalinclude:: ../../test/reports/sd-sx-asins-report.json
 
-
-
-
-    .. autofunction:: ad_api.api.sd.Reports.get_report(self, reportId, **kwargs) -> ApiResponse:
-
     ### Example python
 
     .. code-block:: python
@@ -59,8 +53,6 @@ Reports
          'reportId': 'amzn1.clicksAPI.v1.p44551.61549C5E.e4599469-7392-4624-a858-fc1fecdb165c',
          'status': 'SUCCESS',
          'statusDetails': 'Report has been successfully generated.'}}
-
-    .. autofunction:: ad_api.api.sd.Reports.download_report(self, **kwargs) -> ApiResponse:
 
     ### Example python
 

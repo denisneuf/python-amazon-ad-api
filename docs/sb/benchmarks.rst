@@ -9,12 +9,7 @@ Brand and category benchmark data.
     live, so they are kept.
 
 .. autoclass:: ad_api.api.sb.Benchmarks
-
-    .. autofunction:: ad_api.api.sb.Benchmarks.list_brands(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.Benchmarks.list_brand_and_category(self, brandName, categoryId, version=1, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.Benchmarks.list_brands_and_categories(self, version=1, **kwargs) -> ApiResponse:
+    :members:
 
     ### Endpoint map
 

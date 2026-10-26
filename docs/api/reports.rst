@@ -2,8 +2,7 @@ Reports
 =======
 
 .. autoclass:: ad_api.api.Reports
-
-    .. autofunction:: ad_api.api.Reports.post_report(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Example python
 
@@ -23,8 +22,6 @@ Reports
     Open this :download:`json <../../test/reports/sp-sx-advertised_product-report.json>` file to see the result:
 
     .. literalinclude:: ../../test/reports/sp-sx-advertised_product-report.json
-
-    .. autofunction:: ad_api.api.Reports.get_report(self, reportId, **kwargs) -> ApiResponse:
 
     ### Example python
 
@@ -65,8 +62,6 @@ Reports
           'url': 'https://offline-report-storage-eu-west-1-prod.s3.eu-west-1.amazonaws.com/8877234e-bdaa-165d-21ee-45e2e4d8b746/report-8877234e-bdaa-165d-21ee-45e2e4d8b746.json.gz?X-Amz-Security-Token=****************&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221121T120227Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=*********************&X-Amz-Signature=*************************************************',
           'urlExpiresAt': '2022-11-21T13:02:27.915577Z'
         }
-
-    .. autofunction:: ad_api.api.Reports.download_report(self, **kwargs) -> ApiResponse:
 
     ### Example python
 

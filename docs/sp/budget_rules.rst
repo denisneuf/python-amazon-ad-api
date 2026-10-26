@@ -10,6 +10,7 @@ Budget Rules
     This API is version 3.0
 
 .. autoclass:: ad_api.api.sp.BudgetRules
+    :members:
 
     Endpoints available
 
@@ -26,17 +27,3 @@ Budget Rules
         "POST", "/sp/campaigns/{campaignId}/budgetRules", "Associates one or more budget rules to a campaign specified by identifer."
         "GET", "/sp/campaigns/{campaignId}/budgetRules", "Gets a list of budget rules associated to a campaign specified by identifier."
         "DELETE", "/sp/campaigns/{campaignId}/budgetRules/{budgetRuleId}", "Disassociates a budget rule specified by identifier from a campaign specified by identifier."
-
-    .. autofunction:: ad_api.api.sp.BudgetRules.get_budget_history(self, campaignId, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.BudgetRules.create_budget_rules(self, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.BudgetRules.list_budget_rules(self, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.BudgetRules.edit_budget_rules(self, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.BudgetRules.get_budget_rule(self, budgetRuleId, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.BudgetRules.get_campaigns_budget_rule(self, budgetRuleId, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.BudgetRules.create_campaign_budget_rules(self, campaignId, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.BudgetRules.get_budget_rules_campaign(self, campaignId, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.BudgetRules.delete_budget_rule_campaign(self, campaignId, budgetRuleId, **kwargs) -> ApiResponse:
-
-
-
-

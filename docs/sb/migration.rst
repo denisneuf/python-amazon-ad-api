@@ -4,16 +4,7 @@ Migration
 Sponsored Brands legacy campaign migration, from the 3.0 API to the 4.0 API.
 
 .. autoclass:: ad_api.api.sb.Migration
-
-    .. autofunction:: ad_api.api.sb.Migration.start_migration_job(self, campaignIds, enableThemeTargeting, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.Migration.migration_job_status(self, jobId, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.Migration.migration_job_results(self, jobId, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.Migration.overall_migration_results(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.Migration.list_migrations(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Endpoint map
 

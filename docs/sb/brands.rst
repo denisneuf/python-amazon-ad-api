@@ -2,8 +2,7 @@ Brands
 ======
 
 .. autoclass:: ad_api.api.sb.Brands
-
-    .. autofunction:: ad_api.api.sb.Brands.list_brands(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Example python
 
@@ -14,8 +13,6 @@ Brands
         result = Brands().list_brands()
 
         logging.info(result)
-
-
 
     ### Payload
 
@@ -30,6 +27,5 @@ Brands
          {'brandEntityId': 'ENTITY1PRG7GD8FVXA3',
           'brandId': 'A87RK5OLHEBUU5',
           'brandRegistryName': 'Xiaomi'}]
-
 
 NOT AVAILABLE SANDBOX [NOT_FOUND - Could not find resource for full path]

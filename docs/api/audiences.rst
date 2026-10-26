@@ -8,8 +8,7 @@ Audiences
 Audience Discovery API
 
 .. autoclass:: ad_api.api.Audiences
-
-    .. autofunction:: ad_api.api.Audiences.list_audiences_taxonomy
+    :members:
 
     ### Example python
 
@@ -24,7 +23,6 @@ Audience Discovery API
             format="%(asctime)s:%(levelname)s:%(message)s"
         )
 
-
         def list_audiences_taxonomy(data: (str, dict)):
             try:
 
@@ -36,7 +34,6 @@ Audience Discovery API
 
             except AdvertisingApiException as error:
                 logging.info(error)
-
 
         if __name__ == '__main__':
 
@@ -62,8 +59,6 @@ Audience Discovery API
 
     .. literalinclude:: ../../test/audiences/result_query_taxonomy.json
 
-    .. autofunction:: ad_api.api.Audiences.list_audiences
-
     ### Example python
 
     .. code-block:: python
@@ -77,7 +72,6 @@ Audience Discovery API
             format="%(asctime)s:%(levelname)s:%(message)s"
         )
 
-
         def list_audiences(**kwargs):
             try:
 
@@ -90,7 +84,6 @@ Audience Discovery API
 
             except AdvertisingApiException as error:
                 logging.info(error)
-
 
         if __name__ == '__main__':
 
@@ -143,8 +136,6 @@ Audience Discovery API
                 audiences = result.get("audiences")
                 for audience in audiences:
                     logging.info(audience)
-
-
 
     ### Example query_general.json
 

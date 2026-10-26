@@ -6,6 +6,7 @@ Creatives
     Sponsored Display is not available for Sandbox endpoint
 
 .. autoclass:: ad_api.api.sd.Creatives
+    :members:
 
     Endpoints available
 
@@ -18,13 +19,3 @@ Creatives
         "POST", "/sd/creatives", "A POST request of one or more creatives."
         "POST", "/sd/creatives/preview", "Gets creative preview HTML."
         "GET", "/sd/moderation/creatives", "Gets a list of creative moderations"
-
-    .. autofunction:: ad_api.api.sd.Creatives.list_creatives(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.Creatives.edit_creatives(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.Creatives.create_creatives(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.Creatives.list_moderation_creatives(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.Creatives.show_creative_preview(self, **kwargs) -> ApiResponse:

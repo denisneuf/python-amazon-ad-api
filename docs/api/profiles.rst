@@ -13,10 +13,8 @@ Advertisers who operate in more than one marketplace (for example, Amazon.com, A
 
 To retrieve your profile IDs, call the listProfiles operation, and include a valid authorization access token in the header. Use a profileId from the returned list as the value for the management scope (Amazon-Advertising-API-Scope) in the headers for subsequent API calls.
 
-
 .. autoclass:: ad_api.api.Profiles
-
-    .. autofunction:: ad_api.api.Profiles.list_profiles
+    :members:
 
     ### Example getting a list of profiles
 
@@ -55,8 +53,6 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
         # list_profiles(apiProgram="store")
         # list_profiles(validPaymentMethodFilter="true")
 
-    .. autofunction:: ad_api.api.Profiles.update_single_profile_assistant
-
     ### Example updating the budget of a single profile
 
     .. code-block:: python
@@ -70,7 +66,6 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
             logging.info("-------------------------------------")
             logging.info("Profiles > update_single_profile_assistant({}, {}, {})".format(str(account_profile_id), str(account_daily_budget), str(kwargs)))
             logging.info("-------------------------------------")
-
 
             try:
 
@@ -91,8 +86,6 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
         amz_daily_budget = 21.50
         update_single_profile_assistant(amz_profile_id, amz_daily_budget)
         # update_single_profile_assistant(amz_profile_id, amz_daily_budget, countryCode="ES", timezone="Europe/London")
-
-    .. autofunction:: ad_api.api.Profiles.update_profile
 
     ### Example updating the budget of one or more profiles
 
@@ -116,7 +109,6 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
 
             except AdvertisingApiException as error:
                 logging.info(error)
-
 
         amz_profile_id = 1495806522428699
         amz_daily_budget = 21.50
@@ -143,7 +135,6 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
 
         update_profile(update_data_list)
 
-
         # The most simple and useful way to update the budget of a single profile
         update_data_dict = \
         {
@@ -168,9 +159,6 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
         ]
 
         update_profile(update_profiles_list)
-
-
-    .. autofunction:: ad_api.api.Profiles.get_profile
 
     ### Example getting a profiles by profileId
 
@@ -198,16 +186,12 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
             except AdvertisingApiException as error:
                 logging.info(error)
 
-
         amz_profile_id = 1495806522428699
         get_profile(amz_profile_id)
-
 
     .. warning::
 
        Note that this **register_brand_assistant** operation is only used for SANDBOX test environment.
-
-    .. autofunction:: ad_api.api.Profiles.register_brand_assistant
 
     ### Example creating a Vendor profile for sandbox
 
@@ -243,8 +227,6 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
 
        Note that this **register_brand** operation is only used for SANDBOX test environment.
 
-    .. autofunction:: ad_api.api.Profiles.register_brand
-
     ### Example creating a Vendor profile for sandbox with a regular dict
 
     .. code-block:: python
@@ -277,7 +259,6 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
 
         register_brand(amz_dict_brand)
 
-
     .. warning::
 
        Note that this **register_assistant** is only used for SANDBOX test environment. Using in PRODUCTION will get a
@@ -286,8 +267,6 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
     .. note::
         You only can create one profile per country, If you try to create again the same country will get a
         Payload: {'profileId': 81562378459925, 'status': 'SUCCESS', 'statusDetails': 'Merchant is already registered'}
-
-    .. autofunction:: ad_api.api.Profiles.register_assistant
 
     ### Example creating a profiles por a specific country
 
@@ -316,7 +295,6 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
         amz_country_code = "DE"
         register_assistant(amz_country_code)
 
-
     ### Payload
 
     .. code-block:: python
@@ -327,12 +305,9 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
             'statusDetails': 'Registration workflow has been started'
         }
 
-
     .. warning::
 
        Note that this **register** operation is only used for SANDBOX test environment.
-
-    .. autofunction:: ad_api.api.Profiles.register
 
     ### Example creating a profiles por a specific country with a dict
 

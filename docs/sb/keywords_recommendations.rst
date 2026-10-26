@@ -10,8 +10,7 @@ Gets keyword recommendations for a Sponsored Brands campaign.
     it for both directions.
 
 .. autoclass:: ad_api.api.sb.KeywordsRecommendations
-
-    .. autofunction:: ad_api.api.sb.KeywordsRecommendations.list_keywords_recommendations(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Request body
 

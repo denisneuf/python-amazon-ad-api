@@ -12,8 +12,7 @@ Gets performance forecasts for new Sponsored Brands campaigns.
     contract and will work unchanged once Amazon fixes the service.
 
 .. autoclass:: ad_api.api.sb.Forecast
-
-    .. autofunction:: ad_api.api.sb.Forecast.list_forecast(self, campaigns, version=4, **kwargs) -> ApiResponse:
+    :members:
 
     ### Request body
 

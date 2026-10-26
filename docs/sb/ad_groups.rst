@@ -7,8 +7,7 @@ Ad Groups
     :doc:`ad_groups_v4` instead.
 
 .. autoclass:: ad_api.api.sb.AdGroups
-
-    .. autofunction:: ad_api.api.sb.AdGroups.list_ad_groups(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Example python
 
@@ -19,9 +18,6 @@ Ad Groups
         res = AdGroups().list_ad_groups()
 
         print(result)
-
-
-    .. autofunction:: ad_api.api.sb.AdGroups.get_ad_group(self, adGroupId, **kwargs) -> ApiResponse:
 
     ### Example python
 
@@ -36,5 +32,3 @@ Ad Groups
         )
 
         print(res)
-
-

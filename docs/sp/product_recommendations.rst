@@ -9,9 +9,8 @@ Budget Recommendations and Missed Opportunities
 
     This API is version 3.0
 
-
-
 .. autoclass:: ad_api.api.sp.BudgetRecommendations
+    :members:
 
     Endpoint available
 
@@ -20,8 +19,3 @@ Budget Recommendations and Missed Opportunities
         :header: "Method", "Endpoint", "Description"
 
         "POST", "/sp/campaigns/budgetRecommendations", "Get recommended daily budget and estimated missed opportunities for campaigns."
-
-
-    .. autofunction:: ad_api.api.sp.BudgetRecommendations.list_campaigns_budget_recommendations(self, **kwargs) -> ApiResponse:
-
-

@@ -8,8 +8,7 @@ Manager Account
 A Manager Account lets you manage a group of Amazon Advertising accounts.
 
 .. autoclass:: ad_api.api.ManagerAccounts
-
-    .. autofunction:: ad_api.api.ManagerAccounts.list_manager_accounts
+    :members:
 
     ### Example getting a list of manager accounts
 
@@ -32,8 +31,6 @@ A Manager Account lets you manage a group of Amazon Advertising accounts.
 
             list_manager_accounts()
 
-    .. autofunction:: ad_api.api.ManagerAccounts.create_manager_account
-
     ### Example creating a manager account
 
     .. code-block:: python
@@ -41,7 +38,6 @@ A Manager Account lets you manage a group of Amazon Advertising accounts.
         import logging
         from ad_api.api import ManagerAccounts
         from ad_api.base import AdvertisingApiException
-
 
         def create_manager_account(data: dict or str):
             try:
@@ -67,8 +63,6 @@ A Manager Account lets you manage a group of Amazon Advertising accounts.
 
             create_manager_account(account)
 
-    .. autofunction:: ad_api.api.ManagerAccounts.associate_manager_accounts
-
     ### Example associating a manager account with and advertiser account
 
     .. code-block:: python
@@ -88,7 +82,6 @@ A Manager Account lets you manage a group of Amazon Advertising accounts.
 
             except AdvertisingApiException as error:
                 logging.info(error)
-
 
         if __name__ == '__main__':
 
@@ -111,8 +104,6 @@ A Manager Account lets you manage a group of Amazon Advertising accounts.
 
             associate_manager_accounts(amz_manager_account_id, association)
 
-    .. autofunction:: ad_api.api.ManagerAccounts.disassociate_manager_accounts
-
     ### Example unlinking a manager account with and advertiser account
 
     .. code-block:: python
@@ -132,7 +123,6 @@ A Manager Account lets you manage a group of Amazon Advertising accounts.
 
             except AdvertisingApiException as error:
                 logging.info(error)
-
 
         if __name__ == '__main__':
 

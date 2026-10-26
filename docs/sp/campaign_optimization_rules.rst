@@ -13,7 +13,6 @@ Campaign Optimization Rules
 
     This API requires separated access from Amazon Advertising Support
 
-
 .. code-block:: python
 
     {
@@ -24,6 +23,7 @@ Campaign Optimization Rules
     }
 
 .. autoclass:: ad_api.api.sp.CampaignOptimization
+    :members:
 
     Endpoints available
 
@@ -38,9 +38,6 @@ Campaign Optimization Rules
         "PUT", "/sp/rules/campaignOptimization", "Updates a campaign optimization rule."
         "POST", "/sp/rules/campaignOptimization/state", "Gets campaign optimization rule state. Recommended refresh frequency is once a day."
 
-
-    .. autofunction:: ad_api.api.sp.CampaignOptimization.list_campaigns_optimization_eligibility(self, **kwargs) -> ApiResponse:
-
         .. code-block:: python
 
             {
@@ -48,11 +45,6 @@ Campaign Optimization Rules
                 "string"
               ]
             }
-
-
-    .. autofunction:: ad_api.api.sp.CampaignOptimization.get_budget_campaign_optimization(self, campaignOptimizationId, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.CampaignOptimization.delete_budget_campaign_optimization(self, campaignOptimizationId, **kwargs) -> ApiResponse:
-    .. autofunction:: ad_api.api.sp.CampaignOptimization.create_budget_campaign_optimization(self, **kwargs) -> ApiResponse:
 
         .. code-block:: python
 
@@ -74,8 +66,6 @@ Campaign Optimization Rules
               ]
             }
 
-    .. autofunction:: ad_api.api.sp.CampaignOptimization.edit_budget_campaign_optimization(self, **kwargs) -> ApiResponse:
-
         .. code-block:: python
 
             {
@@ -96,7 +86,3 @@ Campaign Optimization Rules
                 "1223785"
               ]
             }
-
-    .. autofunction:: ad_api.api.sp.CampaignOptimization.get_state_budget_campaign_optimization(self, **kwargs) -> ApiResponse:
-
-

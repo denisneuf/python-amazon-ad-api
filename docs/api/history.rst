@@ -7,8 +7,7 @@ Change History open beta
 Provides information about changes made to campaigns, adgroups, ads, etc
 
 .. autoclass:: ad_api.api.History
-
-    .. autofunction:: ad_api.api.History.get_history
+    :members:
 
     ### Example python
 
@@ -34,7 +33,6 @@ Provides information about changes made to campaigns, adgroups, ads, etc
                 logging.info(error)
 
         if __name__ == '__main__':
-
 
             # fromDate cannot be more than 90 days ago
             from_date = datetime(2022, 2, 1, 0, 0, 0).strftime('%s%f')[:-3]

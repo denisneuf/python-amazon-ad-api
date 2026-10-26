@@ -8,8 +8,7 @@ Localization
 This API provides operations to localize data used when creating advertising campaigns. Depending on the type of data, localization may entail translating text, converting monetary amounts, or mapping an entity in a source marketplace to an analogous entity in one or more target marketplaces.
 
 .. autoclass:: ad_api.api.Localization
-
-    .. autofunction:: ad_api.api.Localization.get_currency_extended
+    :members:
 
     .. warning::
 
@@ -45,7 +44,6 @@ This API provides operations to localize data used when creating advertising cam
             except AdvertisingApiException as error:
                 logging.info(error)
 
-
         if __name__ == '__main__':
 
             source_country_code = "DE"
@@ -76,7 +74,6 @@ This API provides operations to localize data used when creating advertising cam
             }
 
             get_currency_extended(request, version=1) # You could submit version=2
-
 
     # Static .json file in case want to use as example
 
@@ -123,9 +120,6 @@ This API provides operations to localize data used when creating advertising cam
     # Result using version=2 application/vnd.currencylocalization.v2+json
 
     .. literalinclude:: ../../test/localizations/result_currency_extended_v2.json
-
-    .. autofunction:: ad_api.api.Localization.get_currency
-
 
     # Same json file to use
 
@@ -180,8 +174,6 @@ This API provides operations to localize data used when creating advertising cam
 
     .. literalinclude:: ../../test/localizations/result_currency_v2.json
 
-    .. autofunction:: ad_api.api.Localization.get_products
-
     .. note::
 
         The **Product Localization** supports 2 different types of content (Content-Type) so is possible get 2 different responses
@@ -214,7 +206,6 @@ This API provides operations to localize data used when creating advertising cam
             except AdvertisingApiException as error:
                 logging.info(error)
 
-
         if __name__ == '__main__':
 
             product_request = \
@@ -240,7 +231,6 @@ This API provides operations to localize data used when creating advertising cam
             }
 
             get_products(product_request)
-
 
     ### Example with a dictionary using countryCode for source and target and version 2
 
@@ -269,7 +259,6 @@ This API provides operations to localize data used when creating advertising cam
             except AdvertisingApiException as error:
                 logging.info(error)
 
-
         if __name__ == '__main__':
 
             product_request = \
@@ -295,8 +284,6 @@ This API provides operations to localize data used when creating advertising cam
             }
 
             get_products(product_request, version=2)
-
-
 
     # Result using version=1 application/vnd.productlocalization.v1+json
 
@@ -325,8 +312,6 @@ This API provides operations to localize data used when creating advertising cam
     Download :download:`json <../../test/localizations/request_products_by_marketplace_id.json>` the file to use:
 
     .. literalinclude:: ../../test/localizations/request_products_by_marketplace_id.json
-
-    .. autofunction:: ad_api.api.Localization.get_keywords
 
     .. note::
 
@@ -361,7 +346,6 @@ This API provides operations to localize data used when creating advertising cam
             except KeyboardInterrupt as error:
                 logging.info(error)
 
-
         if __name__ == '__main__':
 
             keywords = ['máquina', 'diagnosis', 'diagnosis multimarca', 'coche', 'automóvil', 'frenos', 'presión', 'neumáticos']
@@ -381,8 +365,6 @@ This API provides operations to localize data used when creating advertising cam
 
             get_keywords(keywords_request)
             # get_keywords(keywords_request, version=2)
-
-
 
     ### Example static request_keywords_locale.json
 
@@ -421,7 +403,6 @@ This API provides operations to localize data used when creating advertising cam
                 logging.info(error)
             except KeyboardInterrupt as error:
                 logging.info(error)
-
 
         if __name__ == '__main__':
 
@@ -482,7 +463,6 @@ This API provides operations to localize data used when creating advertising cam
             except KeyboardInterrupt as error:
                 logging.info(error)
 
-
         if __name__ == '__main__':
 
             keywords = ['máquina', 'diagnosis', 'diagnosis multimarca', 'coche', 'automóvil', 'frenos', 'presión', 'neumáticos']
@@ -504,7 +484,6 @@ This API provides operations to localize data used when creating advertising cam
             get_keywords(keywords_request)
             # get_keywords(keywords_request, version=2)
 
-
     ### Example static request_keywords_marketplace_id.json
 
     .. literalinclude:: ../../test/localizations/request_keywords_marketplace_id.json
@@ -514,8 +493,6 @@ This API provides operations to localize data used when creating advertising cam
     ### Example result keyword FR >> IT, ES, GB
 
     .. literalinclude:: ../../test/localizations/result_keywords_marketplace_id.json
-
-    .. autofunction:: ad_api.api.Localization.get_targeting_expression
 
     ### Example creating a dynamic dict based using MarketplacesIds for both source and target and predicate asinSameAs and version 1
 
@@ -530,7 +507,6 @@ This API provides operations to localize data used when creating advertising cam
             format="%(asctime)s:%(levelname)s:%(message)s"
         )
 
-
         def get_targeting_expression(data: (str, dict), version: int = 1):
             try:
 
@@ -543,7 +519,6 @@ This API provides operations to localize data used when creating advertising cam
 
             except AdvertisingApiException as error:
                 logging.info(error)
-
 
         if __name__ == '__main__':
 
@@ -602,7 +577,6 @@ This API provides operations to localize data used when creating advertising cam
             level=logging.INFO,
             format="%(asctime)s:%(levelname)s:%(message)s"
         )
-
 
         def get_targeting_expression(data: (str, dict), version: int = 1):
             try:

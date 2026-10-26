@@ -14,8 +14,7 @@ Reports
     that names a missing identifier means the route is alive.
 
 .. autoclass:: ad_api.api.sb.Reports
-
-    .. autofunction:: ad_api.api.sb.Reports.post_report(self, recordType, **kwargs) -> ApiResponse:
+    :members:
 
     ### Example python
 
@@ -43,11 +42,6 @@ Reports
 
     .. literalinclude:: ../../test/reports/sb-sx-campaigns-report.json
 
-
-
-
-    .. autofunction:: ad_api.api.sb.Reports.get_report(self, reportId, **kwargs) -> ApiResponse:
-
     ### Example python
 
     .. code-block:: python
@@ -71,8 +65,6 @@ Reports
          'reportId': 'amzn1.clicksAPI.v1.p44551.61549C5E.e4599469-7392-4624-a858-fc1fecdb165c',
          'status': 'SUCCESS',
          'statusDetails': 'Report has been successfully generated.'}}
-
-    .. autofunction:: ad_api.api.sb.Reports.download_report(self, **kwargs) -> ApiResponse:
 
     ### Example python
 

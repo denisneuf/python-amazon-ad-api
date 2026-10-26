@@ -7,8 +7,7 @@ Creative Asset Library beta
 Advertisers can use creative assets to store, organize and reuse brand content, such as logos, images, etc. Stored content can be used for Amazon Ads and on Amazon shopping pages. Creative assets enables brands to provide a consistent shopping experience by easily applying brand content across Amazon.
 
 .. autoclass:: ad_api.api.CreativeAssets
-
-    .. autofunction:: ad_api.api.CreativeAssets.search_assets
+    :members:
 
     ### Example python
 
@@ -59,8 +58,6 @@ Advertisers can use creative assets to store, organize and reuse brand content, 
 
     .. literalinclude:: ../../test/creative_assets/search.json
 
-    .. autofunction:: ad_api.api.CreativeAssets.get_asset
-
     ### Example python
 
     .. code-block:: python
@@ -68,7 +65,6 @@ Advertisers can use creative assets to store, organize and reuse brand content, 
         import logging
         from ad_api.api import CreativeAssets
         from ad_api.base import AdvertisingApiException
-
 
         def get_asset(**kwargs):
             try:
@@ -90,9 +86,6 @@ Advertisers can use creative assets to store, organize and reuse brand content, 
             # get all versions of the asset
             get_asset(assetId=amz_asset_id)
 
-
-    .. autofunction:: ad_api.api.CreativeAssets.upload_asset
-
     ### Example python
 
     .. code-block:: python
@@ -100,7 +93,6 @@ Advertisers can use creative assets to store, organize and reuse brand content, 
         import logging
         from ad_api.api import CreativeAssets
         from ad_api.base import AdvertisingApiException
-
 
         def upload_asset(data: dict or str):
             try:
@@ -133,7 +125,6 @@ Advertisers can use creative assets to store, organize and reuse brand content, 
 
         from requests import request
 
-
         def upload_file(_method, _url, _img):
 
             response = request(
@@ -147,16 +138,12 @@ Advertisers can use creative assets to store, organize and reuse brand content, 
             logging.info(response.content)
             logging.info(response.raw)
 
-
         if __name__ == '__main__':
 
             file_name = "Sample-1200x1200.jpeg"
             url = "https://al-eu-726f4d26-7fdb.s3-accelerate.amazonaws.com/037764c3-6b70-4da9-b9af-8ef6ed136def.jpeg?x-amz-meta-filename=Sample-1200x1200.jpeg&X-Amz-Security-Token=token&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220421T035013Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=credential%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=a9cbeb0bd3d31e0c1a71c4ad27be23cd7725438581cc4e8a1f9f3f8d"
             method = "PUT"
             upload_file(method, url, file_name)
-
-    .. autofunction:: ad_api.api.CreativeAssets.register_asset
-
 
     ### Example python
 
@@ -165,7 +152,6 @@ Advertisers can use creative assets to store, organize and reuse brand content, 
         import logging
         from ad_api.api import CreativeAssets
         from ad_api.base import AdvertisingApiException
-
 
         def register_asset(data: dict or str):
             try:
@@ -177,7 +163,6 @@ Advertisers can use creative assets to store, organize and reuse brand content, 
 
             except AdvertisingApiException as error:
                 logging.info(error)
-
 
         if __name__ == '__main__':
 
@@ -201,7 +186,6 @@ Advertisers can use creative assets to store, organize and reuse brand content, 
                     "skipAssetSubTypesDetection": True
                 }
 
-
             # register and assets already uploaded as a new version of an existing assets
 
             register = \
@@ -223,6 +207,5 @@ Advertisers can use creative assets to store, organize and reuse brand content, 
                     ],
                     "skipAssetSubTypesDetection": True
                 }
-
 
             register_asset(register)

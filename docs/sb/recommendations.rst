@@ -9,8 +9,7 @@ Creative headline recommendations for Sponsored Brands.
     is live. The 4.0 contract lists it as ``getHeadlineRecommendations``.
 
 .. autoclass:: ad_api.api.sb.Recommendations
-
-    .. autofunction:: ad_api.api.sb.Recommendations.list_recommendations(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Endpoint
 

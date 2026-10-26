@@ -10,28 +10,7 @@ campaigns, budget usage and budget recommendations.
     below.
 
 .. autoclass:: ad_api.api.sb.BudgetRules
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.list_budget_rules(self, pageSize, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.get_budget_rule(self, budgetRuleId, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.list_rule_campaigns(self, budgetRuleId, pageSize, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.list_campaign_rules(self, campaignId, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.create_budget_rules(self, budgetRulesDetails, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.update_budget_rules(self, budgetRulesDetails, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.associate_budget_rules(self, campaignId, budgetRuleIds, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.disassociate_budget_rule(self, campaignId, budgetRuleId, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.get_budget_usage(self, campaignIds, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.get_budget_recommendations(self, campaignIds, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.BudgetRules.get_budget_rules_recommendation(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Endpoint map
 

@@ -6,6 +6,7 @@ Brand Safety List
     Sponsored Display is not available for Sandbox endpoint
 
 .. autoclass:: ad_api.api.sd.BrandSafety
+    :members:
 
     Endpoints available
 
@@ -19,15 +20,3 @@ Brand Safety List
         "GET", "/sd/brandSafety/{requestId}/results", "Gets the results for the given request"
         "GET", "/sd/brandSafety/{requestId}/status", "Gets the status for the given request"
         "GET", "/sd/brandSafety/status", "List status of all Brand Safety List requests."
-
-    .. autofunction:: ad_api.api.sd.BrandSafety.list_brand_safety(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.BrandSafety.post_brand_safety(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.BrandSafety.delete_brand_safety(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.BrandSafety.get_result_brand_safety_request(self, requestId, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.BrandSafety.get_status_brand_safety_request(self, requestId, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.BrandSafety.list_brand_safety_requests_history(self, **kwargs) -> ApiResponse:

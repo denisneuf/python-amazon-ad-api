@@ -2,8 +2,7 @@ Keywords
 ========
 
 .. autoclass:: ad_api.api.sb.Keywords
-
-    .. autofunction:: ad_api.api.sb.Keywords.list_keywords(self, version: float = 3.2, **kwargs) -> ApiResponse:
+    :members:
 
         ### Example python
 
@@ -13,8 +12,6 @@ Keywords
 
             result = Keywords().list_keywords()
             print(result)
-
-    .. autofunction:: ad_api.api.sb.Keywords.edit_keywords(self, **kwargs) -> ApiResponse:
 
         ### Example python
 
@@ -30,12 +27,9 @@ Keywords
             )
             print(result)
 
-
         ### Example json
 
         .. literalinclude:: ../../test/keywords/sb-sx-edit-keywords.json
-
-    .. autofunction:: ad_api.api.sb.Keywords.create_keywords(self, **kwargs) -> ApiResponse:
 
         ### Example python
 
@@ -55,8 +49,6 @@ Keywords
 
         .. literalinclude:: ../../test/keywords/sb-sx-create-keywords.json
 
-    .. autofunction:: ad_api.api.sb.Keywords.get_keyword(self, keywordId, **kwargs) -> ApiResponse:
-
         ### Example python
 
         .. code-block:: python
@@ -68,8 +60,6 @@ Keywords
                 keywordId=keyword_id
             )
             print(result)
-
-    .. autofunction:: ad_api.api.sb.Keywords.delete_keyword(self, keywordId, **kwargs) -> ApiResponse:
 
         ### Example python
 

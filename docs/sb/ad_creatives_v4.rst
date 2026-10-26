@@ -4,22 +4,7 @@ Ad Creatives
 Sponsored Brands 4.0 ad creatives.
 
 .. autoclass:: ad_api.api.sb.AdCreativesV4
-
-    .. autofunction:: ad_api.api.sb.AdCreativesV4.list_ad_creatives(self, version=4, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.AdCreativesV4.create_video_ad_creative(self, version=4, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.AdCreativesV4.create_new_version_video_ad_creative(self, version=4, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.AdCreativesV4.create_new_version_product_collection_ad_creative(self, version=4, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.AdCreativesV4.create_new_version_store_spotlight_ad_creative(self, version=4, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.AdCreativesV4.create_auto_collection_ad_creative(self, version=4, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.AdCreativesV4.create_manual_collection_ad_creative(self, version=4, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.AdCreativesV4.create_new_version_product_collection_extended_ad_creative(self, version=4, **kwargs) -> ApiResponse:
+    :members:
 
     ### Request format
 

@@ -8,10 +8,7 @@ Product Ads
     Sponsored Display is not available for Sandbox endpoint
 
 .. autoclass:: ad_api.api.sd.ProductAds
-
-
-
-    .. autofunction:: ad_api.api.sd.ProductAds.list_product_ads(self, **kwargs) -> ApiResponse:
+    :members:
 
         ### Example python 1
 
@@ -50,7 +47,6 @@ Product Ads
 
         .. code-block:: python
 
-
             import os
             from ad_api.base import AdvertisingApiException
             from ad_api.api.sd.product_ads import ProductAds
@@ -68,15 +64,11 @@ Product Ads
             except AdvertisingApiException as error:
                 logging.error(error)
 
-
-    .. autofunction:: ad_api.api.sd.ProductAds.edit_product_ads(self, **kwargs) -> ApiResponse:
-
         ### Example body json
 
         An array of ProductAd objects. For each object, specify a product ad identifier and the only mutable field, state. Maximum length of the array is 100 objects.
 
         .. code-block:: JSON
-
 
             [
                 {
@@ -114,8 +106,6 @@ Product Ads
             except AdvertisingApiException as error:
                 logging.error(error)
 
-
-
         ### Example response.payload **<class 'list'>**
 
         .. code-block:: python
@@ -127,13 +117,3 @@ Product Ads
         .. code-block:: JSON
 
             [{"code": "SUCCESS", "adId": 182575048323550}]
-
-    .. autofunction:: ad_api.api.sd.ProductAds.create_product_ads(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.ProductAds.get_product_ad(self, adId, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.ProductAds.delete_product_ad(self, adId, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.ProductAds.list_product_ads_extended(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sd.ProductAds.get_product_ad_extended(self, adId, **kwargs) -> ApiResponse:

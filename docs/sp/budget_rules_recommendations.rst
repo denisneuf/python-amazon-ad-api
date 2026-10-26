@@ -9,9 +9,8 @@ Budget Rules Recommendations
 
     This API is version 3.0
 
-
-
 .. autoclass:: ad_api.api.sp.BudgetRulesRecommendations
+    :members:
 
     Endpoint available
 
@@ -20,8 +19,3 @@ Budget Rules Recommendations
         :header: "Method", "Endpoint", "Description"
 
         "POST", "/sp/campaigns/budgetRules/recommendations", "Gets a list of special events with suggested date range and suggested budget increase for a campaign specified by identifier."
-
-
-    .. autofunction:: ad_api.api.sp.BudgetRulesRecommendations.list_campaigns_budget_rules_recommendations(self, **kwargs) -> ApiResponse:
-
-

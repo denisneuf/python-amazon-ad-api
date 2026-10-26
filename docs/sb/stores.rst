@@ -2,10 +2,7 @@ Stores
 ======
 
 .. autoclass:: ad_api.api.sb.Stores
-
-    .. autofunction:: ad_api.api.sb.Stores.list_assets(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.Stores.create_asset(self, image, brandEntityId, mediaType='brandLogo', filename=None, **kwargs) -> ApiResponse:
+    :members:
 
     ### Request format
 

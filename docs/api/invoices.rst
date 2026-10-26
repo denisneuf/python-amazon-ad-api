@@ -1,18 +1,14 @@
 Invoices
 ========
 
-
-
 `https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Billing_prod_3p.json`_
 
 .. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Billing_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Billing_prod_3p.json
 
 Get invoice data by invoice ID
 
-
 .. autoclass:: ad_api.api.Invoices
-
-    .. autofunction:: ad_api.api.Invoices.list_invoices
+    :members:
 
     ### Example getting a list of invoices
 
@@ -72,8 +68,6 @@ Get invoice data by invoice ID
     .. code-block:: python
 
         {'id': 'DR0012TTY-76', 'status': 'PAID_IN_FULL', 'fromDate': '20210624', 'toDate': '20210703', 'invoiceDate': '20210702', 'amountDue': {'amount': 332.2, 'currencyCode': 'EUR'}, 'taxAmountDue': {'amount': 0.0, 'currencyCode': 'EUR'}, 'remainingAmountDue': {'amount': 0.0, 'currencyCode': 'EUR'}, 'remainingTaxAmountDue': {'amount': 0.0, 'currencyCode': 'EUR'}}
-
-    .. autofunction:: ad_api.api.Invoices.get_invoice
 
     .. note::
 

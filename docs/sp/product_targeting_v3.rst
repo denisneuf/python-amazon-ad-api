@@ -24,7 +24,6 @@ Endpoints available version 3.0
         :widths: 10, 35, 50
         :header: "Method", "Endpoint", "Description"
 
-
         "POST", "/sp/targets/list", "Listing product targets. [deprecated]"
         "POST", "/sp/targets", "Creating product targets. [deprecated]"
         "PUT", "/sp/targets", "Updating product targets. [deprecated]"
@@ -34,21 +33,5 @@ Endpoints available version 3.0
         "GET", "/sp/targets/categories", "Returns all targetable categories."
         "GET", "/sp/targets/category/{categoryId}/refinements", "Returns refinements according to category input."
 
-
 .. autoclass:: ad_api.api.sp.TargetsV3
-
-    .. autofunction:: ad_api.api.sp.TargetsV3.list_product_targets
-
-    .. autofunction:: ad_api.api.sp.TargetsV3.create_product_targets
-
-    .. autofunction:: ad_api.api.sp.TargetsV3.edit_product_targets
-
-    .. autofunction:: ad_api.api.sp.TargetsV3.delete_product_targets
-
-    .. autofunction:: ad_api.api.sp.TargetsV3.list_products_targets_categories_recommendations
-
-    .. autofunction:: ad_api.api.sp.TargetsV3.get_products_targets_count
-
-    .. autofunction:: ad_api.api.sp.TargetsV3.list_targets_categories
-
-    .. autofunction:: ad_api.api.sp.TargetsV3.list_products_targets_category_refinements
+    :members:

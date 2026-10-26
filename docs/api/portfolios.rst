@@ -7,12 +7,11 @@ Portfolios
 Portfolios consist of campaigns that are grouped together and linked to a distinct Advertiser Account. The term 'advertiser' refers to a brand, entity, account identifier, or claim identifier. Multiple portfolios are supported within an Advertiser Account.
 
 .. autoclass:: ad_api.api.Portfolios
+    :members:
 
     .. note::
 
         This API **Portfolios** can be used as sandbox environment for testing
-
-    .. autofunction:: ad_api.api.Portfolios.list_portfolios
 
     ### Example listing portfolios
 
@@ -21,7 +20,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
         import logging
         from ad_api.api import Portfolios
         from ad_api.base import AdvertisingApiException
-
 
         logging.basicConfig(
             level=logging.INFO,
@@ -51,9 +49,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
             list_portfolios(portfolioIdFilter="84653842194444,183826157455614,92453628442009,31260007270996")
             # list_portfolios(portfolioNameFilter="Apple,Huawei,Sony")
 
-
-    .. autofunction:: ad_api.api.Portfolios.list_portfolios_extended
-
     ### Example listing portfolios extended
 
     .. code-block:: python
@@ -61,7 +56,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
         import logging
         from ad_api.api import Portfolios
         from ad_api.base import AdvertisingApiException
-
 
         logging.basicConfig(
             level=logging.INFO,
@@ -91,8 +85,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
             list_portfolios_extended(portfolioIdFilter="84653842194444,183826157455614,92453628442009,31260007270996")
             # list_portfolios_extended(portfolioNameFilter="Apple,Huawei,Sony")
 
-    .. autofunction:: ad_api.api.Portfolios.get_portfolio
-
     ### Example getting a portfolio by portfolioId
 
     .. code-block:: python
@@ -100,7 +92,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
         import logging
         from ad_api.api import Portfolios
         from ad_api.base import AdvertisingApiException
-
 
         logging.basicConfig(
             level=logging.INFO,
@@ -118,13 +109,10 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
             except AdvertisingApiException as error:
                 logging.info(error)
 
-
         if __name__ == '__main__':
 
             id_portfolio = 214026257044134
             get_portfolio(id_portfolio)
-
-    .. autofunction:: ad_api.api.Portfolios.get_portfolio_extended
 
     ### Example getting a portfolio extended by portfolioId
 
@@ -133,7 +121,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
         import logging
         from ad_api.api import Portfolios
         from ad_api.base import AdvertisingApiException
-
 
         logging.basicConfig(
             level=logging.INFO,
@@ -151,13 +138,10 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
             except AdvertisingApiException as error:
                 logging.info(error)
 
-
         if __name__ == '__main__':
 
             id_portfolio = 214026257044134
             get_portfolio_extended(id_portfolio)
-
-    .. autofunction:: ad_api.api.Portfolios.create_portfolios
 
     ### Example creating a portfolio from a list or from a dict
 
@@ -166,7 +150,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
         import logging
         from ad_api.api import Portfolios
         from ad_api.base import AdvertisingApiException
-
 
         logging.basicConfig(
             level=logging.INFO,
@@ -183,7 +166,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
 
             except AdvertisingApiException as error:
                 logging.info(error)
-
 
         if __name__ == '__main__':
 
@@ -246,7 +228,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
         from ad_api.api import Portfolios
         from ad_api.base import AdvertisingApiException
 
-
         logging.basicConfig(
             level=logging.INFO,
             format="%(asctime)s:%(levelname)s:%(message)s"
@@ -263,20 +244,16 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
             except AdvertisingApiException as error:
                 logging.info(error)
 
-
         if __name__ == '__main__':
 
             filename = "../test/portfolios/create.json"
             create_portfolios(filename)
-
 
     # Static .json file in case want to use as example
 
     .. literalinclude:: ../../test/portfolios/create.json
 
     Download :download:`json <../../test/portfolios/create.json>` the file to use:
-
-    .. autofunction:: ad_api.api.Portfolios.edit_portfolios
 
     ### Example editing a portfolio from a list or from a dict
 
@@ -285,7 +262,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
         import logging
         from ad_api.api import Portfolios
         from ad_api.base import AdvertisingApiException
-
 
         logging.basicConfig(
             level=logging.INFO,
@@ -302,7 +278,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
 
             except AdvertisingApiException as error:
                 logging.info(error)
-
 
         if __name__ == '__main__':
 
@@ -346,7 +321,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
                     }
                 ]
 
-
             update_single_portfolio = \
                 [
                     {
@@ -379,7 +353,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
             # edit_portfolios(update_single_portfolio)
             edit_portfolios(update_single_dict_portfolio)
 
-
     ### Example editing a portfolio from a static json file
 
     .. code-block:: python
@@ -387,7 +360,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
         import logging
         from ad_api.api import Portfolios
         from ad_api.base import AdvertisingApiException
-
 
         logging.basicConfig(
             level=logging.INFO,
@@ -404,7 +376,6 @@ Portfolios consist of campaigns that are grouped together and linked to a distin
 
             except AdvertisingApiException as error:
                 logging.info(error)
-
 
         if __name__ == '__main__':
 

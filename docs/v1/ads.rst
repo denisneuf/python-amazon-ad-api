@@ -15,11 +15,4 @@ Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-ads
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdsContract_prod_3p.json
 
 .. autoclass:: ad_api.api.v1.Ads
-
-    .. autofunction:: ad_api.api.v1.Ads.query_ads
-
-    .. autofunction:: ad_api.api.v1.Ads.create_ads
-
-    .. autofunction:: ad_api.api.v1.Ads.update_ads
-
-    .. autofunction:: ad_api.api.v1.Ads.delete_ads
+    :members:

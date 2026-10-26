@@ -7,8 +7,7 @@ Product Selector
 The Amazon Product Selector API allows integrators to receive product metadata such as inventory status, price, eligibility status and product details for SKUS or ASINs in their Product Catalog in order to launch, manage or optimize Sponsored Product, Sponsored Brands or Sponsored Display advertising campaigns. The Product Selector API is available to Sellers, Vendors, and Authors.
 
 .. autoclass:: ad_api.api.Metadata
-
-    .. autofunction:: ad_api.api.Metadata.get_products_metadata
+    :members:
 
     ### Example getting the metadata of a search string
 
@@ -18,12 +17,10 @@ The Amazon Product Selector API allows integrators to receive product metadata s
         from ad_api.api import Metadata
         from ad_api.base import AdvertisingApiException
 
-
         logging.basicConfig(
             level=logging.INFO,
             format="%(asctime)s:%(levelname)s:%(message)s"
         )
-
 
         def get_products_metadata(data: (str, dict)):
 
@@ -45,7 +42,6 @@ The Amazon Product Selector API allows integrators to receive product metadata s
             except AdvertisingApiException as error:
                 logging.info(error)
 
-
         if __name__ == '__main__':
 
             search_dict = \
@@ -61,4 +57,3 @@ The Amazon Product Selector API allows integrators to receive product metadata s
                 }
 
             get_products_metadata(search_dict)
-

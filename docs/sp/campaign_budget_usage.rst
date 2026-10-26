@@ -9,8 +9,8 @@ Campaigns Budget Usage
 
     This API is version 3.0
 
-
 .. autoclass:: ad_api.api.sp.CampaignsBudgetUsage
+    :members:
 
     Endpoints available
 
@@ -19,7 +19,3 @@ Campaigns Budget Usage
         :header: "Method", "Endpoint", "Description"
 
         "POST", "/sp/campaigns/budget/usage", "Budget usage API for SP campaigns"
-
-
-    .. autofunction:: ad_api.api.sp.CampaignsBudgetUsage.list_campaigns_budget_usage(self, version: int = 1, **kwargs) -> ApiResponse:
-

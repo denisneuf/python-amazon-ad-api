@@ -10,6 +10,7 @@ Get Ranked Keywords Recommendations
     This API is version 3.0
 
 .. autoclass:: ad_api.api.sp.RankedKeywordsRecommendations
+    :members:
 
     Endpoint available
 
@@ -18,9 +19,6 @@ Get Ranked Keywords Recommendations
         :header: "Method", "Endpoint", "Description"
 
         "POST", "/sp/targets/keywords/recommendations", "Get ranked keywords recommendations."
-
-    .. autofunction:: ad_api.api.sp.RankedKeywordsRecommendations.list_ranked_keywords_recommendations(self,  version: int = 3, **kwargs) -> ApiResponse:
-
 
     ### Example Using the endpoint with version
 
@@ -43,7 +41,6 @@ Get Ranked Keywords Recommendations
 
             data = json.dumps(dictionary)
 
-
             try:
 
                 result = sponsored_products.RankedKeywordsRecommendations(debug=True).list_ranked_keywords_recommendations(
@@ -53,7 +50,6 @@ Get Ranked Keywords Recommendations
 
             except AdvertisingApiException as error:
                 logging.error(error)
-
 
             logging.info("version {}".format(str(version)))
             logging.info(result.payload)
@@ -83,7 +79,6 @@ Get Ranked Keywords Recommendations
             logging.info("version {}".format(str(version)))
             logging.info(result.payload)
 
-
         if __name__ == '__main__':
 
             # sp_get_ranked_keywords_recommendations_targets(version=3) # default api endpoint version=3
@@ -93,5 +88,3 @@ Get Ranked Keywords Recommendations
             # sp_get_ranked_keywords_recommendations_asin(version=3) # default api endpoint version=3
             sp_get_ranked_keywords_recommendations_asin(version=4)
             sp_get_ranked_keywords_recommendations_asin(version=5)
-
-

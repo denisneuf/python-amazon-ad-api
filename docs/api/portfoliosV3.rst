@@ -7,15 +7,8 @@ PortfoliosV3
 Manage portfolios that group together campaigns.
 
 .. autoclass:: ad_api.api.PortfoliosV3
+    :members:
 
     .. note::
 
         This API **Portfolios** can be used as sandbox environment for testing
-
-    .. autofunction:: ad_api.api.PortfoliosV3.list_portfolios
-
-    .. autofunction:: ad_api.api.PortfoliosV3.create_portfolios
-
-    .. autofunction:: ad_api.api.PortfoliosV3.edit_portfolios
-
-    .. autofunction:: ad_api.api.PortfoliosV3.get_budget_usage_for_portfolios

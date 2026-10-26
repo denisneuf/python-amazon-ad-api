@@ -7,8 +7,7 @@ Campaigns
     :doc:`campaigns_v4` instead.
 
 .. autoclass:: ad_api.api.sb.Campaigns
-
-    .. autofunction:: ad_api.api.sb.Campaigns.list_campaigns(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Example python
 
@@ -20,12 +19,7 @@ Campaigns
 
         print(result)
 
-
-
-
     .. deprecated:: 4.0.2
-
-    .. autofunction:: ad_api.api.sb.Campaigns.create_campaigns(self, **kwargs) -> ApiResponse:
 
     ### Example python
 
@@ -48,13 +42,9 @@ Campaigns
 
     .. deprecated:: 4.0.2
 
-    .. autofunction:: ad_api.api.sb.Campaigns.edit_campaigns(self, **kwargs) -> ApiResponse:
-
     ### Example json
 
     .. literalinclude:: ../../test/campaigns/sb-sx-edit-campaign.json
-
-    .. autofunction:: ad_api.api.sb.Campaigns.get_campaign(self, campaignId, **kwargs) -> ApiResponse:
 
     ### Example python
 
@@ -69,10 +59,7 @@ Campaigns
         )
         print(result)
 
-
     .. deprecated:: 4.0.2
-
-    .. autofunction:: ad_api.api.sb.Campaigns.delete_campaign(self, campaignId, **kwargs) -> ApiResponse:
 
     .. code-block:: python
 
@@ -84,6 +71,5 @@ Campaigns
             campaignId=campaign_id
         )
         print(result)
-
 
 NOT AVAILABLE SANDBOX [INTERNAL_ERROR - HTTP 500 Internal Server Error]

@@ -8,14 +8,7 @@ All four routes are reads, and all four were probed against a live account. This
 the only family in the package with no unverified route.
 
 .. autoclass:: ad_api.api.sb.TargetingCategories
-
-    .. autofunction:: ad_api.api.sb.TargetingCategories.list_categories(self, supplySource, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.TargetingCategories.list_refinements(self, categoryRefinementId, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.TargetingCategories.get_product_count(self, category, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.TargetingCategories.list_negative_brand_recommendations(self, **kwargs) -> ApiResponse:
+    :members:
 
     ### Endpoint map
 

@@ -5,18 +5,7 @@ Sponsored Brands optimization rules: the rules themselves, their association wit
 entities, and optimization recommendations.
 
 .. autoclass:: ad_api.api.sb.OptimizationRules
-
-    .. autofunction:: ad_api.api.sb.OptimizationRules.list_optimization_rules(self, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.OptimizationRules.get_optimization_recommendation(self, costControlMetric, landingPages, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.OptimizationRules.create_optimization_rules(self, optimizationRules, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.OptimizationRules.update_optimization_rules(self, optimizationRules, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.OptimizationRules.associate_optimization_rules(self, optimizationRuleAssociations, **kwargs) -> ApiResponse:
-
-    .. autofunction:: ad_api.api.sb.OptimizationRules.disassociate_optimization_rules(self, optimizationRuleDisassociations, **kwargs) -> ApiResponse:
+    :members:
 
     ### Endpoint map
 
