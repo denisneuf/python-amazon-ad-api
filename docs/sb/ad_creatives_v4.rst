@@ -40,9 +40,9 @@ Sponsored Brands 4.0 ad creatives.
 
     .. warning::
         ``POST /sb/ads/creatives/productCollection`` is flagged **deprecated** in
-        the 4.0 contract, together with ``productCollectionExtended``. New
-        integrations should use the ad creation routes in
-        :doc:`ads_v4` instead.
+        the 4.0 contract, together with ``productCollectionExtended``. The method
+        carries ``@Utils.deprecated``. New integrations should use the ad creation
+        routes in :doc:`ads_v4` instead.
 
     ### Example python
 

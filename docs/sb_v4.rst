@@ -9,4 +9,5 @@
     sb/ads_v4
     sb/ad_creatives_v4
     sb/forecast
+    sb/recommendations
 

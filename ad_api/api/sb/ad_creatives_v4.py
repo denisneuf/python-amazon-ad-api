@@ -58,6 +58,7 @@ class AdCreativesV4(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/sb/ads/creatives/productCollection', method='POST')
+    @Utils.deprecated
     def create_new_version_product_collection_ad_creative(self, version: int = 4, **kwargs) -> ApiResponse:
         """
         Creates a new version of creative for given Sponsored Brands ad by supplying product collection creative content.
@@ -91,10 +92,10 @@ class AdCreativesV4(Client):
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/sb/ads/creatives/productCollection', method='POST')
+    @sp_endpoint('/sb/ads/creatives/storeSpotlight', method='POST')
     def create_new_version_store_spotlight_ad_creative(self, version: int = 4, **kwargs) -> ApiResponse:
         """
-        Creates a new version of creative for given Sponsored Brands ad by supplying product collection creative content.
+        Creates a new version of creative for a given Sponsored Brands ad by supplying store spotlight creative content.
 
         Request Body [Required]
             | **adId** (string) : The unique ID of a Sponsored Brands ad.
