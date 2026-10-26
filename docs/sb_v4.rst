@@ -11,4 +11,5 @@
     sb/forecast
     sb/recommendations
     sb/budget_rules
+    sb/optimization_rules
 

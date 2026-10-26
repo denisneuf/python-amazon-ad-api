@@ -21,6 +21,7 @@ from .reports import Reports
 from .benchmarks import Benchmarks
 from .themes import Themes
 from .budget_rules import BudgetRules
+from .optimization_rules import OptimizationRules
 
 __all__ = [
     "Brands",
@@ -46,4 +47,5 @@ __all__ = [
     "Benchmarks",
     "Themes",
     "BudgetRules",
+    "OptimizationRules",
 ]
