@@ -315,24 +315,35 @@ Warning: the campaign, ad group and product ad operations are deprecated in favo
 * [Ad Groups (deprecated)](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups.html)
 * [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/keywords.html)
 * [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/negative_keywords.html)
+* [Keywords Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/keywords_recommendations.html)
 * [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/product_targeting.html)
 * [Negative Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/negative_product_targeting.html)
 * [Targeting Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/targeting_recommendations.html)
 * [Bid Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/bid_recommendations.html)
+* [Benchmarks](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/benchmarks.html)
 * [Stores](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/stores.html)
 * [Landing Page Asins](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/landing_page_asins.html)
 * [Media](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/media.html)
 * [Brands](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/brands.html)
-* [Moderation](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/moderation.html)
-* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/reports.html)
-* [Snapshots](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/snapshots.html)
 * [Themes](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/themes.html)
+* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/reports.html)
 
 ### [Modules Available Sponsored Brands 4.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sb_v4.html)
 
+> The 4.0 contract is fully covered: every operation is implemented except the campaign moderation route, which the service answers with a router `404`, and the report download, which resolves through the shared `_download` helper.
+
 * [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/campaigns_v4.html)
 * [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups_v4.html)
-* [Ads Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ads_v4.html)
+* [Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ads_v4.html)
+* [Ad Creatives](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_creatives_v4.html)
+* [Forecast](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/forecast.html)
+* [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/recommendations.html)
+* [Budget Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/budget_rules.html)
+* [Optimization Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/optimization_rules.html)
+* [Targeting Categories](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/targeting_categories.html)
+* [Migration](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/migration.html)
+
+> Most 4.0 routes take a versioned media type and the service routes on it. With `application/json` they answer `404 Could not find resource`, which reads like a missing route but is only the wrong media type. This affects forecasts, budget recommendations, optimization rules, migrations, insights, negative brand recommendations and the collection creatives.
 
 ### [Modules Available Sponsored Display](https://python-amazon-ad-api.readthedocs.io/en/latest/sd.html)
 
