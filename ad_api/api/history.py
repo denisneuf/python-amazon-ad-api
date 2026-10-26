@@ -5,26 +5,49 @@ class History(Client):
     """ """
 
     @sp_endpoint('/history', method='POST')
-    def get_history(self, **kwargs) -> ApiResponse:
+    def get_history(self, version: str = "1.0", **kwargs) -> ApiResponse:
         r"""
+        Returns the changes made to campaigns, ad groups, ads and the rest of the
+        entity tree, within a time range. Only events belonging to the
+        authenticated advertiser come back.
 
-        get_history(body: (dict, str, file)) -> ApiResponse
+        Keyword Args
 
-        Returns history of changes for provided event sources that match the filters and time ranges specified. Only events that belong to the authenticated Advertiser can be queried. All times will be in UTC Epoch format. This API accepts identifiers in either the alphamumeric format (default), or the numeric format. If numeric IDs are supplied, then numeric IDs will be returned otherwise, alphanumeric IDs are returned.
+        - ``version`` (string): the ``Accept`` version, ``"1.0"`` by default.
+          Pass ``"1.1"`` to query the ``THEME`` event type, which the service
+          refuses at 1.0. The other six types work at either. [optional]
 
-        body: | REQUIRED {'description': 'A HistoryQuery}'
+        Request Body (required)
 
-            | **from_date** | **int** | Max 90 days of history.
-            | **to_date** | **int** |
-            | **event_types**
-                | HistoryEventType
-            | **next_token** | **str** | token from previous response to get next set of data. | [optional]
-            | **page_offset** | **int** | Mutually exclusive with &#39;nextToken&#39;. Max results with pageOffset is 10000. Use nextToken instead for more results. | [optional]
-            | **count** | **int** | Requested number of results. Default 100. Minimum 50. Maximum 200. | [optional]
-            | **sort**
-                | HistorySortParameter
-            | **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+        - ``fromDate`` (integer): epoch in **milliseconds**, not seconds.
+        - ``toDate`` (integer): epoch in milliseconds.
+        - ``eventTypes`` (object): one or more of ``AD``, ``AD_GROUP``,
+          ``CAMPAIGN``, ``KEYWORD``, ``NEGATIVE_KEYWORD``, ``PRODUCT_TARGETING``
+          and ``THEME``. Each carries an object, usually ``{}`` or
+          ``{"filters": [...]}``.
+        - ``count`` (integer): page size. Default 100, minimum 50, maximum 200.
+        - ``nextToken`` (string): token from a previous answer. Mutually
+          exclusive with ``pageOffset``.
+        - ``pageOffset`` (integer): alternative to ``nextToken``, up to 10000.
+        - ``sort`` (object): ``{"direction": "ASC"|"DESC", "key": "DATE"}``.
+
+        The field names are camelCase and the service rejects anything else: a
+        body written with ``from_date`` answers ``400`` naming ``fromDate`` as a
+        required field. The dates are counted back from the moment of the
+        request, so a window computed once and reused drifts out of range: the
+        service measures 90 days from its own clock, and a few seconds of drift
+        past the edge answers ``400 fromDate is more than 90 days ago``.
+
+        This route throttles. Seven calls within twelve seconds answered ``429``.
+
+        Returns
+            ApiResponse with ``events``, ``pageSize``, ``pageOffset``,
+            ``maxPageNumber`` and ``totalRecords``. An empty ``events`` with
+            ``totalRecords`` at ``0`` means the account saw no change in the
+            window, not that the call failed.
 
         """
+        accept = 'application/vnd.historyresponse.v' + version + '+json'
+        headers = {'Accept': accept}
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
