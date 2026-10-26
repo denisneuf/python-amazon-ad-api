@@ -1,5 +1,5 @@
 Keyword Recommendations
-======================
+=======================
 
 Gets keyword recommendations for a Sponsored Brands campaign.
 
