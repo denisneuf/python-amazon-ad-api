@@ -8,13 +8,13 @@ class AdsV4(Client):
         Lists all Sponsored Brands ads.
 
         Request Body (optional)
-        | **campaignIdFilter** (dict) : Filter entities by the list of objectIds.
-        | **stateFilter** (dict) : Filter entities by state.
-        | **maxResults** (int) : Number of records to include in the paginated response. Defaults to max page size for given API.
-        | **nextToken** (string) : Token value allowing to navigate to the next response page.
-        | **adIdFilter** (dict) : Filter entities by the list of objectIds.
-        | **adGroupIdFilter** (dict) : Filter entities by the list of objectIds.
-        | **nameFilter** (dict) : Filter entities by name.
+          | **campaignIdFilter** (dict) : Filter entities by the list of objectIds.
+          | **stateFilter** (dict) : Filter entities by state.
+          | **maxResults** (int) : Number of records to include in the paginated response. Defaults to max page size for given API.
+          | **nextToken** (string) : Token value allowing to navigate to the next response page.
+          | **adIdFilter** (dict) : Filter entities by the list of objectIds.
+          | **adGroupIdFilter** (dict) : Filter entities by the list of objectIds.
+          | **nameFilter** (dict) : Filter entities by name.
 
 
         Returns
@@ -33,13 +33,13 @@ class AdsV4(Client):
         Creates Sponsored Brand video ads.
 
         Request Body (required)
-        | **ads** ([{}]) :
-            **name** (string) : The name of the ad
-            **state** (CreateOrUpdateEntityState > String) Entity state for create or update operation. Enum : [ENABLED, PAUSED]
-            **adGroupId** (string) : The adGroup identifier.
-            **creative** (dict) :
-                asins ([string])  [optional]
-                videoAssetIds ([string])  [optional]
+          | **ads** ([{}]) :
+              **name** (string) : The name of the ad
+              **state** (CreateOrUpdateEntityState > String) Entity state for create or update operation. Enum : [ENABLED, PAUSED]
+              **adGroupId** (string) : The adGroup identifier.
+              **creative** (dict) :
+                  asins ([string])  [optional]
+                  videoAssetIds ([string])  [optional]
 
         Returns
             ApiResponse
@@ -57,21 +57,21 @@ class AdsV4(Client):
         Creates Sponsored Brands product collection ads.
 
         Request Body (required)
-        | **ads** ([{}]) :
-            **landingPage** (dict) :
-                asins [string] [optional]
-                pageType (LadingPageType > String ) : The type of landing page, such as store page, product list (simple landing page), custom url. [optional]
-                url (string) : URL of an existing simple landing page or Store page. [optional]
-            **name** (string) : The name of the ad
-            **state** (CreateOrUpdateEntityState > String) Entity state for create or update operation. Enum : [ENABLED, PAUSED]
-            **adGroupId** (string) : The adGroup identifier.
-            **creative** (dict) :
-                brandLogoCrop (string) [optional]
-                brandName (string) [optional]
-                customImageAssetId	(string)
-                customImageCrop ({int})  [optional]
-                brandLogoAssetID (string) [optional]
-                headline (string) The headline text [optional]
+          | **ads** ([{}]) :
+              **landingPage** (dict) :
+                  asins [string] [optional]
+                  pageType (LadingPageType > String ) : The type of landing page, such as store page, product list (simple landing page), custom url. [optional]
+                  url (string) : URL of an existing simple landing page or Store page. [optional]
+              **name** (string) : The name of the ad
+              **state** (CreateOrUpdateEntityState > String) Entity state for create or update operation. Enum : [ENABLED, PAUSED]
+              **adGroupId** (string) : The adGroup identifier.
+              **creative** (dict) :
+                  brandLogoCrop (string) [optional]
+                  brandName (string) [optional]
+                  customImageAssetId	(string)
+                  customImageCrop ({int})  [optional]
+                  brandLogoAssetID (string) [optional]
+                  headline (string) The headline text [optional]
 
         Returns
             ApiResponse
@@ -89,21 +89,21 @@ class AdsV4(Client):
         Creates Sponsored Brands brand video ads.
 
         Request Body (required)
-        | **ads** ([{}]) :
-            **landingPage** (dict) :
-                asins [string] [optional]
-                pageType (LadingPageType > String ) : The type of landing page, such as store page, product list (simple landing page), custom url. [optional]
-                url (string) : URL of an existing simple landing page or Store page. [optional]
-            **name** (string) : The name of the ad
-            **state** (CreateOrUpdateEntityState > String) Entity state for create or update operation. Enum : [ENABLED, PAUSED]
-            **adGroupId** (string) : The adGroup identifier.
-            **creative** (dict) :
-                asins ([string])
-                brandName (string) [optional]
-                brandLogoCrop ({}) [optional]
-                videoAssetIds ([string]) [optional]
-                brandLogoAssetID (string) [optional]
-                headline (string) The headline text [optional]
+          | **ads** ([{}]) :
+              **landingPage** (dict) :
+                  asins [string] [optional]
+                  pageType (LadingPageType > String ) : The type of landing page, such as store page, product list (simple landing page), custom url. [optional]
+                  url (string) : URL of an existing simple landing page or Store page. [optional]
+              **name** (string) : The name of the ad
+              **state** (CreateOrUpdateEntityState > String) Entity state for create or update operation. Enum : [ENABLED, PAUSED]
+              **adGroupId** (string) : The adGroup identifier.
+              **creative** (dict) :
+                  asins ([string])
+                  brandName (string) [optional]
+                  brandLogoCrop ({}) [optional]
+                  videoAssetIds ([string]) [optional]
+                  brandLogoAssetID (string) [optional]
+                  headline (string) The headline text [optional]
 
         Returns
             ApiResponse
@@ -120,20 +120,20 @@ class AdsV4(Client):
         Creates Sponsored Brands store spotlight ads.
 
         Request Body (required)
-        | **ads** ([{}]) :
-            **landingPage** (dict) :
-                asins [string] [optional]
-                pageType (LadingPageType > String ) : The type of landing page, such as store page, product list (simple landing page), custom url. [optional]
-                url (string) : URL of an existing simple landing page or Store page. [optional]
-            **name** (string) : The name of the ad
-            **state** (CreateOrUpdateEntityState > String) Entity state for create or update operation. Enum : [ENABLED, PAUSED]
-            **adGroupId** (string) : The adGroup identifier.
-            **creative** (dict) :
-                brandLogoCrop (string) [optional]
-                brandName (string) [optional]
-                subpages (string) [optional]
-                brandLogoAssetID (string) [optional]
-                headline (string) The headline text [optional]
+          | **ads** ([{}]) :
+              **landingPage** (dict) :
+                  asins [string] [optional]
+                  pageType (LadingPageType > String ) : The type of landing page, such as store page, product list (simple landing page), custom url. [optional]
+                  url (string) : URL of an existing simple landing page or Store page. [optional]
+              **name** (string) : The name of the ad
+              **state** (CreateOrUpdateEntityState > String) Entity state for create or update operation. Enum : [ENABLED, PAUSED]
+              **adGroupId** (string) : The adGroup identifier.
+              **creative** (dict) :
+                  brandLogoCrop (string) [optional]
+                  brandName (string) [optional]
+                  subpages (string) [optional]
+                  brandLogoAssetID (string) [optional]
+                  headline (string) The headline text [optional]
 
         Returns
             ApiResponse
@@ -150,10 +150,10 @@ class AdsV4(Client):
         Updates the Sponsored Brands ads.
 
         Request Body (required)
-        | **ads** ([{}]) :
-            **adsId** (string) [required] : The product ad identifier.
-            name (string) [optional] : The name of the ad
-            state (State>String) [optional] : Entity state for create or update operation. Enum : [ENABLED, PAUSED]
+          | **ads** ([{}]) :
+              **adsId** (string) [required] : The product ad identifier.
+              name (string) [optional] : The name of the ad
+              state (State>String) [optional] : Entity state for create or update operation. Enum : [ENABLED, PAUSED]
 
         Returns
             ApiResponse
@@ -250,8 +250,8 @@ class AdsV4(Client):
         Deletes Sponsored Brands ads.
 
         Request Body
-        | **adIdFilter** (dict) : Filter entities by the list of objectIds.
-            include : list of adIds as string
+          | **adIdFilter** (dict) : Filter entities by the list of objectIds.
+              include : list of adIds as string
 
         """
 

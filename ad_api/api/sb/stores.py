@@ -34,15 +34,18 @@ class Stores(Client):
 
         The endpoint takes ``multipart/form-data`` with two parts, not JSON:
 
-            ``assetInfo``  A JSON string with ``brandEntityId`` and ``mediaType``.
-            ``asset``      The image bytes. PNG, JPEG or GIF, under 1MB and at
-                           least 400x400 pixels.
+        * ``assetInfo``  A JSON string with ``brandEntityId`` and ``mediaType``.
+        * ``asset``      The image bytes. PNG, JPEG or GIF, under 1MB and at
+          least 400x400 pixels.
 
         Keyword Args
-            | path **image** (str or bytes): A file path, or the raw image bytes. [required]
-            | path **brandEntityId** (string): The Brand entity identifier. Required for sellers, optional for vendors. [required]
-            | path **mediaType** (string): Only ``brandLogo`` is supported. [optional]
-            | path **filename** (string): Name sent in ``Content-Disposition``. Taken from the path when a path is given. [optional]
+
+        - ``image`` (str or bytes): A file path, or the raw image bytes. [required]
+        - ``brandEntityId`` (string): The Brand entity identifier. Required for
+          sellers, optional for vendors. [required]
+        - ``mediaType`` (string): Only ``brandLogo`` is supported. [optional]
+        - ``filename`` (string): Name sent in ``Content-Disposition``. Taken
+          from the path when a path is given. [optional]
 
         Returns:
             | ApiResponse

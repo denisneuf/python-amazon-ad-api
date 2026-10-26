@@ -113,10 +113,11 @@ class Migration(Client):
         Lists every campaign migration result for the advertiser.
 
         Request Body [Optional]
-            | **nextToken** (string): [optional]
+
+        - ``nextToken`` (string): [optional]
 
         Returns:
-            | ApiResponse, ``200``. With nothing migrated yet the service answers
+            ApiResponse, ``200``. With nothing migrated yet the service answers
             an empty object rather than a list, so do not assume a ``migrations``
             key is always present.
         """

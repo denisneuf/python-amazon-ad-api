@@ -95,10 +95,12 @@ class ProductAdsV3(Client):
         r"""
         Delete one or multiple sponsored product ads.
 
-        Request Body (required) : a dictionary to filter with ad ids that should be deleted. Sets the state of a
-        specified product ad to archived
-            | **adIdFilter** ({})
-                | include [string] : string list of ad object identifier.
+        Request Body (required): a dictionary to filter with ad ids that should
+        be deleted. Sets the state of a specified product ad to archived.
+
+        **adIdFilter** ({})
+
+        - ``include`` [string] : string list of ad object identifier.
 
         Returns
             | ApiResponse

@@ -30,24 +30,21 @@ class CampaignNegativeTargets(Client):
         r"""
         Create campaign negative targets.
 
-        Param:
+        Keyword Args
 
-            | header **Prefer**\* (string). The "Prefer" header, as defined in [RFC7240], allows clients to request certain behavior from the service. The service ignores preference values that are either not supported or not known by the service. Either multiple Prefer headers are passed or single one with comma separated values, both forms are equivalent Supported preferences: return=representation - return the full object when doing create/update/delete operations instead of ids
+        - ``prefer`` (bool): send ``Prefer: return=representation`` so create and
+          update return the full object rather than only the ids. [optional]
 
         Request Body (required)
-            | SponsoredProductsCreateSponsoredProductsCampaignNegativeTargetingClausesRequestContent {
-            | **campaignNegativeTargetingClauses**\* SponsoredProductsCreateCampaignNegativeTargetingClause {
-            |       **expression**\* (array) The NegativeTargeting expression. minItems: 0 maxItems: 1000 [
-            |           SponsoredProductsCreateOrUpdateNegativeTargetingExpressionPredicate {
-            |               **type**\* (string) SponsoredProductsCreateOrUpdateNegativeTargetingExpressionPredicateType. The type of negative targeting expression. Enum: ['ASIN_BRAND_SAME_AS', 'ASIN_SAME_AS'].
-            |               **value** (string): The expression value
-            |           }
-            |       ]
-            |       **campaignId**\* (string) The identifier of the campaign to which this target is associated.
-            |       **state**\* (string) SponsoredProductsCreateOrUpdateEntityState. Entity state for create or update operation. Enum: [ ENABLED, PAUSED ]
-            |    }
-            | }
-        Request Body (optional)
+
+        - ``campaignNegativeTargetingClauses`` (array): the clauses to create.
+
+          Each clause carries:
+
+          - ``campaignId`` (string): the campaign the target belongs to.
+          - ``state`` (string): ``ENABLED`` or ``PAUSED``.
+          - ``expression`` (array): one predicate with ``type`` and ``value``.
+            ``type`` is ``ASIN_BRAND_SAME_AS`` or ``ASIN_SAME_AS``.
 
         Returns
             ApiResponse
@@ -65,24 +62,21 @@ class CampaignNegativeTargets(Client):
         r"""
         Update campaign negative targets.
 
-        Param:
+        Keyword Args
 
-            | header **Prefer**\* (string). The "Prefer" header, as defined in [RFC7240], allows clients to request certain behavior from the service. The service ignores preference values that are either not supported or not known by the service. Either multiple Prefer headers are passed or single one with comma separated values, both forms are equivalent Supported preferences: return=representation - return the full object when doing create/update/delete operations instead of ids
+        - ``prefer`` (bool): send ``Prefer: return=representation`` so create and
+          update return the full object rather than only the ids. [optional]
 
         Request Body (required)
-            | SponsoredProductsUpdateSponsoredProductsCampaignNegativeTargetingClausesRequestContent {
-            | **campaignNegativeTargetingClauses**\* SponsoredProductsUpdateCampaignNegativeTargetingClause {
-            |       **expression**\* (array) The NegativeTargeting expression. minItems: 0 maxItems: 1000 [
-            |           SponsoredProductsCreateOrUpdateNegativeTargetingExpressionPredicate {
-            |               **type**\* (string) SponsoredProductsCreateOrUpdateNegativeTargetingExpressionPredicateType. The type of negative targeting expression. Enum: ['ASIN_BRAND_SAME_AS', 'ASIN_SAME_AS'].
-            |               **value** (string): The expression value
-            |           }
-            |       ]
-            |       **targetId**\* (string) The target identifier
-            |       **state**\* (string) SponsoredProductsCreateOrUpdateEntityState. Entity state for create or update operation. Enum: [ ENABLED, PAUSED ]
-            |    }
-            | }
-        Request Body (optional)
+
+        - ``campaignNegativeTargetingClauses`` (array): the clauses to update.
+
+          Each clause carries:
+
+          - ``targetId`` (string): the target to update.
+          - ``state`` (string): ``ENABLED`` or ``PAUSED``.
+          - ``expression`` (array): one predicate with ``type`` and ``value``.
+            ``type`` is ``ASIN_BRAND_SAME_AS`` or ``ASIN_SAME_AS``.
 
         Returns
             ApiResponse
@@ -101,37 +95,22 @@ class CampaignNegativeTargets(Client):
         r"""
         List campaign negative targets.
 
-        Request Body (required)
-            | SponsoredProductsListSponsoredProductsCampaignNegativeTargetingClausesRequestContent {
-            | **campaignIdFilter** SponsoredProductsReducedObjectIdFilter {
-            |       Filter entities by the list of objectIds
-            |       **include**\* (array) minItems: 0 maxItems: 100 [
-            |           string entity object identifier
-            |       ]
-            |    }
-            | **campaignNegativeTargetIdFilter** SponsoredProductsObjectIdFilter {
-            |       Filter entities by the list of objectIds
-            |       **include**\* (array) minItems: 0 maxItems: 1000 [
-            |           string entity object identifier
-            |       ]
-            |    }
-            | **stateFilter** SponsoredProductsEntityStateFilter {
-            |       Filter entities by state
-            |       **include**\* (array) minItems: 0 maxItems: 10 [
-            |           SponsoredProductsEntityState (string) The current resource state. Enum: [ ENABLED, PAUSED, ARCHIVED, ENABLING, USER_DELETED, OTHER ]
-            |       ]
-            |    }
-            | **maxResults** integer($int32) Number of records to include in the paginated response. Defaults to max page size for given API
-            | **nextToken** (string) token value allowing to navigate to the next response page
-            | **asinFilter** SponsoredProductsAsinFilter {
-            |       **queryTermMatchType** SponsoredProductsQueryTermMatchType (string): Match type for query filters. Enum: [ BROAD_MATCH, EXACT_MATCH ]
-            |       **include** (array) maxItems: 100 [
-            |           string
-            |       ]
-            |    }
-            | **includeExtendedDataFields** (boolean) Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus
-            | }
         Request Body (optional)
+
+        - ``campaignIdFilter`` (object): narrow to those campaigns. Carries
+          ``include``, a list of campaign ids.
+        - ``campaignNegativeTargetIdFilter`` (object): narrow to those targets.
+          Carries ``include``, a list of target ids.
+        - ``stateFilter`` (object): narrow by state. Carries ``include``, a list
+          drawn from ``ENABLED``, ``PAUSED``, ``ARCHIVED``, ``ENABLING``,
+          ``USER_DELETED`` and ``OTHER``.
+        - ``asinFilter`` (object): narrow by ASIN. Carries ``include``, a list of
+          ASINs, and ``queryTermMatchType``, either ``BROAD_MATCH`` or
+          ``EXACT_MATCH``.
+        - ``maxResults`` (integer): page size. Defaults to the API maximum.
+        - ``nextToken`` (string): pagination token.
+        - ``includeExtendedDataFields`` (boolean): also return ``creationDate``,
+          ``lastUpdateDate`` and ``servingStatus``.
 
         Returns
             ApiResponse

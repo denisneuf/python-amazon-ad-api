@@ -31,10 +31,13 @@ class AdGroupsV4(Client):
         """
         Update Sponsored Brand Ad groups.
 
-         Request Body
-        | campaignId (string) : The identifier of the campaign to which the keyword is associated. [optional]
-        | name (string) : The name of the ad group. [optional]
-        | state (CreateOrUpdateEntityState > string) : Entity state for create or update operation. Enum : [ENABLED, PAUSED]
+        Request Body
+
+        - ``campaignId`` (string) : The identifier of the campaign to which the
+          keyword is associated. [optional]
+        - ``name`` (string) : The name of the ad group. [optional]
+        - ``state`` (CreateOrUpdateEntityState > string) : Entity state for
+          create or update operation. Enum : [ENABLED, PAUSED]
 
         Returns
             ApiResponse
