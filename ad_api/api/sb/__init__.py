@@ -23,6 +23,7 @@ from .themes import Themes
 from .budget_rules import BudgetRules
 from .optimization_rules import OptimizationRules
 from .targeting_categories import TargetingCategories
+from .migration import Migration
 
 __all__ = [
     "Brands",
@@ -50,4 +51,5 @@ __all__ = [
     "BudgetRules",
     "OptimizationRules",
     "TargetingCategories",
+    "Migration",
 ]
