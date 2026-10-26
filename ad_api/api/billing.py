@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class Billing(Client):
@@ -249,3 +249,149 @@ class Billing(Client):
         }
         body = Utils.convert_body(kwargs.pop('body'), False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/billingProfiles/list', method='POST')
+    def list_billing_profiles(self, **kwargs) -> ApiResponse:
+        r"""
+        Lists the billing profiles of the account.
+
+        A billing profile decides who gets invoiced and with which payment
+        method, so this is the starting point before reading usages or creating
+        a statement.
+
+        Request Body (optional)
+
+        - ``filters`` (object): narrow the list.
+        - ``maxResults`` (integer): page size.
+        - ``nextToken`` (string): token from a previous answer.
+
+        .. warning::
+
+            The service refuses marketplace accounts. Called from a regional
+            seller account it answers ``400 The API doesnot support marketplace
+            accounts``. It wants a Global, Manager or Sponsored Ads account.
+
+        Returns
+            ApiResponse with the profiles and the token for the next page.
+
+        """
+        headers = {
+            'Accept': 'application/vnd.billingProfile.v1+json',
+            'Content-Type': 'application/vnd.billingProfile.v1+json',
+        }
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/billingProfileUsages/list', method='POST')
+    def list_billing_profile_usages(self, **kwargs) -> ApiResponse:
+        r"""
+        Lists which billing profile each country uses.
+
+        The answer links a country to a ``billingProfileId``. With
+        ``expandBillingProfile`` it carries the whole profile rather than the
+        identifier.
+
+        Request Body (optional)
+
+        - ``expandBillingProfile`` (boolean): return the full profile, not only
+          its id.
+        - ``expandFallbackBillingProfile`` (boolean): also return the profile
+          that would apply if the main one could not be used.
+        - ``filters`` (object): narrow by country or profile.
+        - ``maxResults`` (integer): page size.
+        - ``nextToken`` (string): token from a previous answer.
+
+        .. warning::
+
+            Same account restriction as ``list_billing_profiles``, and the
+            message names what it wants: ``only Global, Manager and Sponsored
+            Ads marketplace accounts are supported``.
+
+        Returns
+            ApiResponse with one entry per country and profile pairing.
+
+        """
+        headers = {
+            'Accept': 'application/vnd.billingProfileUsage.v1+json',
+            'Content-Type': 'application/vnd.billingProfileUsage.v1+json',
+        }
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/billing/documents/{}', method='GET')
+    def get_billing_document(self, documentId, **kwargs) -> ApiResponse:
+        r"""
+        Reads one billing document.
+
+        Path
+
+        - ``documentId`` (string): required.
+
+        Query
+
+        - ``docType`` (string): required in practice, though the contract lists
+          it as a plain parameter. Without it the service answers
+          ``400 Value null at 'docType' failed to satisfy constraint``.
+
+        Returns
+            ApiResponse with the document.
+
+        """
+        headers = {'Accept': 'application/vnd.billingDocuments.v1+json'}
+        return self._request(fill_query_params(kwargs.pop('path'), documentId),
+                             params=kwargs, headers=headers)
+
+    @sp_endpoint('/billingProfileAgreementContents/{}', method='GET')
+    def get_billing_profile_agreement_content(self, billingProfileAgreementContentId, **kwargs) -> ApiResponse:
+        r"""
+        Reads the agreement text attached to a billing profile.
+
+        Path
+
+        - ``billingProfileAgreementContentId`` (string): required.
+
+        Query
+
+        - ``languageOfPreference`` (string): the language the text comes back in.
+
+        Returns
+            ApiResponse with the agreement content.
+
+        """
+        headers = {'Accept': 'application/vnd.billingProfileAgreement.v1+json'}
+        return self._request(
+            fill_query_params(kwargs.pop('path'), billingProfileAgreementContentId),
+            params=kwargs, headers=headers)
+
+    @sp_endpoint('/billingStatements/{}', method='GET')
+    def get_billing_statement(self, billingStatementRequestId, **kwargs) -> ApiResponse:
+        r"""
+        Reports on a billing statement request.
+
+        The identifier comes from the route that creates the statement request,
+        and this reads its progress or its result.
+
+        .. note::
+
+            The contract answers this read with
+            ``vnd.createbillingstatementsrequest.v1``, the same media type the
+            creation route uses. That is what it declares, odd as the name is.
+
+        Path
+
+        - ``billingStatementRequestId`` (string): required. Three names are in
+          play for this one value: the contract calls it
+          ``billingStatementRequestId``, the method takes
+          ``billingStatementRequestId``, and a rejected call comes back naming
+          ``billingStatementId``.
+
+        The error for a malformed value also mentions a ``request`` parameter the
+        contract does not list.
+
+        Returns
+            ApiResponse with the state of that request.
+
+        """
+        headers = {'Accept': 'application/vnd.createbillingstatementsrequest.v1+json'}
+        return self._request(fill_query_params(kwargs.pop('path'), billingStatementRequestId),
+                             params=kwargs, headers=headers)
