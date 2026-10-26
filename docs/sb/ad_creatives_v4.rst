@@ -15,16 +15,33 @@ Sponsored Brands 4.0 ad creatives.
 
     .. autofunction:: ad_api.api.sb.AdCreativesV4.create_new_version_store_spotlight_ad_creative(self, version=4, **kwargs) -> ApiResponse:
 
+    .. autofunction:: ad_api.api.sb.AdCreativesV4.create_auto_collection_ad_creative(self, version=4, **kwargs) -> ApiResponse:
+
+    .. autofunction:: ad_api.api.sb.AdCreativesV4.create_manual_collection_ad_creative(self, version=4, **kwargs) -> ApiResponse:
+
+    .. autofunction:: ad_api.api.sb.AdCreativesV4.create_new_version_product_collection_extended_ad_creative(self, version=4, **kwargs) -> ApiResponse:
+
     ### Request format
 
-    Every method sends and receives ``application/vnd.sbAdCreativeResource.v4+json``.
+    Not every method here sends the same media type. The collection creative
+    routes take the ads family one, ``application/vnd.sbadresource.v4+json``;
+    the rest take ``application/vnd.sbAdCreativeResource.v4+json``:
 
-    ====================  =======================================================
-    Header                Value
-    ====================  =======================================================
-    ``Accept``            ``application/vnd.sbAdCreativeResource.v4+json``
-    ``Content-Type``      same as ``Accept``
-    ====================  =======================================================
+    ============================================================  ======================================
+    Route                                                         Media type
+    ============================================================  ======================================
+    ``/sb/ads/creatives/autoCollection``                          ``vnd.sbadresource.v4``
+    ``/sb/ads/creatives/manualCollection``                        ``vnd.sbadresource.v4``
+    ``/sb/ads/creatives/productCollectionExtended``               ``vnd.sbAdCreativeResource.v4``
+    every other route in this class                               ``vnd.sbAdCreativeResource.v4``
+    ============================================================  ======================================
+
+    .. note::
+        ``autoCollection`` and ``manualCollection`` answered ``400`` when called
+        with ``sbAdCreativeResource`` as well, so the service tolerates both
+        versioned types on those two. Plain ``application/json`` answers
+        ``404 Could not find resource``: the versioned type is what routes the
+        call at all.
 
     ### Endpoint map
 
@@ -36,6 +53,9 @@ Sponsored Brands 4.0 ad creatives.
     ``POST /sb/ads/creatives/video``                            ``create_new_version_video_ad_creative``
     ``POST /sb/ads/creatives/productCollection``                ``create_new_version_product_collection_ad_creative``
     ``POST /sb/ads/creatives/storeSpotlight``                   ``create_new_version_store_spotlight_ad_creative``
+    ``POST /sb/ads/creatives/autoCollection``                   ``create_auto_collection_ad_creative``
+    ``POST /sb/ads/creatives/manualCollection``                 ``create_manual_collection_ad_creative``
+    ``POST /sb/ads/creatives/productCollectionExtended``        ``create_new_version_product_collection_extended_ad_creative``
     ==========================================================  =========================================
 
     .. warning::

@@ -165,6 +165,85 @@ class AdsV4(Client):
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
+    @sp_endpoint('/sb/v4/ads/autoCollection', method='POST')
+    def create_auto_collection_ads(self, version: int = 4, **kwargs) -> ApiResponse:
+        """
+        Creates Sponsored Brands auto collection ads.
+
+        Request Body [Required]
+            | **ads** (array): [required] One entry per ad.
+                | **adGroupId** (string): [required] Ad group the ad belongs to.
+                | **name** (string): [required] Ad name.
+                | **state** (string): [required] ``ENABLED``, ``PAUSED`` or
+                  ``ARCHIVED``.
+                | **creative** ({}): [required]
+                    | **brandName** (string): [required]
+                    | **brandLogoAssetID** (string): [optional]
+                    | **brandLogoCrop** ({}): [optional] ``top``, ``left``,
+                      ``width`` and ``height``.
+                    | **asinExclusions** (array of string): [optional]
+
+        Returns:
+            | ApiResponse
+
+        .. note::
+            An empty body answers ``400 INVALID_ARGUMENT`` with
+            *"Ad list cannot be empty."*, and ``application/json`` answers
+            ``404 Could not find resource``, so the versioned media type is what
+            routes the call.
+        """
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {'Accept': json_version}
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+
+    @sp_endpoint('/sb/v4/ads/manualCollection', method='POST')
+    def create_manual_collection_ads(self, version: int = 4, **kwargs) -> ApiResponse:
+        """
+        Creates Sponsored Brands manual collection ads.
+
+        Request Body [Required]
+            | **ads** (array): [required] One entry per ad, each with
+              ``adGroupId``, ``name``, ``state`` and a ``creative`` block.
+
+        Returns:
+            | ApiResponse
+
+        .. note::
+            An empty body answers ``400 INVALID_ARGUMENT`` with
+            *"Ad list cannot be empty."*
+        """
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {'Accept': json_version}
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+
+    @sp_endpoint('/sb/v4/ads/productCollectionExtended', method='POST')
+    @Utils.deprecated
+    def create_product_collection_extended_ads(self, version: int = 4, **kwargs) -> ApiResponse:
+        """
+        Creates Sponsored Brands extended product collection ads.
+
+        This route is flagged deprecated in the 4.0 contract, together with the
+        creative side of the same name. It still answers on the live service,
+        which is why it stays available, but new integrations should use
+        ``create_auto_collection_ads`` or ``create_manual_collection_ads``.
+
+        Request Body [Required]
+            | **ads** (array): [required] One entry per ad.
+
+        Returns:
+            | ApiResponse
+
+        .. note::
+            An empty body answers ``400 INVALID_ARGUMENT`` with
+            *"Ad list cannot be empty."*
+        """
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {'Accept': json_version}
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+
     @sp_endpoint('/sb/v4/ads/delete', method='POST')
     def delete_ads(self, version: int = 4, **kwargs) -> ApiResponse:
         """

@@ -15,6 +15,12 @@ Ads
 
     .. autofunction:: ad_api.api.sb.AdsV4.update_ads(self, version: int = 4, **kwargs) -> ApiResponse:
 
+    .. autofunction:: ad_api.api.sb.AdsV4.create_auto_collection_ads(self, version: int = 4, **kwargs) -> ApiResponse:
+
+    .. autofunction:: ad_api.api.sb.AdsV4.create_manual_collection_ads(self, version: int = 4, **kwargs) -> ApiResponse:
+
+    .. autofunction:: ad_api.api.sb.AdsV4.create_product_collection_extended_ads(self, version: int = 4, **kwargs) -> ApiResponse:
+
     .. autofunction:: ad_api.api.sb.AdsV4.delete_ads(self, version: int = 4, **kwargs) -> ApiResponse:
 
 

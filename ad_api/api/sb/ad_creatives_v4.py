@@ -128,6 +128,92 @@ class AdCreativesV4(Client):
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
+    @sp_endpoint('/sb/ads/creatives/autoCollection', method='POST')
+    def create_auto_collection_ad_creative(self, version: int = 4, **kwargs) -> ApiResponse:
+        """
+        Creates a new version of an auto collection creative for an existing ad.
+
+        Request Body [Required]
+            | **ads** (array): [required] One entry per ad.
+                | **adId** (string): [required] Sponsored Brands ad identifier.
+                | **creative** ({}): [required]
+                    | **brandName** (string): [required]
+                    | **brandLogoAssetID** (string): [optional]
+                    | **brandLogoCrop** ({}): [optional] ``top``, ``left``,
+                      ``width`` and ``height``.
+                    | **asinExclusions** (array of string): [optional]
+
+        Returns:
+            | ApiResponse
+
+        .. note::
+            This route takes ``application/vnd.sbadresource.v4+json``, the same
+            media type as the ads family, not the creative one.
+        """
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {'Accept': json_version}
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+
+    @sp_endpoint('/sb/ads/creatives/manualCollection', method='POST')
+    def create_manual_collection_ad_creative(self, version: int = 4, **kwargs) -> ApiResponse:
+        """
+        Creates a new version of a manual collection creative for an existing ad.
+
+        Request Body [Required]
+            | **ads** (array): [required] One entry per ad, each with ``adId``
+              and a ``creative`` block.
+
+        Returns:
+            | ApiResponse
+
+        .. note::
+            Also takes ``application/vnd.sbadresource.v4+json``.
+        """
+        json_version = 'application/vnd.sbadresource.v' + str(version) + "+json"
+        headers = {'Accept': json_version}
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+
+    @sp_endpoint('/sb/ads/creatives/productCollectionExtended', method='POST')
+    @Utils.deprecated
+    def create_new_version_product_collection_extended_ad_creative(self, version: int = 4, **kwargs) -> ApiResponse:
+        """
+        Creates a new version of an extended product collection creative.
+
+        This route is flagged deprecated in the 4.0 contract. It still answers on
+        the live service, which is why it stays available, but new integrations
+        should use ``create_auto_collection_ad_creative`` or
+        ``create_manual_collection_ad_creative``.
+
+        Request Body [Required]
+            | **adId** (string): [required] Sponsored Brands ad identifier.
+            | **creative** ({}): [required]
+                | **asins** (array of string): [required]
+                | **brandName** (string): [required]
+                | **brandLogoAssetId** (string): [required]
+                | **headline** (string): [required]
+                | **landingPage** ({}): [optional] ``type``, ``url`` or ``asins``.
+                | **brandLogoCrop** ({}): [optional] ``top``, ``left``,
+                  ``width`` and ``height``.
+                | **customImages** (array): [optional] Each with ``assetId``,
+                  ``url`` and a ``crop``.
+                | **consentToTranslate** (boolean): [optional]
+
+        Returns:
+            | ApiResponse
+
+        .. note::
+            Unlike its siblings this route takes a single ``adId`` and
+            ``creative``, not an ``ads`` list, and it uses
+            ``application/vnd.sbAdCreativeResource.v4+json``. An empty body names
+            both required members.
+        """
+        json_version = 'application/vnd.sbAdCreativeResource.v' + str(version) + "+json"
+        headers = {'Accept': json_version}
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+
     @sp_endpoint('/sb/ads/creatives/list', method='POST')
     def list_ad_creatives(self, version: int = 4, **kwargs) -> ApiResponse:
         """
