@@ -67,7 +67,7 @@ class RankedKeywordsRecommendations(Client):
             | ]
             | **campaignId**\*(string): The identifier of the campaign
             | **recommendationType**\*(string): The recommendationType to retrieve recommended keyword targets for an existing ad group. Enum: ['KEYWORDS_FOR_ADGROUP']
-            | **bidsEnabled**(boolean): Set this parameter to false if you do not want to retrieve bid suggestions for your keyword targets. Defaults to true. default: true
+            | **bidsEnabled** (boolean): Set this parameter to false if you do not want to retrieve bid suggestions for your keyword targets. Defaults to true. default: true
             | **dGroupId**\*(string): The identifier of the ad group
             | }
 
@@ -88,7 +88,7 @@ class RankedKeywordsRecommendations(Client):
             | **asins**\* (array) maxItems: 50. An array list of Asin.
             | **biddingStrategy** (string) The bid recommendations returned will depend on the bidding strategy. LEGACY_FOR_SALES - Dynamic Bids (Down only) AUTO_FOR_SALES - Dynamic Bids (Up or down) MANUAL - Fixed Bids. Enum: [ LEGACY_FOR_SALES, AUTO_FOR_SALES, MANUAL, RULE_BASED ] default: LEGACY_FOR_SALES
             | **recommendationType**\* (string): The recommendationType to retrieve recommended keyword targets for a list of ASINs. Enum: ['KEYWORDS_FOR_ASINS']
-            | **bidsEnabled**(boolean): Set this parameter to false if you do not want to retrieve bid suggestions for your keyword targets. Defaults to true. default: true
+            | **bidsEnabled** (boolean): Set this parameter to false if you do not want to retrieve bid suggestions for your keyword targets. Defaults to true. default: true
             | }
 
         Version 4.0

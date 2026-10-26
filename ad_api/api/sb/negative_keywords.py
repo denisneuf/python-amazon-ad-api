@@ -20,17 +20,36 @@ class NegativeKeywords(Client):
         Gets an array of negative keywords, filtered by optional criteria.
 
         Keyword Args
-            | query **startIndex**:*integer* | Optional. 0-indexed record offset for the result set. Default value : 0
-            | query **count**:*integer* | Optional. Number of records to include in the paged response. Defaults to max page size.
-            | query **matchTypeFilter**:*string* | Optional. Restricts results to keywords with match types within the specified comma-separated list. Available values : negativePhrase, negativeExact.
-            | query **keywordText**:*string* | Optional. Restricts results to keywords that match the specified text exactly.
-            | query **stateFilter**:*string* | Optional. The returned array is filtered to include only ad groups with state set to one of the values in the specified comma-delimited list. Available values :  enabled, archived.
-            | query **campaignIdFilter**:*string* | Optional. A comma-delimited list of campaign identifiers.
-            | query **adGroupIdFilter**:*string* | Optional. Restricts results to keywords associated with ad groups specified by identifier in the comma-delimited list.
-            | query **keywordIdFilter**:*string* | Optional. Restricts results to keywords associated with campaigns specified by identifier in the comma-delimited list.
-            | query **creativeType**:*string* | Optional. Filter by the type of creative the campaign is associated with. To get negative keywords associated with non-video campaigns specify 'productCollection'. To get negative keywords associated with video campaigns, this must be set to 'video'. Returns all negative keywords if not specified. Available values : productCollection, video
+
+        - ``startIndex`` (integer): Optional. 0-indexed record offset for the
+          result set. Default value: 0.
+        - ``count`` (integer): Optional. Number of records to include in the
+          paged response. Defaults to max page size.
+        - ``matchTypeFilter`` (string): Optional. Restricts results to keywords
+          with match types within the specified comma-separated list. Available
+          values: negativePhrase, negativeExact.
+        - ``keywordText`` (string): Optional. Restricts results to keywords that
+          match the specified text exactly.
+        - ``stateFilter`` (string): Optional. The returned array is filtered to
+          include only ad groups with state set to one of the values in the
+          specified comma-delimited list. Available values: enabled, archived.
+        - ``campaignIdFilter`` (string): Optional. A comma-delimited list of
+          campaign identifiers.
+        - ``adGroupIdFilter`` (string): Optional. Restricts results to keywords
+          associated with ad groups specified by identifier in the
+          comma-delimited list.
+        - ``keywordIdFilter`` (string): Optional. Restricts results to keywords
+          associated with campaigns specified by identifier in the
+          comma-delimited list.
+        - ``creativeType`` (string): Optional. Filter by the type of creative the
+          campaign is associated with. To get negative keywords associated with
+          non-video campaigns specify 'productCollection'. To get negative
+          keywords associated with video campaigns, this must be set to 'video'.
+          Returns all negative keywords if not specified. Available values:
+          productCollection, video.
+
         Returns:
-            | ApiResponse
+            ApiResponse
 
         """
         return self._request(kwargs.pop('path'), params=kwargs, headers=self._accept())

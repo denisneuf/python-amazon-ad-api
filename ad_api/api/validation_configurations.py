@@ -16,14 +16,24 @@ class ValidationConfigurations(Client):
         Retrieves the campaign configuration values used for campaign validation for the requested marketplace, entityType, and programType context/contexts.
 
         Request body
-            | **countryCodesList** (Array): [optional] The list of countryCode enums defining the marketplaces whose configuration values are requested. When null is selected and no value is attributed to this key, all countryCode options are selected. [ US, CA, MX, BR, UK, DE, FR, ES, IN, IT, NL, AE, SA, SE, TR, PL, EG, JP, AU, SG, CN ]
-            | **entityTypesList** (Array): [optional] The list of entityType enums defining the marketplaces whose configuration values are requested. When null is selected and no value is attributed to this key, all countryCode options are selected. [ SELLER, VENDOR ]
-            | **programTypesList** (Array): [optional] The list of programType enums defining the marketplaces whose configuration values are requested. When null is selected and no value is attributed to this key, all countryCode options are selected. [ SB, SP, SD ]
+
+        - ``countryCodesList`` (Array): [optional] The list of countryCode enums
+          defining the marketplaces whose configuration values are requested.
+          When null is selected and no value is attributed to this key, all
+          countryCode options are selected. [ US, CA, MX, BR, UK, DE, FR, ES, IN,
+          IT, NL, AE, SA, SE, TR, PL, EG, JP, AU, SG, CN ]
+        - ``entityTypesList`` (Array): [optional] The list of entityType enums
+          defining the marketplaces whose configuration values are requested.
+          When null is selected and no value is attributed to this key, all
+          countryCode options are selected. [ SELLER, VENDOR ]
+        - ``programTypesList`` (Array): [optional] The list of programType enums
+          defining the marketplaces whose configuration values are requested.
+          When null is selected and no value is attributed to this key, all
+          countryCode options are selected. [ SB, SP, SD ]
+
         Returns:
             ApiResponse
-
         """
-
         accept = 'application/vnd.AdsApiValidationConfigsServiceLambda.CampaignsResource.v1+json'
         contentType = 'application/vnd.AdsApiValidationConfigsServiceLambda.CampaignsResource.v1+json'
         headers = {'Accept': accept, 'Content-Type': contentType}
