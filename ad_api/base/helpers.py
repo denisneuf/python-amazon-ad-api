@@ -1,3 +1,4 @@
+import functools
 from io import BytesIO
 from typing import TypeVar
 
@@ -17,6 +18,7 @@ T = TypeVar("T")
 
 def sp_endpoint(path, method="GET"):
     def decorator(function: T) -> T:
+        @functools.wraps(function)
         def wrapper(*args, **kwargs):
             kwargs.update({"path": path, "method": method})
             return function(*args, **kwargs)

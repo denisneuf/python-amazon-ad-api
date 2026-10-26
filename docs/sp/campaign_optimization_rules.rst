@@ -27,18 +27,34 @@ Campaign Optimization Rules
 
     Endpoints available
 
-    .. csv-table::
-        :widths: 10, 35, 50
-        :header: "Method", "Endpoint", "Description"
+    .. list-table::
+        :header-rows: 1
 
-        "POST", "/sp/rules/campaignOptimization/eligibility", "Gets a campaign optimization rule recommendation for SP campaigns."
-        "GET", "/sp/rules/campaignOptimization/{campaignOptimizationId}", "Gets a campaign optimization rule specified by identifier."
-        "DELETE", "/sp/rules/campaignOptimization/{campaignOptimizationId}", "Deletes a campaign optimization rule specified by identifier."
-        "POST", "/sp/rules/campaignOptimization", "Creates a campaign optimization rule."
-        "PUT", "/sp/rules/campaignOptimization", "Updates a campaign optimization rule."
-        "POST", "/sp/rules/campaignOptimization/state", "Gets campaign optimization rule state. Recommended refresh frequency is once a day."
+       * - Method
+         - Endpoint
+         - Description
+       * - ``POST``
+         - ``/sp/rules/campaignOptimization/eligibility``
+         - Gets a campaign optimization rule recommendation for SP campaigns.
+       * - ``GET``
+         - ``/sp/rules/campaignOptimization/{campaignOptimizationId}``
+         - Gets a campaign optimization rule specified by identifier.
+       * - ``DELETE``
+         - ``/sp/rules/campaignOptimization/{campaignOptimizationId}``
+         - Deletes a campaign optimization rule specified by identifier.
+       * - ``POST``
+         - ``/sp/rules/campaignOptimization``
+         - Creates a campaign optimization rule.
+       * - ``PUT``
+         - ``/sp/rules/campaignOptimization``
+         - Updates a campaign optimization rule.
+       * - ``POST``
+         - ``/sp/rules/campaignOptimization/state``
+         - Gets campaign optimization rule state. Recommended refresh frequency is once a day.
 
-        .. code-block:: python
+    Example body:
+
+    .. code-block:: python
 
             {
               "campaignIds": [
