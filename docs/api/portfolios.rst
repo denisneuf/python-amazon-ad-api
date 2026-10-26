@@ -1,8 +1,15 @@
 Portfolios
 ==========
-`https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/portfolios/openapi.yaml`_
 
-.. _https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/portfolios/openapi.yaml: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/portfolios/openapi.yaml
+.. warning::
+
+    **Retired on 1 March 2025.** All six ``/v2/portfolios`` routes answer
+    ``404 Method Not Found``: the service no longer routes them, whatever the
+    account or the token. The code stays for anyone pinning an old release, but
+    it cannot reach the API.
+
+    Use :doc:`portfoliosV3` instead. The field names and the date format changed
+    between the two versions, so a body that worked here does not work there.
 
 Portfolios consist of campaigns that are grouped together and linked to a distinct Advertiser Account. The term 'advertiser' refers to a brand, entity, account identifier, or claim identifier. Multiple portfolios are supported within an Advertiser Account.
 
