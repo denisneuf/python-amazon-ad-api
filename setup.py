@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='python-amazon-ad-api',
-    version='1.1.0',
+    version='1.1.1',
     install_requires=[
         "requests>=2.27.1,<2.35.0",
         "six>=1.16,<1.18",
