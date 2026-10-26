@@ -5,38 +5,48 @@ class Insights(Client):
     """ """
 
     @sp_endpoint('/insights/audiences/{}/overlappingAudiences', method='GET')
-    def get_insights(self, audienceId: str, version: int = 1, **kwargs) -> ApiResponse:
+    def get_insights(self, audienceId: str, version: int = 2, **kwargs) -> ApiResponse:
         r"""
-        get_insights(audienceId: str, version: int = 1, **kwargs) -> ApiResponse
+        Returns the audiences that overlap with the one given, ranked by affinity.
 
-        Retrieves the top audiences that overlap with the provided audience.
+        Keyword Args
 
-        Requires one of these permissions: ["advertiser_campaign_edit","advertiser_campaign_view"]
+        - ``version`` (int): the ``Accept`` version. **Only 2 answers**; 1 was
+          retired and replies ``415`` naming v2 as the sole supported type.
+          Defaults to 2. [optional]
 
-        path **audienceId**:string | Required. The identifier of an audience.
+        Path
 
-        internal **version**:int | Optional. The version of the overlapping audiences accept 'application/vnd.insightsaudiencesoverlap.v'+str(version)+'+json'. Available values : 1, 2 Default: 1
+        - ``audienceId`` (string): required. The audience to measure against.
 
-        query **adType**:string | Required. The advertising program. Available values : DSP, SD
+        Query
 
-        query **advertiserId**:string | Optional. The identifier of the advertiser you'd like to retrieve overlapping audiences for. This parameter is required for the DSP adType, but is optional for the SD adType.
+        - ``adType`` (string): required in practice, ``SD`` or ``DSP``. When it
+          is left out the service assumes ``DSP`` and answers
+          ``400 Missing advertiserId parameter for DSP request``, which names the
+          wrong parameter. Send it explicitly.
+        - ``advertiserId`` (string): required for ``DSP``, ignored for ``SD``.
+        - ``audienceCategory`` (string): keep only audiences of that category,
+          such as ``"In-market"``. The contract calls it an array; a plain string
+          is what the service accepts and applies.
+        - ``maxResults`` (integer): how many overlaps to return. Default 30.
+          Works, and the count follows it.
+        - ``nextToken`` (string): token from a previous answer. Subsequent calls
+          must repeat the same parameters.
 
-        query **minimumAudienceSize**:number | Optional. If specified, the sizes of all returned overlapping audiences will be at least the provided size. This parameter is supported only for request to return application/vnd.insightsaudiencesoverlap.v1+json.
+        Three parameters are accepted and then ignored: ``minimumAudienceSize``,
+        ``maximumAudienceSize`` and ``minimumOverlapAffinity``. The call answers
+        ``200`` with the same count as without them, so a filter that was never
+        applied is indistinguishable from one that matched everything. Check the
+        count, not the status.
 
-        query **maximumAudienceSize**:number | Optional. If specified, the sizes of all returned overlapping audiences will be at most the provided size. This parameter is supported only for request to return application/vnd.insightsaudiencesoverlap.v1+json.
-
-        query **minimumOverlapAffinity**:number | Optional. If specified, the affinities of all returned overlapping audiences will be at least the provided affinity.
-
-        query **maximumOverlapAffinity**:number | Optional. If specified, the affinities of all returned overlapping audiences will be at most the provided affinity.
-
-        query **audienceCategory**:array[string] | Optional. f specified, the categories of all returned overlapping audiences will be one of the provided categories.
-
-        query **maxResults**:integer | Optional. Sets the maximum number of overlapping audiences in the response. This parameter is supported only for request to return application/vnd.insightsaudiencesoverlap.v2+json. Default value : 30
-
-        query **nextToken**:string | Optional. TToken to be used to request additional overlapping audiences. If not provided, the top 30 overlapping audiences are returned. Note: subsequent calls must be made using the same parameters as used in previous requests.
+        Returns
+            ApiResponse with ``requestedAudienceMetadata``, ``overlappingAudiences``,
+            ``marketplace`` and ``nextToken``. Each overlap carries
+            ``audienceMetadata`` and ``affinity``, a number where higher means a
+            closer match.
 
         """
-
         contentType = 'application/vnd.insightsaudiencesoverlap.v' + str(version) + '+json'
         headers = {'Accept': contentType}
         return self._request(fill_query_params(kwargs.pop('path'), audienceId), params=kwargs, headers=headers)
