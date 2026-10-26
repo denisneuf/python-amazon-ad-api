@@ -12,13 +12,12 @@ per-product ones.
     negative keywords and negative product targeting have no v1 equivalent yet
     and stay supported.
 
-Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod#/
+The 3.0 contract is published by Amazon as:
 
-This specification is available for download from the `Advertising API developer portal <https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json>`_.
-
+* `Documentation <https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod>`_
+* `OpenAPI specification <https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json>`_
 
 ..  toctree::
-    :caption: Table of Contents
     :maxdepth: 1
 
     sp/campaigns_v3
