@@ -1,10 +1,11 @@
 Ad Groups
 =========
 
-.. deprecated:: 1.0.8
-    The Sponsored Brands v3 ad group endpoints are closed. Amazon answers
-    ``403 Endpoint has been deprecated`` and points to the v4 API. Use
-    :doc:`ad_groups_v4` instead.
+.. warning::
+
+    Deprecated since 1.0.8. The Sponsored Brands v3 ad group endpoints are
+    closed. Amazon answers ``403 Endpoint has been deprecated`` and points to
+    the v4 API. Use :doc:`ad_groups_v4` instead.
 
 .. autoclass:: ad_api.api.sb.AdGroups
     :members:

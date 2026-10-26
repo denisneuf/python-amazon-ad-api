@@ -1,14 +1,12 @@
 Product Targeting
 =================
 
-.. deprecated:: 1.0.4
-
 .. warning::
 
-    The four CRUD operations on this page — ``list_product_targets``,
-    ``create_product_targets``, ``edit_product_targets`` and
-    ``delete_product_targets`` — are deprecated in favour of
-    ``ad_api.api.v1.Targets``.
+    Deprecated since 1.0.4. The four CRUD operations on this page —
+    ``list_product_targets``, ``create_product_targets``,
+    ``edit_product_targets`` and ``delete_product_targets`` — are deprecated in
+    favour of ``ad_api.api.v1.Targets``.
 
     The helper endpoints listed below remain supported and are **not**
     deprecated: ``categories/recommendations``, ``products/count``,
