@@ -18,31 +18,57 @@ Gets keyword recommendations for a Sponsored Brands campaign.
 
     **By ASIN** — ``asins`` is required.
 
-    ====================  ========  ================================================================
-    Field                 Type      Description
-    ====================  ========  ================================================================
-    ``asins``             array     Required. ASINs to base the recommendations on.
-    ``goal``              string    ``PAGE_VISIT``, ``BRAND_IMPRESSION_SHARE``,
-                                    ``ACQUIRE_NEW_CUSTOMERS`` or ``AD_VIEWS``.
-    ``creativeType``      string    ``PRODUCT_COLLECTION``, ``AUTHOR_COLLECTION``,
-                                    ``STORE_SPOTLIGHT``, ``VIDEO`` or ``BRAND_VIDEO``.
-    ``maxNumSuggestions`` integer   Up to 1000. Defaults to 100.
-    ``creativeAsins``     array     ASINs used by the creative.
-    ``locale``            string    Optional locale for the suggested keywords.
-    ====================  ========  ================================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - ``asins``
+         - array
+         - Required. ASINs to base the recommendations on.
+       * - ``goal``
+         - string
+         - ``PAGE_VISIT``, ``BRAND_IMPRESSION_SHARE``, ``ACQUIRE_NEW_CUSTOMERS`` or ``AD_VIEWS``.
+       * - ``creativeType``
+         - string
+         - ``PRODUCT_COLLECTION``, ``AUTHOR_COLLECTION``, ``STORE_SPOTLIGHT``, ``VIDEO`` or ``BRAND_VIDEO``.
+       * - ``maxNumSuggestions``
+         - integer
+         - Up to 1000. Defaults to 100.
+       * - ``creativeAsins``
+         - array
+         - ASINs used by the creative.
+       * - ``locale``
+         - string
+         - Optional locale for the suggested keywords.
 
     **By landing page URL** — ``url`` is required.
 
-    ====================  ========  ================================================================
-    Field                 Type      Description
-    ====================  ========  ================================================================
-    ``url``               string    Required. Stores page URL, or a custom landing page URL.
-    ``goal``              string    Same values as above.
-    ``creativeType``      string    Same values as above.
-    ``maxNumSuggestions`` integer   Up to 1000. Defaults to 100.
-    ``creativeAsins``     array     ASINs used by the creative.
-    ``locale``            string    Optional locale for the suggested keywords.
-    ====================  ========  ================================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Type
+         - Description
+       * - ``url``
+         - string
+         - Required. Stores page URL, or a custom landing page URL.
+       * - ``goal``
+         - string
+         - Same values as above.
+       * - ``creativeType``
+         - string
+         - Same values as above.
+       * - ``maxNumSuggestions``
+         - integer
+         - Up to 1000. Defaults to 100.
+       * - ``creativeAsins``
+         - array
+         - ASINs used by the creative.
+       * - ``locale``
+         - string
+         - Optional locale for the suggested keywords.
 
     A body with neither ``asins`` nor ``url`` answers ``400`` with
     *"Must include one of: ASINs, Landing Page Url, or Landing Page Url list in
@@ -79,13 +105,18 @@ Gets keyword recommendations for a Sponsored Brands campaign.
 
     ### Responses
 
-    ===========  ===========================================================================
-    Status       Meaning
-    ===========  ===========================================================================
-    ``200``      Recommendations returned.
-    ``400``      Bad request, usually a missing ``asins`` or ``url``.
-    ``429``      Rate limited; retry later.
-    ``500``      Internal error on Amazon's side.
-    ===========  ===========================================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Status
+         - Meaning
+       * - ``200``
+         - Recommendations returned.
+       * - ``400``
+         - Bad request, usually a missing ``asins`` or ``url``.
+       * - ``429``
+         - Rate limited; retry later.
+       * - ``500``
+         - Internal error on Amazon's side.
 
     Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi#tag/Keyword-Recommendations

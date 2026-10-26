@@ -8,22 +8,29 @@ Stores
 
     ``create_asset`` takes ``multipart/form-data`` with two parts, not JSON:
 
-    ===========  ==================================================================
-    Part         Contents
-    ===========  ==================================================================
-    ``assetInfo`` A JSON string: ``{"brandEntityId": "...", "mediaType": "brandLogo"}``
-    ``asset``     The image bytes. PNG, JPEG or GIF.
-    ===========  ==================================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Part
+         - Contents
+       * - ``assetInfo``
+         - A JSON string: ``{"brandEntityId": "...", "mediaType": "brandLogo"}``
+       * - ``asset``
+         - The image bytes. PNG, JPEG or GIF.
 
     Required headers:
 
-    ====================  =======================================================
-    Header                Value
-    ====================  =======================================================
-    ``Content-Type``      ``multipart/form-data`` with boundary, set by requests.
-    ``Accept``            ``*/*``. A versioned media type answers ``406``.
-    ``Content-Disposition`` ``attachment; filename="logo.png"``
-    ====================  =======================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Header
+         - Value
+       * - ``Content-Type``
+         - ``multipart/form-data`` with boundary, set by requests.
+       * - ``Accept``
+         - ``*/*``. A versioned media type answers ``406``.
+       * - ``Content-Disposition``
+         - ``attachment; filename="logo.png"``
 
     .. note::
         ``mediaType`` is a **string**, not an object. The contract's own example

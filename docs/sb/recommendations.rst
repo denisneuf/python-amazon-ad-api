@@ -13,11 +13,13 @@ Creative headline recommendations for Sponsored Brands.
 
     ### Endpoint
 
-    ==========================================  ==========================
-    Path                                        Method
-    ==========================================  ==========================
-    ``POST /sb/recommendations/creative/headline``  ``list_recommendations``
-    ==========================================  ==========================
+    .. list-table::
+        :header-rows: 1
+
+       * - Path
+         - Method
+       * - ``POST /sb/recommendations/creative/headline``
+         - ``list_recommendations``
 
     ### Example python
 

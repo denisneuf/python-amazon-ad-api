@@ -14,39 +14,79 @@ campaigns, budget usage and budget recommendations.
 
     ### Endpoint map
 
-    ================================================================  ================================  ====================  ==========
-    Path                                                              Method                            Media type            Contract
-    ================================================================  ================================  ====================  ==========
-    ``GET  /sb/budgetRules``                                          ``list_budget_rules``             ``application/json``  4.0
-    ``GET  /sb/budgetRules/{budgetRuleId}``                           ``get_budget_rule``               ``application/json``  4.0
-    ``GET  /sb/budgetRules/{budgetRuleId}/campaigns``                 ``list_rule_campaigns``           ``application/json``  4.0
-    ``GET  /sb/campaigns/{campaignId}/budgetRules``                   ``list_campaign_rules``           ``application/json``  4.0
-    ``POST /sb/budgetRules``                                          ``create_budget_rules``           ``application/json``  4.0
-    ``PUT  /sb/budgetRules``                                          ``update_budget_rules``           ``application/json``  4.0
-    ``POST /sb/campaigns/{campaignId}/budgetRules``                   ``associate_budget_rules``        ``application/json``  4.0
-    ``DELETE /sb/campaigns/{campaignId}/budgetRules/{budgetRuleId}``  ``disassociate_budget_rule``      ``application/json``  4.0
-    ``POST /sb/campaigns/budget/usage``                               ``get_budget_usage``              ``vnd.sbcampaignbudgetusage.v1``  4.0
-    ``POST /sb/campaigns/budgetRecommendations``                      ``get_budget_recommendations``    ``vnd.sbbudgetrecommendation.v4`` 4.0
-    ``POST /sb/campaigns/budgetRules/recommendations``                ``get_budget_rules_recommendation`` ``application/json``  3.0
-    ================================================================  ================================  ====================  ==========
+    .. list-table::
+        :header-rows: 1
+
+       * - Path
+         - Method
+         - Media type
+         - Contract
+       * - ``GET  /sb/budgetRules``
+         - ``list_budget_rules``
+         - ``application/json``
+         - 4.0
+       * - ``GET  /sb/budgetRules/{budgetRuleId}``
+         - ``get_budget_rule``
+         - ``application/json``
+         - 4.0
+       * - ``GET  /sb/budgetRules/{budgetRuleId}/campaigns``
+         - ``list_rule_campaigns``
+         - ``application/json``
+         - 4.0
+       * - ``GET  /sb/campaigns/{campaignId}/budgetRules``
+         - ``list_campaign_rules``
+         - ``application/json``
+         - 4.0
+       * - ``POST /sb/budgetRules``
+         - ``create_budget_rules``
+         - ``application/json``
+         - 4.0
+       * - ``PUT  /sb/budgetRules``
+         - ``update_budget_rules``
+         - ``application/json``
+         - 4.0
+       * - ``POST /sb/campaigns/{campaignId}/budgetRules``
+         - ``associate_budget_rules``
+         - ``application/json``
+         - 4.0
+       * - ``DELETE /sb/campaigns/{campaignId}/budgetRules/{budgetRuleId}``
+         - ``disassociate_budget_rule``
+         - ``application/json``
+         - 4.0
+       * - ``POST /sb/campaigns/budget/usage``
+         - ``get_budget_usage``
+         - ``vnd.sbcampaignbudgetusage.v1``
+         - 4.0
+       * - ``POST /sb/campaigns/budgetRecommendations``
+         - ``get_budget_recommendations``
+         - ``vnd.sbbudgetrecommendation.v4``
+         - 4.0
+       * - ``POST /sb/campaigns/budgetRules/recommendations``
+         - ``get_budget_rules_recommendation``
+         - ``application/json``
+         - 3.0
 
     ### What is verified
 
     The six read routes were probed against a live account:
 
-    ============================================  ==========================================
-    Route                                         Answer
-    ============================================  ==========================================
-    ``GET /sb/budgetRules``                       ``200``, rules under
-                                                  ``budgetRulesForAdvertiserResponse``
-    ``GET /sb/budgetRules/{id}``                  ``400`` ``InvalidParameterValue`` for an
-                                                  unknown id, so the route lives
-    ``GET /sb/budgetRules/{id}/campaigns``        same ``400`` for an unknown id
-    ``GET /sb/campaigns/{id}/budgetRules``        ``200``, rules under ``associatedRules``
-    ``POST /sb/campaigns/budget/usage``           ``200`` with real figures
-    ``POST /sb/campaigns/budgetRecommendations``  ``400`` business message with the
-                                                  versioned media type
-    ============================================  ==========================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Route
+         - Answer
+       * - ``GET /sb/budgetRules``
+         - ``200``, rules under ``budgetRulesForAdvertiserResponse``
+       * - ``GET /sb/budgetRules/{id}``
+         - ``400`` ``InvalidParameterValue`` for an unknown id, so the route lives
+       * - ``GET /sb/budgetRules/{id}/campaigns``
+         - same ``400`` for an unknown id
+       * - ``GET /sb/campaigns/{id}/budgetRules``
+         - ``200``, rules under ``associatedRules``
+       * - ``POST /sb/campaigns/budget/usage``
+         - ``200`` with real figures
+       * - ``POST /sb/campaigns/budgetRecommendations``
+         - ``400`` business message with the versioned media type
 
     The five write routes are built from the contract and not exercised, because
     they change budget rules on live campaigns.
@@ -112,18 +152,25 @@ campaigns, budget usage and budget recommendations.
 
     ### Enumerations
 
-    ==============================  =========================================================
-    Field                           Values
-    ==============================  =========================================================
-    ``ruleType``                    ``SCHEDULE``, ``PERFORMANCE``
-    ``budgetIncreaseBy.type``       ``PERCENT`` (the only value today)
-    ``performanceMeasureCondition.metricName``  ``IS``, ``NTB``, ``ROAS``
-    ``comparisonOperator``          ``GREATER_THAN``, ``LESS_THAN``,
-                                    ``LESS_THAN_OR_EQUAL_TO``, ``GREATER_THAN_OR_EQUAL_TO``
-    ``recurrence.type``             ``DAILY``, ``WEEKLY``
-    ``daysOfWeek``                  ``MONDAY`` … ``SUNDAY``
-    ``ruleState``                   ``ACTIVE``, ``PAUSED``
-    ==============================  =========================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Values
+       * - ``ruleType``
+         - ``SCHEDULE``, ``PERFORMANCE``
+       * - ``budgetIncreaseBy.type``
+         - ``PERCENT`` (the only value today)
+       * - ``performanceMeasureCondition.metricName``
+         - ``IS``, ``NTB``, ``ROAS``
+       * - ``comparisonOperator``
+         - ``GREATER_THAN``, ``LESS_THAN``, ``LESS_THAN_OR_EQUAL_TO``, ``GREATER_THAN_OR_EQUAL_TO``
+       * - ``recurrence.type``
+         - ``DAILY``, ``WEEKLY``
+       * - ``daysOfWeek``
+         - ``MONDAY`` … ``SUNDAY``
+       * - ``ruleState``
+         - ``ACTIVE``, ``PAUSED``
 
     ### Example python
 

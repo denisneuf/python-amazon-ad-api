@@ -8,15 +8,27 @@ Sponsored Brands legacy campaign migration, from the 3.0 API to the 4.0 API.
 
     ### Endpoint map
 
-    ================================================================  ==================================  ============================================================
-    Path                                                              Method                              Media type
-    ================================================================  ==================================  ============================================================
-    ``POST /sb/v4/legacyCampaigns/migrationJob``                      ``start_migration_job``             ``vnd.SponsoredBrands.SponsoredBrandsMigrationApi.v4``
-    ``POST /sb/v4/legacyCampaigns/migrationJob/status``               ``migration_job_status``            ``vnd.SponsoredBrands.SponsoredBrandsMigrationApi.v4``
-    ``POST /sb/v4/legacyCampaigns/migrationJob/results``              ``migration_job_results``           ``vnd.SponsoredBrands.SponsoredBrandsMigrationApi.v4``
-    ``POST /sb/v4/legacyCampaigns/overallMigrationResults``           ``overall_migration_results``       ``vnd.SponsoredBrands.SponsoredBrandsMigrationApi.v4``
-    ``POST /sb/v4/migrations/list``                                   ``list_migrations``                 ``vnd.sbAdMigration.v4``
-    ================================================================  ==================================  ============================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Path
+         - Method
+         - Media type
+       * - ``POST /sb/v4/legacyCampaigns/migrationJob``
+         - ``start_migration_job``
+         - ``vnd.SponsoredBrands.SponsoredBrandsMigrationApi.v4``
+       * - ``POST /sb/v4/legacyCampaigns/migrationJob/status``
+         - ``migration_job_status``
+         - ``vnd.SponsoredBrands.SponsoredBrandsMigrationApi.v4``
+       * - ``POST /sb/v4/legacyCampaigns/migrationJob/results``
+         - ``migration_job_results``
+         - ``vnd.SponsoredBrands.SponsoredBrandsMigrationApi.v4``
+       * - ``POST /sb/v4/legacyCampaigns/overallMigrationResults``
+         - ``overall_migration_results``
+         - ``vnd.SponsoredBrands.SponsoredBrandsMigrationApi.v4``
+       * - ``POST /sb/v4/migrations/list``
+         - ``list_migrations``
+         - ``vnd.sbAdMigration.v4``
 
     Two media types live in this family, and both are required as sent. The legacy
     one has an unusual shape — uppercase words and dots instead of the usual
@@ -34,17 +46,19 @@ Sponsored Brands legacy campaign migration, from the 3.0 API to the 4.0 API.
 
     ### What is verified
 
-    ===========================================  ==========================================
-    Route                                        Answer
-    ===========================================  ==========================================
-    ``migrationJob/status``                      ``500 INTERNAL_ERROR`` for an unknown
-                                                 ``jobId``; the route is live
-    ``migrationJob/results``                     same ``500`` for an unknown ``jobId``
-    ``overallMigrationResults``                  ``200``, an empty object with nothing
-                                                 migrated
-    ``migrations/list``                          ``200``,
-                                                 ``{"migrations": [], "totalCount": 0}``
-    ===========================================  ==========================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Route
+         - Answer
+       * - ``migrationJob/status``
+         - ``500 INTERNAL_ERROR`` for an unknown ``jobId``; the route is live
+       * - ``migrationJob/results``
+         - same ``500`` for an unknown ``jobId``
+       * - ``overallMigrationResults``
+         - ``200``, an empty object with nothing migrated
+       * - ``migrations/list``
+         - ``200``, ``{"migrations": [], "totalCount": 0}``
 
     .. note::
         An unknown ``jobId`` answers ``500`` instead of a 400 or a 404. That is a
@@ -105,13 +119,15 @@ Sponsored Brands legacy campaign migration, from the 3.0 API to the 4.0 API.
 
     ### Enumerations
 
-    ====================  ==========================================
-    Field                 Values
-    ====================  ==========================================
-    ``adStateFilter``     ``ENABLED``, ``PAUSED``, ``ARCHIVED``
-    ``migrationStatusFilter``  ``ACCEPTED``, ``ELIGIBLE``, ``MIGRATED``,
-                          ``MIGRATION_FAILED``
-    ====================  ==========================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Values
+       * - ``adStateFilter``
+         - ``ENABLED``, ``PAUSED``, ``ARCHIVED``
+       * - ``migrationStatusFilter``
+         - ``ACCEPTED``, ``ELIGIBLE``, ``MIGRATED``, ``MIGRATION_FAILED``
 
     ### Example python
 

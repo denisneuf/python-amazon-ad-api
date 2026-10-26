@@ -12,14 +12,29 @@ the only family in the package with no unverified route.
 
     ### Endpoint map
 
-    ==========================================================  ==========================  ======================  ======
-    Path                                                        Method                      Media type              Status
-    ==========================================================  ==========================  ======================  ======
-    ``GET  /sb/targets/categories``                             ``list_categories``         ``vnd.sbtargeting.v4``  ``200``
-    ``GET  /sb/targets/categories/{id}/refinements``            ``list_refinements``        ``vnd.sbtargeting.v4``  ``200``
-    ``POST /sb/targets/products/count``                         ``get_product_count``       ``vnd.sbtargeting.v4``  ``200``
-    ``GET  /sb/negativeTargets/brands/recommendations``         ``list_negative_brand_recommendations``  ``vnd.sbtargeting.v4``  ``200``
-    ==========================================================  ==========================  ======================  ======
+    .. list-table::
+        :header-rows: 1
+
+       * - Path
+         - Method
+         - Media type
+         - Status
+       * - ``GET  /sb/targets/categories``
+         - ``list_categories``
+         - ``vnd.sbtargeting.v4``
+         - ``200``
+       * - ``GET  /sb/targets/categories/{id}/refinements``
+         - ``list_refinements``
+         - ``vnd.sbtargeting.v4``
+         - ``200``
+       * - ``POST /sb/targets/products/count``
+         - ``get_product_count``
+         - ``vnd.sbtargeting.v4``
+         - ``200``
+       * - ``GET  /sb/negativeTargets/brands/recommendations``
+         - ``list_negative_brand_recommendations``
+         - ``vnd.sbtargeting.v4``
+         - ``200``
 
     Every route sends and receives ``application/vnd.sbtargeting.v4+json``.
 
@@ -51,15 +66,27 @@ the only family in the package with no unverified route.
 
     ### list_categories parameters
 
-    ===========================  ========  ==================================================
-    Parameter                    Required  Description
-    ===========================  ========  ==================================================
-    ``supplySource``             yes       ``AMAZON`` or ``STREAMING_VIDEO``.
-    ``locale``                   no        ``es_ES``, ``en_US``, ``de_DE`` and 23 more.
-    ``includeOnlyRootCategories`` no       Return root categories only.
-    ``parentCategoryRefinementId`` no       Return the children of that category.
-    ``nextToken``                no        Pagination token.
-    ===========================  ========  ==================================================
+    .. list-table::
+        :header-rows: 1
+
+       * - Parameter
+         - Required
+         - Description
+       * - ``supplySource``
+         - yes
+         - ``AMAZON`` or ``STREAMING_VIDEO``.
+       * - ``locale``
+         - no
+         - ``es_ES``, ``en_US``, ``de_DE`` and 23 more.
+       * - ``includeOnlyRootCategories``
+         - no
+         - Return root categories only.
+       * - ``parentCategoryRefinementId``
+         - no
+         - Return the children of that category.
+       * - ``nextToken``
+         - no
+         - Pagination token.
 
     ### get_product_count body
 
