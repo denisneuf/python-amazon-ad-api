@@ -11,3 +11,5 @@ Campaigns
 
     .. autofunction:: ad_api.api.sb.CampaignsV4.list_campaigns(self, version: int = 4, **kwargs) -> ApiResponse:
 
+    .. autofunction:: ad_api.api.sb.CampaignsV4.get_campaign_insights(self, version: int = 4, **kwargs) -> ApiResponse:
+

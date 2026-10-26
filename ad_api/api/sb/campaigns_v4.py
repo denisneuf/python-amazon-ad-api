@@ -77,6 +77,34 @@ class CampaignsV4(Client):
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
+    @sp_endpoint('/sb/campaigns/insights', method='POST')
+    def get_campaign_insights(self, version: int = 4, **kwargs) -> ApiResponse:
+        """
+        Gets insights for campaign ad groups.
+
+        Request Body [Required]
+            | **adGroups** (array): [required] One entry per ad group.
+                | **adFormat** (string): [required] Ad format of the ad group.
+                | **keywords** (array): [optional] Each entry needs
+                  ``keywordText``, ``matchType`` and ``bid``.
+
+        Returns:
+            | ApiResponse, ``200``.
+
+        .. note::
+            This route takes ``application/vnd.sbinsights.v4+json``, not the
+            campaigns media type. With ``application/json`` it answers ``404
+            Could not find resource``, so the versioned type is what routes it.
+
+        .. note::
+            An empty body answers ``400`` naming ``adGroups``, which is the only
+            required member.
+        """
+        json_version = 'application/vnd.sbinsights.v' + str(version) + "+json"
+        headers = {'Accept': json_version}
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+
     @sp_endpoint('/sb/v4/campaigns/list', method='POST')
     def list_campaigns(self, version: int = 4, **kwargs) -> ApiResponse:
         """

@@ -67,6 +67,29 @@ class TargetingCategories(Client):
                              params=kwargs,
                              headers={'Accept': self._MEDIA, 'Content-Type': self._MEDIA})
 
+    @sp_endpoint('/sb/negativeTargets/brands/recommendations', method='GET')
+    def list_negative_brand_recommendations(self, **kwargs) -> ApiResponse:
+        """
+        Gets brand recommendations for negative targeting.
+
+        Keyword Args
+            | query **nextToken** (string): [optional] Pagination token.
+
+        Returns:
+            | ApiResponse, ``200``, with brands under ``brands``, each carrying
+              ``brandRefinementId`` and ``name``.
+
+        Example::
+
+            {"brands": [{"brandRefinementId": "19897490031", "name": "YEYIAN"}]}
+
+        .. note::
+            Lives here because it shares this class media type. It is the one
+            route in this class that is not about the category tree.
+        """
+        return self._request(kwargs.pop('path'), params=kwargs,
+                             headers={'Accept': self._MEDIA, 'Content-Type': self._MEDIA})
+
     @sp_endpoint('/sb/targets/products/count', method='POST')
     def get_product_count(self, category, **kwargs) -> ApiResponse:
         """

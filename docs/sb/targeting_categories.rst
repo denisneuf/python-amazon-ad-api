@@ -4,8 +4,8 @@ Targeting Categories
 Sponsored Brands targetable categories: the category tree, the refinements of a
 category, and the number of products inside one.
 
-All three routes are reads, and all three were probed against a live account. This
-is the only family in the package with no unverified route.
+All four routes are reads, and all four were probed against a live account. This is
+the only family in the package with no unverified route.
 
 .. autoclass:: ad_api.api.sb.TargetingCategories
 
@@ -15,6 +15,8 @@ is the only family in the package with no unverified route.
 
     .. autofunction:: ad_api.api.sb.TargetingCategories.get_product_count(self, category, **kwargs) -> ApiResponse:
 
+    .. autofunction:: ad_api.api.sb.TargetingCategories.list_negative_brand_recommendations(self, **kwargs) -> ApiResponse:
+
     ### Endpoint map
 
     ==========================================================  ==========================  ======================  ======
@@ -23,6 +25,7 @@ is the only family in the package with no unverified route.
     ``GET  /sb/targets/categories``                             ``list_categories``         ``vnd.sbtargeting.v4``  ``200``
     ``GET  /sb/targets/categories/{id}/refinements``            ``list_refinements``        ``vnd.sbtargeting.v4``  ``200``
     ``POST /sb/targets/products/count``                         ``get_product_count``       ``vnd.sbtargeting.v4``  ``200``
+    ``GET  /sb/negativeTargets/brands/recommendations``         ``list_negative_brand_recommendations``  ``vnd.sbtargeting.v4``  ``200``
     ==========================================================  ==========================  ======================  ======
 
     Every route sends and receives ``application/vnd.sbtargeting.v4+json``.
