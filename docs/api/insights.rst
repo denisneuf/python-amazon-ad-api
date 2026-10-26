@@ -53,7 +53,7 @@ Insights
             # With Category Lifestyle (version 2)
             # get_insights(id_audience, ad_type, 2, audienceCategory="Lifestyle")
             # With Category Interest (version 2)
-            # get_insights(id_audience, ad_type, 2, audienceCategory="Interest")
+            # get_insights(id_audience, ad_type, 2, audienceCategory="Interest")
             # With a maxResults filter (version 2)
             # get_insights(id_audience, ad_type, 2, maxResults=10)
 
