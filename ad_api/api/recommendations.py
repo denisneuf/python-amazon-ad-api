@@ -13,7 +13,7 @@ class Recommendations(Client):
             | ListRecommendationsRequest {
             | **maxResults** (integer) default: 500 minimum: 1 maximum: 500
             | **nextToken** (string) Token to retrieve the next page of results.
-            | **filters**\* (array) minItems: 1 maxItems: 10 [
+            | **filters** (array) minItems: 1 maxItems: 10 [
             |   ListRecommendationsFilter {
             |       **include** (boolean): Flag to specify if the filter should be included or excluded. default: true
             |       **field**\* FilterField (string): Field to filter by. Enum: ['RECOMMENDATION_ID', 'AD_PRODUCT', 'RECOMMENDATION_TYPE', 'STATUS', 'GROUPING_TYPE', 'CAMPAIGN_ID']
@@ -24,8 +24,27 @@ class Recommendations(Client):
             |       }
             |   ]
             | }
+
+        The values ``STATUS`` accepts are not the states of a campaign. They are
+        the stages a recommendation passes through, and the service names them in
+        its rejection message: ``PUBLISHED``, ``APPLY_IN_PROGRESS``,
+        ``APPLY_SUCCESS``, ``APPLY_FAILED`` and ``REJECTED``. ``ENABLED`` and
+        ``ACTIVE`` are refused.
+
+        ``filters`` behaves oddly. An empty list answers
+        ``400 Member must have length greater than or equal to 1``, yet leaving
+        the member out altogether answers ``200`` with the account's
+        recommendations. So it is required when present, and optional in
+        practice.
+
+        A body is required: without one the call fails before reaching the
+        service, with ``KeyError: 'body'``.
+
         Returns
-            ApiResponse
+            ApiResponse with ``recommendations``, ``totalResults`` and
+            ``nextToken``. The list is empty for an account that has none, which
+            is a fact about the account rather than a failed call.
+
         """
         schema_version = 'application/vnd.listRecommendationsRequest.v' + str(version) + '+json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
@@ -42,6 +61,15 @@ class Recommendations(Client):
             |       (string) Recommendation identifier.
             |   ]
             | }
+
+        .. warning::
+
+            This changes campaigns. Applying a recommendation edits real bidding
+            and budgets on the account, and there is no undo richer than
+            changing them back by hand.
+
+            Not exercised: no recommendation existed on the account to apply.
+
         Returns
             ApiResponse
         """
@@ -79,6 +107,15 @@ class Recommendations(Client):
             |       }
             |   }
             | }
+
+        .. warning::
+
+            This edits a recommendation before it is applied. Read one first with
+            ``list_recommendations`` for the shape it expects, since the fields
+            change with ``recommendationType``.
+
+            Not exercised, for the same reason as ``apply_recommendations``.
+
         Returns
             ApiResponse
 
