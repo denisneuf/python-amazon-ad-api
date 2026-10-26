@@ -1,4 +1,4 @@
-from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
+from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Utils
 
 
 class CreativeAssets(Client):
@@ -121,3 +121,71 @@ class CreativeAssets(Client):
 
         """
         return self._request(kwargs.pop('path'), params=kwargs)
+
+    @sp_endpoint('/assets/batchRegister', method='POST')
+    def batch_register_assets(self, **kwargs) -> ApiResponse:
+        r"""
+        Registers several uploaded assets in one call.
+
+        This route is asynchronous. It answers a ``requestId`` and nothing else,
+        so the result has to be read with ``get_batch_register_status``.
+
+        Request Body (required)
+
+        - ``assetDetailsList`` (array): between 1 and 50 entries, each one shaped
+          like the body ``register_asset`` accepts:
+
+          - ``url`` (string): where the file sits, from ``upload_asset``.
+          - ``name`` (string): the name to give the asset.
+          - ``assetType`` (string): ``IMAGE``.
+          - ``assetSubTypeList`` (array): ``LOGO``, ``PRODUCT_IMAGE``,
+            ``AUTHOR_IMAGE``, ``LIFESTYLE_IMAGE`` or ``OTHER_IMAGE``.
+          - ``asinList`` (array): tags the asset with ASINs, so it can be found
+            by product later.
+          - ``associatedPrograms`` (array): up to 100 entries, one per program
+            the asset belongs to.
+          - ``otherMetadata`` (object): free key-value pairs of strings.
+          - ``tagList`` (array): tags for the asset.
+          - ``versionInfo`` (object): ``linkedAssetId`` and ``versionNotes``, to
+            register this file as a new version of an existing asset.
+          - ``skipAssetSubTypesDetection`` (boolean): keep the subtype as given
+            instead of letting the service reclassify it.
+
+        - ``batchRegistrationContext`` (object): the context applied to the whole
+          batch.
+
+        Returns
+            ApiResponse with ``requestId``, which ``get_batch_register_status``
+            takes.
+
+        """
+        headers = {
+            'Accept': 'application/vnd.assetsbatchregisterresponse.v1+json',
+            'Content-Type': 'application/vnd.assetsbatchregisterrequest.v1+json',
+        }
+        body = Utils.convert_body(kwargs.pop('body'), wrap=False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/assets/batchRegister/{}', method='GET')
+    def get_batch_register_status(self, requestId, **kwargs) -> ApiResponse:
+        r"""
+        Reports whether a batch registration has finished.
+
+        The ``requestId`` comes from ``batch_register_assets``. An id the service
+        does not know answers ``400`` with
+        ``AARServiceBadRequestException ... No request exists for the requestId``,
+        not a ``404``: the route answers either way, and the message says the id
+        was not found.
+
+        Path
+
+        - ``requestId`` (string): required. The identifier the batch call
+          returned.
+
+        Returns
+            ApiResponse with the state of that batch.
+
+        """
+        headers = {'Accept': 'application/vnd.creativeassetsgetbatchregisterresponse.v3+json'}
+        return self._request(fill_query_params(kwargs.pop('path'), requestId),
+                             params=kwargs, headers=headers)

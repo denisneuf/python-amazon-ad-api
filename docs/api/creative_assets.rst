@@ -1,211 +1,302 @@
-Creative Asset Library beta
-===========================
+Creative Assets
+===============
 `https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/creative-asset-library/creative-asset-library-openapi.yaml`_
 
 .. _https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/creative-asset-library/creative-asset-library-openapi.yaml: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/creative-asset-library/creative-asset-library-openapi.yaml
 
-Advertisers can use creative assets to store, organize and reuse brand content, such as logos, images, etc. Stored content can be used for Amazon Ads and on Amazon shopping pages. Creative assets enables brands to provide a consistent shopping experience by easily applying brand content across Amazon.
+Advertisers can use creative assets to store, organize and reuse brand content,
+such as logos and images. Stored content can be used for Amazon Ads and on Amazon
+shopping pages, so a brand can carry the same material across its campaigns.
 
 .. autoclass:: ad_api.api.CreativeAssets
     :members:
 
-    ### Example python
+    .. note::
+
+        The contract is version 3.0 and carries no beta marker: no ``x-beta``,
+        no ``x-amz-*`` and no deprecation notice. The page is listed as stable
+        because of that.
+
+    ### Endpoint map
+
+    .. list-table::
+        :header-rows: 1
+
+       * - Path
+         - Method
+         - Version
+         - Answer
+       * - ``POST /assets/search``
+         - ``search_assets``
+         - v3
+         - ``200``
+       * - ``GET /assets``
+         - ``get_asset``
+         - v3
+         - ``200``
+       * - ``POST /assets/upload``
+         - ``upload_asset``
+         - v3
+         - ``200``
+       * - ``POST /assets/register``
+         - ``register_asset``
+         - v3
+         - ``200``
+       * - ``POST /assets/batchRegister``
+         - ``batch_register_assets``
+         - **v1**
+         - ``200``
+       * - ``GET /assets/batchRegister/{requestId}``
+         - ``get_batch_register_status``
+         - v3
+         - ``200``
+
+    ``batchRegister`` is the one route on v1 rather than v3. Its request and
+    answer both carry ``vnd.assetsbatchregisterrequest.v1``, which is what the
+    method sends.
+
+    ### About the media types
+
+    The contract names a media type on every route, and the service serves the
+    current version when a call arrives without one. ``search_assets`` and
+    ``get_asset`` send no ``Accept`` and answer ``200`` all the same. That is not
+    the case everywhere in this package: the Insights routes answer ``415`` when
+    the version is wrong, so the difference is worth knowing when a call
+    surprises you.
+
+    The two ``batchRegister`` methods do send their types, because their version
+    does not follow the module's default.
+
+    ### The upload, register, batch chain
+
+    Assets arrive in three steps, and each one hands the next its input.
+
+    .. list-table::
+        :header-rows: 1
+
+       * - Step
+         - Call
+         - Hands over
+       * - 1
+         - ``upload_asset({"fileName": "x.jpeg"})``
+         - a signed S3 ``url``, valid for 15 minutes
+       * - 2
+         - ``PUT`` the file to that url
+         - the stored file
+       * - 3
+         - ``register_asset({"url": ..., "name": ...})``
+         - the registered ``assetId``
+
+    ``batch_register_assets`` replaces step 3 when there are several files: it
+    takes the list of urls and answers a ``requestId`` instead of the assets.
+
+    ### search_assets body
+
+    Every member is optional. An empty object returns the library.
+
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Type
+         - Meaning
+       * - ``text``
+         - string
+         - Free text to match against asset names.
+       * - ``filterCriteria.valueFilters``
+         - array
+         - Each carries ``values`` and a ``valueField``, such as ``ASIN``.
+       * - ``sortCriteria``
+         - object
+         - ``field`` and ``order``, such as ``CREATED_TIME`` and ``ASC``.
+       * - ``size``
+         - integer
+         - Page size, default 25, between 1 and 500.
+       * - ``token``
+         - string
+         - Token from a previous answer.
+
+    The answer carries ``assetList``, ``token`` and ``totalRecords``.
+
+    ### get_asset
+
+    ``assetId`` is required. Without it the service answers ``400 Request input
+    is required to get asset.``
+
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Type
+         - Meaning
+       * - ``assetId``
+         - string
+         - Required. The asset to read.
+       * - ``version``
+         - string
+         - A version id such as ``version_v3``. Omit it and every version comes
+           back.
+
+    The answer carries ``assetGlobal`` and ``assetVersionList``.
+
+    ### register_asset body
+
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Type
+         - Meaning
+       * - ``url``
+         - string
+         - Required. The signed location from ``upload_asset``. It expires in
+           15 minutes.
+       * - ``name``
+         - string
+         - Required. The name given to the asset.
+       * - ``assetType``
+         - string
+         - ``IMAGE``.
+       * - ``assetSubTypeList``
+         - array
+         - ``LOGO``, ``PRODUCT_IMAGE``, ``AUTHOR_IMAGE``, ``LIFESTYLE_IMAGE`` or
+           ``OTHER_IMAGE``.
+       * - ``asinList``
+         - array
+         - Tags the asset with ASINs so it can be found by product later.
+       * - ``versionInfo``
+         - object
+         - ``linkedAssetId`` and ``versionNotes``, to register this file as a
+           new version of an existing asset.
+       * - ``associatedSubEntityList``
+         - array
+         - Each carries ``brandEntityId``. Required for sellers, not for
+           vendors.
+       * - ``registrationContext``
+         - object
+         - Associates the asset with a DSP advertiser.
+       * - ``tags``
+         - array
+         - Tags for the asset.
+       * - ``skipAssetSubTypesDetection``
+         - boolean
+         - Keep the subtype as given instead of letting the service reclassify
+           it.
+
+    ### batch_register_assets
+
+    Asynchronous. It answers a ``requestId`` and nothing else, so the result is
+    read with ``get_batch_register_status``.
+
+    .. list-table::
+        :header-rows: 1
+
+       * - Field
+         - Type
+         - Meaning
+       * - ``assetDetailsList``
+         - array
+         - Between 1 and 50 entries, each shaped like the ``register_asset``
+           body above.
+       * - ``batchRegistrationContext``
+         - object
+         - The context applied to the whole batch.
+
+    ### Example searching the library
 
     .. code-block:: python
 
-        import logging
         from ad_api.api import CreativeAssets
-        from ad_api.base import AdvertisingApiException
 
-        def search_assets(data: dict or str):
-            try:
-                result = CreativeAssets(debug=True).search_assets(
-                    body=data
-                )
+        client = CreativeAssets(account='my_account', debug=False)
 
-                logging.info(result)
+        res = client.search_assets(body={})
+        payload = res.payload
 
-            except AdvertisingApiException as error:
-                logging.info(error)
+        print(payload["totalRecords"])
+        for asset in payload["assetList"]:
+            print(asset["assetId"], asset.get("name"))
 
-        if __name__ == '__main__':
+    ### Example reading one asset
 
-            search = \
+    .. code-block:: python
+
+        from ad_api.api import CreativeAssets
+
+        client = CreativeAssets(account='my_account', debug=False)
+
+        res = client.get_asset(
+            assetId="amzn1.assetlibrary.asset1.c560c6b3fd3b38f93df58c01ffcc86bc")
+        print(res.payload["assetGlobal"])
+        print(res.payload["assetVersionList"])
+
+    ### Example uploading and registering one file
+
+    .. code-block:: python
+
+        from ad_api.api import CreativeAssets
+        from requests import put
+
+        client = CreativeAssets(account='my_account', debug=False)
+
+        # 1. ask where to put it
+        res = client.upload_asset(body={"fileName": "Logo-1000x1000.jpeg"})
+        url = res.payload["url"]
+
+        # 2. put the bytes there, outside this package
+        put(url, data=open("Logo-1000x1000.jpeg", "rb"))
+
+        # 3. register it
+        res = client.register_asset(body={
+            "url": url,
+            "name": "PRODUCT-IMAGE-NAME",
+            "assetType": "IMAGE",
+            "assetSubTypeList": ["PRODUCT_IMAGE"],
+            "skipAssetSubTypesDetection": True,
+        })
+        print(res.payload)
+
+    ### Example registering several files at once
+
+    .. code-block:: python
+
+        import time
+        from ad_api.api import CreativeAssets
+
+        client = CreativeAssets(account='my_account', debug=False)
+
+        res = client.batch_register_assets(body={
+            "assetDetailsList": [
                 {
-                    "text": "Logo",
-                    "filterCriteria": {
-                        "valueFilters": [
-                            {
-                                "values": [
-                                    "B08XW4FDJV"
-                                ],
-                                "valueField": "ASIN"
-                            }
-                        ]
-                    },
-                    "sortCriteria": {
-                        "field": "CREATED_TIME",
-                        "order": "ASC"
-                    }
-                }
-
-        # If you send a empty query search = {} it will return all the assets in library
-        search_assets(search)
-
-    ### Example search.json
-
-    Download :download:`json <../../test/creative_assets/search.json>` template
-
-    .. literalinclude:: ../../test/creative_assets/search.json
-
-    ### Example python
-
-    .. code-block:: python
-
-        import logging
-        from ad_api.api import CreativeAssets
-        from ad_api.base import AdvertisingApiException
-
-        def get_asset(**kwargs):
-            try:
-                result = CreativeAssets(debug=True).get_asset(
-                    **kwargs
-                )
-
-                logging.info(result)
-
-            except AdvertisingApiException as error:
-                logging.info(error)
-
-        if __name__ == '__main__':
-
-            amz_asset_id = "amzn1.assetlibrary.asset1.c2867a8671670fc7a5d0bf1efa295d599"
-            amz_version = "version_v3"
-            # get a specific version of the asset
-            get_asset(assetId=amz_asset_id, version=amz_version)
-            # get all versions of the asset
-            get_asset(assetId=amz_asset_id)
-
-    ### Example python
-
-    .. code-block:: python
-
-        import logging
-        from ad_api.api import CreativeAssets
-        from ad_api.base import AdvertisingApiException
-
-        def upload_asset(data: dict or str):
-            try:
-                result = CreativeAssets(debug=True).upload_asset(
-                    body=data
-                )
-
-                url = result.payload.get("url")
-                logging.info(url)
-
-            except AdvertisingApiException as error:
-                logging.info(error)
-
-        if __name__ == '__main__':
-
-            file_name = "Sample-1000x1000.jpeg"
-
-            asset = \
-                {
-                    "fileName": file_name
-                }
-
-            upload_asset(asset)
-
-    .. warning:: After upload the assets it will return a url is the url location to which you will be uploading your asset
-
-    .. note:: This is not part of the Creative Assets api is just an example to upload the file using requests in python if your response.status_code is 200 everything is fine
-
-    .. code-block:: python
-
-        from requests import request
-
-        def upload_file(_method, _url, _img):
-
-            response = request(
-                _method,
-                _url,
-                data=open(_img, 'rb')
-            )
-
-            logging.info(response.status_code)
-            logging.info(response.headers)
-            logging.info(response.content)
-            logging.info(response.raw)
-
-        if __name__ == '__main__':
-
-            file_name = "Sample-1200x1200.jpeg"
-            url = "https://al-eu-726f4d26-7fdb.s3-accelerate.amazonaws.com/037764c3-6b70-4da9-b9af-8ef6ed136def.jpeg?x-amz-meta-filename=Sample-1200x1200.jpeg&X-Amz-Security-Token=token&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220421T035013Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=credential%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=a9cbeb0bd3d31e0c1a71c4ad27be23cd7725438581cc4e8a1f9f3f8d"
-            method = "PUT"
-            upload_file(method, url, file_name)
-
-    ### Example python
-
-    .. code-block:: python
-
-        import logging
-        from ad_api.api import CreativeAssets
-        from ad_api.base import AdvertisingApiException
-
-        def register_asset(data: dict or str):
-            try:
-                result = CreativeAssets(debug=True).register_asset(
-                    body=data
-                )
-
-                logging.info(result)
-
-            except AdvertisingApiException as error:
-                logging.info(error)
-
-        if __name__ == '__main__':
-
-            # the url was obtained with upload_asset method and was used to upload the file and finally register
-            url = "https://al-eu-726f4d26-7fdb.s3-accelerate.amazonaws.com/037764c3-6b70-4da9-b9af-8ef6ed136def.jpeg?x-amz-meta-filename=Sample-1200x1200.jpeg&X-Amz-Security-Token=token&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220421T035013Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=credential%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=a9cbeb0bd3d31e0c1a71c4ad27be23cd7725438581cc4e8a1f9f3f8d"
-
-            # register and assets already uploaded as a new asset
-            register = \
-                {
-                    "url": url,
-                    "name": "PRODUCT-IMAGE-NAME",
+                    "url": "https://.../one.jpeg",
+                    "name": "ONE",
                     "assetType": "IMAGE",
-                    "assetSubTypeList": [
-                        "PRODUCT_IMAGE"
-                    ],
-                    "associatedSubEntityList": [
-                        {
-                            "brandEntityId": "ENTITY288756GCCQ6CF"
-                        }
-                    ],
-                    "skipAssetSubTypesDetection": True
-                }
-
-            # register and assets already uploaded as a new version of an existing assets
-
-            register = \
+                    "assetSubTypeList": ["PRODUCT_IMAGE"],
+                },
                 {
-                    "url": url,
-                    "name": "PRODUCT-IMAGE-NAME-2",
+                    "url": "https://.../two.jpeg",
+                    "name": "TWO",
                     "assetType": "IMAGE",
-                    "assetSubTypeList": [
-                        "PRODUCT_IMAGE"
-                    ],
-                    "versionInfo": {
-                        "linkedAssetId": "amzn1.assetlibrary.asset1.c2867a8671670fc7a5d0bf1efa295d599",
-                        "versionNotes": "version v2 of an existing asset"
-                    },
-                    "associatedSubEntityList": [
-                        {
-                            "brandEntityId": "ENTITY1234567890123"
-                        }
-                    ],
-                    "skipAssetSubTypesDetection": True
-                }
+                    "assetSubTypeList": ["PRODUCT_IMAGE"],
+                },
+            ]
+        })
+        request_id = res.payload["requestId"]
 
-            register_asset(register)
+        # the batch runs in the background, so poll it
+        while True:
+            status = client.get_batch_register_status(request_id)
+            print(status.payload)
+            time.sleep(5)
+
+    ### A note on an unknown requestId
+
+    ``get_batch_register_status`` with an id the service does not know answers
+    ``400``, not ``404``:
+
+    .. code-block:: text
+
+        AARServiceBadRequestException while executing registration workflow:
+        No request exists for the requestId 00000000-0000-0000-0000-000000000000
+
+    The route answered, so the message is about the id rather than the path.
