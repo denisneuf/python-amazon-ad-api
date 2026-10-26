@@ -22,6 +22,7 @@ from .benchmarks import Benchmarks
 from .themes import Themes
 from .budget_rules import BudgetRules
 from .optimization_rules import OptimizationRules
+from .targeting_categories import TargetingCategories
 
 __all__ = [
     "Brands",
@@ -48,4 +49,5 @@ __all__ = [
     "Themes",
     "BudgetRules",
     "OptimizationRules",
+    "TargetingCategories",
 ]
