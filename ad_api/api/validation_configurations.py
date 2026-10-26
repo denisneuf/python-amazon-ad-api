@@ -47,9 +47,21 @@ class ValidationConfigurations(Client):
         Retrieves the configuration values used in targeting clause validation for the requested inputted marketplace, entityType, and programType context/contexts.
 
         Request body
-            | **countryCodesList** (Array): [optional] The list of countryCode enums defining the marketplaces whose configuration values are requested. When null is selected and no value is attributed to this key, all countryCode options are selected. [ US, CA, MX, BR, UK, DE, FR, ES, IN, IT, NL, AE, SA, SE, TR, PL, EG, JP, AU, SG, CN ]
-            | **entityTypesList** (Array): [optional] The list of entityType enums defining the marketplaces whose configuration values are requested. When null is selected and no value is attributed to this key, all countryCode options are selected. [ SELLER, VENDOR ]
-            | **programTypesList** (Array): [optional] The list of programType enums defining the marketplaces whose configuration values are requested. When null is selected and no value is attributed to this key, all countryCode options are selected. [ SB, SP, SD ]
+
+        - ``countryCodesList`` (Array): [optional] The list of countryCode enums
+          defining the marketplaces whose configuration values are requested.
+          When null is selected and no value is attributed to this key, all
+          countryCode options are selected. [ US, CA, MX, BR, UK, DE, FR, ES, IN,
+          IT, NL, AE, SA, SE, TR, PL, EG, JP, AU, SG, CN ]
+        - ``entityTypesList`` (Array): [optional] The list of entityType enums
+          defining the marketplaces whose configuration values are requested.
+          When null is selected and no value is attributed to this key, all
+          countryCode options are selected. [ SELLER, VENDOR ]
+        - ``programTypesList`` (Array): [optional] The list of programType enums
+          defining the marketplaces whose configuration values are requested.
+          When null is selected and no value is attributed to this key, all
+          countryCode options are selected. [ SB, SP, SD ]
+
         Returns:
             ApiResponse
 
