@@ -239,7 +239,7 @@ curl \
 * [Invoices](https://python-amazon-ad-api.readthedocs.io/en/latest/api/invoices.html)
 * [Billing](https://python-amazon-ad-api.readthedocs.io/en/latest/api/billing.html)
 * [Audiences](https://python-amazon-ad-api.readthedocs.io/en/latest/api/audiences.html)
-* [Change History open Beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/history.html)
+* [Change History](https://python-amazon-ad-api.readthedocs.io/en/latest/api/history.html)
 * [Creative Assets open Beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api//creative_assets.html)
 * [Elegibility](https://python-amazon-ad-api.readthedocs.io/en/latest/api/eligibility.html)
 * [Insights](https://python-amazon-ad-api.readthedocs.io/en/latest/api/insights.html)
