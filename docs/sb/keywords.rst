@@ -3,7 +3,7 @@ Keywords
 
 .. autoclass:: ad_api.api.sb.Keywords
 
-    .. autofunction:: ad_api.api.sb.Keywords.list_keywords(self, **kwargs) -> ApiResponse:
+    .. autofunction:: ad_api.api.sb.Keywords.list_keywords(self, version: float = 3.2, **kwargs) -> ApiResponse:
 
         ### Example python
 

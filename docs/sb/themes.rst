@@ -1,106 +1,107 @@
 Themes
 ======
 
+Sponsored Brands theme targets.
+
+.. note::
+    ``list_themes`` answers ``200`` on a live account, and the media types below
+    were exercised against the service. The two write methods are documented from
+    the contract and the module docstrings; they are not probed, because they
+    change campaign data.
+
 .. autoclass:: ad_api.api.sb.Themes
 
-   .. autofunction:: ad_api.api.sb.Themes.list_themes
+    .. autofunction:: ad_api.api.sb.Themes.list_themes(self, **kwargs) -> ApiResponse:
 
-      ### Example Python
+    .. autofunction:: ad_api.api.sb.Themes.create_themes(self, **kwargs) -> ApiResponse:
 
-      .. code-block:: python
+    .. autofunction:: ad_api.api.sb.Themes.update_themes(self, **kwargs) -> ApiResponse:
 
-         from ad_api.api.sb.themes import Themes
+    ### Endpoint map
 
-         result = Themes().list_themes()
-         print(result)
+    ==========================================  ==============================  =====================================
+    Path                                        Method                          Response media type
+    ==========================================  ==============================  =====================================
+    ``POST /sb/themes/list``                    ``list_themes``                 ``vnd.sbthemeslistresponse.v3``
+    ``POST /sb/themes``                         ``create_themes``               ``vnd.sbthemescreateresponse.v3``
+    ``PUT  /sb/themes``                         ``update_themes``               ``vnd.sbthemesupdateresponse.v3``
+    ==========================================  ==============================  =====================================
 
-   .. autofunction:: ad_api.api.sb.Themes.create_themes
+    ### list_themes request body
 
-      ### Example Python
+    ====================  ========  ==============================================================
+    Field                 Type      Description
+    ====================  ========  ==============================================================
+    ``nextToken``         string    Pagination token.
+    ``maxResults``        number    Maximum results; defaults to the API maximum.
+    ``campaignIdFilter``  object    Campaign ids, max 100.
+    ``adGroupIdFilter``   object    Ad group ids, max 100.
+    ``themeIdFilter``     object    Theme ids, max 100.
+    ``stateFilter``       object    ``enabled``, ``paused``, ``archived``. Default enabled and paused.
+    ``themeTypeFilter``   object    ``KEYWORDS_RELATED_TO_YOUR_BRAND`` or
+                                    ``KEYWORDS_RELATED_TO_YOUR_LANDING_PAGES``.
+    ====================  ========  ==============================================================
 
-      .. code-block:: python
+    ### create_themes request body
 
-         from ad_api.api.sb.themes import Themes
-         import json
+    .. code-block:: json
 
-         # Example data for themes
-         themes_to_create = [
-             {
-                 "adGroupId": "YOUR_ADGROUP_ID",
-                 "campaignId": "YOUR_CAMPAIGN_ID",
-                 "themeType": "KEYWORDS_RELATED_TO_YOUR_BRAND",
-                 "bid": 0.75
-             }
-             # Add more theme objects as needed, up to 100
-         ]
+        {
+            "themes": [
+                {
+                    "adGroupId": "string",
+                    "campaignId": "string",
+                    "themeType": "KEYWORDS_RELATED_TO_YOUR_BRAND|KEYWORDS_RELATED_TO_YOUR_LANDING_PAGES",
+                    "bid": 0.75
+                }
+            ]
+        }
 
-         # For a real scenario, you might read this from a file like in your Keywords example
-         # file = open("create_themes.json")
-         # data = file.read()
-         # file.close()
-         # result = Themes().create_themes(body=data)
+    Maximum of 100 themes per call. Only one target per ``themeType`` per ad group.
 
-         result = Themes().create_themes(themes=themes_to_create)
-         print(result)
+    ### update_themes request body
 
-      ### Example JSON (for request body)
+    .. code-block:: json
 
-      .. code-block:: json
+        {
+            "themes": [
+                {
+                    "themeId": "string",
+                    "adGroupId": "string",
+                    "campaignId": "string",
+                    "state": "enabled|paused|archived",
+                    "bid": 0.80
+                }
+            ]
+        }
 
-         {
-             "themes": [
-                 {
-                     "adGroupId": "string",
-                     "campaignId": "string",
-                     "themeType": "KEYWORDS_RELATED_TO_YOUR_BRAND|KEYWORDS_RELATED_TO_YOUR_LANDING_PAGES",
-                     "bid": 0.75
-                 }
-             ]
-         }
+    Maximum of 100 themes per call.
 
+    ### Example python
 
-   .. autofunction:: ad_api.api.sb.Themes.update_themes
+    .. code-block:: python
 
-      ### Example Python
+        from ad_api.api.sb import Themes
 
-      .. code-block:: python
+        themes = Themes(account='account_name', debug=False)
 
-         from ad_api.api.sb.themes import Themes
-         import json
+        # list
+        print(themes.list_themes(body={}).payload)
 
-         # Example data for themes to update
-         themes_to_update = [
-             {
-                 "themeId": "YOUR_THEME_ID",
-                 "adGroupId": "YOUR_ADGROUP_ID",
-                 "campaignId": "YOUR_CAMPAIGN_ID",
-                 "state": "paused", # or "enabled", "archived"
-                 "bid": 0.80 # Optional, if updating bid
-             }
-             # Add more theme objects as needed, up to 100
-         ]
+        # create
+        themes.create_themes(themes=[{
+            "adGroupId": "YOUR_ADGROUP_ID",
+            "campaignId": "YOUR_CAMPAIGN_ID",
+            "themeType": "KEYWORDS_RELATED_TO_YOUR_BRAND",
+            "bid": 0.75,
+        }])
 
-         # For a real scenario, you might read this from a file
-         # file = open("update_themes.json")
-         # data = file.read()
-         # file.close()
-         # result = Themes().update_themes(body=data)
+        # update
+        themes.update_themes(themes=[{
+            "themeId": "YOUR_THEME_ID",
+            "adGroupId": "YOUR_ADGROUP_ID",
+            "campaignId": "YOUR_CAMPAIGN_ID",
+            "state": "paused",
+        }])
 
-         result = Themes().update_themes(themes=themes_to_update)
-         print(result)
-
-      ### Example JSON (for request body)
-
-      .. code-block:: json
-
-         {
-             "themes": [
-                 {
-                     "themeId": "string",
-                     "adGroupId": "string",
-                     "campaignId": "string",
-                     "state": "enabled|paused|archived",
-                     "bid": 0.80
-                 }
-             ]
-         }
+    Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi
