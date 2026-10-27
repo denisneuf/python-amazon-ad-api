@@ -3,6 +3,7 @@ from .profiles import Profiles
 from .manager_accounts import ManagerAccounts
 from .invoices import Invoices
 from .billing import Billing
+from .account_budgets import AccountBudgets
 from .eligibility import Eligibility
 from .metadata import Metadata
 from .history import History
@@ -38,6 +39,7 @@ __all__ = [
     "ManagerAccounts",
     "Invoices",
     "Billing",
+    "AccountBudgets",
     "Eligibility",
     "Metadata",
     "History",
@@ -45,6 +47,7 @@ __all__ = [
     "Localization",
     "Audiences",
     "Portfolios",
+    "PortfoliosV3",
     "Insights",
     "Attribution",
     "BrandMetrics",

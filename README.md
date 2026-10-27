@@ -238,6 +238,7 @@ curl \
 * [PortfoliosV3](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfoliosV3.html)
 * [Invoices](https://python-amazon-ad-api.readthedocs.io/en/latest/api/invoices.html)
 * [Billing](https://python-amazon-ad-api.readthedocs.io/en/latest/api/billing.html)
+* [Account Budgets](https://python-amazon-ad-api.readthedocs.io/en/latest/api/account_budgets.html)
 * [Audiences](https://python-amazon-ad-api.readthedocs.io/en/latest/api/audiences.html)
 * [Change History](https://python-amazon-ad-api.readthedocs.io/en/latest/api/history.html)
 * [Creative Assets](https://python-amazon-ad-api.readthedocs.io/en/latest/api/creative_assets.html)
