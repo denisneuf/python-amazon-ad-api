@@ -1,6 +1,14 @@
 Amazon Attribution API open beta
 ================================
 
+Current contract:
+
+`https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json`_
+
+.. _https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json
+
+Previously, Amazon served the same specification from a different host:
+
 `https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json`_
 
 .. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json

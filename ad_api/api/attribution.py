@@ -9,6 +9,31 @@ class Attribution(Client):
     def get_advertisers(self, **kwargs) -> ApiResponse:
         r"""
         Gets a list of advertisers associated with an Amazon Attribution account.
+
+        Takes no query parameters. Send the request as is.
+
+        Returns:
+            ApiResponse. ``payload`` holds ``{"advertisers": [...]}`` with one
+            entry per advertiser:
+
+            - ``advertiserId`` (string): the identifier the other Attribution
+              routes accept as ``advertiserIds``.
+            - ``advertiserName`` (string): the display name.
+
+        Example:
+
+        .. code-block:: python
+
+            from ad_api.api import Attribution
+
+            attribution = Attribution(account="my_account")
+            attribution.get_advertisers().payload
+            # {'advertisers': [{'advertiserName': 'MY BRAND SPAIN',
+            #                   'advertiserId': '586616515354498787'}]}
+
+        An account without Attribution access answers ``200`` with an empty
+        ``advertisers`` list, not a ``403``, so check the list itself.
+        ``ApiResponse`` does not carry the HTTP status code.
         """
         return self._request(fill_query_params(kwargs.pop("path")), params=kwargs)
 
@@ -16,6 +41,32 @@ class Attribution(Client):
     def get_publishers(self, **kwargs) -> ApiResponse:
         r"""
         Gets a list of all available publishers.
+
+        Takes no query parameters. Send the request as is. This is the call that
+        tells you which of the two tag routes each publisher belongs to.
+
+        Returns:
+            ApiResponse. ``payload`` holds ``{"publishers": [...]}`` with one
+            entry per publisher:
+
+            - ``id`` (string): the value to pass as ``publisherIds``.
+            - ``name`` (string): the display name, such as ``Google Ads``.
+            - ``macroEnabled`` (boolean): ``True`` when the publisher expands
+              tracking macros in its click-through URLs, and therefore belongs
+              to :meth:`get_macro_tag`. ``False`` means it needs fixed values
+              and belongs to :meth:`get_non_macro_template_tag`.
+
+        Example:
+
+        .. code-block:: python
+
+            publishers = Attribution(account="my_account").get_publishers().payload["publishers"]
+            macro = [p["id"] for p in publishers if p["macroEnabled"]]
+            plain = [p["id"] for p in publishers if not p["macroEnabled"]]
+
+        Google Ads, Facebook Ads, Microsoft Ads and Pinterest Ads report
+        ``macroEnabled`` true. The rest, among them Snapchat, Twitter, LinkedIn
+        and TikTok, report false.
         """
         return self._request(fill_query_params(kwargs.pop("path")), params=kwargs)
 
