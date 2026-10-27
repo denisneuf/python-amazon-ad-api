@@ -1,5 +1,17 @@
-Brand Metrics API open beta
-===========================
+Brand Metrics API
+=================
+
+Current contract:
+
+`https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json`_
+
+.. _https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json
+
+Previously, Amazon served the same specification from a different host:
+
+`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json`_
+
+.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json
 
 .. autoclass:: ad_api.api.BrandMetrics
     :members:
@@ -9,14 +21,13 @@ Brand Metrics API open beta
     .. code-block:: python
 
         from ad_api.api import BrandMetrics
-        from ad_api.base import Marketplaces, AdvertisingApiException
-        import json
+        from ad_api.base import AdvertisingApiException
 
         dictionary = {
-            "categoryNodeTreeName": "es-automotive",
+            "categoryTreeName": "es-automotive",
             "brandName": "BMW",
             "reportStartDate": "2022-03-01",
-            "lookBackPeriod": "1w",
+            "lookBackPeriod": "1W",
             "format": "CSV",
             "metrics": [
                 "engagedShopperRateLowerBound",
@@ -29,7 +40,7 @@ Brand Metrics API open beta
         try:
 
             result = BrandMetrics(account=store, marketplace=marketplace, debug=True).post_report(
-                body=json.dumps(data)
+                body=dictionary
             )
 
             print(result)
@@ -39,6 +50,9 @@ Brand Metrics API open beta
             print(error)
 
     ### Example results
+
+    The answer is a handle, not the report: it carries a ``reportId`` and
+    ``status: IN_PROGRESS``, and the file has to be collected later.
 
     .. literalinclude:: ../../test/brand_metrics/result.json
 
@@ -63,7 +77,10 @@ Brand Metrics API open beta
 
             print(error)
 
-    ### Result to get the location
+    ### Result once the report is ready
+
+    Poll the same ``reportId`` until ``status`` reads ``SUCCESSFUL``; only then
+    does ``location`` carry the signed address.
 
     .. literalinclude:: ../../test/brand_metrics/location.json
 
@@ -80,7 +97,8 @@ Brand Metrics API open beta
 
             result = BrandMetrics(account=store, marketplace=marketplace, debug=True).download_report(
                 url=location,
-                format="csv"
+                file="report",
+                format="json"
             )
 
             print(result)
@@ -88,6 +106,10 @@ Brand Metrics API open beta
         except AdvertisingApiException as error:
 
             print(error)
+
+    Without ``file`` the call returns the Amazon file name instead of writing
+    a file, and the ``format`` argument only decides the extension: the bytes
+    stay in whichever format the report was generated in.
 
     ### Result of the file downloaded
 
