@@ -1,5 +1,5 @@
-Brand Metrics API
-=================
+Brand Metrics API open beta
+===========================
 
 Current contract:
 
