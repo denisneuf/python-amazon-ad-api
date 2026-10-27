@@ -23,7 +23,7 @@ class BrandMetrics(Client):
 
         Request body
             | **categoryTreeName** (string): [optional] The node at the top of a browse tree. It is the start node of a tree. example: us-home
-            | **categoryPath** (array): [optional] The hierarchical path that leads to a node starting with the root node. If no Category Node Name is passed, then all data available for all brands belonging to the entity are retrieved. example: List [ "Categories", "Snack Food", "Granola & Snack Bars" ]]
+            | **categoryPath** (array of arrays): [optional] The hierarchical path that leads to a node starting with the root node, as a list of paths where each path is a list of levels. If no category path is passed, then all data available for all brands belonging to the entity are retrieved. example: [ ["Categories", "Granola & Snack Bars", "Snack Food"] ]
 
             | **brandName** (string): [optional] Brand Name. If no Brand Name is passed, then all data available for all brands belonging to the entity are retrieved. example: Mattress Mogul
             | **reportStartDate** (string($date)): [optional] Retrieves metrics with metricsComputationDate between reportStartDate and reportEndDate (inclusive). The date will be in the Coordinated Universal Time (UTC) timezone in YYYY-MM-DD format. If no date is passed in reportStartDate, all available metrics with metricsComputationDate till the reportEndDate will be provided. If no date is passed for either reportStartDate or reportEndDate, the metrics with the most receont metricsComputationDate will be returned. example: 2021-01-01

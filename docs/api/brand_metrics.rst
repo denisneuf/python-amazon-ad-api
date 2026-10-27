@@ -98,7 +98,7 @@ Previously, Amazon served the same specification from a different host:
             result = BrandMetrics(account=store, marketplace=marketplace, debug=True).download_report(
                 url=location,
                 file="report",
-                format="json"
+                format="csv"
             )
 
             print(result)
