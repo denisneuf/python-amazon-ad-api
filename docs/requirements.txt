@@ -1,5 +1,5 @@
 # MÍNIMO necesario para construir documentación
-sphinx>=8,<10
+sphinx>=8.2.3,<10
 sphinx_rtd_theme
 sphinxcontrib-napoleon
 sphinx-jinja2-compat>=0.4.1
