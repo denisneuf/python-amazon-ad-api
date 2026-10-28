@@ -46,7 +46,7 @@ class BrandStoreEditions(Client):
             The ``editionId`` is what BrandStoreEditionPublishVersions filters on.
         """
         path = kwargs.pop('path')
-        kwargs.pop('method', None)
+        # method must stay in params: _request reads it with params.pop('method')
         params = dict(kwargs)
         params['brandStoreId'] = brandStoreId
         return self._request(path, params=params)
