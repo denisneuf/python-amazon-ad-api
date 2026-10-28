@@ -277,6 +277,7 @@ The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call
 * [Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ads.html#ad_api.api.v1.Ads.Ads.query_ads)
 * [Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/targets.html#ad_api.api.v1.Targets.Targets.query_targets)
 * [Ad Extensions](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ad_extensions.html#ad_api.api.v1.AdExtensions.AdExtensions.query_ad_extensions)
+* [Advertiser Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/advertiser_accounts.html#ad_api.api.v1.AdvertiserAccounts.AdvertiserAccounts.query_advertiser_accounts)
 
 
 ### [Modules Available Sponsored Products](https://python-amazon-ad-api.readthedocs.io/en/latest/sp.html)

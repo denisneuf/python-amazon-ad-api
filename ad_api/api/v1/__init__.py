@@ -3,6 +3,7 @@ from .ad_groups import AdGroups
 from .ads import Ads
 from .targets import Targets
 from .ad_extensions import AdExtensions
+from .advertiser_accounts import AdvertiserAccounts
 
 __all__ = [
     "Campaigns",
@@ -10,4 +11,5 @@ __all__ = [
     "Ads",
     "Targets",
     "AdExtensions",
+    "AdvertiserAccounts",
 ]
