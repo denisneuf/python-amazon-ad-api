@@ -40,3 +40,4 @@ The contracts behind each resource, as published by Amazon:
     v1/targets
     v1/ad_extensions
     v1/advertiser_accounts
+    v1/ad_associations
