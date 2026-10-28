@@ -7,6 +7,7 @@ from .advertiser_accounts import AdvertiserAccounts
 from .ad_associations import AdAssociations
 from .brand_store_edition_publish_versions import BrandStoreEditionPublishVersions
 from .brand_stores import BrandStores
+from .brand_store_editions import BrandStoreEditions
 
 __all__ = [
     "Campaigns",
@@ -18,4 +19,5 @@ __all__ = [
     "AdAssociations",
     "BrandStoreEditionPublishVersions",
     "BrandStores",
+    "BrandStoreEditions",
 ]
