@@ -20,6 +20,14 @@ create and update do. Sending the wrong name is a rejected request.
 This is not an ad-product resource, so there is no ``adProductFilter```: the query
 filters by association, ad group or ad.
 
+.. warning::
+
+    This family requires one of the permissions ``campaign_edit`` or
+    ``dsp_campaign_edit``. In practice it belongs to DSP: a Sponsored Ads seller
+    profile answers ``401 Unauthorized`` with "Customer ... is not authorized to
+    access account", and no body change reaches it. The client is correct; the
+    account simply has no DSP capability.
+
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-adassociations
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdAssociationsContract_prod_3p.json
 
