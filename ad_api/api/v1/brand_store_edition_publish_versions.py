@@ -28,6 +28,15 @@ class BrandStoreEditionPublishVersions(Client):
 
     Unlike the rest of v1, the query has no fully optional body: store, edition
     and publish status are all required, each accepting exactly one value.
+
+    ``StorePublishStatus`` declares two values but the service accepts only one:
+    asking for ``REVIEW_IN_PROGRESS`` answers ``400 Only DRAFT status query is
+    supported``. The enum is honest about what exists in the data model, not
+    about what can be queried.
+
+    The ``storeEditionPublishId`` in the answer is not a plain identifier but a
+    base64 token holding the schema version, the store, ``editionIdVersion`` and
+    the status -- pass it back to update unchanged.
     """
 
     @sp_endpoint('/adsApi/v1/query/brandStoreEditionPublishVersions', method='POST')
@@ -45,8 +54,10 @@ class BrandStoreEditionPublishVersions(Client):
             | **storeIdFilter** (dict) [required]
                 | **include** (list<string>) : exactly one store id
             | **publishStatusFilter** (dict) [required]
-                | **include** (list<StorePublishStatus>) : exactly one of
-                  Enum [ DRAFT, REVIEW_IN_PROGRESS ]
+                | **include** (list<StorePublishStatus>) : exactly one value.
+                  The contract declares [ DRAFT, REVIEW_IN_PROGRESS ] but the
+                  service rejects the second one with
+                  "400 Only DRAFT status query is supported". Send DRAFT.
             | **maxResults** (int) [optional]
             | **nextToken** (string) [optional]
 

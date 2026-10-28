@@ -25,6 +25,19 @@ Unlike the rest of v1, the query body is not fully optional: ``storeIdFilter``,
 ``editionIdFilter`` and ``publishStatusFilter`` are all required, and each accepts
 exactly one value.
 
+.. note::
+
+    ``StorePublishStatus`` declares ``DRAFT`` and ``REVIEW_IN_PROGRESS``, but the
+    service accepts only the first. Asking for ``REVIEW_IN_PROGRESS`` answers
+    ``400 Only DRAFT status query is supported`` on every store. Send ``DRAFT``.
+
+    ``editionId`` is the literal string ``default``, not a UUID: it names the
+    store's default edition, so every store answers with the same value.
+
+    The ``storeEditionPublishId`` in the answer is a base64 token holding the
+    schema version, store, ``editionIdVersion`` and status -- pass it back to
+    update unchanged.
+
 The update array holds exactly one element, not a range.
 
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-brandstoreeditionpublishversions
