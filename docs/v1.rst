@@ -44,3 +44,4 @@ The contracts behind each resource, as published by Amazon:
     v1/brand_store_edition_publish_versions
     v1/brand_stores
     v1/brand_store_editions
+    v1/brand_store_pages
