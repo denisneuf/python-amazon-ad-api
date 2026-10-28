@@ -26,6 +26,9 @@ The contracts behind each resource, as published by Amazon:
     * - Targets
       - `api-spec-v1-targets <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-targets>`_
       - `AmazonAdsAPIALLTargetsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLTargetsContract_prod_3p.json>`_
+    * - Ad Extensions
+      - `api-spec-v1-adextensions <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-adextensions>`_
+      - `AmazonAdsAPIALLAdExtensionsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdExtensionsContract_prod_3p.json>`_
 
 ..  toctree::
     :caption: Table of Contents
@@ -35,3 +38,4 @@ The contracts behind each resource, as published by Amazon:
     v1/ad_groups
     v1/ads
     v1/targets
+    v1/ad_extensions
