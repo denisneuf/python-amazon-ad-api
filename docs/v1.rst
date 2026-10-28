@@ -42,3 +42,4 @@ The contracts behind each resource, as published by Amazon:
     v1/advertiser_accounts
     v1/ad_associations
     v1/brand_store_edition_publish_versions
+    v1/brand_stores
