@@ -13,7 +13,7 @@ from .audiences import Audiences
 from .portfolios import Portfolios
 from .portfolios_v3 import PortfoliosV3
 from .insights import Insights
-from . import v1
+from . import v1 as ads_api_v1
 from . import sp as sponsored_products
 from . import sb as sponsored_brands
 from . import sd as sponsored_display
@@ -29,6 +29,7 @@ from .stores import Stores
 
 __all__ = [
     "v1",
+    "ads_api_v1",
     "sp",
     "sb",
     "sd",
