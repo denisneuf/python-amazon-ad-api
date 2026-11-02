@@ -12,6 +12,7 @@ from .brand_store_pages import BrandStorePages
 from .reports import Reports
 from .labels import Labels
 from .manager_accounts import ManagerAccounts
+from .recommendations import Recommendations
 
 __all__ = [
     "Campaigns",
@@ -28,4 +29,5 @@ __all__ = [
     "Reports",
     "Labels",
     "ManagerAccounts",
+    "Recommendations",
 ]

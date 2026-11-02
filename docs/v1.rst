@@ -48,3 +48,4 @@ The contracts behind each resource, as published by Amazon:
     v1/reports
     v1/labels
     v1/manager_accounts
+    v1/recommendations
