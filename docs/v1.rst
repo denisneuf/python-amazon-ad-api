@@ -51,3 +51,4 @@ The contracts behind each resource, as published by Amazon:
     v1/recommendations
     v1/selling_accounts
     v1/label_object_associations
+    v1/geo_locations

@@ -289,6 +289,7 @@ The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call
 * [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/recommendations.html#ad_api.api.v1.Recommendations.Recommendations.query_recommendations)
 * [Selling Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/selling_accounts.html#ad_api.api.v1.SellingAccounts.SellingAccounts.query_selling_accounts)
 * [Label Object Associations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/label_object_associations.html#ad_api.api.v1.LabelObjectAssociations.LabelObjectAssociations.query_label_object_associations)
+* [Geo Locations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/geo_locations.html#ad_api.api.v1.GeoLocations.GeoLocations.create_geo_locations)
 
 
 ### [Modules Available Sponsored Products](https://python-amazon-ad-api.readthedocs.io/en/latest/sp.html)
