@@ -13,6 +13,7 @@ from .reports import Reports
 from .labels import Labels
 from .manager_accounts import ManagerAccounts
 from .recommendations import Recommendations
+from .selling_accounts import SellingAccounts
 
 __all__ = [
     "Campaigns",
@@ -30,4 +31,5 @@ __all__ = [
     "Labels",
     "ManagerAccounts",
     "Recommendations",
+    "SellingAccounts",
 ]
