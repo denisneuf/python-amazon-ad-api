@@ -34,5 +34,22 @@ The Sponsored Brands segment is the only one in the published contract, and
 its schemas are prefixed SB (``SBCreateRecommendationRequest``,
 ``SBRecommendationCreate``, ``SBRecommendationMultiStatusResponse``).
 
+.. warning::
+
+    Both reads answer ``401 Unauthorized`` on a Sponsored Ads seller profile,
+    and the two messages name two different layers:
+
+        GET  /adsApi/v1/recommendations
+            3P Request: Customer <account> is not authorized to access account
+
+        POST /adsApi/v1/query/recommendations
+            3P Multi-Accounts Request: Bulk account authorization denied: DENY
+
+    The GET carries no ``accessRequestedAccounts`` at all, so the selector in
+    the body is not what triggers the refusal: the family itself is not
+    enabled for this profile, the same way Reports and Labels are not.
+
+    The calls stay built from the contract and verified offline.
+
 .. autoclass:: ad_api.api.v1.Recommendations
     :members:
