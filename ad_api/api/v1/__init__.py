@@ -14,6 +14,7 @@ from .labels import Labels
 from .manager_accounts import ManagerAccounts
 from .recommendations import Recommendations
 from .selling_accounts import SellingAccounts
+from .label_object_associations import LabelObjectAssociations
 
 __all__ = [
     "Campaigns",
@@ -32,4 +33,5 @@ __all__ = [
     "ManagerAccounts",
     "Recommendations",
     "SellingAccounts",
+    "LabelObjectAssociations",
 ]
