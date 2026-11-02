@@ -32,5 +32,15 @@ The package keeps the legacy manager account reader as
 ``ad_api.api.ManagerAccounts``, a different class in a different package;
 ``from ad_api.api import ManagerAccounts`` keeps resolving to that one.
 
+.. note::
+
+    The legacy reader is **not** deprecated and should not be: it exposes
+    ``managerAccountId``, which the v1 ``ManagerAccount`` schema does not carry,
+    plus ``associate`` and ``disassociate``, which have no v1 route. Create is
+    not interchangeable either: the legacy method takes ``managerAccountName``
+    and ``managerAccountType``, while the v1 body carries ``displayName``,
+    ``currencyCode``, ``timeZoneIana``, ``industryVertical``,
+    ``accountUsageType`` and ``businessDetails``.
+
 .. autoclass:: ad_api.api.v1.ManagerAccounts
     :members:
