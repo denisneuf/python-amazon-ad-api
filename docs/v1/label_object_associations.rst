@@ -30,5 +30,16 @@ because associations grow with the number of tagged objects.
     Sponsored Ads seller profile answers 401, the same way it does on the DSP
     families.
 
+.. warning::
+
+    The route answers ``401 Unauthorized`` with ``Customer <account> is not
+    authorized to access account`` on a Sponsored Ads seller profile, for both
+    ``CAMPAIGN`` and ``AD_GROUP``. Its sibling ``Labels`` refuses the same way,
+    so the whole label family is not enabled for such a profile even though
+    ``campaign_view`` is declared as sufficient.
+
+    The call is built from the contract and verified offline; it has not been
+    exercised against the service from this account.
+
 .. autoclass:: ad_api.api.v1.LabelObjectAssociations
     :members:
