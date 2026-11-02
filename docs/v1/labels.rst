@@ -33,5 +33,17 @@ The remaining filters are all optional, and each takes its own list:
     on the DSP families, so only ``CAMPAIGN`` and ``AD_GROUP`` can be exercised
     here.
 
+.. warning::
+
+    The route answers ``401 Unauthorized`` with
+    ``Customer <account> is not authorized to access account`` on a Sponsored
+    Ads seller profile, even though ``campaign_view`` is declared as
+    sufficient. The sibling families that do answer with the same permission
+    (campaigns, ad groups, ads, targets) suggest the family itself is not
+    enabled for such a profile rather than the permission being missing.
+
+    The call is built from the contract and verified offline; it has not been
+    exercised against the service from this account.
+
 .. autoclass:: ad_api.api.v1.Labels
     :members:
