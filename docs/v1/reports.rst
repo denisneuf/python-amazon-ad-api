@@ -43,6 +43,17 @@ first entry loses data.
 
 .. warning::
 
+    This route answers ``401 Unauthorized`` with
+    ``Bulk account authorization denied: DENY`` for a Sponsored Ads seller
+    profile. Checked against the service: the body is validated first, so a
+    malformed request answers 400, and a valid one answers 401 for every
+    identifier carried in ``accessRequestedAccounts`` (``profileId``,
+    ``accountInfo.id`` and ``marketplaceStringId``). The calls are built from
+    the contract and verified offline; they have not been exercised against
+    the service from this account.
+
+.. warning::
+
     The field catalogue is **not** part of the contract. ``query.fields``
     accepts any string and the service decides which ones exist for each
     product, so a locally built list can only be checked against the service:
