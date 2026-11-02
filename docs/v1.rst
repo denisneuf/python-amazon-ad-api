@@ -47,3 +47,4 @@ The contracts behind each resource, as published by Amazon:
     v1/brand_store_pages
     v1/reports
     v1/labels
+    v1/manager_accounts

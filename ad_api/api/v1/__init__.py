@@ -11,6 +11,7 @@ from .brand_store_editions import BrandStoreEditions
 from .brand_store_pages import BrandStorePages
 from .reports import Reports
 from .labels import Labels
+from .manager_accounts import ManagerAccounts
 
 __all__ = [
     "Campaigns",
@@ -26,4 +27,5 @@ __all__ = [
     "BrandStorePages",
     "Reports",
     "Labels",
+    "ManagerAccounts",
 ]
