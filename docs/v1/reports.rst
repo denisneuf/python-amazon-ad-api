@@ -3,6 +3,9 @@ Reports
 
 Amazon Ads API v1 - unified Reports endpoints
 
+Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-reports
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLReportsContract_prod_3p.json
+
 Reports in v1 are asynchronous and take three routes instead of a CRUD set:
 
     POST /adsApi/v1/create/reports
@@ -47,9 +50,6 @@ first entry loses data.
     goes for the filter: ``field`` must match ``^[a-zA-Z0-9]+\.[a-zA-Z0-9]+$``,
     which means ``entity.field`` (``campaign.campaignStatus``), a shape the
     contract states but does not enumerate.
-
-Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-reports
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLReportsContract_prod_3p.json
 
 .. autoclass:: ad_api.api.v1.Reports
     :members:
