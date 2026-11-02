@@ -9,6 +9,7 @@ from .brand_store_edition_publish_versions import BrandStoreEditionPublishVersio
 from .brand_stores import BrandStores
 from .brand_store_editions import BrandStoreEditions
 from .brand_store_pages import BrandStorePages
+from .reports import Reports
 
 __all__ = [
     "Campaigns",
@@ -22,4 +23,5 @@ __all__ = [
     "BrandStores",
     "BrandStoreEditions",
     "BrandStorePages",
+    "Reports",
 ]
