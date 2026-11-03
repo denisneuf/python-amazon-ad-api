@@ -1,10 +1,12 @@
 Eligibility
 =================
+
+Check advertising eligibility of products.
+
+Previously, Amazon served the same specification from a different host:
 `https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json`_
 
 .. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json
-
-Check advertising eligibility of products.
 
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json
 Documentation: https://advertising.amazon.com/API/docs/en-us/eligibility-prod-3p

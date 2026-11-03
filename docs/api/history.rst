@@ -8,6 +8,7 @@ Provides information about changes made to campaigns, ad groups, ads and the
 rest of the entity tree.
 
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Changehistory_prod_3p.json
+Documentation: https://advertising.amazon.com/API/docs/en-us/change-history/
 
 .. autoclass:: ad_api.api.History
     :members:
