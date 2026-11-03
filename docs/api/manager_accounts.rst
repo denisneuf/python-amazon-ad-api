@@ -7,6 +7,7 @@ Manager Account
 
 A Manager Account lets you manage a group of Amazon Advertising accounts.
 
+Documentation: https://advertising.amazon.com/API/docs/en-us/reference/v0/managerAccount
 Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ManagerAccount_prod_3p.json
 
 .. autoclass:: ad_api.api.ManagerAccounts
