@@ -1,6 +1,7 @@
 Reports
 =======
 
+Documentation: https://advertising.amazon.com/API/docs/en-us/offline-report-prod-3p
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/OfflineReport_prod_3p.json
 
 .. autoclass:: ad_api.api.Reports
