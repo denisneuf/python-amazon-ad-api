@@ -8,6 +8,14 @@ Invoices
 Get invoice data by invoice ID
 
 Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json
+Documentation: https://advertising.amazon.com/API/docs/en-us/billing
+
+.. note::
+
+    Amazon documents these two routes inside the billing page,
+    /en-us/billing. The rest of that page is the :doc:`billing` family,
+    which lives in its own module here.
+
 
 .. autoclass:: ad_api.api.Invoices
     :members:

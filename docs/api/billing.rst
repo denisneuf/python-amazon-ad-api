@@ -8,6 +8,14 @@ Invoices, payments, the methods an account pays with, and the profiles that
 decide who gets charged.
 
 Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json
+Documentation: https://advertising.amazon.com/API/docs/en-us/billing
+
+.. note::
+
+    Amazon documents this family and the two invoice routes on the same
+    page, /en-us/billing. The invoice methods live in :doc:`invoices`
+    here, not in this module.
+
 
 .. autoclass:: ad_api.api.Billing
     :members:

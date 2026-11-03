@@ -13,6 +13,12 @@ Previously, Amazon served the same specification from a different host:
 
 .. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json
 
+
+.. warning::
+
+    Amazon Attribution is in **open beta**, limited to US, CA, UK, DE, FR,
+    IT and ES vendors and professional sellers enrolled in Brand Registry.
+    The endpoints are subject to change.
 **Amazon Attribution**
 
 Amazon Attribution is an advertising measurement product that enables advertisers to understand the impact that their non-Amazon ads (i.e. Google Ads, Facebook, Microsoft Ads) have in driving shopping activity on Amazon. Measuring ads using Amazon Attribution is done through implementing Attribution tags on non-Amazon ads. Amazon Attribution is currently available in beta for US, CA, UK, DE, FR, IT, and ES vendors and professional sellers enrolled in Brand Registry.
@@ -23,7 +29,8 @@ The Amazon Attribution API enables agencies and integrators to easily retrieve t
 
 Note that you must pass a header named Amazon-Advertising-Api-Scope with each call to an Amazon Attribution API URI, including GET /advertisers. The value for this header is the profileId available from the Profiles resource (/v2/profiles).
 
-Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json
+Documentation: https://advertising.amazon.com/API/docs/en-us/guides/amazon-attribution/overview
 
 .. autoclass:: ad_api.api.Attribution
     :members:
