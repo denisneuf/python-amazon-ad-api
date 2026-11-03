@@ -1,72 +1,100 @@
 from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
-import json
 import logging
 
 
 class Eligibility(Client):
-    r""" """
+    r"""Product and program eligibility for Amazon ads."""
 
     @sp_endpoint('/eligibility/product/list', method='POST')
     def get_eligibility(self, **kwargs) -> ApiResponse:
         r"""
-
         get_eligibility(body: (dict, str)) -> ApiResponse
 
-        Gets a list of advertising eligibility objects for a set of products. Requests are permitted only for products sold by the merchant associated with the profile. Note that the request object is a list of ASINs, but multiple SKUs are returned if there is more than one SKU associated with an ASIN. If a product is not eligible for advertising, the response includes an object describing the reasons for ineligibility.
+        Product eligibility for a set of ASINs. Only products sold by the
+        merchant behind the profile are accepted. The request carries ASINs,
+        but several SKUs may come back for one ASIN, and an ineligible
+        product comes back with the reasons rather than being left out.
 
         body: | REQUIRED
-
-            '**adType**': *string*, {'description': 'Set to 'sp' to check product eligibility for Sponsored Products advertisements. Set to 'sb' to check product eligibility for Sponsored Brands advertisements. default: sp. [ sp, sb ]'}
-
-            '**productDetailsList**': *dict*, {'asin*': 'An Amazon product identifier.', 'sku': 'A seller product identifier'}
-
-            '**locale**': *string*, {'description': 'Set to the locale string in the table below to specify the language in which the response is returned.'}
-
-        Returns:
-
-            ApiResponse
-
+            '**adType**': *string* [dsp, sb, sd, sp] default sp
+            '**productDetailsList**': list of {asin, sku}
+            '**locale**': *string*
         """
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/eligibility/product/list', method='POST')
-    def get_eligibility_assistant(self, asin_list: list, sku_list: list = None, ad_type: str = "sp", locale: str = "en-GB", **kwargs) -> ApiResponse:
+    def get_eligibility_assistant(self, asin_list: list, sku_list: list = None,
+                                  ad_type: str = 'sp', locale: str = 'en-GB',
+                                  **kwargs) -> ApiResponse:
         r"""
+        get_eligibility_assistant(asin_list, sku_list=None, ad_type='sp', locale='en-GB')
 
-        get_eligibility_assistant(asin_list: list, sku_list: list = None, ad_type: str = "sp", locale:str = "en-GB") -> ApiResponse
+        Builds the body for get_eligibility from plain lists.
 
-        Gets a list of advertising eligibility objects for a set of products. Requests are permitted only for products sold by the merchant associated with the profile. Note that the request object is a list of ASINs, but multiple SKUs are returned if there is more than one SKU associated with an ASIN. If a product is not eligible for advertising, the response includes an object describing the reasons for ineligibility.
-
-        | **asin_list**: 'A list of ASIN: An Amazon product identifier.'
-        | **sku_list**: 'A list of SKU: A seller product identifier'
-        | **adType**: *string*, {'description': 'Set to 'sp' to check product eligibility for Sponsored Products advertisements. Set to 'sb' to check product eligibility for Sponsored Brands advertisements. default: sp. [ sp, sb ]'}
-        | **locale**': *string*, {'description': 'Set to the locale string in the table below to specify the language in which the response is returned. default: en_GB'}
-
-        Returns:
-
-            ApiResponse
-
+        sku_list is optional. When given it must be a list of the same length
+        as asin_list, so each entry pairs by position; a mismatch raises here
+        rather than sending a body the service will refuse.
         """
 
-        asin_dict = []
+        if not asin_list:
+            raise ValueError('asin_list is empty; at least one ASIN is required')
 
-        required = {}
-        required.update({'adType': ad_type})
+        if sku_list is not None:
+            if not isinstance(sku_list, list):
+                raise TypeError(
+                    'sku_list must be a list or None, got %s' % type(sku_list).__name__
+                )
+            if len(sku_list) != len(asin_list):
+                raise ValueError(
+                    'asin_list and sku_list must have the same length: %d != %d'
+                    % (len(asin_list), len(sku_list))
+                )
 
-        if len(asin_list) > 0 and isinstance(sku_list, str) or sku_list is None:
-            for asin in asin_list:
-                asin_dict.append({'asin': asin})
+        details = []
 
-        if sku_list is not None and isinstance(sku_list, list):
-            if len(asin_list) == len(sku_list):
-                for i in range(len(asin_list)):
-                    asin_dict.append({'asin': asin_list[i], 'sku': sku_list[i]})
-            else:
-                logging.error("No coinciden las listas")
+        for index, asin in enumerate(asin_list):
+            entry = {'asin': asin}
+            if sku_list is not None:
+                entry['sku'] = sku_list[index]
+            details.append(entry)
 
-        required.update({'productDetailsList': asin_dict})
-        required.update({'locale': locale})
+        body = {'adType': ad_type, 'productDetailsList': details, 'locale': locale}
 
-        data_str = json.dumps(required)
-        return self._request(kwargs.pop('path'), data=data_str, params=kwargs)
+        logging.debug('get_eligibility_assistant body: %s', body)
+
+        return self.get_eligibility(body=body, **kwargs)
+
+    @sp_endpoint('/eligibility/programs', method='POST')
+    def get_program_eligibility(self, **kwargs) -> ApiResponse:
+        r"""
+        get_program_eligibility(body: dict) -> ApiResponse
+
+        Account level eligibility for the Amazon ad programs, not for a
+        product: Sponsored Products, Sponsored Brands, Sponsored Display,
+        Stores, DirectToConsumer, Amazon Attribution and the rest.
+
+        Two media types are declared:
+
+            application/json                      the default shape, with skipChecks
+            application/vnd.programeligibility.v2+json
+                                                  v2, with maxResults and nextToken
+
+        Pass media_type='v2' for the paginated one.
+        """
+
+        media_type = kwargs.pop('media_type', None)
+
+        if media_type == 'v2':
+            content_type = 'application/vnd.programeligibility.v2+json'
+        else:
+            content_type = 'application/json'
+
+        headers = {'Content-Type': content_type, 'Accept': 'application/json'}
+
+        return self._request(
+            kwargs.pop('path'),
+            data=Utils.convert_body(kwargs.pop('body'), wrap=False),
+            params=kwargs,
+            headers=headers,
+        )
