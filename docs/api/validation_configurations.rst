@@ -2,6 +2,7 @@ Validation Configuration
 ========================
 
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ValidationConfigurationsAPI_prod_3p.json
+Documentation: not indexed by Amazon; the vendor page has not been found yet.
 
 .. autoclass:: ad_api.api.ValidationConfigurations
     :members:
