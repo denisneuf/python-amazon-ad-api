@@ -7,6 +7,8 @@ Ad Groups
     closed. Amazon answers ``403 Endpoint has been deprecated`` and points to
     the v4 API. Use :doc:`ad_groups_v4` instead.
 
+Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi
+
 Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-brands/3-0/openapi.yaml
 
 .. autoclass:: ad_api.api.sb.AdGroups

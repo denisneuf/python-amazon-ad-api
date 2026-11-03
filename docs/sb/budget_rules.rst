@@ -9,6 +9,7 @@ campaigns, budget usage and budget recommendations.
     ``get_budget_rules_recommendation``, comes from 3.0 and is marked as such
     below.
 
+Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi/prod
 Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-brands/3-0/openapi.yaml
 
 .. autoclass:: ad_api.api.sb.BudgetRules

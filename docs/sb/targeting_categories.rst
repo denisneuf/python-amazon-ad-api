@@ -7,6 +7,7 @@ category, and the number of products inside one.
 All four routes are reads, and all four were probed against a live account. This is
 the only family in the package with no unverified route.
 
+Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi/prod
 Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-brands/3-0/openapi.yaml
 
 .. autoclass:: ad_api.api.sb.TargetingCategories
