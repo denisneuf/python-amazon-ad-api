@@ -8,6 +8,7 @@ The budget settings an account holds at account level, above any single
 campaign.
 
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Advertisers_prod_3p.json
+Documentation: https://advertising.amazon.com/API/docs/en-us/account-budgets/
 
 .. autoclass:: ad_api.api.AccountBudgets
     :members:
