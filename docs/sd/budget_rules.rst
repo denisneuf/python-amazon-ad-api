@@ -14,7 +14,7 @@ Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-dis
         :widths: 10, 35, 50
         :header: "Method", "Endpoint", "Description"
 
-        "GET", "/sd/campaigns/{campaignId}/budgetRules/budgetHistory", "Gets the budget history for a campaign specified by identifier."
+        "GET", "/sd/campaigns/{campaignId}/budgetRules/budgetHistory", "Gets the budget history for a campaign specified by identifier. Not in the 3.0 contract; answers 403 IncompleteSignatureException, so it expects an AWS SigV4 signature rather than the bearer token this client sends."
         "POST", "/sd/budgetRules", "Creates one or more budget rules."
         "GET", "/sd/budgetRules", "Get all budget rules created by an advertiser"
         "PUT", "/sd/budgetRules", "Updates one or more budget rules."

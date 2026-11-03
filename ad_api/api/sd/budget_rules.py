@@ -210,6 +210,12 @@ class BudgetRules(Client):
         r"""
         Gets the budget history for a campaign specified by identifier.
 
+        This route is not declared by the 3.0 contract this package tracks. A
+        probe against it answers 403 IncompleteSignatureException before the
+        service looks at the bearer token, so the route sits behind a gateway
+        that expects an AWS SigV4 signature. It exists, but this client cannot
+        call it as it stands.
+
         Param:
             | path **campaignId**\* (number). The campaign identifier.
             | query **nextToken** (string). To retrieve the next page of results, call the same operation and specify this token in the request. If the nextToken field is empty, there are no further results.
