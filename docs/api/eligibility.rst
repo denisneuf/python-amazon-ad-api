@@ -7,6 +7,7 @@ Eligibility
 Check advertising eligibility of products.
 
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json
+Documentation: https://advertising.amazon.com/API/docs/en-us/eligibility-prod-3p
 
 .. autoclass:: ad_api.api.Eligibility
     :members:

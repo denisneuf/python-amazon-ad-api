@@ -9,6 +9,7 @@ such as logos and images. Stored content can be used for Amazon Ads and on Amazo
 shopping pages, so a brand can carry the same material across its campaigns.
 
 Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/creative-asset-library/creative-asset-library-openapi.yaml
+Documentation: https://advertising.amazon.com/API/docs/en-us/creative-asset-library
 
 .. autoclass:: ad_api.api.CreativeAssets
     :members:

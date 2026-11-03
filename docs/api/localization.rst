@@ -8,6 +8,7 @@ Localization
 This API provides operations to localize data used when creating advertising campaigns. Depending on the type of data, localization may entail translating text, converting monetary amounts, or mapping an entity in a source marketplace to an analogous entity in one or more target marketplaces.
 
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Localization_prod_3p.json
+Documentation: https://advertising.amazon.com/API/docs/en-us/localization/
 
 .. autoclass:: ad_api.api.Localization
     :members:
