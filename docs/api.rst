@@ -15,7 +15,6 @@ Common Resources
     api/creative_assets
     api/localization
     api/audiences
-    api/portfolios
     api/portfoliosV3
     api/insights
     api/reports
