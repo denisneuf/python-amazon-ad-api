@@ -39,7 +39,8 @@ class PortfoliosV3(Client):
         if prefer:
             headers.update({"Prefer": prefer_value})
 
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+        body = kwargs.pop('body', {})
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(body if body is not None else {}, False), params=kwargs, headers=headers)
 
 
 
