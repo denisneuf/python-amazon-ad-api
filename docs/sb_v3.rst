@@ -4,8 +4,6 @@
 ..  toctree::
     :maxdepth: 1
 
-    sb/campaigns
-    sb/ad_groups
     sb/keywords
     sb/negative_keywords
     sb/product_targeting
