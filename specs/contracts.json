@@ -199,7 +199,7 @@
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/OfflineReport_prod_3p.json"
   },
   "Sponsored Brands campaign management": {
-    "file": "openapi.json",
+    "file": "sponsored-brands_4-0_openapi.json",
     "modules": [
       "sb/ad_creatives_v4.py",
       "sb/ad_groups_v4.py",
