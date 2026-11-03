@@ -7,6 +7,8 @@ Billing
 Invoices, payments, the methods an account pays with, and the profiles that
 decide who gets charged.
 
+Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json
+
 .. autoclass:: ad_api.api.Billing
     :members:
 

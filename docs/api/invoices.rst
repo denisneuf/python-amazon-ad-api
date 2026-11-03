@@ -7,6 +7,8 @@ Invoices
 
 Get invoice data by invoice ID
 
+Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json
+
 .. autoclass:: ad_api.api.Invoices
     :members:
 

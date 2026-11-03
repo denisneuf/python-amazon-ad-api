@@ -7,6 +7,8 @@ Insights
 
 Returns the audiences that overlap with the one given, ranked by affinity.
 
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json
+
 .. autoclass:: ad_api.api.Insights
     :members:
 

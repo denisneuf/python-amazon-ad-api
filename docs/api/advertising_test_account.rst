@@ -1,6 +1,8 @@
 Advertising Test Account
 ========================
 
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingTestAccount_prod_3p.json
+
 .. autoclass:: ad_api.api.AdvertisingTestAccount
     :members:
 

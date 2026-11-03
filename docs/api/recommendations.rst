@@ -4,6 +4,8 @@ Tactical recommendations
 Recommendations the service publishes for an account, and the routes to apply or
 edit one.
 
+Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Recommendations_prod_3p.json
+
 .. autoclass:: ad_api.api.Recommendations
     :members:
 

@@ -31,5 +31,7 @@ Endpoints available version 3.0
         "GET", "/sp/targets/categories", "Returns all targetable categories."
         "GET", "/sp/targets/category/{categoryId}/refinements", "Returns refinements according to category input."
 
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json
+
 .. autoclass:: ad_api.api.sp.TargetsV3
     :members:

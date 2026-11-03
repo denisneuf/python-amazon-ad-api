@@ -13,6 +13,8 @@ Previously, Amazon served the same specification from a different host:
 
 .. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json
 
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json
+
 .. autoclass:: ad_api.api.BrandMetrics
     :members:
 

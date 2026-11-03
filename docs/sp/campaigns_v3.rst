@@ -7,5 +7,7 @@ Campaigns
     favour of ``ad_api.api.v1.Campaigns``. Use the v1 endpoints
     (``/adsApi/v1/``) instead.
 
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json
+
 .. autoclass:: ad_api.api.sp.CampaignsV3
     :members:

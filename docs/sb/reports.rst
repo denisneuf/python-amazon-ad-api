@@ -13,6 +13,8 @@ Reports
     *"Could not find resource for full path"* proves a route is gone; a ``404``
     that names a missing identifier means the route is alive.
 
+Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-brands/3-0/openapi.yaml
+
 .. autoclass:: ad_api.api.sb.Reports
     :members:
 

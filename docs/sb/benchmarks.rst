@@ -8,6 +8,8 @@ Brand and category benchmark data.
     answer ``200`` with an empty collection on an account without data. Probed
     live, so they are kept.
 
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredBrandsCategoryBenchmark_prod_3p.json
+
 .. autoclass:: ad_api.api.sb.Benchmarks
     :members:
 

@@ -9,6 +9,8 @@ Sponsored Brands theme targets.
     the contract and the module docstrings; they are not probed, because they
     change campaign data.
 
+Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-brands/3-0/openapi.yaml
+
 .. autoclass:: ad_api.api.sb.Themes
     :members:
 

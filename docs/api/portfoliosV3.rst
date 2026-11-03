@@ -12,6 +12,8 @@ Manage portfolios that group together campaigns.
     This replaces :doc:`portfolios`. The version 2 routes answer
     ``404 Method Not Found`` and cannot be reached any more.
 
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json
+
 .. autoclass:: ad_api.api.PortfoliosV3
     :members:
 

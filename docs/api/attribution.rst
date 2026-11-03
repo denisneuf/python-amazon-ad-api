@@ -23,5 +23,7 @@ The Amazon Attribution API enables agencies and integrators to easily retrieve t
 
 Note that you must pass a header named Amazon-Advertising-Api-Scope with each call to an Amazon Attribution API URI, including GET /advertisers. The value for this header is the profileId available from the Profiles resource (/v2/profiles).
 
+Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json
+
 .. autoclass:: ad_api.api.Attribution
     :members:

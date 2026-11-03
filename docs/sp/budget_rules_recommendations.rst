@@ -9,6 +9,8 @@ Budget Rules Recommendations
 
     This API is version 3.0
 
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json
+
 .. autoclass:: ad_api.api.sp.BudgetRulesRecommendations
     :members:
 

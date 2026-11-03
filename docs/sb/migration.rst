@@ -3,6 +3,8 @@ Migration
 
 Sponsored Brands legacy campaign migration, from the 3.0 API to the 4.0 API.
 
+Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-brands/4-0/openapi.json
+
 .. autoclass:: ad_api.api.sb.Migration
     :members:
 

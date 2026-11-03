@@ -13,6 +13,8 @@ Advertisers who operate in more than one marketplace (for example, Amazon.com, A
 
 To retrieve your profile IDs, call the listProfiles operation, and include a valid authorization access token in the header. Use a profileId from the returned list as the value for the management scope (Amazon-Advertising-API-Scope) in the headers for subsequent API calls.
 
+Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml
+
 .. autoclass:: ad_api.api.Profiles
     :members:
 

@@ -11,6 +11,8 @@ Gets performance forecasts for new Sponsored Brands campaigns.
     correctly, with ``400`` and a business message. This client is built to the
     contract and will work unchanged once Amazon fixes the service.
 
+Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-brands/3-0/openapi.yaml
+
 .. autoclass:: ad_api.api.sb.Forecast
     :members:
 
