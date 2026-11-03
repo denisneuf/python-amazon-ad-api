@@ -1,0 +1,325 @@
+{
+  "Account budget settings": {
+    "file": "Advertisers_prod_3p.json",
+    "modules": [
+      "account_budgets.py"
+    ],
+    "sha256": "7194a02081fa185be4eec787b2f26a93d3fb0bd0b03b76a0eb18249955369358",
+    "size": 6476,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Advertisers_prod_3p.json"
+  },
+  "Advertising accounts": {
+    "file": "AdvertisingAccounts_prod_3p.json",
+    "modules": [
+      "account.py"
+    ],
+    "sha256": "882d9d709a45188fadc8282b86bc187ff9e6fc65968ca496175bd63e19ebf251",
+    "size": 20411,
+    "url": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingAccounts_prod_3p.json"
+  },
+  "Amazon Ads API v1": {
+    "file": "AmazonAdsAPIALLMerged_prod_3p.json",
+    "modules": [
+      "v1/ad_associations.py",
+      "v1/ad_extensions.py",
+      "v1/ad_groups.py",
+      "v1/ads.py",
+      "v1/advertiser_accounts.py",
+      "v1/brand_store_edition_publish_versions.py",
+      "v1/brand_store_editions.py",
+      "v1/brand_store_pages.py",
+      "v1/brand_stores.py",
+      "v1/campaigns.py",
+      "v1/geo_locations.py",
+      "v1/label_object_associations.py",
+      "v1/labels.py",
+      "v1/manager_accounts.py",
+      "v1/recommendation_types.py",
+      "v1/recommendations.py",
+      "v1/reports.py",
+      "v1/selling_accounts.py",
+      "v1/targets.py"
+    ],
+    "sha256": "4281a49473765039fec4af4f44d501e681c56959eac8e7dbd53d17d230e4ac1e",
+    "size": 1266251,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json"
+  },
+  "Amazon Attribution": {
+    "file": "AmazonAttribution_prod_3p.json",
+    "modules": [
+      "attribution.py"
+    ],
+    "sha256": "52623b02526a3cd5414422f9d1236a858cad2821475cbfa3a5dee58dfff79afd",
+    "size": 24616,
+    "url": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json"
+  },
+  "Amazon Marketing Stream": {
+    "file": "AmazonMarketingStream_prod_3p.json",
+    "modules": [
+      "stream.py"
+    ],
+    "sha256": "a7d5a5912efca84ab25d65991cb98161052e64e22a14101346b95dd6c03b83e0",
+    "size": 33496,
+    "url": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonMarketingStream_prod_3p.json"
+  },
+  "Asset library": {
+    "file": "creative-asset-library-openapi.yaml",
+    "modules": [
+      "creative_assets.py"
+    ],
+    "sha256": "fd71719107615a3178f6f77bf0f94665d6e647e024efac4991ac8d2ec173a520",
+    "size": 62814,
+    "url": "https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/creative-asset-library/creative-asset-library-openapi.yaml"
+  },
+  "Audience insights": {
+    "file": "Insights_prod_3p.json",
+    "modules": [
+      "insights.py"
+    ],
+    "sha256": "0969cc926e38e5eb5492019738ad390a0d00d88e3f1dca33dd2adab2a8fb03d2",
+    "size": 6963,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json"
+  },
+  "Audiences discovery": {
+    "file": "Audiences_prod_3p.json",
+    "modules": [
+      "audiences.py"
+    ],
+    "sha256": "28d0e2d60639e05a79411fa3b48b19ce2164647dba06651d677832326623d2ea",
+    "size": 38878,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Audiences_prod_3p.json"
+  },
+  "Billing": {
+    "file": "AdvertisingBilling_prod_3p.json",
+    "modules": [
+      "billing.py",
+      "invoices.py"
+    ],
+    "sha256": "d0cd75f40fa7f753aff0ed45860c992ffb4125eaafe91b092aa1b3fe6cdb23fe",
+    "size": 143393,
+    "url": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json"
+  },
+  "Brand metrics": {
+    "file": "BrandMetrics_prod_3p.json",
+    "modules": [
+      "brand_metrics.py"
+    ],
+    "sha256": "1640511c5316b082b2a14570b056b0ce55388028ac3a8a709e50acdb71ffb0eb",
+    "size": 42966,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json"
+  },
+  "Category benchmark": {
+    "file": "SponsoredBrandsCategoryBenchmark_prod_3p.json",
+    "modules": [
+      "sb/benchmarks.py"
+    ],
+    "sha256": "5ae111c5848afd8493bd3614b67d817d2039ee14ad2ccf91410684d71791f942",
+    "size": 17721,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredBrandsCategoryBenchmark_prod_3p.json"
+  },
+  "Change history": {
+    "file": "Changehistory_prod_3p.json",
+    "modules": [
+      "history.py"
+    ],
+    "sha256": "a4944c16e893322b3e560452c33c3033db2c2f872c68a64b405404683a2bbc57",
+    "size": 11378,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Changehistory_prod_3p.json"
+  },
+  "Exports API": {
+    "file": "AmazonAdsAPIExports_prod_3p.json",
+    "modules": [
+      "exports.py"
+    ],
+    "sha256": "943a2ce09e6de109eda3db98e714abd45f7816d27bfce0d5247b6ef8be29fa54",
+    "size": 12637,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIExports_prod_3p.json"
+  },
+  "Localization": {
+    "file": "Localization_prod_3p.json",
+    "modules": [
+      "localization.py"
+    ],
+    "sha256": "ddc62a8e5cb7475d57933d62206815ff874df9d5e2351de2cb66a4b15619eabf",
+    "size": 62907,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Localization_prod_3p.json"
+  },
+  "Manager accounts": {
+    "file": "ManagerAccount_prod_3p.json",
+    "modules": [
+      "manager_accounts.py"
+    ],
+    "sha256": "c98f88bbdb6dc0185c7aa0476063c82205e399bc55ce3a28e57e0fc20cc9df07",
+    "size": 15493,
+    "url": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ManagerAccount_prod_3p.json"
+  },
+  "Portfolios (version 3)": {
+    "file": "Portfolios_prod_3p.json",
+    "modules": [
+      "portfolios_v3.py"
+    ],
+    "sha256": "4ec356bffd6c2e7b1611c8c57869e8065d7982e301285e035e1a4a41edf201db",
+    "size": 35765,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json"
+  },
+  "Product eligibility": {
+    "file": "Eligibility_prod_3p.json",
+    "modules": [
+      "eligibility.py"
+    ],
+    "sha256": "3234a7469ede5422b93c85aca95cd2e16938226b46d7b83aa4ac5bcdbef34525",
+    "size": 18742,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json"
+  },
+  "Product metadata": {
+    "file": "ProductSelector_prod_3p.json",
+    "modules": [
+      "metadata.py"
+    ],
+    "sha256": "f57ee28943b52097697ab74959ce827dd07a224f81c3b61ba241154a720343ff",
+    "size": 9785,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json"
+  },
+  "Profiles": {
+    "file": "profiles_3-0_openapi.yaml",
+    "modules": [
+      "profiles.py"
+    ],
+    "sha256": "d07f0ccdfc93e2d94fc136a07cae8bbf280bcc6f6bc7433803caa32f37106793",
+    "size": 13174,
+    "url": "https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml"
+  },
+  "Reporting  (version 3)": {
+    "file": "OfflineReport_prod_3p.json",
+    "modules": [
+      "reports.py"
+    ],
+    "sha256": "b108698c0ef8fa135e42080b5f7ac05f4179ac95f221941e616707db9982050f",
+    "size": 92090,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/OfflineReport_prod_3p.json"
+  },
+  "Sponsored Brands campaign management": {
+    "file": "openapi.json",
+    "modules": [
+      "sb/ad_creatives_v4.py",
+      "sb/ad_groups_v4.py",
+      "sb/ads_v4.py",
+      "sb/budget_rules.py",
+      "sb/campaigns.py",
+      "sb/campaigns_v4.py",
+      "sb/forecast.py",
+      "sb/migration.py",
+      "sb/negative_product_targeting.py",
+      "sb/optimization_rules.py",
+      "sb/product_targeting.py",
+      "sb/recommendations.py",
+      "sb/targeting_categories.py"
+    ],
+    "sha256": "95e2f23f9836d92008235534c3eac04c0520ec952d692bc378908d85bc9d08d5",
+    "size": 594726,
+    "url": "https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-brands/4-0/openapi.json"
+  },
+  "Sponsored Brands campaign management (version 3)": {
+    "file": "sponsored-brands_3-0_openapi.yaml",
+    "modules": [
+      "sb/ad_groups.py",
+      "sb/campaigns.py",
+      "sb/keywords.py",
+      "sb/negative_keywords.py",
+      "sb/negative_product_targeting.py",
+      "sb/product_targeting.py",
+      "sb/reports.py",
+      "sb/stores.py",
+      "sb/targeting_categories.py",
+      "sb/recommendations.py"
+    ],
+    "sha256": "8282df29d39684631544b2e556844156cba6c8b5451a2cc1fcbd1b6dbd7a72d5",
+    "size": 274939,
+    "url": "https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-brands/3-0/openapi.yaml"
+  },
+  "Sponsored Display campaign management": {
+    "file": "sponsored-display_3-0_openapi.yaml",
+    "modules": [
+      "sd/campaigns.py",
+      "sd/ad_groups.py",
+      "sd/product_ads.py",
+      "sd/product_targeting.py",
+      "sd/negative_product_targeting.py",
+      "sd/creatives.py",
+      "sd/reports.py",
+      "sd/brand_safety.py",
+      "sd/budget_rules.py",
+      "sd/forecast.py",
+      "sd/recommendations.py",
+      "sd/targeting_recommendations.py",
+      "sd/campaign_budget_usage.py",
+      "sd/bid_recommendations.py"
+    ],
+    "sha256": "dac6fdb0299a4489bf536c80629f3d26a2a805bce2da0a7940d6b17edf07eedd",
+    "size": 422848,
+    "url": "https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-display/3-0/openapi.yaml"
+  },
+  "Sponsored Products campaign management": {
+    "file": "SponsoredProducts_prod_3p.json",
+    "modules": [
+      "sp/ad_groups_v3.py",
+      "sp/bid_recommendations_v3.py",
+      "sp/budget_recommendations.py",
+      "sp/budget_rules.py",
+      "sp/budget_rules_recommendations.py",
+      "sp/campaign_consolidated_recommendations.py",
+      "sp/campaign_negative_keywords_v3.py",
+      "sp/campaign_negative_targets.py",
+      "sp/campaigns_budget_usage.py",
+      "sp/campaigns_v3.py",
+      "sp/campaings_optimization.py",
+      "sp/keywords_v3.py",
+      "sp/negative_keywords_v3.py",
+      "sp/negative_product_targeting_v3.py",
+      "sp/product_ads_v3.py",
+      "sp/product_recommendations.py",
+      "sp/product_targeting_v3.py",
+      "sp/ranked_keywords_recommendations.py",
+      "sp/schedule_based_bid_optimization.py"
+    ],
+    "sha256": "9ce8a6b6bc8b33d34d04b7ee416fd78be787699e932075d101941176a215df2e",
+    "size": 652151,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json"
+  },
+  "Store insights": {
+    "file": "Stores_prod_3p.json",
+    "modules": [
+      "stores.py"
+    ],
+    "sha256": "8d2de968ab1db286eca4e87db7da5f71361faf2d77749372cc3352d024886d66",
+    "size": 39666,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Stores_prod_3p.json"
+  },
+  "Tactical recommendations": {
+    "file": "Recommendations_prod_3p.json",
+    "modules": [
+      "recommendations.py"
+    ],
+    "sha256": "a3062061c7530e22cb519a5a56f317b8926d152d7a0e86f24da00431e2d99da3",
+    "size": 55541,
+    "url": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Recommendations_prod_3p.json"
+  },
+  "Test accounts": {
+    "file": "AdvertisingTestAccount_prod_3p.json",
+    "modules": [
+      "advertising_test_account.py"
+    ],
+    "sha256": "56e86cda573f33765385b468aed624243a0bf593b8aa125d1dfa0ca10449f5e4",
+    "size": 5179,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingTestAccount_prod_3p.json"
+  },
+  "Validation configurations": {
+    "file": "ValidationConfigurationsAPI_prod_3p.json",
+    "modules": [
+      "validation_configurations.py"
+    ],
+    "sha256": "fec38640f4a6e8ff2558f4dc2da703b51679bec8d3c9afa083b4fd1e1870902a",
+    "size": 19611,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ValidationConfigurationsAPI_prod_3p.json"
+  }
+}
