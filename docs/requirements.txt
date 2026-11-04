@@ -12,7 +12,7 @@ six>=1.17.0,<1.18
 cachetools>=7.2.7,<7.3
 pycryptodome>=4.2.0,<4.3
 pytz>=2026.6,<2027.0
-confuse>=2.3.0,<2.4
+confuse>=2.3.1,<2.4
 python-dotenv
 pyyaml
 
