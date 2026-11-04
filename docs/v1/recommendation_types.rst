@@ -3,7 +3,7 @@ Recommendation Types
 
 Amazon Ads API v1 - recommendation types for Sponsored Brands
 
-Documentation: not indexed by Amazon; the vendor page has not been found yet.
+Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-recommendationtypes
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json
 
 One route, read only, and the product is in the path:

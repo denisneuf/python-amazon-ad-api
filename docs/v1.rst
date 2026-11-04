@@ -54,22 +54,22 @@ The contracts behind each resource, as published by Amazon:
       - `api-spec-v1-labels <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-labels>`_
       - `AmazonAdsAPIALLLabelsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLabelsContract_prod_3p.json>`_
     * - Manager Accounts
-      - -
+      - `api-spec-v1-manageraccounts <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-manageraccounts>`_
       - `AmazonAdsAPIALLManagerAccountsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLManagerAccountsContract_prod_3p.json>`_
     * - Recommendations
       - `api-spec-v1-recommendations <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-recommendations>`_
       - `AmazonAdsAPIALLRecommendationsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationsContract_prod_3p.json>`_
     * - Selling Accounts
-      - -
+      - `api-spec-v1-sellingaccounts <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-sellingaccounts>`_
       - `AmazonAdsAPIALLSellingAccountsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLSellingAccountsContract_prod_3p.json>`_
     * - Label Object Associations
-      - -
+      - `api-spec-v1-labelobjectassociations <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-labelobjectassociations>`_
       - `AmazonAdsAPIALLLabelObjectAssociationsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLabelObjectAssociationsContract_prod_3p.json>`_
     * - Geo Locations
       - `api-spec-v1-geo-locations <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-geo-locations>`_
       - `AmazonAdsAPIALLGeoLocationsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLGeoLocationsContract_prod_3p.json>`_
     * - Recommendation Types
-      - -
+      - `api-spec-v1-recommendationtypes <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-recommendationtypes>`_
       - `AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json>`_
 
 ..  toctree::
