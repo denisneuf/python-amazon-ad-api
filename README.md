@@ -291,7 +291,7 @@ The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call
 
 ### [Modules Available Sponsored Products](https://python-amazon-ad-api.readthedocs.io/en/latest/sp.html)
 
-Warning: the campaign, ad group and product ad operations are deprecated in favour of the v1 endpoints. In product targeting only the four CRUD operations are deprecated; its helper endpoints remain supported. Keywords, negative keywords and negative product targeting have no v1 equivalent yet and stay supported.
+> The campaign, ad group and product ad operations are deprecated in favour of the v1 endpoints. In product targeting only the four CRUD operations are deprecated; its helper endpoints remain supported. Keywords, negative keywords and negative product targeting have no v1 equivalent yet and stay supported.
 
 | Module | Vendor contract |
 |---|---|
@@ -399,7 +399,7 @@ next_token = result.payload.get("nextToken")
 
 ### Simple Example Usage Campaigns with Credentials (v3, legacy)
 
-Warning: this example uses `CampaignsV3.list_campaigns`, which is deprecated. See the v1 `query_campaigns` example above.
+> This example uses `CampaignsV3.list_campaigns`, which is deprecated. See the v1 `query_campaigns` example above.
 
 ```python
 import logging
