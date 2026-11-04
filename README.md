@@ -48,21 +48,20 @@ my_credentials = dict(
     profile_id='your-profile_id',
 )
 
-info = \
-    {
-        "adProductFilter":
-            {
-                "include": [
-                    "SPONSORED_PRODUCTS"
-                ]
-            },
-        "stateFilter":
-            {
-                "include": [
-                    "ENABLED"
-                ]
-            }
-    }
+info = {
+    "adProductFilter":
+        {
+            "include": [
+                "SPONSORED_PRODUCTS"
+            ]
+        },
+    "stateFilter":
+        {
+            "include": [
+                "ENABLED"
+            ]
+        }
+}
 
 result = ads_api_v1.Campaigns(credentials=my_credentials).query_campaigns(
     body=info
@@ -97,15 +96,14 @@ Python code
 ```python
 from ad_api.api import ads_api_v1
 
-info = \
-    {
-        "adProductFilter":
-            {
-                "include": [
-                    "SPONSORED_PRODUCTS"
-                ]
-            }
-    }
+info = {
+    "adProductFilter":
+        {
+            "include": [
+                "SPONSORED_PRODUCTS"
+            ]
+        }
+}
 
 # Leave empty will use the 'default' account
 result=ads_api_v1.Campaigns().query_campaigns(body=info)
@@ -133,8 +131,7 @@ Marketplaces are used to define basically the [API endpoints](https://advertisin
 from ad_api.api import ads_api_v1
 from ad_api.base import Marketplaces
 
-info = \\
-    {
+info = {
         "adProductFilter":
             {
                 "include": [
@@ -156,21 +153,20 @@ You can use a [try](https://docs.python.org/3.10/reference/compound_stmts.html#t
 from ad_api.api import ads_api_v1
 from ad_api.base import AdvertisingApiException
 
-info = \
-    {
-        "adProductFilter":
-            {
-                "include": [
-                    "SPONSORED_PRODUCTS"
-                ]
-            },
-        "stateFilter":
-            {
-                "include": [
-                    "ENABLED"
-                ]
-            }
-    }
+info = {
+    "adProductFilter":
+        {
+            "include": [
+                "SPONSORED_PRODUCTS"
+            ]
+        },
+    "stateFilter":
+        {
+            "include": [
+                "ENABLED"
+            ]
+        }
+}
 
 try:
 
@@ -193,21 +189,20 @@ from ad_api.api import ads_api_v1
 from ad_api.base import AdvertisingApiException
 
 
-info = \
-    {
-        "adProductFilter":
-            {
-                "include": [
-                    "SPONSORED_PRODUCTS"
-                ]
-            },
-        "stateFilter":
-            {
-                "include": [
-                    "ENABLED"
-                ]
-            }
-    }
+info = {
+    "adProductFilter":
+        {
+            "include": [
+                "SPONSORED_PRODUCTS"
+            ]
+        },
+    "stateFilter":
+        {
+            "include": [
+                "ENABLED"
+            ]
+        }
+}
 
 try:
 
