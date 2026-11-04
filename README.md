@@ -448,4 +448,4 @@ We are not affiliated with Amazon but they used our api :)
 
 
 ---
-*Last release: v0.9.7*
+*Last release: v1.5.11*
