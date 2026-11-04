@@ -3,7 +3,7 @@ Manager Accounts
 
 Amazon Ads API v1 - unified ManagerAccounts endpoints
 
-Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-manager-accounts
+Documentation: not indexed by Amazon; the vendor page has not been found yet.
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLManagerAccountsContract_prod_3p.json
 
 Three routes, no delete in the contract:

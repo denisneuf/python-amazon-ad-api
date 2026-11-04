@@ -3,7 +3,7 @@ Label Object Associations
 
 Amazon Ads API v1 - label to object associations
 
-Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-label-object-associations
+Documentation: not indexed by Amazon; the vendor page has not been found yet.
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLabelObjectAssociationsContract_prod_3p.json
 
 One route, read only:
