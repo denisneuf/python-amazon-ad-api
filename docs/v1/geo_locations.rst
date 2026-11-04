@@ -3,7 +3,7 @@ Geo Locations
 
 Amazon Ads API v1 - geographic locations for targeting
 
-Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-geo-locations
+Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-geolocations
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLGeoLocationsContract_prod_3p.json
 
 One route, and it only creates:
