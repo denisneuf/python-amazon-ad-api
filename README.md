@@ -130,11 +130,21 @@ back to `%HOME%\AppData\Roaming` if undefined
 Marketplaces are used to define basically the [API endpoints](https://advertising.amazon.com/API/docs/en-us/info/api-overview#api-endpoints) Amazon need to use depending on the regions, by default it will use EU so if you are using one of the marketplaces that are under the Europe (EU). Covers UK, FR, IT, ES, DE, NL, AE, SE, PL, and TR marketplaces you can skip. If you are using either North America (NA) or Far East (FE), you will need import from base and pass the marketplace as follows:
 
 ```python
-from ad_api.api import sponsored_products
+from ad_api.api import ads_api_v1
 from ad_api.base import Marketplaces
 
+info = \\
+    {
+        "adProductFilter":
+            {
+                "include": [
+                    "SPONSORED_PRODUCTS"
+                ]
+            }
+    }
+
 # You can pass NA or US, CA, MX or BR for North America and JP, AU or SG for Far East
-result=sponsored_products.CampaignsV3(marketplace=Marketplaces.NA).list_campaigns()
+result=ads_api_v1.Campaigns(marketplace=Marketplaces.NA).query_campaigns(body=info)
 
 ```
 
@@ -143,11 +153,17 @@ result=sponsored_products.CampaignsV3(marketplace=Marketplaces.NA).list_campaign
 You can use a [try](https://docs.python.org/3.10/reference/compound_stmts.html#try) except statement when you call the API and catch exceptions if some problem ocurred:
 
 ```python
-from ad_api.api import sponsored_products
+from ad_api.api import ads_api_v1
 from ad_api.base import AdvertisingApiException
 
 info = \
     {
+        "adProductFilter":
+            {
+                "include": [
+                    "SPONSORED_PRODUCTS"
+                ]
+            },
         "stateFilter":
             {
                 "include": [
@@ -158,7 +174,7 @@ info = \
 
 try:
 
-    result = sponsored_products.CampaignsV3().list_campaigns(
+    result = ads_api_v1.Campaigns().query_campaigns(
         body=info
     )
 
@@ -173,12 +189,18 @@ except AdvertisingApiException as error:
 Use debug=True if you want see some logs like the header you submit to the api endpoint, the method and path used among the params and the data submitted if any, to trace some possible errors.
 
 ```python
-from ad_api.api import sponsored_products
+from ad_api.api import ads_api_v1
 from ad_api.base import AdvertisingApiException
 
 
 info = \
     {
+        "adProductFilter":
+            {
+                "include": [
+                    "SPONSORED_PRODUCTS"
+                ]
+            },
         "stateFilter":
             {
                 "include": [
@@ -189,7 +211,7 @@ info = \
 
 try:
 
-    result = sponsored_products.CampaignsV3(debug=True).list_campaigns(
+    result = ads_api_v1.Campaigns(debug=True).query_campaigns(
         body=info
     )
 
