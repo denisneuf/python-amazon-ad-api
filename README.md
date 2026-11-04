@@ -217,52 +217,6 @@ except AdvertisingApiException as error:
 ```
 
 
-```python
-import logging
-from ad_api.api import Profiles
-from ad_api.base import AdvertisingApiException
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s:%(levelname)s:%(message)s"
-)
-
-
-def register_assistant(value: str):
-
-    logging.info("-------------------------------------")
-    logging.info("Profiles > register_assistant(%s)" % value)
-    logging.info("-------------------------------------")
-
-    try:
-
-        result = Profiles(debug=True).register_assistant(
-            country_code=value
-        )
-        logging.info(result)
-
-    except AdvertisingApiException as error:
-        logging.info(error)
-
-
-if __name__ == '__main__':
-
-    amz_country_code = "ES"
-    register_assistant(amz_country_code)
-```
-Or you could do with a curl command, note the ***{"countryCode":"ES"}*** that refers to the marketplace you will operate.
-
-```curl
-curl \
-    -X PUT \
-    -H "Content-Type:application/json" \
-    -H "Authorization: Bearer Your-Token \
-    -H "Amazon-Advertising-API-ClientId: your-client-id" \
-    --data '{"countryCode":"ES"}' \
-     https://advertising-api-test.amazon.com/v2/profiles/register
-
-```
-
 ### [Modules Available Common Resources](https://python-amazon-ad-api.readthedocs.io/en/latest/api.html)
 
 * [Profiles](https://python-amazon-ad-api.readthedocs.io/en/latest/api/profiles.html)
