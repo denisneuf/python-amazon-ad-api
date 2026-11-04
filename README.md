@@ -182,7 +182,7 @@ except AdvertisingApiException as error:
 
 ### Debug
 
-Use debug=True if you want see some logs like the header you submit to the api endpoint, the method and path used among the params and the data submitted if any, to trace some possible errors.
+Use debug=True if you want see some logs like the header you submit to the api endpoint, the method and path used among the params and the data submitted if any, to trace some possible errors. Note that the header includes the Authorization bearer token, so do not leave debug output in shared logs.
 
 ```python
 from ad_api.api import ads_api_v1
