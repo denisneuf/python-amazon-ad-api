@@ -9,6 +9,10 @@ class Exports(Client):
     A request answers 202 with an export id; the file is built afterwards, so the
     id is polled until its status reads COMPLETED and a download url appears.
 
+    The route picks the entity, not the body: /ads/export exports ads,
+    /campaigns/export exports campaigns, and so on. The body only narrows which
+    rows of that entity come back, by ad product and by state.
+
     The status moves through PROCESSING, COMPLETED and FAILED. Only COMPLETED
     carries a url, and that url expires at urlExpiresAt. On FAILED the answer
     carries an error object with the reason.
@@ -17,24 +21,27 @@ class Exports(Client):
     built from the entity and the version argument. The service routes on that
     type, so the wrong one answers 406.
     """
-
     @sp_endpoint('/ads/export', method='POST')
     def ads_export(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Requests an export of the ads.
 
         Keyword Args
-            | body **body** (string | dict): filters for the export.
-                | **adProductFilter** (array): the ad products to include.
-                | **stateFilter** (array): the states to include.
+            | body **body** (string | dict): filters. Every field is optional, and
+              omitting one leaves its default in place.
+                | **adProductFilter** (array): which ad products to include. One to
+                  three of SPONSORED_BRANDS, SPONSORED_DISPLAY, SPONSORED_PRODUCTS.
+                  Omitted, all three are included.
+                | **stateFilter** (array): which states to include. One to three of
+                  ARCHIVED, ENABLED, PAUSED. Omitted, only ENABLED and PAUSED come
+                  back, never ARCHIVED.
             | **version** (int): media type version. Defaults to 1.
 
         Returns:
             | ApiResponse, 202 with an export id
-
         """
-        content_type = 'application/vnd.adsexport.v'+ str(version) +'+json'
-        accept = 'application/vnd.adsexport.v'+ str(version) +'+json'
+        content_type = 'application/vnd.adsexport.v' + str(version) + '+json'
+        accept = 'application/vnd.adsexport.v' + str(version) + '+json'
         headers = {'Content-Type': content_type, 'Accept': accept}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
@@ -44,17 +51,21 @@ class Exports(Client):
         Requests an export of the campaigns.
 
         Keyword Args
-            | body **body** (string | dict): filters for the export.
-                | **adProductFilter** (array): the ad products to include.
-                | **stateFilter** (array): the states to include.
+            | body **body** (string | dict): filters. Every field is optional, and
+              omitting one leaves its default in place.
+                | **adProductFilter** (array): which ad products to include. One to
+                  three of SPONSORED_BRANDS, SPONSORED_DISPLAY, SPONSORED_PRODUCTS.
+                  Omitted, all three are included.
+                | **stateFilter** (array): which states to include. One to three of
+                  ARCHIVED, ENABLED, PAUSED. Omitted, only ENABLED and PAUSED come
+                  back, never ARCHIVED.
             | **version** (int): media type version. Defaults to 1.
 
         Returns:
             | ApiResponse, 202 with an export id
-
         """
-        content_type = 'application/vnd.campaignsexport.v'+ str(version) +'+json'
-        accept = 'application/vnd.campaignsexport.v'+ str(version) +'+json'
+        content_type = 'application/vnd.campaignsexport.v' + str(version) + '+json'
+        accept = 'application/vnd.campaignsexport.v' + str(version) + '+json'
         headers = {'Content-Type': content_type, 'Accept': accept}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
@@ -64,17 +75,21 @@ class Exports(Client):
         Requests an export of the ad groups.
 
         Keyword Args
-            | body **body** (string | dict): filters for the export.
-                | **adProductFilter** (array): the ad products to include.
-                | **stateFilter** (array): the states to include.
+            | body **body** (string | dict): filters. Every field is optional, and
+              omitting one leaves its default in place.
+                | **adProductFilter** (array): which ad products to include. One to
+                  three of SPONSORED_BRANDS, SPONSORED_DISPLAY, SPONSORED_PRODUCTS.
+                  Omitted, all three are included.
+                | **stateFilter** (array): which states to include. One to three of
+                  ARCHIVED, ENABLED, PAUSED. Omitted, only ENABLED and PAUSED come
+                  back, never ARCHIVED.
             | **version** (int): media type version. Defaults to 1.
 
         Returns:
             | ApiResponse, 202 with an export id
-
         """
-        content_type = 'application/vnd.adgroupsexport.v'+ str(version) +'+json'
-        accept = 'application/vnd.adgroupsexport.v'+ str(version) +'+json'
+        content_type = 'application/vnd.adgroupsexport.v' + str(version) + '+json'
+        accept = 'application/vnd.adgroupsexport.v' + str(version) + '+json'
         headers = {'Content-Type': content_type, 'Accept': accept}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
@@ -83,19 +98,28 @@ class Exports(Client):
         r"""
         Requests an export of the targets.
 
-        This one takes its own request schema, TargetsUniversalApiExportRequest,
-        which declares no fields of its own, so an empty body is accepted.
+        This route adds two filters of its own on top of the shared pair.
 
         Keyword Args
-            | body **body** (string | dict): filters for the export.
+            | body **body** (string | dict): filters. Every field is optional, and
+              omitting one leaves its default in place.
+                | **adProductFilter** (array): which ad products to include. One to
+                  three of SPONSORED_BRANDS, SPONSORED_DISPLAY, SPONSORED_PRODUCTS.
+                  Omitted, all three are included.
+                | **stateFilter** (array): which states to include. One to three of
+                  ARCHIVED, ENABLED, PAUSED. Omitted, only ENABLED and PAUSED come
+                  back, never ARCHIVED.
+                | **negativeFilter** (array): booleans choosing negative targets,
+                  positive targets, or both. Omitted, both come back.
+                | **targetLevelFilter** (array): AD_GROUP, CAMPAIGN, or both.
+                  Omitted, both levels come back.
             | **version** (int): media type version. Defaults to 1.
 
         Returns:
             | ApiResponse, 202 with an export id
-
         """
-        content_type = 'application/vnd.targetsexport.v'+ str(version) +'+json'
-        accept = 'application/vnd.targetsexport.v'+ str(version) +'+json'
+        content_type = 'application/vnd.targetsexport.v' + str(version) + '+json'
+        accept = 'application/vnd.targetsexport.v' + str(version) + '+json'
         headers = {'Content-Type': content_type, 'Accept': accept}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
@@ -108,7 +132,8 @@ class Exports(Client):
         and its expiry. A FAILED export carries an error object instead.
 
         Keyword Args
-            | path **exportId** (string): the id returned when the export was requested. [required]
+            | path **exportId** (string): the id returned when the export was
+              requested. [required]
             | **typeExport** (string): the entity the export covers, used to build
               the media type: ads, campaigns, adGroups or targets. [required]
             | **version** (int): media type version. Defaults to 1.
@@ -118,8 +143,7 @@ class Exports(Client):
                 | **exportId** (string), **status** (string)
                 | **url** (string), **urlExpiresAt** (string)
                 | **createdAt**, **generatedAt**, **fileSize**, **error**
-
         """
-        content_type = 'application/vnd.'+typeExport+'export.v' + str(version) + '+json'
+        content_type = 'application/vnd.' + typeExport + 'export.v' + str(version) + '+json'
         headers = {'Content-Type': content_type, 'Accept': content_type}
         return self._request(fill_query_params(kwargs.pop('path'), exportId), params=kwargs, headers=headers)
