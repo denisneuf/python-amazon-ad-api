@@ -219,147 +219,162 @@ except AdvertisingApiException as error:
 
 ### [Modules Available Common Resources](https://python-amazon-ad-api.readthedocs.io/en/latest/api.html)
 
-* [Profiles](https://python-amazon-ad-api.readthedocs.io/en/latest/api/profiles.html)
-* [Manager Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/api/manager_accounts.html)
-
-* [PortfoliosV3](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfoliosV3.html)
-* [Invoices](https://python-amazon-ad-api.readthedocs.io/en/latest/api/invoices.html)
-* [Billing](https://python-amazon-ad-api.readthedocs.io/en/latest/api/billing.html)
-* [Account Budgets](https://python-amazon-ad-api.readthedocs.io/en/latest/api/account_budgets.html)
-* [Audiences](https://python-amazon-ad-api.readthedocs.io/en/latest/api/audiences.html)
-* [Change History](https://python-amazon-ad-api.readthedocs.io/en/latest/api/history.html)
-* [Creative Assets](https://python-amazon-ad-api.readthedocs.io/en/latest/api/creative_assets.html)
-* [Elegibility](https://python-amazon-ad-api.readthedocs.io/en/latest/api/eligibility.html)
-* [Insights](https://python-amazon-ad-api.readthedocs.io/en/latest/api/insights.html)
-* [Localization](https://python-amazon-ad-api.readthedocs.io/en/latest/api/localization.html)
-* [Product Selector](https://python-amazon-ad-api.readthedocs.io/en/latest/api/metadata.html)
-* [Validation Configurations](https://python-amazon-ad-api.readthedocs.io/en/latest/api/validation_configurations.html)
-* [Tactical recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/api/recommendations.html)
-* [Exports](https://advertising.amazon.com/API/docs/en-us/exports)
-
+| Module | Vendor contract |
+|---|---|
+| [Profiles](https://python-amazon-ad-api.readthedocs.io/en/latest/api/profiles.html) | [contract](https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml) |
+| [Manager Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/api/manager_accounts.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ManagerAccount_prod_3p.json) |
+| [PortfoliosV3](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfoliosV3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json) |
+| [Invoices](https://python-amazon-ad-api.readthedocs.io/en/latest/api/invoices.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json) |
+| [Billing](https://python-amazon-ad-api.readthedocs.io/en/latest/api/billing.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json) |
+| [Account Budgets](https://python-amazon-ad-api.readthedocs.io/en/latest/api/account_budgets.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Advertisers_prod_3p.json) |
+| [Audiences](https://python-amazon-ad-api.readthedocs.io/en/latest/api/audiences.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Audiences_prod_3p.json) |
+| [Change History](https://python-amazon-ad-api.readthedocs.io/en/latest/api/history.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Changehistory_prod_3p.json) |
+| [Creative Assets](https://python-amazon-ad-api.readthedocs.io/en/latest/api/creative_assets.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/creative-asset-library-openapi.yaml) |
+| [Eligibility](https://python-amazon-ad-api.readthedocs.io/en/latest/api/eligibility.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json) |
+| [Insights](https://python-amazon-ad-api.readthedocs.io/en/latest/api/insights.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json) |
+| [Localization](https://python-amazon-ad-api.readthedocs.io/en/latest/api/localization.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Localization_prod_3p.json) |
+| [Product Selector](https://python-amazon-ad-api.readthedocs.io/en/latest/api/metadata.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json) |
+| [Validation Configurations](https://python-amazon-ad-api.readthedocs.io/en/latest/api/validation_configurations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ValidationConfigurationsAPI_prod_3p.json) |
+| [Tactical recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/api/recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Recommendations_prod_3p.json) |
+| [Exports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/exports.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIExports_prod_3p.json) |
 
 ### [Amazon Attribution open beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html)
-* [Advertisers](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_advertisers)
-* [Publishers](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_publishers)
-* [Macro tags](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_macro_tag)
-* [Non Macro tags](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_non_macro_template_tag)
-* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.post_report)
+
+| Operation | Vendor contract |
+|---|---|
+| [Advertisers](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_advertisers) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) |
+| [Publishers](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_publishers) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) |
+| [Macro tags](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_macro_tag) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) |
+| [Non Macro tags](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_non_macro_template_tag) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) |
+| [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.post_report) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) |
 
 ### [Brand Metrics open beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html)
-* [Post Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html#ad_api.api.BrandMetrics.BrandMetrics.post_report)
-* [Get Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html#ad_api.api.BrandMetrics.BrandMetrics.get_report)
-* [Download Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html#ad_api.api.BrandMetrics.BrandMetrics.download_report)
+
+| Operation | Vendor contract |
+|---|---|
+| [Post Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html#ad_api.api.BrandMetrics.BrandMetrics.post_report) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json) |
+| [Get Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html#ad_api.api.BrandMetrics.BrandMetrics.get_report) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json) |
+| [Download Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html#ad_api.api.BrandMetrics.BrandMetrics.download_report) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json) |
 
 ### [Advertising Test Account](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html)
-* [Create test account](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount)
-* [Get test account information](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount.AdvertisingTestAccount.get_test_account)
 
+| Operation | Vendor contract |
+|---|---|
+| [Create test account](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingTestAccount_prod_3p.json) |
+| [Get test account information](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount.AdvertisingTestAccount.get_test_account) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingTestAccount_prod_3p.json) |
 
 ### [Amazon Ads API v1 (new, unified)](https://python-amazon-ad-api.readthedocs.io/en/latest/v1.html)
 
 The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call targets the same resource and the product is selected in the request body with `adProductFilter`. It supersedes the per-product v2/v3 endpoints.
 
-* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/campaigns.html#ad_api.api.v1.Campaigns.Campaigns.query_campaigns)
-* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ad_groups.html#ad_api.api.v1.AdGroups.AdGroups.query_ad_groups)
-* [Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ads.html#ad_api.api.v1.Ads.Ads.query_ads)
-* [Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/targets.html#ad_api.api.v1.Targets.Targets.query_targets)
-* [Ad Extensions](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ad_extensions.html#ad_api.api.v1.AdExtensions.AdExtensions.query_ad_extensions)
-* [Advertiser Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/advertiser_accounts.html#ad_api.api.v1.AdvertiserAccounts.AdvertiserAccounts.query_advertiser_accounts)
-* [Ad Associations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ad_associations.html#ad_api.api.v1.AdAssociations.AdAssociations.query_ad_associations)
-* [Brand Store Edition Publish Versions](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/brand_store_edition_publish_versions.html#ad_api.api.v1.BrandStoreEditionPublishVersions.BrandStoreEditionPublishVersions.query_brand_store_edition_publish_versions)
-* [Brand Stores](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/brand_stores.html#ad_api.api.v1.BrandStores.BrandStores.query_brand_stores)
-* [Brand Store Editions](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/brand_store_editions.html#ad_api.api.v1.BrandStoreEditions.BrandStoreEditions.list_brand_store_editions)
-* [Brand Store Pages](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/brand_store_pages.html#ad_api.api.v1.BrandStorePages.BrandStorePages.query_brand_store_pages)
-* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/reports.html#ad_api.api.v1.Reports.Reports.create_report)
-* [Labels](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/labels.html#ad_api.api.v1.Labels.Labels.query_labels)
-* [Manager Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/manager_accounts.html#ad_api.api.v1.ManagerAccounts.ManagerAccounts.query_manager_accounts)
-* [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/recommendations.html#ad_api.api.v1.Recommendations.Recommendations.query_recommendations)
-* [Selling Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/selling_accounts.html#ad_api.api.v1.SellingAccounts.SellingAccounts.query_selling_accounts)
-* [Label Object Associations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/label_object_associations.html#ad_api.api.v1.LabelObjectAssociations.LabelObjectAssociations.query_label_object_associations)
-* [Geo Locations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/geo_locations.html#ad_api.api.v1.GeoLocations.GeoLocations.create_geo_locations)
-* [Recommendation Types](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/recommendation_types.html#ad_api.api.v1.RecommendationTypes.RecommendationTypes.query_sb_recommendation_types)
-
+| Module | Vendor contract |
+|---|---|
+| [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/campaigns.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ad_groups.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ads.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/targets.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Ad Extensions](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ad_extensions.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Advertiser Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/advertiser_accounts.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Ad Associations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/ad_associations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Brand Store Edition Publish Versions](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/brand_store_edition_publish_versions.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Brand Stores](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/brand_stores.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Brand Store Editions](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/brand_store_editions.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Brand Store Pages](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/brand_store_pages.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/reports.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Labels](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/labels.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Manager Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/manager_accounts.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Selling Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/selling_accounts.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Label Object Associations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/label_object_associations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Geo Locations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/geo_locations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
+| [Recommendation Types](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/recommendation_types.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) |
 
 ### [Modules Available Sponsored Products](https://python-amazon-ad-api.readthedocs.io/en/latest/sp.html)
 
 Warning: the campaign, ad group and product ad operations are deprecated in favour of the v1 endpoints. In product targeting only the four CRUD operations are deprecated; its helper endpoints remain supported. Keywords, negative keywords and negative product targeting have no v1 equivalent yet and stay supported.
 
-
-* [ThemeBased Bid Recommendation](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/bid_recommendations_v3.html)
-* [Keyword Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ranked_keywords_recommendations.html)
-* [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/keywords_v3.html)
-* [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_keywords_v3.html)
-* [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_targeting_v3.html)
-* [Campaign Optimization](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_optimization_rules.html)
-* [Budget Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_rules.html)
-* [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_ads_v3.html)
-* [Negative Targeting Clauses](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_product_targeting_v3.html)
-* [Campaign Negative Targeting Clauses](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_negative_targets.html)
-* [Budget recommendations and missed opportunities](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_recommendations.html)
-* [Budget Rules Recommendation](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_rules_recommendations.html)
-* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaignsv3.html)
-* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ad_groups_v3.html)
-* [Consolidated Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaigns_consolidated_recommendations.html)
-* [Campaign Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_negative_keywords_v3.html)
-* [Product Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_recommendations.html)
-* [Budget Usage](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_budget_usage.html)
-* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/reports.html)
-
+| Module | Vendor contract |
+|---|---|
+| [ThemeBased Bid Recommendation](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/bid_recommendations_v3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Keyword Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ranked_keywords_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/keywords_v3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_keywords_v3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_targeting_v3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Campaign Optimization](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_optimization_rules.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Budget Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_rules.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_ads_v3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Negative Targeting Clauses](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/negative_product_targeting_v3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Campaign Negative Targeting Clauses](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_negative_targets.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Budget recommendations and missed opportunities](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/product_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Budget Rules Recommendation](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_rules_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaignsv3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/ad_groups_v3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Consolidated Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaigns_consolidated_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Campaign Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_negative_keywords_v3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Product Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Budget Usage](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_budget_usage.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
+| [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/reports.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) |
 
 ### [Modules Available Sponsored Brands 3.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sb_v3.html)
 
 > Campaigns and Ad Groups are deprecated in v3: Amazon answers `403 Endpoint has been deprecated` and points to the v4 API. Use the 4.0 section below for those two.
 
-* [Campaigns (deprecated)](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/campaigns.html)
-* [Ad Groups (deprecated)](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups.html)
-* [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/keywords.html)
-* [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/negative_keywords.html)
-* [Keywords Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/keywords_recommendations.html)
-* [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/product_targeting.html)
-* [Negative Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/negative_product_targeting.html)
-* [Targeting Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/targeting_recommendations.html)
-* [Bid Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/bid_recommendations.html)
-* [Benchmarks](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/benchmarks.html)
-* [Stores](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/stores.html)
-* [Landing Page Asins](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/landing_page_asins.html)
-* [Media](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/media.html)
-* [Brands](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/brands.html)
-* [Themes](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/themes.html)
-* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/reports.html)
+| Module | Vendor contract |
+|---|---|
+| [Campaigns (deprecated)](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/campaigns.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Ad Groups (deprecated)](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/keywords.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/negative_keywords.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Keywords Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/keywords_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/product_targeting.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Negative Product Targeting](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/negative_product_targeting.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Targeting Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/targeting_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Bid Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/bid_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Benchmarks](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/benchmarks.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Stores](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/stores.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Landing Page Asins](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/landing_page_asins.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Media](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/media.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Brands](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/brands.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Themes](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/themes.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
+| [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/reports.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_3-0_openapi.yaml) |
 
 ### [Modules Available Sponsored Brands 4.0](https://python-amazon-ad-api.readthedocs.io/en/latest/sb_v4.html)
 
 > The 4.0 contract is fully covered: every operation is implemented except the campaign moderation route, which the service answers with a router `404`, and the report download, which resolves through the shared `_download` helper.
 
-* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/campaigns_v4.html)
-* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups_v4.html)
-* [Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ads_v4.html)
-* [Ad Creatives](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_creatives_v4.html)
-* [Forecast](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/forecast.html)
-* [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/recommendations.html)
-* [Budget Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/budget_rules.html)
-* [Optimization Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/optimization_rules.html)
-* [Targeting Categories](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/targeting_categories.html)
-* [Migration](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/migration.html)
+| Module | Vendor contract |
+|---|---|
+| [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/campaigns_v4.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_4-0_openapi.json) |
+| [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_groups_v4.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_4-0_openapi.json) |
+| [Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ads_v4.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_4-0_openapi.json) |
+| [Ad Creatives](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/ad_creatives_v4.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_4-0_openapi.json) |
+| [Forecast](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/forecast.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_4-0_openapi.json) |
+| [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_4-0_openapi.json) |
+| [Budget Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/budget_rules.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_4-0_openapi.json) |
+| [Optimization Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/optimization_rules.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_4-0_openapi.json) |
+| [Targeting Categories](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/targeting_categories.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_4-0_openapi.json) |
+| [Migration](https://python-amazon-ad-api.readthedocs.io/en/latest/sb/migration.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-brands_4-0_openapi.json) |
 
 > Most 4.0 routes take a versioned media type and the service routes on it. With `application/json` they answer `404 Could not find resource`, which reads like a missing route but is only the wrong media type. This affects forecasts, budget recommendations, optimization rules, migrations, insights, negative brand recommendations and the collection creatives.
 
 ### [Modules Available Sponsored Display](https://python-amazon-ad-api.readthedocs.io/en/latest/sd.html)
 
-* [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/campaigns.html)
-* [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/ad_groups.html)
-* [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/reports.html)
-* [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/product_ads.html)
-* [Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/product_targeting.html)
-* [Negative Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/negative_product_targeting.html)
-* [Targets Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/targeting_recommendations.html)
-* [Bid Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/bid_recommendations.html)
-* [Creatives](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/creatives.html)
-* [Brand Safety List](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/brand_safety.html)
-* [Budget Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/budget_rules.html)
-* [Campaigns Budget Usage](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/campaign_budget_usage.html)
-* [Forecasts](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/forecast.html)
-* [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/recommendations.html)
+| Module | Vendor contract |
+|---|---|
+| [Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/campaigns.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Ad Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/ad_groups.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/reports.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Product Ads](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/product_ads.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/product_targeting.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Negative Targets](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/negative_product_targeting.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Targets Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/targeting_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Bid Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/bid_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Creatives](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/creatives.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Brand Safety List](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/brand_safety.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Budget Rules](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/budget_rules.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Campaigns Budget Usage](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/campaign_budget_usage.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Forecasts](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/forecast.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
+| [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sd/recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/sponsored-display_3-0_openapi.yaml) |
 
 ### Amazon Ads API v1 - basic example
 
