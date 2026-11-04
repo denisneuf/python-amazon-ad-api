@@ -265,7 +265,7 @@ except AdvertisingApiException as error:
 
 ### [Amazon Ads API v1 (new, unified)](https://python-amazon-ad-api.readthedocs.io/en/latest/v1.html)
 
-The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call targets the same resource and the product is selected in the request body with `adProductFilter`. It supersedes the per-product v2/v3 endpoints.
+> The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call targets the same resource and the product is selected in the request body with `adProductFilter`. It supersedes the per-product v3 endpoints.
 
 | Module | Vendor contract |
 |---|---|
