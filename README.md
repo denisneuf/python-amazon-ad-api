@@ -38,7 +38,7 @@ You need obtain your own credentials with Amazon that may include an amazon deve
 You can use your credentials as follows passing it to the client as a dict. Please review the full [documentation](https://github.com/sponsors/denisneuf) to see all posibilities to include your credentials.
 
 ```javascript
-from ad_api.api import sponsored_products
+from ad_api.api import ads_api_v1
 
 
 my_credentials = dict(
@@ -50,6 +50,12 @@ my_credentials = dict(
 
 info = \
     {
+        "adProductFilter":
+            {
+                "include": [
+                    "SPONSORED_PRODUCTS"
+                ]
+            },
         "stateFilter":
             {
                 "include": [
@@ -58,7 +64,7 @@ info = \
             }
     }
 
-result = sponsored_products.CampaignsV3(credentials=my_credentials).list_campaigns(
+result = ads_api_v1.Campaigns(credentials=my_credentials).query_campaigns(
     body=info
 )
 
@@ -89,12 +95,22 @@ germany:
 Python code
 
 ```python
-from ad_api.api import sponsored_products
+from ad_api.api import ads_api_v1
+
+info = \
+    {
+        "adProductFilter":
+            {
+                "include": [
+                    "SPONSORED_PRODUCTS"
+                ]
+            }
+    }
 
 # Leave empty will use the 'default' account
-result=sponsored_products.CampaignsV3().list_campaigns()
+result=ads_api_v1.Campaigns().query_campaigns(body=info)
 # will use germany account data
-result=sponsored_products.CampaignsV3(account="germany").list_campaigns()
+result=ads_api_v1.Campaigns(account="germany").query_campaigns(body=info)
 ```
 
 
