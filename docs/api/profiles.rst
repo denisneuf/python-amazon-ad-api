@@ -2,6 +2,7 @@ Profiles
 ========
 
 `https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml`_
+Documentation: https://advertising.amazon.com/API/docs/en-us/reference/profiles
 
 .. _https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml
 
