@@ -363,6 +363,10 @@ Warning: the campaign, ad group and product ad operations are deprecated in favo
 
 ### Amazon Ads API v1 - basic example
 
+Both `v1` and `ads_api_v1` name the same namespace, so pick whichever reads
+clearer: `from ad_api.api import v1` is shorter, and `ads_api_v1` makes it
+obvious at the call site that the v1 API is being used.
+
 ```python
 from ad_api.api import v1
 
