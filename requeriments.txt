@@ -4,4 +4,4 @@ six>=1.16,<2
 cachetools~=7.2.8
 pycryptodome~=4.2
 pytz~=2026.6
-confuse~=2.3.0
+confuse~=2.3.1
