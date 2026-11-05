@@ -68,6 +68,9 @@ The contracts behind each resource, as published by Amazon:
     * - Geo Locations
       - `api-spec-v1-geolocations <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-geolocations>`_
       - `AmazonAdsAPIALLGeoLocationsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLGeoLocationsContract_prod_3p.json>`_
+    * - Location Indexes
+      - `api-spec-v1-locationindexes <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-locationindexes>`_
+      - `AmazonAdsAPIALLLocationIndexesContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLocationIndexesContract_prod_3p.json>`_
     * - Recommendation Types
       - `api-spec-v1-recommendationtypes <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-recommendationtypes>`_
       - `AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json>`_
@@ -94,4 +97,5 @@ The contracts behind each resource, as published by Amazon:
     v1/selling_accounts
     v1/label_object_associations
     v1/geo_locations
+    v1/location_indexes
     v1/recommendation_types

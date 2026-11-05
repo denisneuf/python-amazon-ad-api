@@ -16,6 +16,7 @@ from .recommendations import Recommendations
 from .selling_accounts import SellingAccounts
 from .label_object_associations import LabelObjectAssociations
 from .geo_locations import GeoLocations
+from .location_indexes import LocationIndexes
 from .recommendation_types import RecommendationTypes
 
 __all__ = [
@@ -37,5 +38,6 @@ __all__ = [
     "SellingAccounts",
     "LabelObjectAssociations",
     "GeoLocations",
+    "LocationIndexes",
     "RecommendationTypes",
 ]

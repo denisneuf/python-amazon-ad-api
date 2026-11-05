@@ -329,5 +329,14 @@
     "sha256": "fec38640f4a6e8ff2558f4dc2da703b51679bec8d3c9afa083b4fd1e1870902a",
     "size": 19611,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ValidationConfigurationsAPI_prod_3p.json"
+  },
+  "Location indexes": {
+    "file": "AmazonAdsAPIALLLocationIndexesContract_prod_3p.json",
+    "modules": [
+      "v1/location_indexes.py"
+    ],
+    "sha256": "8023eba63e116e3307ba95a3482245c661c9e0e2eaeee29af145fd15617ad24c",
+    "size": 27287,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLocationIndexesContract_prod_3p.json"
   }
 }
