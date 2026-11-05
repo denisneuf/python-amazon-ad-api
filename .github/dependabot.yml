@@ -15,3 +15,10 @@ updates:
     commit-message:
       prefix: "DEP"
       include: "scope"
+    ignore:
+      # pyproject.toml asks for setuptools>=61.0 as a build requirement, and
+      # dependabot reads that as a floor to raise to the latest release. The
+      # build works on 61, so a jump to 84 only narrows who can build it; the
+      # floor is raised by hand when something actually needs a newer one.
+      - dependency-name: "setuptools"
+        update-types: ["version-update:semver-major"]
