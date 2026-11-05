@@ -16,6 +16,7 @@ setup(
         'ad_api.api',
         'ad_api.auth',
         'ad_api.base',
+        'ad_api.shared',
         'ad_api.api.sp',
         'ad_api.api.sb',
         'ad_api.api.sd',

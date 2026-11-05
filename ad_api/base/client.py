@@ -5,7 +5,7 @@ from cachetools import TTLCache
 from requests import request
 from ad_api.auth import AccessTokenClient, AccessTokenResponse
 from .api_response import ApiResponse
-from .base_client import BaseClient
+from ad_api.shared.base_client import BaseClient
 from .exceptions import get_exception_for_code, get_exception_for_content
 from .marketplaces import Marketplaces
 import os

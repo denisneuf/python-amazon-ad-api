@@ -1,4 +1,4 @@
-from .base_client import BaseClient
+from ad_api.shared.base_client import BaseClient
 from .client import Client
 from .helpers import fill_query_params, sp_endpoint
 from .marketplaces import Marketplaces, MarketplacesIds, Currencies, CurrencySymbols, Locales
@@ -11,7 +11,6 @@ from .api_response import ApiResponse
 from .utils import Utils
 
 __all__ = [
-    'AccessTokenClient',
     'ApiResponse',
     'Client',
     'BaseClient',

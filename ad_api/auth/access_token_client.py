@@ -2,7 +2,7 @@ import requests
 import hashlib
 import logging
 from cachetools import TTLCache
-from ad_api.base import BaseClient
+from ad_api.shared.base_client import BaseClient
 
 from .credentials import Credentials
 from .access_token_response import AccessTokenResponse
