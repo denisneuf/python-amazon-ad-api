@@ -338,5 +338,176 @@
     "sha256": "8023eba63e116e3307ba95a3482245c661c9e0e2eaeee29af145fd15617ad24c",
     "size": 27287,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLocationIndexesContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Campaigns": {
+    "file": "AmazonAdsAPIALLCampaignsContract_prod_3p.json",
+    "modules": [
+      "v1/campaigns.py"
+    ],
+    "sha256": "2ba6dd65509581406a679a05fe0f15745fb673470c5d18a2f2d155ce7753c2fb",
+    "size": 92138,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLCampaignsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Ad groups": {
+    "file": "AmazonAdsAPIALLAdGroupsContract_prod_3p.json",
+    "modules": [
+      "v1/ad_groups.py"
+    ],
+    "sha256": "609f6d6745f4d784e6dbac8c6be983310773537e4e6702ad1c695b2df517df11",
+    "size": 87515,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdGroupsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Ads": {
+    "file": "AmazonAdsAPIALLAdsContract_prod_3p.json",
+    "modules": [
+      "v1/ads.py"
+    ],
+    "sha256": "9238afaf50e17ee1f70fe932908512211f3944575a0a47eb115231b8e7c178d0",
+    "size": 32332,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Targets": {
+    "file": "AmazonAdsAPIALLTargetsContract_prod_3p.json",
+    "modules": [
+      "v1/targets.py"
+    ],
+    "sha256": "a094368e0dcb121225f77b69f1f80ae40ea78e0e12f85facbabbe6e716def8b9",
+    "size": 170350,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLTargetsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Ad extensions": {
+    "file": "AmazonAdsAPIALLAdExtensionsContract_prod_3p.json",
+    "modules": [
+      "v1/ad_extensions.py"
+    ],
+    "sha256": "da39e02a8ba1feddef4e15f633c212a0b321882c1e8bfe6a57f2863510efc679",
+    "size": 40447,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdExtensionsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Advertiser accounts": {
+    "file": "AmazonAdsAPIALLAdvertiserAccountsContract_prod_3p.json",
+    "modules": [
+      "v1/advertiser_accounts.py"
+    ],
+    "sha256": "2640d5100f0aae1c0fc66870831a75279b59f1239971aa0c415ce1533eeefedd",
+    "size": 35511,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdvertiserAccountsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Ad associations": {
+    "file": "AmazonAdsAPIALLAdAssociationsContract_prod_3p.json",
+    "modules": [
+      "v1/ad_associations.py"
+    ],
+    "sha256": "d528df8c7828e6fd7f557702d76626ef1028ae43efb029a5511fbe87ac3d136b",
+    "size": 26902,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdAssociationsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Brand store edition publish versions": {
+    "file": "AmazonAdsAPIALLBrandStoreEditionPublishVersionsContract_prod_3p.json",
+    "modules": [
+      "v1/brand_store_edition_publish_versions.py"
+    ],
+    "sha256": "063164dcbb116416b3fd9aab14ca5c0353bf15363dabe1990c09364f30821e75",
+    "size": 15301,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLBrandStoreEditionPublishVersionsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Brand stores": {
+    "file": "AmazonAdsAPIALLBrandStoresContract_prod_3p.json",
+    "modules": [
+      "v1/brand_stores.py"
+    ],
+    "sha256": "228ea63892fa5c8e6dfc253864c6f9664bb951bd7c25643f592747cf277976c9",
+    "size": 9402,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLBrandStoresContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Brand store editions": {
+    "file": "AmazonAdsAPIALLBrandStoreEditionsContract_prod_3p.json",
+    "modules": [
+      "v1/brand_store_editions.py"
+    ],
+    "sha256": "d2299ff259c0e1b8b8d767834777c8fcd33f9e8f49061e394f492c8904893fa6",
+    "size": 9032,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLBrandStoreEditionsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Brand store pages": {
+    "file": "AmazonAdsAPIALLBrandStorePagesContract_prod_3p.json",
+    "modules": [
+      "v1/brand_store_pages.py"
+    ],
+    "sha256": "59797edb152f25584de9d59d9f79254c3be996a0e73a55a199e242b23f47af24",
+    "size": 84217,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLBrandStorePagesContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Reports": {
+    "file": "AmazonAdsAPIALLReportsContract_prod_3p.json",
+    "modules": [
+      "v1/reports.py"
+    ],
+    "sha256": "e31ce6d53697bf20497e9a1068c8fa7594a9384957971d8ff0ab53c894ec918f",
+    "size": 23846,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLReportsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Labels": {
+    "file": "AmazonAdsAPIALLLabelsContract_prod_3p.json",
+    "modules": [
+      "v1/labels.py"
+    ],
+    "sha256": "10f253a63dce23c978ca060ec5429728590a20d7dacc47e43853159532e8eb2b",
+    "size": 10104,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLabelsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Manager accounts": {
+    "file": "AmazonAdsAPIALLManagerAccountsContract_prod_3p.json",
+    "modules": [
+      "v1/manager_accounts.py"
+    ],
+    "sha256": "e6b06bb32888cb3e0685a7659229e19691bdbae0422901ccf95e1dba43bbdd9d",
+    "size": 28506,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLManagerAccountsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Recommendations": {
+    "file": "AmazonAdsAPIALLRecommendationsContract_prod_3p.json",
+    "modules": [
+      "v1/recommendations.py"
+    ],
+    "sha256": "19c218848fb4232433c8cbb8d00470f47cd08c27d1ba5fcb729cd0d923a07545",
+    "size": 78214,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Selling accounts": {
+    "file": "AmazonAdsAPIALLSellingAccountsContract_prod_3p.json",
+    "modules": [
+      "v1/selling_accounts.py"
+    ],
+    "sha256": "9aeba7168170a67d12060b446180cb1fd04df9af1c4ed838e63af1a278e2b2f3",
+    "size": 13880,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLSellingAccountsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Label object associations": {
+    "file": "AmazonAdsAPIALLLabelObjectAssociationsContract_prod_3p.json",
+    "modules": [
+      "v1/label_object_associations.py"
+    ],
+    "sha256": "838e9186c99e4c7c308c86fc9b158235e925ff994142c8a879d767a588eccc17",
+    "size": 10682,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLabelObjectAssociationsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Geo locations": {
+    "file": "AmazonAdsAPIALLGeoLocationsContract_prod_3p.json",
+    "modules": [
+      "v1/geo_locations.py"
+    ],
+    "sha256": "550762db9efedb991823e7c65bae6cbbcc3cdc25f5e2c66ee2aa6f8f3defe33c",
+    "size": 15608,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLGeoLocationsContract_prod_3p.json"
+  },
+  "Amazon Ads API v1 - Recommendation types": {
+    "file": "AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json",
+    "modules": [
+      "v1/recommendation_types.py"
+    ],
+    "sha256": "8850a3cfc1cf92ff6d9acb191b8ea76473c9f9cc3f305a8611491f8fa77f08e8",
+    "size": 12383,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json"
   }
 }
