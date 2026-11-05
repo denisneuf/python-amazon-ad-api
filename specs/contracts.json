@@ -362,8 +362,8 @@
     "modules": [
       "v1/ads.py"
     ],
-    "sha256": "9238afaf50e17ee1f70fe932908512211f3944575a0a47eb115231b8e7c178d0",
-    "size": 32332,
+    "sha256": "d1164367744fdfb87bcb4b07b4356eefe740bf8808486cac38e232d275d72be1",
+    "size": 167185,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdsContract_prod_3p.json"
   },
   "Amazon Ads API v1 - Targets": {
