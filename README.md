@@ -286,7 +286,8 @@ except AdvertisingApiException as error:
 | [Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-recommendations) |
 | [Selling Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/selling_accounts.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-selling-accounts) |
 | [Label Object Associations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/label_object_associations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-label-object-associations) |
-| [Geo Locations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/geo_locations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-geo-locations) |
+| [Geo Locations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/geo_locations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLGeoLocationsContract_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-geolocations) |
+| [Location Indexes](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/location_indexes.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLocationIndexesContract_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-locationindexes) |
 | [Recommendation Types](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/recommendation_types.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-recommendation-types) |
 
 ### [Modules Available Sponsored Products](https://python-amazon-ad-api.readthedocs.io/en/latest/sp.html)
@@ -467,4 +468,4 @@ We are not affiliated with Amazon but they used our api :)
 
 
 ---
-*Last release: v1.5.11*
+*Last release: v1.6.0*
