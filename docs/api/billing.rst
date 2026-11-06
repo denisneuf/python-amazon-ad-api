@@ -253,7 +253,6 @@ Documentation: https://advertising.amazon.com/API/docs/en-us/billing
                 "startDate": "2026-09-01",
                 "endDate": "2026-10-31",
             },
-            "statusValueFilter": {"include": ["PAID_IN_FULL"]},
             "sort": {"attribute": "invoiceIssuedDate", "direction": "DESC"},
             "maxResults": 50,
         })
@@ -264,6 +263,14 @@ Documentation: https://advertising.amazon.com/API/docs/en-us/billing
                   row["status"]["code"],
                   row["amountDue"]["value"],
                   row["amountDue"]["currencyCode"])
+
+    The date range is what narrows this answer. ``statusValueFilter`` is not in
+    the body on purpose: the contract declares it, but the service rejects it
+    with ``400 ... [Invalid values(s) in the
+    statusValueFilter.queryTermMatchType]`` when the member is sent alone, and
+    both values the error accepts, ``EXACT_MATCH`` and ``BROAD_MATCH``, answer an
+    empty list. A bare ``status`` key is ignored instead of refused. Filter by
+    status in the caller after reading the answer.
 
     ### Example: what the account pays with
 
