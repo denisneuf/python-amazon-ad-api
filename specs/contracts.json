@@ -40,8 +40,8 @@
       "v1/selling_accounts.py",
       "v1/targets.py"
     ],
-    "sha256": "4281a49473765039fec4af4f44d501e681c56959eac8e7dbd53d17d230e4ac1e",
-    "size": 1266251,
+    "sha256": "bc7ad5c006f735040c615dd6222b3a0a544c10596f040a02bf57250f20ce5387",
+    "size": 1270185,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json"
   },
   "Amazon Attribution": {
