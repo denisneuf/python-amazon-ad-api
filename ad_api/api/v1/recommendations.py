@@ -37,7 +37,7 @@ class Recommendations(Client):
             | **recommendationTypeDetailsFilter** (dict) [optional]
             | **marketplacesFilter** (dict) [optional]
             | **languageFilter** (dict) [optional]
-            | **maxResults** (int) : 1..100, default 100
+            | **maxResults** (int) : 1..300, default 100
             | **nextToken** (string)
 
         Returns
