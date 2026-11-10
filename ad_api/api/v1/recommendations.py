@@ -31,7 +31,7 @@ class Recommendations(Client):
         Amazon Ads API v1 - Query Recommendations (operationId: QueryRecommendation)
 
         Request Body [Required]
-            | **accessRequestedAccounts** (list<QueryRecommendationRequestAccessRequestedAccountItem>) : [required] 1..2000
+            | **accessRequestedAccounts** (list<QueryRecommendationRequestAccessRequestedAccountItem>) : [required] 1..2000, each item is either {advertiserAccountId} or {managerAccountId}
             | **adProductFilter** (dict) [optional]
             | **recommendationTypeFilter** (dict) [optional]
             | **recommendationTypeDetailsFilter** (dict) [optional]
@@ -57,6 +57,15 @@ class Recommendations(Client):
         Amazon Ads API v1 - List Recommendations (operationId: ListRecommendation)
 
         A GET with query parameters, not a body.
+
+        Parameters
+            | **Amazon-Ads-AccountId** (string) : advertiser account, optional
+            | **Amazon-Ads-Manager-AccountId** (string) : manager account, optional
+            | **nextToken**, **maxResults** (1..300), **adProduct**, **marketplace**, **language**, **recommendationType**
+
+        The account travels in the headers, and since 2026-11-11 the contract
+        marks both of them optional: the list can be read for an advertiser
+        account or for a manager account.
 
         Returns
             | **recommendations** (list<Recommendation>) : 0..300
