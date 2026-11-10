@@ -40,7 +40,7 @@
       "v1/selling_accounts.py",
       "v1/targets.py"
     ],
-    "sha256": "bc7ad5c006f735040c615dd6222b3a0a544c10596f040a02bf57250f20ce5387",
+    "sha256": "b8f02a592926ec49d36e88d2c4fe02747be045c320f74d5d6f354a3d430f700e",
     "size": 1270185,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json"
   },
@@ -470,7 +470,7 @@
     "modules": [
       "v1/recommendations.py"
     ],
-    "sha256": "19c218848fb4232433c8cbb8d00470f47cd08c27d1ba5fcb729cd0d923a07545",
+    "sha256": "b9cfbd38d0f65518306cfef3b6560e52b8ff374f177e9933707bff1821bf72c3",
     "size": 78214,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationsContract_prod_3p.json"
   },
