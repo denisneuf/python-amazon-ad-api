@@ -40,8 +40,8 @@
       "v1/selling_accounts.py",
       "v1/targets.py"
     ],
-    "sha256": "b8f02a592926ec49d36e88d2c4fe02747be045c320f74d5d6f354a3d430f700e",
-    "size": 1270185,
+    "sha256": "0fff24a3f63c119b097700548ec68e023fc9f0276b2ca9525148efbee9d9b134",
+    "size": 1268208,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json"
   },
   "Amazon Attribution": {
@@ -470,8 +470,8 @@
     "modules": [
       "v1/recommendations.py"
     ],
-    "sha256": "b9cfbd38d0f65518306cfef3b6560e52b8ff374f177e9933707bff1821bf72c3",
-    "size": 78214,
+    "sha256": "138e39b995c412868c98a1a243c2d11384464e0b6e38e892a25738ded7b7e061",
+    "size": 78463,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationsContract_prod_3p.json"
   },
   "Amazon Ads API v1 - Selling accounts": {
@@ -497,8 +497,8 @@
     "modules": [
       "v1/geo_locations.py"
     ],
-    "sha256": "550762db9efedb991823e7c65bae6cbbcc3cdc25f5e2c66ee2aa6f8f3defe33c",
-    "size": 15608,
+    "sha256": "77bc632eef8fc791d73c3c4c47ae60865aa6772d999b3515b99eedb58463f3eb",
+    "size": 16278,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLGeoLocationsContract_prod_3p.json"
   },
   "Amazon Ads API v1 - Recommendation types": {
