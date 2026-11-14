@@ -76,7 +76,7 @@ The contracts behind each resource, as published by Amazon:
       - `AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json>`_
     * - Portfolios
       - `api-spec-v1-portfolios <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-portfolios>`_
-      - `AmazonAdsAPIALLMerged_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json>`_
+      - `AmazonAdsAPIALLPortfoliosContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLPortfoliosContract_prod_3p.json>`_
 
 ..  toctree::
     :caption: Table of Contents

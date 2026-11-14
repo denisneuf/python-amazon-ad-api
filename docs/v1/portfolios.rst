@@ -1,7 +1,7 @@
 Portfolios
 ==========
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLPortfoliosContract_prod_3p.json
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-portfolios
 
 A portfolio groups campaigns under one name, one budget and one set of
