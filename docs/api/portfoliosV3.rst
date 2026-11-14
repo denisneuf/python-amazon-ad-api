@@ -1,11 +1,24 @@
-PortfoliosV3
-============
-
-`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json`_
+PortfoliosV3 (deprecated)
+=========================
 
 .. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json
 
 Manage portfolios that group together campaigns.
+
+.. warning::
+
+    **Superseded by the v1 family.** Amazon moved portfolios into the unified
+    v1 generation, under ``/adsApi/v1/``: :doc:`v1/portfolios` documents
+    ``create/portfolios``, ``query/portfolios`` and ``update/portfolios``,
+    available as ``ad_api.api.v1.Portfolios``. That family brings two things
+    this one does not have: budget sharing between the campaigns of a
+    portfolio, and per marketplace overrides on a global portfolio.
+
+    This v3 module is deprecated. It still matches the contract it was built
+    on, but new code should target the v1 routes: they share the merged v1
+    contract with the campaign resources and are the ones being extended.
+
+`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json`_
 
 .. warning::
 

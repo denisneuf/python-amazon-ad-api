@@ -2,7 +2,17 @@ from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 
 
 class PortfoliosV3(Client):
-    """ """
+    r"""
+    Amazon Ads API v3 - portfolios, under /portfolios.
+
+    Deprecated: Amazon moved portfolios into the unified v1 generation.
+    Use ad_api.api.v1.Portfolios, on /adsApi/v1/create|query|update/portfolios,
+    which adds budget sharing between the campaigns of a portfolio and per
+    marketplace overrides on a global portfolio.
+
+    The routes here still match the contract they were built on; they are kept
+    for anyone pinning an older release.
+    """
 
     @sp_endpoint('/portfolios/list', method='POST')
     def list_portfolios(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
