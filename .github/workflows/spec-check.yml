@@ -2,8 +2,8 @@ name: Check Spec Updates
 
 on:
   schedule:
-    # Every day at 08:00 UTC
-    - cron: "0 8 * * *"
+    # Once a week, Monday at 08:00 UTC
+    - cron: "0 8 * * 1"
   workflow_dispatch:
 
 permissions:
