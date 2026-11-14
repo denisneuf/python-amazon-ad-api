@@ -34,7 +34,6 @@
       "v1/label_object_associations.py",
       "v1/labels.py",
       "v1/manager_accounts.py",
-      "v1/portfolios.py",
       "v1/recommendation_types.py",
       "v1/recommendations.py",
       "v1/reports.py",
@@ -510,5 +509,14 @@
     "sha256": "8850a3cfc1cf92ff6d9acb191b8ea76473c9f9cc3f305a8611491f8fa77f08e8",
     "size": 12383,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json"
+  },
+  "Portfolios": {
+    "file": "AmazonAdsAPIALLPortfoliosContract_prod_3p.json",
+    "modules": [
+      "v1/portfolios.py"
+    ],
+    "sha256": "588a2d3765441cd4e42c7b4a8f35706f5d6571c4455b5ab2248ccf7985a7c73c",
+    "size": 45658,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLPortfoliosContract_prod_3p.json"
   }
 }
