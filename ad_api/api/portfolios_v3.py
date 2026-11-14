@@ -15,6 +15,7 @@ class PortfoliosV3(Client):
     """
 
     @sp_endpoint('/portfolios/list', method='POST')
+    @Utils.deprecated
     def list_portfolios(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         Lists portfolios. Replaces the retired ``GET /v2/portfolios``.
@@ -55,6 +56,7 @@ class PortfoliosV3(Client):
 
 
     @sp_endpoint('/portfolios', method='POST')
+    @Utils.deprecated
     def create_portfolios(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         Creates portfolios.
@@ -103,6 +105,7 @@ class PortfoliosV3(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/portfolios', method='PUT')
+    @Utils.deprecated
     def edit_portfolios(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
         Updates portfolios.
@@ -143,6 +146,7 @@ class PortfoliosV3(Client):
 
 
     @sp_endpoint('/portfolios/budget/usage', method='POST')
+    @Utils.deprecated
     def get_budget_usage_for_portfolios(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Reports how much of each portfolio budget has been spent.
