@@ -18,6 +18,7 @@ from .label_object_associations import LabelObjectAssociations
 from .geo_locations import GeoLocations
 from .location_indexes import LocationIndexes
 from .recommendation_types import RecommendationTypes
+from .portfolios import Portfolios
 
 __all__ = [
     "Campaigns",
@@ -40,4 +41,5 @@ __all__ = [
     "GeoLocations",
     "LocationIndexes",
     "RecommendationTypes",
+    "Portfolios",
 ]
