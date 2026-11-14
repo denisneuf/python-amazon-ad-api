@@ -289,6 +289,7 @@ except AdvertisingApiException as error:
 | [Geo Locations](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/geo_locations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLGeoLocationsContract_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-geolocations) |
 | [Location Indexes](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/location_indexes.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLocationIndexesContract_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-locationindexes) |
 | [Recommendation Types](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/recommendation_types.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-recommendation-types) |
+| [Portfolios](https://python-amazon-ad-api.readthedocs.io/en/latest/v1/portfolios.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/api-spec-v1-portfolios) |
 
 ### [Modules Available Sponsored Products](https://python-amazon-ad-api.readthedocs.io/en/latest/sp.html)
 
