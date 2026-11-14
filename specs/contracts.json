@@ -34,14 +34,15 @@
       "v1/label_object_associations.py",
       "v1/labels.py",
       "v1/manager_accounts.py",
+      "v1/portfolios.py",
       "v1/recommendation_types.py",
       "v1/recommendations.py",
       "v1/reports.py",
       "v1/selling_accounts.py",
       "v1/targets.py"
     ],
-    "sha256": "0fff24a3f63c119b097700548ec68e023fc9f0276b2ca9525148efbee9d9b134",
-    "size": 1268208,
+    "sha256": "0784fa531bb5916e637283afd8879c97e7ff4dea37a13b11801135fe6199bae8",
+    "size": 1294396,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json"
   },
   "Amazon Attribution": {
@@ -371,8 +372,8 @@
     "modules": [
       "v1/targets.py"
     ],
-    "sha256": "a094368e0dcb121225f77b69f1f80ae40ea78e0e12f85facbabbe6e716def8b9",
-    "size": 170350,
+    "sha256": "88fc584e528148905197cc656f2dcf1358ace551ec4d739093434644aa4fd93a",
+    "size": 170492,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLTargetsContract_prod_3p.json"
   },
   "Amazon Ads API v1 - Ad extensions": {
@@ -470,8 +471,8 @@
     "modules": [
       "v1/recommendations.py"
     ],
-    "sha256": "138e39b995c412868c98a1a243c2d11384464e0b6e38e892a25738ded7b7e061",
-    "size": 78463,
+    "sha256": "8bd7b5432ec999b475669743f7e107fb8f53463b2bb5163a1aef6a77e0d3fa2d",
+    "size": 89333,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationsContract_prod_3p.json"
   },
   "Amazon Ads API v1 - Selling accounts": {
