@@ -1,10 +1,14 @@
 Profiles
 ========
 
-`https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml`_
-Documentation: https://advertising.amazon.com/API/docs/en-us/reference/2/profiles
+.. list-table::
+    :header-rows: 0
+    :widths: 20 80
 
-.. _https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml
+    * - **Vendor docs**
+      - `api-spec-v2-profiles <https://advertising.amazon.com/API/docs/en-us/reference/2/profiles>`_
+    * - **Specification**
+      - `profiles/3-0/openapi.yaml <https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml>`_
 
 Profiles represent an advertiser and their account's marketplace, and are used in all subsequent API calls via a management scope, Amazon-Advertising-API-Scope. Reports and all entity management operations are associated with a single profile. Advertisers cannot have more than one profile for each marketplace.
 
@@ -13,8 +17,6 @@ Advertisers who operate in more than one marketplace (for example, Amazon.com, A
 .. _this link: https://advertising.amazon.com/API/docs/en-us/info/api-overview#api-endpoints
 
 To retrieve your profile IDs, call the listProfiles operation, and include a valid authorization access token in the header. Use a profileId from the returned list as the value for the management scope (Amazon-Advertising-API-Scope) in the headers for subsequent API calls.
-
-Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml
 
 .. autoclass:: ad_api.api.Profiles
     :members:
