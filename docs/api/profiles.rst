@@ -3,12 +3,12 @@ Profiles
 
 .. list-table::
     :header-rows: 0
-    :widths: 20 80
+    :widths: 18 82
 
     * - **Vendor docs**
-      - `api-spec-v2-profiles <https://advertising.amazon.com/API/docs/en-us/reference/2/profiles>`_
+      - https://advertising.amazon.com/API/docs/en-us/reference/2/profiles
     * - **Specification**
-      - `profiles/3-0/openapi.yaml <https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml>`_
+      - https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml
 
 Profiles represent an advertiser and their account's marketplace, and are used in all subsequent API calls via a management scope, Amazon-Advertising-API-Scope. Reports and all entity management operations are associated with a single profile. Advertisers cannot have more than one profile for each marketplace.
 
