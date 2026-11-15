@@ -217,6 +217,22 @@ except AdvertisingApiException as error:
 ```
 
 
+### Migrating from 1.x
+
+`ad_api.api.Invoices` no longer exists. Amazon serves `/invoices` and
+`/invoices/{invoiceId}` from the same contract as the rest of billing, so both
+methods moved to `Billing`:
+
+```python
+# before
+from ad_api.api import Invoices
+Invoices(account=store).list_invoices()
+
+# now
+from ad_api.api import Billing
+Billing(account=store).list_invoices()
+```
+
 ### [Modules Available Common Resources](https://python-amazon-ad-api.readthedocs.io/en/latest/api.html)
 
 | Module | Vendor contract | Vendor docs |
@@ -224,7 +240,6 @@ except AdvertisingApiException as error:
 | [Profiles](https://python-amazon-ad-api.readthedocs.io/en/latest/api/profiles.html) | [contract](https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml) | [docs](https://advertising.amazon.com/API/docs/en-us/reference/2/profiles) |
 | [Manager Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/api/manager_accounts.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ManagerAccount_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/reference/1-0/managerAccount) |
 | [PortfoliosV3](https://python-amazon-ad-api.readthedocs.io/en/latest/api/portfoliosV3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/reference/portfolios) |
-| [Invoices](https://python-amazon-ad-api.readthedocs.io/en/latest/api/invoices.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/billing) |
 | [Billing](https://python-amazon-ad-api.readthedocs.io/en/latest/api/billing.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/billing) |
 | [Account Budgets](https://python-amazon-ad-api.readthedocs.io/en/latest/api/account_budgets.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Advertisers_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/account-budgets/) |
 | [Audiences](https://python-amazon-ad-api.readthedocs.io/en/latest/api/audiences.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Audiences_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/audiences/) |

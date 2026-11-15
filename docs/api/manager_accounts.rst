@@ -1,17 +1,30 @@
 Manager Account
 ===============
 
-`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ManagerAccount_prod_3p.json`_
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
 
-.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ManagerAccount_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ManagerAccount_prod_3p.json
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/reference/1-0/managerAccount
+    * - **Specification**
+      - https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ManagerAccount_prod_3p.json
 
 A Manager Account lets you manage a group of Amazon Advertising accounts.
 
-Documentation: https://advertising.amazon.com/API/docs/en-us/reference/1-0/managerAccount
-Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ManagerAccount_prod_3p.json
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    manager_accounts/list_manager_accounts
+    manager_accounts/create_manager_account
+    manager_accounts/associate_manager_accounts
+    manager_accounts/disassociate_manager_accounts
 
 .. autoclass:: ad_api.api.ManagerAccounts
     :members:
+    :noindex:
 
     ### Example getting a list of manager accounts
 

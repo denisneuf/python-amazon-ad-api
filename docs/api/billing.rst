@@ -1,31 +1,45 @@
 Billing
 =======
-`https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json`_
 
-.. _https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/billing
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json
 
 Invoices, payments, the methods an account pays with, and the profiles that
 decide who gets charged.
 
-Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json
-Documentation: https://advertising.amazon.com/API/docs/en-us/billing
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
 
-.. note::
-
-    Amazon documents this family and the two invoice routes on the same
-    page, /en-us/billing. The invoice methods live in :doc:`invoices`
-    here, not in this module.
-
+    billing/list_billing_status
+    billing/list_billing_notifications
+    billing/get_customer_payment_methods
+    billing/pay_invoices
+    billing/get_payment_agreements
+    billing/create_payment_agreements
+    billing/invoice_summaries
+    billing/list_billing_profiles
+    billing/list_billing_profile_usages
+    billing/get_billing_document
+    billing/get_billing_profile_agreement_content
+    billing/get_billing_statement
+    billing/create_billing_statement
+    billing/apply_billing_profile
+    billing/create_billing_profiles
+    billing/update_billing_profiles
+    billing/create_payment_profiles
+    billing/list_invoices
+    billing/get_invoice
 
 .. autoclass:: ad_api.api.Billing
     :members:
-
-    .. note::
-
-        The contract is ``Advertising Billing`` version 3.0 and carries no beta
-        marker. Two invoice routes the contract lists, ``GET /invoices`` and
-        ``GET /invoices/{invoiceId}``, live in :class:`ad_api.api.Invoices`
-        rather than here, where their subject belongs.
+    :noindex:
 
     ### Endpoint map
 
@@ -116,7 +130,7 @@ Documentation: https://advertising.amazon.com/API/docs/en-us/billing
         :header-rows: 1
 
        * - 
-         - ``Invoices.list_invoices``
+         - ``Billing.list_invoices``
          - ``Billing.invoice_summaries``
        * - Dates as
          - ``"20260902"``
@@ -134,7 +148,7 @@ Documentation: https://advertising.amazon.com/API/docs/en-us/billing
          - ``count`` and ``cursor``
          - ``maxResults`` and ``nextToken``
 
-    Reading ``Invoices`` needs the extra layer: the invoices sit at
+    Reading ``list_invoices`` needs the extra layer: the invoices sit at
     ``payload["payload"]["invoiceSummaries"]``, and ``payload["invoiceSummaries"]``
     is ``None`` without complaint.
 

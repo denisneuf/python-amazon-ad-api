@@ -1,7 +1,6 @@
 from .account import Account
 from .profiles import Profiles
 from .manager_accounts import ManagerAccounts
-from .invoices import Invoices
 from .billing import Billing
 from .account_budgets import AccountBudgets
 from .eligibility import Eligibility
@@ -38,7 +37,6 @@ __all__ = [
     "sponsored_display",
     "Profiles",
     "ManagerAccounts",
-    "Invoices",
     "Billing",
     "AccountBudgets",
     "Eligibility",
