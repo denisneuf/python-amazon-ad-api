@@ -19,8 +19,68 @@ Advertisers who operate in more than one marketplace (for example, Amazon.com, A
 To retrieve your profile IDs, call the listProfiles operation, and include a valid authorization access token in the header. Use a profileId from the returned list as the value for the management scope (Amazon-Advertising-API-Scope) in the headers for subsequent API calls.
 
 .. autoclass:: ad_api.api.Profiles
-    :members:
 
+
+Methods
+=======
+
+Each method is documented on its own page section so it shows up in the sidebar.
+
+list_profiles
+-------------
+
+List every profile the access token can see.
+
+.. automethod:: ad_api.api.Profiles.list_profiles
+
+get_profile
+-----------
+
+Read one profile by id.
+
+.. automethod:: ad_api.api.Profiles.get_profile
+
+update_single_profile_assistant
+-------------------------------
+
+Set the daily budget of one profile.
+
+.. automethod:: ad_api.api.Profiles.update_single_profile_assistant
+
+update_profile
+--------------
+
+Update one or more profiles in a single call.
+
+.. automethod:: ad_api.api.Profiles.update_profile
+
+register
+--------
+
+Register a new profile.
+
+.. automethod:: ad_api.api.Profiles.register
+
+register_assistant
+------------------
+
+Register a profile for one country.
+
+.. automethod:: ad_api.api.Profiles.register_assistant
+
+register_brand
+--------------
+
+Register a brand profile.
+
+.. automethod:: ad_api.api.Profiles.register_brand
+
+register_brand_assistant
+------------------------
+
+Register a brand profile for one country.
+
+.. automethod:: ad_api.api.Profiles.register_brand_assistant
     ### Example getting a list of profiles
 
     .. code-block:: python
