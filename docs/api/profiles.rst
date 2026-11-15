@@ -18,10 +18,24 @@ Advertisers who operate in more than one marketplace (for example, Amazon.com, A
 
 To retrieve your profile IDs, call the listProfiles operation, and include a valid authorization access token in the header. Use a profileId from the returned list as the value for the management scope (Amazon-Advertising-API-Scope) in the headers for subsequent API calls.
 
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    profiles/list_profiles
+    profiles/get_profile
+    profiles/update_single_profile_assistant
+    profiles/update_profile
+    profiles/register
+    profiles/register_assistant
+    profiles/register_brand
+    profiles/register_brand_assistant
+
 .. autoclass:: ad_api.api.Profiles
     :members:
     :member-order: bysource
-
+    :noindex:
 
     ### Example getting a list of profiles
 
