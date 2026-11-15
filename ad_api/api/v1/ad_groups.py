@@ -42,7 +42,22 @@ class AdGroups(Client):
             | **nextToken** (string) [optional] Token to navigate to the next page
 
         Headers
-            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+            | **account_id** (string) -> Amazon-Ads-AccountId
+            | **manager_account_id** (string) -> Amazon-Ads-Manager-AccountId
+
+        Measured on 2026-11-15 against a global advertiser (eleven
+        marketplaces). The Scope header this client already sends filters the
+        results by marketplace, and neither of the two above improves on it:
+
+            no account header   200, same page as manager
+            manager_account_id  200, identical answer
+            account_id          400 "Multi marketplace query requests only
+                                support query by primary resource id"
+            both                400, the same as account_id alone
+
+        So on a global account pass manager_account_id or nothing: account_id
+        breaks the call. Adding campaignIdFilter does not fix it, the refusal
+        is about the header and not about the body.
 
         Returns
             ApiResponse
@@ -51,6 +66,16 @@ class AdGroups(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account headers, taken from kwargs and removed before the
+        # query is built: left in kwargs they would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        manager_account_id = kwargs.pop('manager_account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+        if manager_account_id:
+            headers["Amazon-Ads-Manager-AccountId"] = manager_account_id
+
         body = kwargs.pop('body', None)
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers,
                              **({'data': Utils.convert_body(body, False)} if body is not None else {}))

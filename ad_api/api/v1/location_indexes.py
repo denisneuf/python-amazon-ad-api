@@ -57,6 +57,18 @@ class LocationIndexes(Client):
         Keyword Args
             | **maxResults** (int): page size.
             | **nextToken** (string): the token from the previous page.
+            | **account_id** (string) -> Amazon-Ads-AccountId header.
+            | **manager_account_id** (string) -> Amazon-Ads-Manager-AccountId.
+
+        This family does not declare Amazon-Advertising-API-Scope in its
+        contract, and the Scope the client sends does not help: without one of
+        the two account headers the route answers 401, with or without Scope
+        (measured 2026-11-15). Either header alone unlocks it; both together
+        answer 400, the same Multi marketplace query refusal.
+
+        The call returns None when the request fails: an empty
+        locationIndexes list is a working call on an account with no indexes
+        created, which is not the same thing.
 
         Returns:
             | ApiResponse
@@ -65,6 +77,16 @@ class LocationIndexes(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account headers, taken from kwargs and removed before the
+        # query is built: left in kwargs they would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        manager_account_id = kwargs.pop('manager_account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+        if manager_account_id:
+            headers["Amazon-Ads-Manager-AccountId"] = manager_account_id
+
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
 
     @sp_endpoint('/adsApi/v1/retrieve/locationIndexes', method='POST')
