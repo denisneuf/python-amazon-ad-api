@@ -47,6 +47,24 @@ class Reports(Client):
         Keyword Args
             | path **reportId** (string): [required] The report identifier.
 
+        Throttling
+            Polling this route can answer 429. Amazon publishes no numeric rate
+            limit: the limit is dynamic and follows the overall system load, and
+            for the reporting API it follows the size of the per-region report
+            queue, so the same polling rate can pass at one hour and be rejected
+            at a regional peak.
+
+            A 429 carries a Retry-After header in seconds. When it is missing,
+            fall back to exponential backoff with a ceiling and some jitter
+            rather than a fixed delay.
+
+            A 425 on the create call is not throttling: "The Request is a
+            duplicate of : <reportId>" means the report already exists. Take
+            that id and poll it instead of creating another.
+
+        Source: rate limiting page of the Amazon Ads API documentation,
+        https://advertising.amazon.com/API/docs/en-us/reference/concepts/rate-limiting
+
         Returns:
             ApiResponse
         """

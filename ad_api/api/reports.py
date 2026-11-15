@@ -41,7 +41,31 @@ class Reports(Client):
     def get_report(self, reportId, **kwargs) -> ApiResponse:
         r"""
         Gets a generation status of a report by id. Uses the reportId value from the response of previously requested report via POST /reporting/reports operation. When status is set to COMPLETED, the report will be available to be downloaded at url.
-        Report generation can take as long as 3 hours. Repeated calls to check report status may generate a 429 response, indicating that your requests have been throttled. To retrieve reports programmatically, your application logic should institute a delay between requests.
+        Report generation can take as long as 3 hours.
+
+        Throttling
+            Repeated calls to check report status may generate a 429 response.
+            Amazon publishes no numeric rate limit: the API answers 429 with a
+            Retry-After header in seconds, and the limit itself is dynamic and
+            follows the overall system load. For the reporting API it follows the
+            size of the per-region report queue, so the same polling rate can
+            pass at one hour and be rejected at a regional peak.
+
+            When the Retry-After header is present, wait at least that many
+            seconds. When it is missing, fall back to exponential backoff with a
+            ceiling and some jitter rather than a fixed delay: Amazon recommends
+            exponential backoff on a run of 429s, with longer periods for report
+            generation because the dynamic limits move slowly.
+
+            A 425 is not throttling. Sending the same create request while the
+            first is still running answers 425 "The Request is a duplicate of :
+            <reportId>". Take the id out of the message and poll it; resending
+            keeps answering 425 even though the report already exists. This is
+            not part of Amazon's rate limiting documentation, it is what the API
+            returns in practice.
+
+        Source: rate limiting page of the Amazon Ads API documentation,
+        https://advertising.amazon.com/API/docs/en-us/reference/concepts/rate-limiting
 
         Keyword Args
             | path **reportId** (number): The report identifier. [required]
