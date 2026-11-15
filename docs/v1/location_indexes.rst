@@ -14,15 +14,50 @@ reads ``ENABLED`` once the service has processed the data; an update sends an
 existing index back to ``PENDING`` until the new values are read. A failure
 leaves ``FAILED``, or ``UPDATE_FAILED`` when the failure belongs to a rewrite.
 
+Account headers
+---------------
+
+This family does not declare ``Amazon-Advertising-API-Scope`` in its contract,
+and the Scope the client sends anyway does not help. Without one of the two
+account headers the route answers 401, with or without Scope.
+
+``list_location_indexes`` accepts two optional keyword arguments that become
+headers, not query parameters:
+
+.. list-table::
+    :header-rows: 1
+
+    * - Keyword argument
+      - Header sent
+      - Result
+    * - none
+      - -
+      - 401, not authorized to access account
+    * - ``account_id``
+      - ``Amazon-Ads-AccountId``
+      - 200
+    * - ``manager_account_id``
+      - ``Amazon-Ads-Manager-AccountId``
+      - 200
+    * - both
+      - both
+      - 400, multi marketplace query requests not supported
+
+Measured on 2026-11-15 with two accounts, one with a manager and one without.
+
 .. warning::
 
-    On a Sponsored Ads seller profile this family is not reachable. Probing both
-    reads answers ``401 Customer <id> is not authorized to access account``,
-    although the contract declares ``campaign_view`` as enough to list and
-    retrieve. The routes exist and the module matches the contract; the account
-    scope is what declines. Create and update were never sent, since they write
-    into the account.
+    An empty ``locationIndexes`` list is a working call on an account with no
+    indexes created. It is not the same as the ``None`` returned when the
+    request fails, which is what a 401 produces.
 
+.. warning::
+
+    This family used to answer ``401`` on a seller profile although the
+    contract declared ``campaign_view`` as enough. The cause was the missing
+    account header, not the permissions: with ``account_id`` or
+    ``manager_account_id`` the read answers 200. Create and update were never
+    sent, since they write into the account.
 .. autoclass:: ad_api.api.v1.LocationIndexes
     :members:
 
@@ -53,7 +88,15 @@ leaves ``FAILED``, or ``UPDATE_FAILED`` when the failure belongs to a rewrite.
 
         from ad_api.api.v1 import LocationIndexes
 
-        result = LocationIndexes(account=store).list_location_indexes()
+        from ad_api.api.v1 import LocationIndexes
 
-        for index in result.payload.get("locationIndexes", []):
-            print(index["indexId"], index["indexName"], index["status"])
+        api = LocationIndexes(account=store)
+
+        # Without an account header this route answers 401. Either one works.
+        result = api.list_location_indexes(
+            account_id="amzn1.ads-account.g.<id>",   # or manager_account_id=...
+        )
+
+        payload = result.payload or {}
+        for index in payload.get("locationIndexes", []):
+            print(index.get("indexId"), index.get("indexName"), index.get("status"))
