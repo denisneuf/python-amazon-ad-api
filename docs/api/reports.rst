@@ -4,6 +4,42 @@ Reports
 Documentation: https://advertising.amazon.com/API/docs/en-us/offline-report-prod-3p
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/OfflineReport_prod_3p.json
 
+Rate limits and polling
+-----------------------
+
+Amazon publishes no requests-per-second figure. Throttling is dynamic and
+follows the overall system load; for the reporting API it follows the size of
+the per-region report queue, so the same polling rate can pass at one hour and
+be rejected at a regional peak. The API returns no rate-limit headers, so
+there is no way to read the remaining budget either.
+
+A throttled call answers 429 with a ``Retry-After`` header in seconds. When the
+header is missing, fall back to exponential backoff with a ceiling and some
+jitter rather than a fixed delay: Amazon recommends exponential backoff on a
+run of 429s, with longer periods for report generation because the dynamic
+limits move slowly.
+
+A 425 on the create call is not throttling. ``The Request is a duplicate of :
+<reportId>`` means the report already exists: take that id and poll it instead
+of creating another. Resending keeps answering 425. This behaviour is not part
+of Amazon's rate limiting documentation; it is what the API returns in
+practice.
+
+Design rules, all of them from Amazon's page unless marked otherwise:
+
+* Distribute report generation through the day rather than in batches, and
+  request older periods in smaller increments.
+* Use exponential backoff on repeated 429s, longer for reports.
+* Do not call list extended data operations when the extended properties are
+  not needed, and avoid list operations across all entities.
+* Poll the report id instead of re-creating the report (community practice,
+  see the 425 note above).
+
+.. note::
+
+    Source: https://advertising.amazon.com/API/docs/en-us/reference/concepts/rate-limiting
+    That page is a JavaScript application that plain fetchers read as an empty
+    shell; the text above was taken from it with a renderer.
 .. autoclass:: ad_api.api.Reports
     :members:
 
