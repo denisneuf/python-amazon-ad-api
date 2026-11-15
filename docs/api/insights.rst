@@ -1,17 +1,20 @@
 Insights
 ========
 
-`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json`_
-
-.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json
 
 Returns the audiences that overlap with the one given, ranked by affinity.
 
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json
 Documentation: not indexed by Amazon; the vendor page has not been found yet.
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    insights/get_insights
+
 .. autoclass:: ad_api.api.Insights
-    :members:
+    :noindex:
 
     .. warning::
 

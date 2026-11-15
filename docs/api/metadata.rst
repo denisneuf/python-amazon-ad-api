@@ -1,16 +1,26 @@
 Product Selector
 =================
-`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json`_
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
 
-.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json
+    * - **Vendor docs**
+      - not indexed by Amazon; the vendor page has not been found yet.
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json
+
 
 The Amazon Product Selector API allows integrators to receive product metadata such as inventory status, price, eligibility status and product details for SKUS or ASINs in their Product Catalog in order to launch, manage or optimize Sponsored Product, Sponsored Brands or Sponsored Display advertising campaigns. The Product Selector API is available to Sellers, Vendors, and Authors.
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ProductSelector_prod_3p.json
-Documentation: not indexed by Amazon; the vendor page has not been found yet.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    metadata/get_products_metadata
 
 .. autoclass:: ad_api.api.Metadata
-    :members:
+    :noindex:
 
     ### Example getting the metadata of a search string
 

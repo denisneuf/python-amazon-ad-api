@@ -1,17 +1,28 @@
 Audiences
 =========
 
-`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Audiences_prod_3p.json`_.
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
 
-.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Audiences_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Audiences_prod_3p.json
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/audiences/
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Audiences_prod_3p.json
+
 
 Audience Discovery API
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Audiences_prod_3p.json
-Documentation: https://advertising.amazon.com/API/docs/en-us/audiences/
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    audiences/list_audiences_taxonomy
+    audiences/list_audiences
 
 .. autoclass:: ad_api.api.Audiences
-    :members:
+    :noindex:
 
     ### Example python
 

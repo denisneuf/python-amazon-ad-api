@@ -12,6 +12,7 @@ The rules that apply here are the same as in :doc:`../api/reports`: throttling
 is dynamic, a 429 carries ``Retry-After`` in seconds and sometimes omits it, and
 a 425 on the create call means the report already exists and should be polled
 rather than created again. See that page for the full note and the source.
+
 .. autoclass:: ad_api.api.sd.Reports
     :members:
 

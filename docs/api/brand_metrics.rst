@@ -1,23 +1,26 @@
 Brand Metrics API open beta
 ===========================
 
-Current contract:
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
 
-`https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json`_
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/guides/reporting/brand-metrics/overview
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json
 
-.. _https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json
 
-Previously, Amazon served the same specification from a different host:
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
 
-`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json`_
-
-.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json
-
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandMetrics_prod_3p.json
-Documentation: https://advertising.amazon.com/API/docs/en-us/guides/reporting/brand-metrics/overview
+    brand_metrics/post_report
+    brand_metrics/get_report
+    brand_metrics/download_report
 
 .. autoclass:: ad_api.api.BrandMetrics
-    :members:
+    :noindex:
 
     ### Example python
 

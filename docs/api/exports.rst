@@ -12,8 +12,18 @@ Each request names its own media type, ``application/vnd.<entity>export.v1+json`
 and the client sends that version in both the ``Content-Type`` and the ``Accept``
 header. The version argument defaults to 1.
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    exports/ads_export
+    exports/campaigns_export
+    exports/adgroups_export
+    exports/targets_export
+    exports/get_export
+
 .. autoclass:: ad_api.api.Exports
-    :members:
+    :noindex:
 
     ### Endpoint map
 

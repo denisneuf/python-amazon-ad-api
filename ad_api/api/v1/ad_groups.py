@@ -47,13 +47,11 @@ class AdGroups(Client):
 
         Measured on 2026-11-15 against a global advertiser (eleven
         marketplaces). The Scope header this client already sends filters the
-        results by marketplace, and neither of the two above improves on it:
-
-            no account header   200, same page as manager
-            manager_account_id  200, identical answer
-            account_id          400 "Multi marketplace query requests only
-                                support query by primary resource id"
-            both                400, the same as account_id alone
+        results by marketplace, and neither of the two above improves on it.
+        Sending no account header answers 200 with the same page as sending
+        manager_account_id, which is identical. Sending account_id answers 400
+        "Multi marketplace query requests only support query by primary resource
+        id", and sending both answers the same 400 as account_id alone.
 
         So on a global account pass manager_account_id or nothing: account_id
         breaks the call. Adding campaignIdFilter does not fix it, the refusal

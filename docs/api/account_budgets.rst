@@ -1,8 +1,6 @@
 Account Budgets
 ===============
-`https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Advertisers_prod_3p.json`_
 
-.. _https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Advertisers_prod_3p.json: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Advertisers_prod_3p.json
 
 The budget settings an account holds at account level, above any single
 campaign.
@@ -10,8 +8,15 @@ campaign.
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Advertisers_prod_3p.json
 Documentation: https://advertising.amazon.com/API/docs/en-us/account-budgets/
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    account_budgets/get_feature_flags
+    account_budgets/update_feature_flags
+
 .. autoclass:: ad_api.api.AccountBudgets
-    :members:
+    :noindex:
 
     .. note::
 

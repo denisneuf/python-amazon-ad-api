@@ -1,11 +1,25 @@
 Validation Configuration
 ========================
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ValidationConfigurationsAPI_prod_3p.json
-Documentation: not indexed by Amazon; the vendor page has not been found yet.
+
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - not indexed by Amazon; the vendor page has not been found yet.
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/ValidationConfigurationsAPI_prod_3p.json
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    validation_configurations/retrieve_validation_campaigns
+    validation_configurations/retrieve_validation_targeting_clauses
 
 .. autoclass:: ad_api.api.ValidationConfigurations
-    :members:
+    :noindex:
 
     ### Example python
 

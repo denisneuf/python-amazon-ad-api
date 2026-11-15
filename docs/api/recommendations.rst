@@ -7,8 +7,16 @@ edit one.
 Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Recommendations_prod_3p.json
 Documentation: not indexed by Amazon; the vendor page has not been found yet.
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    recommendations/list_recommendations
+    recommendations/apply_recommendations
+    recommendations/update_recommendation
+
 .. autoclass:: ad_api.api.Recommendations
-    :members:
+    :noindex:
 
     .. note::
 

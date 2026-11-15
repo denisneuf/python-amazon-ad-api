@@ -1,8 +1,24 @@
 Reports
 =======
 
-Documentation: https://advertising.amazon.com/API/docs/en-us/offline-report-prod-3p
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/OfflineReport_prod_3p.json
+
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/offline-report-prod-3p
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/OfflineReport_prod_3p.json
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    reports/post_report
+    reports/get_report
+    reports/download_report
+    reports/delete_report
 
 Rate limits and polling
 -----------------------
@@ -40,8 +56,9 @@ Design rules, all of them from Amazon's page unless marked otherwise:
     Source: https://advertising.amazon.com/API/docs/en-us/reference/concepts/rate-limiting
     That page is a JavaScript application that plain fetchers read as an empty
     shell; the text above was taken from it with a renderer.
+
 .. autoclass:: ad_api.api.Reports
-    :members:
+    :noindex:
 
     ### Example python
 

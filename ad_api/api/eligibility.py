@@ -74,13 +74,9 @@ class Eligibility(Client):
         product: Sponsored Products, Sponsored Brands, Sponsored Display,
         Stores, DirectToConsumer, Amazon Attribution and the rest.
 
-        Two media types are declared:
-
-            application/json                      the default shape, with skipChecks
-            application/vnd.programeligibility.v2+json
-                                                  v2, with maxResults and nextToken
-
-        Pass media_type='v2' for the paginated one.
+        Two media types are declared: application/json is the default shape, with
+        skipChecks, and application/vnd.programeligibility.v2+json is the v2 one,
+        with maxResults and nextToken. Pass media_type='v2' for the paginated one.
         """
 
         media_type = kwargs.pop('media_type', None)

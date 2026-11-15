@@ -1,18 +1,28 @@
 Eligibility
 =================
 
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/eligibility-prod-3p
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json
+
 Check advertising eligibility of products.
 
-Previously, Amazon served the same specification from a different host:
-`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json`_
 
-.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Eligibility_prod_3p.json
-Documentation: https://advertising.amazon.com/API/docs/en-us/eligibility-prod-3p
+    eligibility/get_eligibility
+    eligibility/get_eligibility_assistant
+    eligibility/get_program_eligibility
 
 .. autoclass:: ad_api.api.Eligibility
-    :members:
+    :noindex:
 
     ### Example getting the elegibility of asin and asin/sku
 

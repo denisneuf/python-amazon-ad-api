@@ -1,17 +1,14 @@
 Amazon Attribution API open beta
 ================================
 
-Current contract:
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
 
-`https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json`_
-
-.. _https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json
-
-Previously, Amazon served the same specification from a different host:
-
-`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json`_
-
-.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/amazon-attribution-prod-3p
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json
 
 
 .. warning::
@@ -29,8 +26,16 @@ The Amazon Attribution API enables agencies and integrators to easily retrieve t
 
 Note that you must pass a header named Amazon-Advertising-Api-Scope with each call to an Amazon Attribution API URI, including GET /advertisers. The value for this header is the profileId available from the Profiles resource (/v2/profiles).
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json
-Documentation: https://advertising.amazon.com/API/docs/en-us/amazon-attribution-prod-3p
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    attribution/get_advertisers
+    attribution/get_publishers
+    attribution/post_report
+    attribution/get_macro_tag
+    attribution/get_non_macro_template_tag
 
 .. autoclass:: ad_api.api.Attribution
-    :members:
+    :noindex:

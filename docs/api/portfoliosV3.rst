@@ -1,7 +1,6 @@
 PortfoliosV3 (deprecated)
 =========================
 
-.. _https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json
 
 Manage portfolios that group together campaigns.
 
@@ -18,7 +17,6 @@ Manage portfolios that group together campaigns.
     on, but new code should target the v1 routes: they share the merged v1
     contract with the campaign resources and are the ones being extended.
 
-`https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json`_
 
 .. warning::
 
@@ -28,8 +26,17 @@ Manage portfolios that group together campaigns.
 Documentation: https://advertising.amazon.com/API/docs/en-us/reference/portfolios
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    portfoliosV3/list_portfolios
+    portfoliosV3/create_portfolios
+    portfoliosV3/edit_portfolios
+    portfoliosV3/get_budget_usage_for_portfolios
+
 .. autoclass:: ad_api.api.PortfoliosV3
-    :members:
+    :noindex:
 
     .. note::
 
