@@ -2,6 +2,15 @@ PortfoliosV3 (deprecated)
 =========================
 
 
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/reference/portfolios
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json
+
 Manage portfolios that group together campaigns.
 
 .. warning::
@@ -23,8 +32,6 @@ Manage portfolios that group together campaigns.
     This replaces :doc:`portfolios`. The version 2 routes answer
     ``404 Method Not Found`` and cannot be reached any more.
 
-Documentation: https://advertising.amazon.com/API/docs/en-us/reference/portfolios
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json
 
 .. toctree::
     :maxdepth: 1

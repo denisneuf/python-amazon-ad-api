@@ -2,12 +2,19 @@ Creative Assets
 ===============
 
 
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/creative-asset-library
+    * - **Specification**
+      - https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/creative-asset-library/creative-asset-library-openapi.yaml
+
 Advertisers can use creative assets to store, organize and reuse brand content,
 such as logos and images. Stored content can be used for Amazon Ads and on Amazon
 shopping pages, so a brand can carry the same material across its campaigns.
 
-Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/creative-asset-library/creative-asset-library-openapi.yaml
-Documentation: https://advertising.amazon.com/API/docs/en-us/creative-asset-library
 
 .. toctree::
     :maxdepth: 1

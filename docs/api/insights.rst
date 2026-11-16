@@ -2,10 +2,17 @@ Insights
 ========
 
 
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - not indexed by Amazon; the vendor page has not been found yet.
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json
+
 Returns the audiences that overlap with the one given, ranked by affinity.
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json
-Documentation: not indexed by Amazon; the vendor page has not been found yet.
 
 .. toctree::
     :maxdepth: 1

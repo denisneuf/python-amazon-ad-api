@@ -1,11 +1,18 @@
 Tactical recommendations
 ========================
 
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - not indexed by Amazon; the vendor page has not been found yet.
+    * - **Specification**
+      - https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Recommendations_prod_3p.json
+
 Recommendations the service publishes for an account, and the routes to apply or
 edit one.
 
-Specification: https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Recommendations_prod_3p.json
-Documentation: not indexed by Amazon; the vendor page has not been found yet.
 
 .. toctree::
     :maxdepth: 1

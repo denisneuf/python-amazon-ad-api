@@ -1,8 +1,15 @@
 Exports
 =======
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIExports_prod_3p.json
-Documentation: not indexed by Amazon; the vendor page has not been found yet.
+
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - not indexed by Amazon; the vendor page has not been found yet.
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIExports_prod_3p.json
 
 The export resource takes a request for a snapshot of one entity type and answers
 an identifier. The file is built asynchronously, so the identifier is polled
