@@ -51,8 +51,8 @@ Create and manage Sponsored Products campaigns.
       - 4/4
       - --
     * - :doc:`Campaign Consolidated Recommendations <sp/campaigns_consolidated_recommendations>`
-      - 1/2
-      - ``POST /sp/campaign/recommendations``
+      - 2/2
+      - --
     * - Keyword Group Targeting Recommendations
       - 0/1
       - ``POST /sp/targeting/recommendations/keywordGroups``
