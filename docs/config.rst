@@ -52,9 +52,7 @@ You can use every account's name from the config file for account
 	Campaigns(account="another_account", marketplace=Marketplaces.ES).list_campaigns()
 
 
-**********
-References
-**********
+.. rubric:: References
 
 .. target-notes::
 
