@@ -57,14 +57,14 @@ Create and manage Sponsored Products campaigns.
       - 1/1
       - --
     * - :doc:`Get Ranked Keywords Recommendations <sp/ranked_keywords_recommendations>`
-      - 1/2
-      - ``POST /sp/global/targets/keywords/recommendations/list``
+      - 2/2
+      - --
     * - :doc:`Keywords <sp/keywords_v3>`
       - 4/4
       - --
-    * - Multi Country Theme-based bid recommendations
-      - 0/1
-      - ``POST /sp/global/targets/bid/recommendations``
+    * - :doc:`Multi Country Theme-based bid recommendations <sp/global_recommendations>`
+      - 1/1
+      - --
     * - :doc:`Negative Keywords <sp/negative_keywords_v3>`
       - 4/4
       - --
@@ -117,4 +117,5 @@ Create and manage Sponsored Products campaigns.
     sp/campaign_negative_keywords_v3
     sp/budget_initial_recommendation
     sp/keyword_groups_recommendations
+    sp/global_recommendations
     sp/target_promotion_groups

@@ -20,6 +20,7 @@ from .campaigns_budget_usage import CampaignsBudgetUsage
 from .schedule_based_bid_optimization import ScheduleBasedBidOptimizationRules
 from .target_promotion_groups import TargetPromotionGroups
 from .keyword_groups_recommendations import KeywordGroupsRecommendations
+from .global_recommendations import GlobalRecommendations
 
 __all__ = [
     "CampaignsV3",
@@ -44,4 +45,5 @@ __all__ = [
     "ScheduleBasedBidOptimizationRules",
     "TargetPromotionGroups",
     "KeywordGroupsRecommendations",
+    "GlobalRecommendations",
 ]
