@@ -53,9 +53,9 @@ Create and manage Sponsored Products campaigns.
     * - :doc:`Campaign Consolidated Recommendations <sp/campaigns_consolidated_recommendations>`
       - 2/2
       - --
-    * - Keyword Group Targeting Recommendations
-      - 0/1
-      - ``POST /sp/targeting/recommendations/keywordGroups``
+    * - :doc:`Keyword Group Targeting Recommendations <sp/keyword_groups_recommendations>`
+      - 1/1
+      - --
     * - :doc:`Get Ranked Keywords Recommendations <sp/ranked_keywords_recommendations>`
       - 1/2
       - ``POST /sp/global/targets/keywords/recommendations/list``
@@ -116,4 +116,5 @@ Create and manage Sponsored Products campaigns.
     sp/campaign_budget_usage
     sp/campaign_negative_keywords_v3
     sp/budget_initial_recommendation
+    sp/keyword_groups_recommendations
     sp/target_promotion_groups
