@@ -23,9 +23,9 @@ Create and manage Sponsored Products campaigns.
     * - :doc:`Ad Groups <sp/ad_groups_v3>`
       - 4/4
       - --
-    * - Budget Recommendation New Campaigns
-      - 0/1
-      - ``POST /sp/campaigns/initialBudgetRecommendation``
+    * - :doc:`Initial Budget Recommendation <sp/budget_initial_recommendation>`
+      - 1/1
+      - --
     * - :doc:`Product Recommendation Service <sp/budget_recommendations>`
       - 1/1
       - --
@@ -115,4 +115,5 @@ Create and manage Sponsored Products campaigns.
     sp/budget_recommendations
     sp/campaign_budget_usage
     sp/campaign_negative_keywords_v3
+    sp/budget_initial_recommendation
     sp/target_promotion_groups
