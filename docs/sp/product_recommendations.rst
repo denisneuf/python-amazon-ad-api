@@ -1,5 +1,5 @@
-Budget Recommendations and Missed Opportunities
-===============================================
+Product Recommendations
+=======================
 
 .. warning::
 

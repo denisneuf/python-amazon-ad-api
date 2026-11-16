@@ -1,5 +1,5 @@
-Product Recommendation Service
-==============================
+Budget Recommendations and Missed Opportunities
+===============================================
 
 .. warning::
 

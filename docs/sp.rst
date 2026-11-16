@@ -26,7 +26,7 @@ Create and manage Sponsored Products campaigns.
     * - :doc:`Initial Budget Recommendation <sp/budget_initial_recommendation>`
       - 1/1
       - --
-    * - :doc:`Product Recommendation Service <sp/budget_recommendations>`
+    * - :doc:`Budget Recommendations and Missed Opportunities <sp/budget_recommendations>`
       - 1/1
       - --
     * - :doc:`Campaigns Budget Usage <sp/campaign_budget_usage>`
@@ -77,7 +77,7 @@ Create and manage Sponsored Products campaigns.
     * - :doc:`Product Ads <sp/product_ads_v3>`
       - 4/4
       - --
-    * - :doc:`Budget Recommendations and Missed Opportunities <sp/product_recommendations>`
+    * - :doc:`Product Recommendation Service <sp/product_recommendations>`
       - 1/1
       - --
     * - :doc:`Product Targeting <sp/product_targeting_v3>`
