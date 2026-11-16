@@ -10,8 +10,7 @@ class OptimizationRules(Client):
     service routes on it:
 
     .. warning::
-        With ``application/json`` the router answers ``404 Could not find
-        resource`` on every route here, which reads like a missing route but is
+        With ``application/json`` the router answers ``404 Could not find resource`` on every route here, which reads like a missing route but is
         only the wrong media type. Verified on ``list`` and ``recommendations``.
 
     The two read routes were probed against a live account; the four write routes

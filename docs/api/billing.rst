@@ -200,8 +200,7 @@ decide who gets charged.
     - ``invoiceIssuedDate``
     - ``invoiceDueDate``
 
-    Anything else answers ``400 Invalid input because of error(s):
-    [sort:attribute field is invalid]``. Those two are the names the answer uses,
+    Anything else answers ``400 Invalid input because of error(s): [sort:attribute field is invalid]``. Those two are the names the answer uses,
     not the ones the filters use: ``invoiceDate``, ``issuedDate``, ``dueDate``,
     ``amountDue`` and ``status`` are all refused.
 
@@ -280,8 +279,7 @@ decide who gets charged.
 
     The date range is what narrows this answer. ``statusValueFilter`` is not in
     the body on purpose: the contract declares it, but the service rejects it
-    with ``400 ... [Invalid values(s) in the
-    statusValueFilter.queryTermMatchType]`` when the member is sent alone, and
+    with ``400 ... [Invalid values(s) in the statusValueFilter.queryTermMatchType]`` when the member is sent alone, and
     both values the error accepts, ``EXACT_MATCH`` and ``BROAD_MATCH``, answer an
     empty list. A bare ``status`` key is ignored instead of refused. Filter by
     status in the caller after reading the answer.

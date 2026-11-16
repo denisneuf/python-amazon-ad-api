@@ -35,8 +35,7 @@ jitter rather than a fixed delay: Amazon recommends exponential backoff on a
 run of 429s, with longer periods for report generation because the dynamic
 limits move slowly.
 
-A 425 on the create call is not throttling. ``The Request is a duplicate of :
-<reportId>`` means the report already exists: take that id and poll it instead
+A 425 on the create call is not throttling. ``The Request is a duplicate of : <reportId>`` means the report already exists: take that id and poll it instead
 of creating another. Resending keeps answering 425. This behaviour is not part
 of Amazon's rate limiting documentation; it is what the API returns in
 practice.

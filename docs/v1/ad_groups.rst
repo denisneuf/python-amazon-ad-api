@@ -32,7 +32,7 @@ headers, not query parameters:
 Sending both behaves like ``account_id`` alone. Measured on 2026-11-15 against
 an advertiser with eleven marketplaces.
 
-The filtering is done by ``Amazon-Advertising-API-Scope`, which the client
+The filtering is done by ``Amazon-Advertising-API-Scope``, which the client
 already sends from the ``profile_id`` in the credentials: changing it changes
 the marketplace of the results, and neither account header alters that. On a
 global account the only useful choice is ``manager_account_id`` or nothing.

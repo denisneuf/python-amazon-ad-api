@@ -11,8 +11,7 @@ class BudgetRules(Client):
 
     .. note::
         ``budget_recommendations`` only answers with the versioned media type.
-        Sending ``application/json`` makes the router answer ``404 Could not find
-        resource``, as if the route did not exist. Amazon routes on media type.
+        Sending ``application/json`` makes the router answer ``404 Could not find resource``, as if the route did not exist. Amazon routes on media type.
 
     .. note::
         An unknown ``budgetRuleId`` answers ``400 InvalidParameterValue`` with
@@ -209,8 +208,7 @@ class BudgetRules(Client):
 
         .. warning::
             This route only answers with its versioned media type. With
-            ``application/json`` the service answers ``404 Could not find
-            resource``, which reads like a missing route but is only the wrong
+            ``application/json`` the service answers ``404 Could not find resource``, which reads like a missing route but is only the wrong
             media type.
         """
         return self._request(kwargs.pop('path'),

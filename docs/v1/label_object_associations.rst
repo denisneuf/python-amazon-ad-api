@@ -32,8 +32,7 @@ because associations grow with the number of tagged objects.
 
 .. warning::
 
-    The route answers ``401 Unauthorized`` with ``Customer <account> is not
-    authorized to access account`` on a Sponsored Ads seller profile, for both
+    The route answers ``401 Unauthorized`` with ``Customer <account> is not authorized to access account`` on a Sponsored Ads seller profile, for both
     ``CAMPAIGN`` and ``AD_GROUP``. Its sibling ``Labels`` refuses the same way,
     so the whole label family is not enabled for such a profile even though
     ``campaign_view`` is declared as sufficient.

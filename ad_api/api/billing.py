@@ -64,8 +64,7 @@ class Billing(Client):
         Query
 
         - ``criteriaType`` (string): required. ``PAY_NOW`` or ``AUTO_PAY``. The
-          service answers ``400 Value null at 'criteriaType' failed to satisfy
-          constraint`` when it is missing. It does not go in the body; this route
+          service answers ``400 Value null at 'criteriaType' failed to satisfy constraint`` when it is missing. It does not go in the body; this route
           takes no body.
 
         Returns
@@ -136,8 +135,7 @@ class Billing(Client):
         Query
 
         - ``agreementType`` (string): required. ``AUTO_PAY`` or ``PAY_NOW``. The
-          service answers ``400 Value null at 'agreementType' failed to satisfy
-          constraint`` when it is missing. It does not go in the body; this route
+          service answers ``400 Value null at 'agreementType' failed to satisfy constraint`` when it is missing. It does not go in the body; this route
           takes no body.
 
         Returns
@@ -219,8 +217,7 @@ class Billing(Client):
         - ``sort`` (object): ``attribute`` and ``direction``. The only
           attributes the service accepts are ``invoiceIssuedDate`` and
           ``invoiceDueDate``; anything else answers
-          ``400 Invalid input because of error(s): [sort:attribute field is
-          invalid]``. Those are the names the answer uses, not the filter names:
+          ``400 Invalid input because of error(s): [sort:attribute field is invalid]``. Those are the names the answer uses, not the filter names:
           ``invoiceDate``, ``issuedDate``, ``dueDate``, ``amountDue`` and
           ``status`` are all refused.
         - ``maxResults`` (integer): page size.
@@ -268,8 +265,7 @@ class Billing(Client):
         .. warning::
 
             The service refuses marketplace accounts. Called from a regional
-            seller account it answers ``400 The API doesnot support marketplace
-            accounts``. It wants a Global, Manager or Sponsored Ads account.
+            seller account it answers ``400 The API doesnot support marketplace accounts``. It wants a Global, Manager or Sponsored Ads account.
 
         Returns
             ApiResponse with the profiles and the token for the next page.
@@ -304,8 +300,7 @@ class Billing(Client):
         .. warning::
 
             Same account restriction as ``list_billing_profiles``, and the
-            message names what it wants: ``only Global, Manager and Sponsored
-            Ads marketplace accounts are supported``.
+            message names what it wants: ``only Global, Manager and Sponsored Ads marketplace accounts are supported``.
 
         Returns
             ApiResponse with one entry per country and profile pairing.

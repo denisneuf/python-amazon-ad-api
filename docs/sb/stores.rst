@@ -37,8 +37,7 @@ Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-bra
 
     .. note::
         ``mediaType`` is a **string**, not an object. The contract's own example
-        shows it as an object and that answers ``400 The assetInfo field is
-        invalid``. ``brandEntityId`` is required for sellers even though the
+        shows it as an object and that answers ``400 The assetInfo field is invalid``. ``brandEntityId`` is required for sellers even though the
         contract marks it optional, which applies to vendors only.
 
     Image constraints: smaller than 1MB, at least 400x400 pixels.

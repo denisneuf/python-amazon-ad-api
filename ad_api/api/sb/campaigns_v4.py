@@ -93,8 +93,7 @@ class CampaignsV4(Client):
 
         .. note::
             This route takes ``application/vnd.sbinsights.v4+json``, not the
-            campaigns media type. With ``application/json`` it answers ``404
-            Could not find resource``, so the versioned type is what routes it.
+            campaigns media type. With ``application/json`` it answers ``404 Could not find resource``, so the versioned type is what routes it.
 
         .. note::
             An empty body answers ``400`` naming ``adGroups``, which is the only

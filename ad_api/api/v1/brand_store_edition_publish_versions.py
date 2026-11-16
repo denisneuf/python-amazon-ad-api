@@ -30,8 +30,7 @@ class BrandStoreEditionPublishVersions(Client):
     and publish status are all required, each accepting exactly one value.
 
     ``StorePublishStatus`` declares two values but the service accepts only one:
-    asking for ``REVIEW_IN_PROGRESS`` answers ``400 Only DRAFT status query is
-    supported``. The enum is honest about what exists in the data model, not
+    asking for ``REVIEW_IN_PROGRESS`` answers ``400 Only DRAFT status query is supported``. The enum is honest about what exists in the data model, not
     about what can be queried.
 
     The ``storeEditionPublishId`` in the answer is not a plain identifier but a

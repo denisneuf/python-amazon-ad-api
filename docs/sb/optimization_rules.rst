@@ -41,8 +41,7 @@ Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-bra
 
     .. warning::
         Every route in this family takes a versioned media type, and the service
-        routes on it. With ``application/json`` the router answers ``404 Could not
-        find resource``, which reads like a missing route but is only the wrong
+        routes on it. With ``application/json`` the router answers ``404 Could not find resource``, which reads like a missing route but is only the wrong
         media type. Verified on ``list`` and ``recommendations``.
 
     This is the third family with the same behaviour, after

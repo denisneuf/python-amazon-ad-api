@@ -22,8 +22,7 @@ class Migration(Client):
         type; a wrong one reads exactly like a missing route.
 
     .. note::
-        ``migration_job_status`` and ``migration_job_results`` answer ``500
-        INTERNAL_ERROR`` for a job identifier that does not exist, instead of a
+        ``migration_job_status`` and ``migration_job_results`` answer ``500 INTERNAL_ERROR`` for a job identifier that does not exist, instead of a
         400 or a 404. The routes are live; the service trips over an unknown id.
     """
 

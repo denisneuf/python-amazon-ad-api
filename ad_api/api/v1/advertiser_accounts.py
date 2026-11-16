@@ -62,9 +62,9 @@ class AdvertiserAccounts(Client):
                 | **businessDetails** (list, exactly 1) [required]
                   Carries either ``addressToken`` for an existing selling account
                   address, or ``address`` when that account has none. Also accepts
-                  ``businessRegistrationNumber`` and ``website`.
+                  ``businessRegistrationNumber`` and ``website``.
                 | **currencyCode** (string) [optional] Enum of 34 ISO codes,
-                  including ``EUR``, ``USD``, ``GBP`
+                  including ``EUR``, ``USD``, ``GBP``
                 | **displayName** (string) [optional] name shown for the account
                 | **industryVertical** (string) [optional] Enum of 19 sectors
                 | **isGlobalAccount** (boolean) [optional]

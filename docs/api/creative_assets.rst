@@ -139,8 +139,7 @@ shopping pages, so a brand can carry the same material across its campaigns.
 
     ### get_asset
 
-    ``assetId`` is required. Without it the service answers ``400 Request input
-    is required to get asset.``
+    ``assetId`` is required. Without it the service answers ``400 Request input is required to get asset.``
 
     .. list-table::
         :header-rows: 1
