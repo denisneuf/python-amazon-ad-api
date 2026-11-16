@@ -16,7 +16,7 @@ Manage portfolios that group together campaigns.
 .. warning::
 
     **Superseded by the v1 family.** Amazon moved portfolios into the unified
-    v1 generation, under ``/adsApi/v1/``: :doc:`v1/portfolios` documents
+    v1 generation, under ``/adsApi/v1/``: :doc:`/v1/portfolios` documents
     ``create/portfolios``, ``query/portfolios`` and ``update/portfolios``,
     available as ``ad_api.api.v1.Portfolios``. That family brings two things
     this one does not have: budget sharing between the campaigns of a

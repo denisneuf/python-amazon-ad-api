@@ -15,7 +15,7 @@ class AdvertiserAccounts(Client):
       mutable: currency, time zone, display name, industry, manager link.
 
     Unlike Ads, Targets or AdExtensions this is not an ad-product resource, so
-    there is no ``adProductFilter```; querying is by ``advertiserAccountIdFilter``
+    there is no ``adProductFilter``; querying is by ``advertiserAccountIdFilter``
     or ``isGlobalAccountFilter``.
 
     ``managerAccountId`` decides what the account can run: without it the account

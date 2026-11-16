@@ -52,7 +52,7 @@ class BrandStorePages(Client):
         Returns
             ApiResponse. ``payload`` holds ``brandStorePages`` and ``nextToken``.
             Each page carries ``storeId``, ``editionId``, ``pageId``, ``pageType``,
-            ``content`` and, when published, ``storeEditionPublishId`.
+            ``content`` and, when published, ``storeEditionPublishId``.
         """
         headers = {"Accept": "application/json", "Content-Type": "application/json"}
         return self._request(

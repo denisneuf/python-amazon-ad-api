@@ -16,6 +16,7 @@ Amazon Attribution API open beta
     Amazon Attribution is in **open beta**, limited to US, CA, UK, DE, FR,
     IT and ES vendors and professional sellers enrolled in Brand Registry.
     The endpoints are subject to change.
+
 **Amazon Attribution**
 
 Amazon Attribution is an advertising measurement product that enables advertisers to understand the impact that their non-Amazon ads (i.e. Google Ads, Facebook, Microsoft Ads) have in driving shopping activity on Amazon. Measuring ads using Amazon Attribution is done through implementing Attribution tags on non-Amazon ads. Amazon Attribution is currently available in beta for US, CA, UK, DE, FR, IT, and ES vendors and professional sellers enrolled in Brand Registry.

@@ -5,7 +5,7 @@ Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAd
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-portfolios
 
 A portfolio groups campaigns under one name, one budget and one set of
-marketplace rules. The v1 family is the successor to :doc:`../portfoliosV3`:
+marketplace rules. The v1 family is the successor to :doc:`/api/portfoliosV3`:
 that one lives outside ``/adsApi/v1/`` and keeps its own contract, while this
 one shares the v1 merged contract with the campaign resources.
 
