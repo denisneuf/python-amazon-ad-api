@@ -288,7 +288,8 @@
       "sp/product_recommendations.py",
       "sp/product_targeting_v3.py",
       "sp/ranked_keywords_recommendations.py",
-      "sp/schedule_based_bid_optimization.py"
+      "sp/schedule_based_bid_optimization.py",
+      "sp/target_promotion_groups.py"
     ],
     "sha256": "9ce8a6b6bc8b33d34d04b7ee416fd78be787699e932075d101941176a215df2e",
     "size": 652151,
