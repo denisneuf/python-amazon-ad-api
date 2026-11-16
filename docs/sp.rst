@@ -36,8 +36,8 @@ Create and manage Sponsored Products campaigns.
       - 10/10
       - --
     * - :doc:`Budget Rules Recommendations <sp/budget_rules_recommendations>`
-      - 1/2
-      - ``POST /sp/v1/events``
+      - 2/2
+      - --
     * - :doc:`Campaign Negative Keywords <sp/campaign_negative_keywords_v3>`
       - 4/4
       - --
