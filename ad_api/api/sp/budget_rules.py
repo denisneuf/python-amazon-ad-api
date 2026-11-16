@@ -244,3 +244,44 @@ class BudgetRules(Client):
 
         """
         return self._request(fill_query_params(kwargs.pop('path'), budgetRuleId), params=kwargs)
+
+    @sp_endpoint('/sp/budgetRulesAssociation', method='POST')
+    def associate_budget_rules(self, **kwargs) -> ApiResponse:
+        r"""
+        Associates budget rules to one or more campaigns.
+
+        A maximum of 250 rules can be associated to a campaign, and each rule
+        name associated to a campaign must be unique.
+
+        Request Body [Required]
+            | **budgetRulesAssociations** (array): up to 50 items.
+            |   **budgetRuleId** (string): [required] The rule identifier.
+            |   **campaignId** (string): [required] The campaign identifier.
+
+        Returns:
+
+            ApiResponse
+
+        """
+        json_version = 'application/json'
+        headers = {"Accept": json_version, "Content-Type": json_version}
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+
+    @sp_endpoint('/sp/budgetRulesAssociation/delete', method='POST')
+    def disassociate_budget_rules(self, **kwargs) -> ApiResponse:
+        r"""
+        Disassociates budget rules from one or more campaigns.
+
+        Request Body [Required]
+            | **budgetRulesDisAssociations** (array): up to 50 items.
+            |   **budgetRuleId** (string): [required] The rule identifier.
+            |   **campaignId** (string): [required] The campaign identifier.
+
+        Returns:
+
+            ApiResponse
+
+        """
+        json_version = 'application/json'
+        headers = {"Accept": json_version, "Content-Type": json_version}
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

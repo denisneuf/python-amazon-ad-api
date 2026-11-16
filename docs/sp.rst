@@ -33,8 +33,8 @@ Create and manage Sponsored Products campaigns.
       - 1/1
       - --
     * - :doc:`Budget Rules <sp/budget_rules>`
-      - 8/10
-      - ``POST /sp/budgetRulesAssociation``, ``POST /sp/budgetRulesAssociation/delete``
+      - 10/10
+      - --
     * - :doc:`Budget Rules Recommendations <sp/budget_rules_recommendations>`
       - 1/2
       - ``POST /sp/v1/events``
