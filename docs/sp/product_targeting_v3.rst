@@ -12,6 +12,15 @@ Product Targeting
     deprecated: ``categories/recommendations``, ``products/count``,
     ``categories`` and ``category/{categoryId}/refinements``.
 
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json
+
 .. note::
 
     Sponsored Product v3.0 is not available for Sandbox endpoint
@@ -30,10 +39,6 @@ Endpoints available version 3.0
         "POST", "/sp/targets/products/count", "Get number of targetable asins based on refinements provided by the user."
         "GET", "/sp/targets/categories", "Returns all targetable categories."
         "GET", "/sp/targets/category/{categoryId}/refinements", "Returns refinements according to category input."
-
-Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod
-
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json
 
 .. autoclass:: ad_api.api.sp.TargetsV3
     :members:

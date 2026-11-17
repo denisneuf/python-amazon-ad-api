@@ -1,9 +1,14 @@
 Target Promotion Groups
 =======================
 
-Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json
 
 A target promotion group ties one auto-targeting ad group to the manual ad
 groups that receive the targets promoted out of it: one keyword targeting ad

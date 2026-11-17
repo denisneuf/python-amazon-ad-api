@@ -1,9 +1,14 @@
 Keyword Group Targeting Recommendations
 =======================================
 
-Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json
 
 Keyword Groups is a control for keyword-based campaigns: a collection of
 keywords that reaches a relevant audience as one unit. Once a keyword group is
