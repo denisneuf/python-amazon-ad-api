@@ -40,8 +40,8 @@
       "v1/selling_accounts.py",
       "v1/targets.py"
     ],
-    "sha256": "0784fa531bb5916e637283afd8879c97e7ff4dea37a13b11801135fe6199bae8",
-    "size": 1294396,
+    "sha256": "73778acd0a63f44411e380ed518b4f2aab4be615130eca4ad483623ec472f4cd",
+    "size": 1298895,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json"
   },
   "Amazon Attribution": {
@@ -345,8 +345,8 @@
     "modules": [
       "v1/campaigns.py"
     ],
-    "sha256": "2ba6dd65509581406a679a05fe0f15745fb673470c5d18a2f2d155ce7753c2fb",
-    "size": 92138,
+    "sha256": "1e5d12a00dfdedfe92f4c265e25e48fdf0e017b2e7d3654cce14452dd836c6e2",
+    "size": 93178,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLCampaignsContract_prod_3p.json"
   },
   "Amazon Ads API v1 - Ad groups": {
@@ -354,8 +354,8 @@
     "modules": [
       "v1/ad_groups.py"
     ],
-    "sha256": "609f6d6745f4d784e6dbac8c6be983310773537e4e6702ad1c695b2df517df11",
-    "size": 87515,
+    "sha256": "89c6c99083006928556a703917134d06e6d342c260f9bd9c7373f77a8f058cc9",
+    "size": 89647,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdGroupsContract_prod_3p.json"
   },
   "Amazon Ads API v1 - Ads": {
@@ -363,8 +363,8 @@
     "modules": [
       "v1/ads.py"
     ],
-    "sha256": "d1164367744fdfb87bcb4b07b4356eefe740bf8808486cac38e232d275d72be1",
-    "size": 167185,
+    "sha256": "455043826b3ac37f1965fcb48a062e62804d7f319d55336ff3da77367f9c8220",
+    "size": 168914,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdsContract_prod_3p.json"
   },
   "Amazon Ads API v1 - Targets": {
@@ -399,8 +399,8 @@
     "modules": [
       "v1/ad_associations.py"
     ],
-    "sha256": "d528df8c7828e6fd7f557702d76626ef1028ae43efb029a5511fbe87ac3d136b",
-    "size": 26902,
+    "sha256": "1bc3c531e3eb3a9f412ac4c591962cc2c8d7dba5b69d2e5845cddbd023c3fdca",
+    "size": 26934,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdAssociationsContract_prod_3p.json"
   },
   "Amazon Ads API v1 - Brand store edition publish versions": {
@@ -516,8 +516,8 @@
     "modules": [
       "v1/portfolios.py"
     ],
-    "sha256": "588a2d3765441cd4e42c7b4a8f35706f5d6571c4455b5ab2248ccf7985a7c73c",
-    "size": 45658,
+    "sha256": "6cdc3910ad3f43f5095d1bcb6125409159b89e7795669006bb0d2c95ceae120e",
+    "size": 46267,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLPortfoliosContract_prod_3p.json"
   }
 }
