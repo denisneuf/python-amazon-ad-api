@@ -1,5 +1,5 @@
-Stores
-======
+Store insights
+==============
 
 .. list-table::
     :header-rows: 0

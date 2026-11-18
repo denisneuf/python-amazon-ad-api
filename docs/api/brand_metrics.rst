@@ -1,5 +1,5 @@
-Brand Metrics API open beta
-===========================
+Brand Metrics (beta)
+====================
 
 .. list-table::
     :header-rows: 0

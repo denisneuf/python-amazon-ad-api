@@ -1,5 +1,5 @@
-Reports
-=======
+Version 3 reporting
+===================
 
 
 .. list-table::

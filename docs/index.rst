@@ -13,7 +13,6 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
    v0
    api
    api/attribution
-   api/brand_metrics
    disclaimer
 
 

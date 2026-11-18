@@ -263,7 +263,7 @@ Billing(account=store).list_invoices()
 | [Non Macro tags](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_non_macro_template_tag) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/amazon-attribution-prod-3p) |
 | [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.post_report) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/amazon-attribution-prod-3p) |
 
-### [Brand Metrics open beta](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html)
+### [Brand Metrics (beta)](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html)
 
 | Operation | Vendor contract | Vendor docs |
 |---|---|---|
@@ -359,7 +359,7 @@ Billing(account=store).list_invoices()
 | [Campaign Negative Keywords](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_negative_keywords_v3.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod) |
 | [Budget recommendations and missed opportunities](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod) |
 | [Budget Usage](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/campaign_budget_usage.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod) |
-| [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/reports.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/OfflineReport_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/offline-report-prod-3p) |
+| [Version 3 reporting](https://python-amazon-ad-api.readthedocs.io/en/latest/api/reports.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/OfflineReport_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/offline-report-prod-3p) |
 | [Target Promotion Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/target_promotion_groups.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod) |
 | [Initial Budget Recommendation](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/budget_initial_recommendation.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod) |
 | [Keyword Group Targeting Recommendations](https://python-amazon-ad-api.readthedocs.io/en/latest/sp/keyword_groups_recommendations.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod) |
