@@ -42,3 +42,4 @@ The account resources, listed in the order Amazon publishes them under
     api/manager_accounts
     api/advertising_test_account
     api/advertising_invitations
+    api/advertising_user_permissions

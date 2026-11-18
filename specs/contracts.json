@@ -528,5 +528,14 @@
     "sha256": "a9cc29c56b21d6e1ab9f4b9d35e4d58b3c88467e0d4b085e8c7655bb9510f67e",
     "size": 20255,
     "url": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingInvitations_prod_3p.json"
+  },
+  "Advertising user permissions management": {
+    "file": "AdvertisingUserPermissionsManagement_prod_3p.json",
+    "modules": [
+      "advertising_user_permissions.py"
+    ],
+    "sha256": "359087c93dd477456c540838e800c52ca79862e5220c0197c4a492c465100079",
+    "size": 30650,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingUserPermissionsManagement_prod_3p.json"
   }
 }

@@ -288,6 +288,16 @@ Billing(account=store).list_invoices()
 | [Redeem user invitation](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_invitations.html#ad_api.api.AdvertisingInvitations.AdvertisingInvitations.redeem_user_invitation) | [contract](https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingInvitations_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-invitations) |
 | [Get user invitation](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_invitations.html#ad_api.api.AdvertisingInvitations.AdvertisingInvitations.get_user_invitation) | [contract](https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingInvitations_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-invitations) |
 
+### [Advertising User Permissions Management](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_user_permissions.html)
+
+| Operation | Vendor contract | Vendor docs |
+|---|---|---|
+| [Update user permissions](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_user_permissions.html#ad_api.api.AdvertisingUserPermissions.AdvertisingUserPermissions.update_user_permissions) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingUserPermissionsManagement_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-permissions) |
+| [Delete user permissions](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_user_permissions.html#ad_api.api.AdvertisingUserPermissions.AdvertisingUserPermissions.delete_user_permissions) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingUserPermissionsManagement_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-permissions) |
+| [Query user permissions](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_user_permissions.html#ad_api.api.AdvertisingUserPermissions.AdvertisingUserPermissions.query_user_permissions) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingUserPermissionsManagement_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-permissions) |
+| [Query user roles](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_user_permissions.html#ad_api.api.AdvertisingUserPermissions.AdvertisingUserPermissions.query_user_roles) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingUserPermissionsManagement_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-permissions) |
+| [List users](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_user_permissions.html#ad_api.api.AdvertisingUserPermissions.AdvertisingUserPermissions.list_users) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingUserPermissionsManagement_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-permissions) |
+
 ### [Amazon Ads API v1 (new, unified)](https://python-amazon-ad-api.readthedocs.io/en/latest/v1.html)
 
 > The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call targets the same resource and the product is selected in the request body with `adProductFilter`. It supersedes the per-product v3 endpoints.
