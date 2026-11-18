@@ -27,15 +27,25 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
     profiles/get_profile
     profiles/update_single_profile_assistant
     profiles/update_profile
-    profiles/register
-    profiles/register_assistant
-    profiles/register_brand
-    profiles/register_brand_assistant
+
+.. note::
+
+   The vendor contract declares three operations: ``listProfiles``,
+   ``getProfile`` and ``updateProfiles``. This class exposes four methods on
+   top of them, because ``update_single_profile_assistant`` is a convenience
+   over ``update_profile``: instead of building the request body yourself,
+   you pass ``profile_id`` and ``daily_budget`` and the method wraps them in
+   the array the service expects.
+
+   The remaining ``register`` operations are not listed here. They target the
+   sandbox test environment, which Amazon has retired, and are not part of
+   the 3.0 contract.
 
 .. autoclass:: ad_api.api.Profiles
     :members:
     :member-order: bysource
     :noindex:
+    :exclude-members: register, register_assistant, register_brand, register_brand_assistant
 
     ### Example getting a list of profiles
 
@@ -210,154 +220,4 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
         amz_profile_id = 1495806522428699
         get_profile(amz_profile_id)
 
-    .. warning::
 
-       Note that this **register_brand_assistant** operation is only used for SANDBOX test environment.
-
-    ### Example creating a Vendor profile for sandbox
-
-    .. code-block:: python
-
-        import logging
-        from ad_api.api import Profiles
-        from ad_api.base import AdvertisingApiException
-
-        def register_brand_assistant(country_code: str, brand: str):
-
-            logging.info("-------------------------------------")
-            logging.info("Profiles > register_brand_assistant({},{})".format(country_code, brand))
-            logging.info("-------------------------------------")
-
-            try:
-
-                result = Profiles(account=store, debug=True).register_brand_assistant(
-                    country_code=country_code,
-                    brand=brand
-                )
-                logging.info(result)
-
-            except AdvertisingApiException as error:
-                logging.info(error)
-
-        amz_country_code = "UK"
-        vendor_brand = "LEADTECH"
-
-        register_brand_assistant(amz_country_code, vendor_brand)
-
-    .. warning::
-
-       Note that this **register_brand** operation is only used for SANDBOX test environment.
-
-    ### Example creating a Vendor profile for sandbox with a regular dict
-
-    .. code-block:: python
-
-        import logging
-        from ad_api.api import Profiles
-        from ad_api.base import AdvertisingApiException
-
-        def register_brand(dictionary: dict):
-
-        logging.info("-------------------------------------")
-        logging.info("Profiles > register_brand(%s)" % str(dictionary))
-        logging.info("-------------------------------------")
-
-        try:
-
-            result = Profiles(account=store, debug=True).register_brand(
-                body=dictionary
-            )
-            logging.info(result)
-
-        except AdvertisingApiException as error:
-            logging.info(error)
-
-        amz_dict_brand = \
-        {
-            'countryCode': amz_country_code,
-            'brand': vendor_brand
-        }
-
-        register_brand(amz_dict_brand)
-
-    .. warning::
-
-       Note that this **register_assistant** is only used for SANDBOX test environment. Using in PRODUCTION will get a
-       AdvertisingApiException: {'status_code': 404, 'code': 'NOT_FOUND', 'details': 'HTTP 404 Not Found', 'requestId': 'HEMG4AR2NRF5HCW8BH8S'}
-
-    .. note::
-        You only can create one profile per country, If you try to create again the same country will get a
-        Payload: {'profileId': 81562378459925, 'status': 'SUCCESS', 'statusDetails': 'Merchant is already registered'}
-
-    ### Example creating a profiles por a specific country
-
-    .. code-block:: python
-
-        import logging
-        from ad_api.api import Profiles
-        from ad_api.base import AdvertisingApiException
-
-        def register_assistant(value: str):
-
-            logging.info("-------------------------------------")
-            logging.info("Profiles > register_assistant(%s)" % value)
-            logging.info("-------------------------------------")
-
-            try:
-
-                result = Profiles(account=store, debug=True).register_assistant(
-                    country_code=value
-                )
-                logging.info(result)
-
-            except AdvertisingApiException as error:
-                logging.info(error)
-
-        amz_country_code = "DE"
-        register_assistant(amz_country_code)
-
-    ### Payload
-
-    .. code-block:: python
-
-        {
-            'registerProfileId': '82465ad1-e8cd-4d24-beb0-5cb8423f4260DE',
-            'status': 'IN_PROGRESS',
-            'statusDetails': 'Registration workflow has been started'
-        }
-
-    .. warning::
-
-       Note that this **register** operation is only used for SANDBOX test environment.
-
-    ### Example creating a profiles por a specific country with a dict
-
-    .. code-block:: python
-
-        import logging
-        from ad_api.api import Profiles
-        from ad_api.base import AdvertisingApiException
-
-        def register(dictionary: dict):
-
-            logging.info("-------------------------------------")
-            logging.info("Profiles > register(%s)" % str(dictionary))
-            logging.info("-------------------------------------")
-
-            try:
-
-                result = Profiles(account=store, debug=True).register(
-                    body=dictionary
-                )
-                logging.info(result)
-
-            except AdvertisingApiException as error:
-                logging.info(error)
-
-            amz_country_code = "DE"
-            amz_dict_country_code = \
-                {
-                    "countryCode": amz_country_code
-                }
-
-            register(amz_dict_country_code)

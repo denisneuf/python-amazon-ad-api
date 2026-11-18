@@ -26,8 +26,17 @@ no unified equivalent yet.
     sb
     sd
 
-.. rubric:: References
-
-.. target-notes::
-
 .. _`v0 overview`: https://advertising.amazon.com/API/docs/en-us/reference/v0-overview
+
+Accounts
+--------
+
+The account resources, listed in the order Amazon publishes them under
+**Accounts** in the v0 reference.
+
+.. toctree::
+    :maxdepth: 1
+
+    api/profiles
+    api/manager_accounts
+    api/advertising_test_account

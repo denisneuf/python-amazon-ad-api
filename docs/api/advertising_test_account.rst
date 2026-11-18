@@ -1,5 +1,5 @@
-Advertising Test Account
-========================
+Test accounts
+=============
 
 
 .. list-table::

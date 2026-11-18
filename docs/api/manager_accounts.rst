@@ -1,5 +1,5 @@
-Manager Account
-===============
+Manager accounts
+================
 
 .. list-table::
     :header-rows: 0

@@ -4,8 +4,6 @@ Common Resources
 ..  toctree::
     :maxdepth: 1
 
-    api/profiles
-    api/manager_accounts
     api/billing
     api/account_budgets
     api/metadata
