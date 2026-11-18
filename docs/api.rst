@@ -14,8 +14,6 @@ Common Resources
     api/audiences
     api/portfoliosV3
     api/insights
-    api/reports
     api/validation_configurations
     api/recommendations
     api/exports
-    api/stores

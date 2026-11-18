@@ -18,6 +18,7 @@ from . import sb as sponsored_brands
 from . import sd as sponsored_display
 from .attribution import Attribution
 from .brand_metrics import BrandMetrics
+from .marketing_mix_modeling import MarketingMixModeling
 from .advertising_test_account import AdvertisingTestAccount
 from .advertising_invitations import AdvertisingInvitations
 from .advertising_user_permissions import AdvertisingUserPermissions
@@ -53,6 +54,7 @@ __all__ = [
     "Insights",
     "Attribution",
     "BrandMetrics",
+    "MarketingMixModeling",
     "AdvertisingTestAccount",
     "AdvertisingInvitations",
     "AdvertisingUserPermissions",

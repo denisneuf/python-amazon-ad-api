@@ -263,6 +263,21 @@ Billing(account=store).list_invoices()
 | [Non Macro tags](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_non_macro_template_tag) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/amazon-attribution-prod-3p) |
 | [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.post_report) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/amazon-attribution-prod-3p) |
 
+### [Marketing Mix Modeling](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling.html)
+
+| Operation | Vendor contract | Vendor docs |
+|---|---|---|
+| [List Brand Groups](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling/list_brand_groups.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/marketing-mix-modeling) |
+| [Get Brand Group Campaigns](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling/get_brand_group_campaigns.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/marketing-mix-modeling) |
+| [Get Brand Group Products](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling/get_brand_group_products.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/marketing-mix-modeling) |
+| [Create Brand Group Overrides](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling/create_brand_group_overrides.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/marketing-mix-modeling) |
+| [List Brand Group Overrides](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling/list_brand_group_overrides.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/marketing-mix-modeling) |
+| [Delete Brand Group Overrides](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling/delete_brand_group_overrides.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/marketing-mix-modeling) |
+| [Create Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling/create_report.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/marketing-mix-modeling) |
+| [List Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling/list_reports.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/marketing-mix-modeling) |
+| [Get Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling/get_report.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/marketing-mix-modeling) |
+| [Delete Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling/delete_report.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/marketing-mix-modeling) |
+
 ### [Brand Metrics (beta)](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_metrics.html)
 
 | Operation | Vendor contract | Vendor docs |

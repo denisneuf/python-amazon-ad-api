@@ -546,5 +546,14 @@
     "sha256": "af663a79025be5535114e049217bdc3a61286dc008746ba81de1179564f186b3",
     "size": 16373,
     "url": "https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/dsp/3-0/advertiser.yaml"
+  },
+  "Marketing Mix Modeling": {
+    "file": "MarketingMixModeling_prod_3p.json",
+    "modules": [
+      "marketing_mix_modeling.py"
+    ],
+    "sha256": "93faa0fbb991ecdf392c41f1a3de8134c5633b72a6857e2de989c31e35a2dd32",
+    "size": 39445,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json"
   }
 }
