@@ -298,6 +298,15 @@ Billing(account=store).list_invoices()
 | [Query user roles](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_user_permissions.html#ad_api.api.AdvertisingUserPermissions.AdvertisingUserPermissions.query_user_roles) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingUserPermissionsManagement_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-permissions) |
 | [List users](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_user_permissions.html#ad_api.api.AdvertisingUserPermissions.AdvertisingUserPermissions.list_users) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingUserPermissionsManagement_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-permissions) |
 
+### [DSP Advertiser Accounts](https://python-amazon-ad-api.readthedocs.io/en/latest/api/dsp_advertiser.html)
+
+> Both routes require a DSP profile: `accountInfo.type` must be `agency` and `subType` must not be `AMAZON_ATTRIBUTION`. They have not been exercised against the API from this package; a seller profile cannot reach them.
+
+| Operation | Vendor contract | Vendor docs |
+|---|---|---|
+| [List advertisers](https://python-amazon-ad-api.readthedocs.io/en/latest/api/dsp_advertiser.html#ad_api.api.DspAdvertiser.DspAdvertiser.list_advertisers) | [contract](https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/dsp/3-0/advertiser.yaml) | [docs](https://advertising.amazon.com/API/docs/en-us/dsp-advertiser) |
+| [Get advertiser](https://python-amazon-ad-api.readthedocs.io/en/latest/api/dsp_advertiser.html#ad_api.api.DspAdvertiser.DspAdvertiser.get_advertiser) | [contract](https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/dsp/3-0/advertiser.yaml) | [docs](https://advertising.amazon.com/API/docs/en-us/dsp-advertiser) |
+
 ### [Amazon Ads API v1 (new, unified)](https://python-amazon-ad-api.readthedocs.io/en/latest/v1.html)
 
 > The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call targets the same resource and the product is selected in the request body with `adProductFilter`. It supersedes the per-product v3 endpoints.

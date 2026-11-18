@@ -537,5 +537,14 @@
     "sha256": "359087c93dd477456c540838e800c52ca79862e5220c0197c4a492c465100079",
     "size": 30650,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingUserPermissionsManagement_prod_3p.json"
+  },
+  "DSP advertisers": {
+    "file": "dsp_advertiser_3-0.yaml",
+    "modules": [
+      "dsp_advertiser.py"
+    ],
+    "sha256": "af663a79025be5535114e049217bdc3a61286dc008746ba81de1179564f186b3",
+    "size": 16373,
+    "url": "https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/dsp/3-0/advertiser.yaml"
   }
 }
