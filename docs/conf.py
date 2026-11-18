@@ -65,7 +65,7 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'collapse_navigation': False,
     'sticky_navigation': True,
-    'navigation_depth': 4,
+    'navigation_depth': 3,
 }
 
 # Alabaster theme options, kept for reference in case we switch back.
