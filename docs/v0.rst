@@ -37,6 +37,7 @@ The account resources, listed in the order Amazon publishes them under
 .. toctree::
     :maxdepth: 1
 
+    api/account
     api/profiles
     api/manager_accounts
     api/advertising_test_account
