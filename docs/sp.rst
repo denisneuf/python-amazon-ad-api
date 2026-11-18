@@ -68,6 +68,7 @@ per page, alphabetical.
 
 .. toctree::
     :maxdepth: 1
+    :titlesonly:
 
     sp/ad_groups_v3
     sp/bid_recommendations_v3

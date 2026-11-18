@@ -21,16 +21,19 @@ no unified equivalent yet.
 
 .. _`v0 overview`: https://advertising.amazon.com/API/docs/en-us/reference/v0-overview
 
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    sp
+    sb
+    sd
+
 Sponsored Products
 ------------------
 
 The Sponsored Products API: campaigns, ad groups, product ads, keywords,
 negative keywords, targeting and reports.
-
-.. toctree::
-    :maxdepth: 1
-
-    sp
 
 Sponsored Brands
 ----------------
@@ -53,10 +56,6 @@ reports.
     :maxdepth: 1
 
     sd
-
-The three per-product APIs, each with its own path prefix and its own
-generations. They live under their own pages: Sponsored Products, Sponsored
-Brands (3.0 and 4.0) and Sponsored Display.
 
 Accounts
 --------

@@ -5,7 +5,7 @@ This project helps you using python 3.8 to use the *Python Amazon Advertising AP
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    
    installation
    credentials
