@@ -35,6 +35,11 @@ Sponsored Products
 The Sponsored Products API: campaigns, ad groups, product ads, keywords,
 negative keywords, targeting and reports.
 
+.. toctree::
+    :maxdepth: 1
+
+    sp
+
 Sponsored Brands
 ----------------
 
