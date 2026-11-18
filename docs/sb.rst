@@ -1,5 +1,5 @@
-Sponsored Brands
-================
+Sponsored Brands resources
+==========================
 
 ..  toctree::
     :maxdepth: 1
