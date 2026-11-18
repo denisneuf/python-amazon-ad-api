@@ -34,15 +34,15 @@ answers ``application/vnd.accountresource.v1+json``.
     * - POST
       - ``/adsAccounts``
       - RegisterAdsAccount
-      - :meth:\`ad_api.api.Account.create_account\`
+      - :meth:`ad_api.api.Account.create_account`
     * - POST
       - ``/adsAccounts/list``
       - ListAdsAccounts
-      - :meth:\`ad_api.api.Account.list_accounts\`
+      - :meth:`ad_api.api.Account.list_accounts`
     * - GET
       - ``/adsAccounts/{advertisingAccountId}``
       - GetAccount
-      - :meth:\`ad_api.api.Account.get_account\`
+      - :meth:`ad_api.api.Account.get_account`
     * - POST
       - ``/termsTokens``
       - CreateTermsToken
@@ -68,3 +68,7 @@ has to open to accept the ads agreement:
 ``GetTermsToken`` answers only the acceptance state, ``ACCEPTED`` or not. The
 body of the create takes ``accountId`` (optional) and ``termsType``, one of
 ``ADSP``, ``ADVERTISING``, ``MARKETING_CLOUD`` or ``PARTNER_NETWORK``.
+
+.. autoclass:: ad_api.api.Account
+    :members:
+    :noindex:
