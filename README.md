@@ -263,6 +263,13 @@ Billing(account=store).list_invoices()
 | [Non Macro tags](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.get_non_macro_template_tag) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/amazon-attribution-prod-3p) |
 | [Reports](https://python-amazon-ad-api.readthedocs.io/en/latest/api/attribution.html#ad_api.api.Attribution.Attribution.post_report) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAttribution_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/amazon-attribution-prod-3p) |
 
+### [Brand Benchmarks](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_benchmarks.html)
+
+| Operation | Vendor contract | Vendor docs |
+|---|---|---|
+| [List Advertiser Report Metadata](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_benchmarks/list_advertiser_report_metadata.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandBenchmarks_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/brand-benchmarks) |
+| [Get Advertiser Report](https://python-amazon-ad-api.readthedocs.io/en/latest/api/brand_benchmarks/get_advertiser_report.html) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandBenchmarks_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/brand-benchmarks) |
+
 ### [Marketing Mix Modeling](https://python-amazon-ad-api.readthedocs.io/en/latest/api/marketing_mix_modeling.html)
 
 | Operation | Vendor contract | Vendor docs |

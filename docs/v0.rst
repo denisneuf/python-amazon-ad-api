@@ -59,3 +59,4 @@ other four are separate families with their own contracts.
     api/brand_metrics
     api/stores
     api/marketing_mix_modeling
+    api/brand_benchmarks

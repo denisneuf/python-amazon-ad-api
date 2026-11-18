@@ -555,5 +555,14 @@
     "sha256": "93faa0fbb991ecdf392c41f1a3de8134c5633b72a6857e2de989c31e35a2dd32",
     "size": 39445,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/MarketingMixModeling_prod_3p.json"
+  },
+  "Brand benchmarks": {
+    "file": "BrandBenchmarks_prod_3p.json",
+    "modules": [
+      "brand_benchmarks.py"
+    ],
+    "sha256": "6a78d7e47ed6cf7d4e10e380fa6b13688cd60a7c0c5e820157563dfe1f4f0736",
+    "size": 9728,
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/BrandBenchmarks_prod_3p.json"
   }
 }
