@@ -21,6 +21,7 @@ from .brand_metrics import BrandMetrics
 from .advertising_test_account import AdvertisingTestAccount
 from .advertising_invitations import AdvertisingInvitations
 from .advertising_user_permissions import AdvertisingUserPermissions
+from .dsp_advertiser import DspAdvertiser
 from .reports import Reports
 from .validation_configurations import ValidationConfigurations
 from .recommendations import Recommendations
@@ -55,6 +56,7 @@ __all__ = [
     "AdvertisingTestAccount",
     "AdvertisingInvitations",
     "AdvertisingUserPermissions",
+    "DspAdvertiser",
     "Reports",
     "ValidationConfigurations",
     "Recommendations",
