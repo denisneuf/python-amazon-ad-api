@@ -56,6 +56,205 @@ Design rules, all of them from Amazon's page unless marked otherwise:
     That page is a JavaScript application that plain fetchers read as an empty
     shell; the text above was taken from it with a renderer.
 
+Report type catalogue
+----------------------
+
+The contract ships 35 full request examples, one per supported report, and they
+are the reference for which values are valid together. Each example carries its
+own ``adProduct``, ``reportTypeId``, ``timeUnit``, ``groupBy``, filters and the
+complete column list.
+
+**``timeUnit`` is fixed per product.** Sponsored Brands and Sponsored Television
+only publish ``DAILY`` examples; DSP only ``SUMMARY``; Sponsored Products and
+Sponsored Display publish both. Sending a time unit a report does not support is
+answered by the service, not by the contract.
+
+``adProduct`` accepts ``ALL``, ``DEMAND_SIDE_PLATFORM``, ``SPONSORED_BRANDS``,
+``SPONSORED_DISPLAY``, ``SPONSORED_PRODUCTS`` and ``SPONSORED_TELEVISION``.
+
+.. list-table:: Report types by product
+    :header-rows: 1
+    :widths: 22 26 10 20 22
+
+    * - adProduct
+      - reportTypeId
+      - timeUnit
+      - groupBy
+      - filters
+    * - SPONSORED_PRODUCTS (6)
+      - spCampaigns
+      - DAILY, SUMMARY
+      - campaign
+      - campaignStatus
+    * -
+      - spCampaigns
+      - DAILY
+      - adGroup, campaign
+      - —
+    * -
+      - spCampaigns
+      - SUMMARY
+      - campaign, campaignPlacement
+      - —
+    * -
+      - spAdvertisedProduct
+      - DAILY
+      - advertiser
+      - campaignStatus
+    * -
+      - spTargeting
+      - SUMMARY
+      - targeting
+      - keywordType, adKeywordStatus
+    * -
+      - spSearchTerm
+      - SUMMARY
+      - searchTerm
+      - keywordType
+    * -
+      - spPurchasedProduct
+      - DAILY
+      - asin
+      - keywordType
+    * -
+      - spGrossAndInvalids
+      - DAILY
+      - campaign
+      - —
+    * - SPONSORED_BRANDS (8)
+      - sbCampaigns
+      - DAILY
+      - campaign
+      - campaignStatus
+    * -
+      - sbCampaignPlacement
+      - DAILY
+      - campaignPlacement
+      - —
+    * -
+      - sbAdGroup
+      - DAILY
+      - adGroup
+      - adStatus
+    * -
+      - sbAds
+      - DAILY
+      - ads
+      - adStatus
+    * -
+      - sbSearchTerm
+      - DAILY
+      - searchTerm
+      - keywordStatus, keywordType
+    * -
+      - sbTargeting
+      - DAILY
+      - targeting
+      - keywordStatus, keywordType
+    * -
+      - sbPurchasedProduct
+      - DAILY
+      - purchasedAsin
+      - —
+    * -
+      - sbGrossAndInvalids
+      - DAILY
+      - campaign
+      - —
+    * - SPONSORED_DISPLAY (6)
+      - sdCampaigns
+      - DAILY, SUMMARY
+      - campaign
+      - —
+    * -
+      - sdCampaigns
+      - DAILY
+      - campaign, matchedTarget
+      - —
+    * -
+      - sdAdGroup
+      - DAILY
+      - adGroup
+      - —
+    * -
+      - sdAdvertisedProduct
+      - DAILY
+      - advertiser
+      - —
+    * -
+      - sdTargeting
+      - DAILY
+      - targeting
+      - —
+    * -
+      - sdPurchasedProduct
+      - DAILY
+      - asin
+      - —
+    * -
+      - sdGrossAndInvalids
+      - SUMMARY
+      - campaign
+      - —
+    * - DEMAND_SIDE_PLATFORM (7)
+      - dspCampaign
+      - SUMMARY
+      - creative
+      - advertiserId
+    * -
+      - dspAudience
+      - SUMMARY
+      - lineItem
+      - advertiserId
+    * -
+      - dspProduct
+      - SUMMARY
+      - lineItem
+      - advertiserId
+    * -
+      - dspGeo
+      - SUMMARY
+      - postalCode
+      - advertiserId
+    * -
+      - dspInventory
+      - SUMMARY
+      - site
+      - advertiserId
+    * -
+      - dspTech
+      - SUMMARY
+      - lineItem
+      - advertiserId
+    * -
+      - dspAudioAndVideo
+      - SUMMARY
+      - ad, campaign, content, creative, supplySource
+      - advertiserId
+    * - SPONSORED_TELEVISION (2)
+      - stCampaigns
+      - DAILY
+      - campaign
+      - —
+    * -
+      - stTargeting
+      - DAILY
+      - targeting
+      - —
+
+A DSP report needs the ``Amazon-Ads-AccountId`` header in addition to the
+profile, and its ``advertiserId`` filter. The route takes three optional headers
+in total; the create call is the only one whose body is versioned, and the media
+type is ``application/vnd.createasyncreportrequest.v3+json``, not
+``application/json``.
+
+.. note::
+
+    The column lists are long (11 for spGrossAndInvalids up to 384 for
+    dspCampaign) and the service is the only authority on them. Read the
+    example for the report wanted straight from the contract, and let a wrong
+    name fail with the 400 that names the accepted values.
+
 .. autoclass:: ad_api.api.Reports
     :noindex:
 
