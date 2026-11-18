@@ -18,15 +18,22 @@ no unified equivalent yet.
 
     New code should target :doc:`v1`. The vendor states it in its own words, `v0 overview`_.
 
+
+.. _`v0 overview`: https://advertising.amazon.com/API/docs/en-us/reference/v0-overview
+
+Sponsored Products, Sponsored Brands, Sponsored Display
+-------------------------------------------------------
+
 .. toctree::
     :maxdepth: 1
-    :hidden:
 
     sp
     sb
     sd
 
-.. _`v0 overview`: https://advertising.amazon.com/API/docs/en-us/reference/v0-overview
+The three per-product APIs, each with its own path prefix and its own
+generations. They live under their own pages: Sponsored Products, Sponsored
+Brands (3.0 and 4.0) and Sponsored Display.
 
 Accounts
 --------
