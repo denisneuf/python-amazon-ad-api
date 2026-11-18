@@ -1,5 +1,5 @@
-Sponsored Products resources
-============================
+Sponsored Products
+==================
 
 .. list-table::
     :header-rows: 0

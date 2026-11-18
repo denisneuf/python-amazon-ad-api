@@ -1,5 +1,5 @@
-Sponsored Display resources
-===========================
+Sponsored Display
+=================
 
 ..  toctree::
     :maxdepth: 1
