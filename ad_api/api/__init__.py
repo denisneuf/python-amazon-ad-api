@@ -19,6 +19,7 @@ from . import sd as sponsored_display
 from .attribution import Attribution
 from .brand_metrics import BrandMetrics
 from .advertising_test_account import AdvertisingTestAccount
+from .advertising_invitations import AdvertisingInvitations
 from .reports import Reports
 from .validation_configurations import ValidationConfigurations
 from .recommendations import Recommendations
@@ -51,6 +52,7 @@ __all__ = [
     "Attribution",
     "BrandMetrics",
     "AdvertisingTestAccount",
+    "AdvertisingInvitations",
     "Reports",
     "ValidationConfigurations",
     "Recommendations",
