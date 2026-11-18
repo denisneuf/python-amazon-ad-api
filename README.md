@@ -278,6 +278,16 @@ Billing(account=store).list_invoices()
 | [Create test account](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingTestAccount_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/test-accounts/openapi) |
 | [Get test account information](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_test_account.html#ad_api.api.AdvertisingTestAccount.AdvertisingTestAccount.get_test_account) | [contract](https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingTestAccount_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/test-accounts/openapi) |
 
+### [Advertising Invitations](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_invitations.html)
+
+| Operation | Vendor contract | Vendor docs |
+|---|---|---|
+| [Create user invitations](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_invitations.html#ad_api.api.AdvertisingInvitations.AdvertisingInvitations.create_user_invitations) | [contract](https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingInvitations_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-invitations) |
+| [Update user invitations](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_invitations.html#ad_api.api.AdvertisingInvitations.AdvertisingInvitations.update_user_invitations) | [contract](https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingInvitations_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-invitations) |
+| [List user invitations](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_invitations.html#ad_api.api.AdvertisingInvitations.AdvertisingInvitations.list_user_invitations) | [contract](https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingInvitations_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-invitations) |
+| [Redeem user invitation](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_invitations.html#ad_api.api.AdvertisingInvitations.AdvertisingInvitations.redeem_user_invitation) | [contract](https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingInvitations_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-invitations) |
+| [Get user invitation](https://python-amazon-ad-api.readthedocs.io/en/latest/api/advertising_invitations.html#ad_api.api.AdvertisingInvitations.AdvertisingInvitations.get_user_invitation) | [contract](https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingInvitations_prod_3p.json) | [docs](https://advertising.amazon.com/API/docs/en-us/user-invitations) |
+
 ### [Amazon Ads API v1 (new, unified)](https://python-amazon-ad-api.readthedocs.io/en/latest/v1.html)
 
 > The v1 API lives under `/adsApi/v1/` and is **not** split by product: every call targets the same resource and the product is selected in the request body with `adProductFilter`. It supersedes the per-product v3 endpoints.

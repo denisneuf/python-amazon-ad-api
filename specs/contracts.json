@@ -519,5 +519,14 @@
     "sha256": "6cdc3910ad3f43f5095d1bcb6125409159b89e7795669006bb0d2c95ceae120e",
     "size": 46267,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLPortfoliosContract_prod_3p.json"
+  },
+  "Advertising invitations": {
+    "file": "AdvertisingInvitations_prod_3p.json",
+    "modules": [
+      "advertising_invitations.py"
+    ],
+    "sha256": "a9cc29c56b21d6e1ab9f4b9d35e4d58b3c88467e0d4b085e8c7655bb9510f67e",
+    "size": 20255,
+    "url": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingInvitations_prod_3p.json"
   }
 }
