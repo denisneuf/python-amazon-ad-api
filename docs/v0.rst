@@ -44,3 +44,17 @@ The account resources, listed in the order Amazon publishes them under
     api/advertising_invitations
     api/advertising_user_permissions
     api/dsp_advertiser
+
+Reporting
+---------
+
+The reporting families, in the order Amazon publishes them under
+**Reporting** in the v0 reference. Version 3 is the offline report service; the
+other four are separate families with their own contracts.
+
+.. toctree::
+    :maxdepth: 1
+
+    api/reports
+    api/brand_metrics
+    api/stores
