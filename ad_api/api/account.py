@@ -51,3 +51,46 @@ class Account(Client):
 
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/termsTokens', method='POST')
+    def create_terms_token(self, **kwargs) -> ApiResponse:
+        r"""
+        create_terms_token(body: (dict, str)) -> ApiResponse
+
+        Create a new UUID terms token for the customer to accept advertising terms.
+
+        body: | Optional
+            | **accountId** (string) Optional account ID (Global Account or Manager Account) for accepting terms on existing accounts
+            | **termsType** (string) Enum: ADSP, ADVERTISING, MARKETING_CLOUD, PARTNER_NETWORK
+
+        Returns:
+
+            ApiResponse
+
+        """
+        schema_request = 'application/vnd.GlobalRegistrationService.TermsTokenResource.v1.0+json'
+        schema_response = 'application/vnd.termstokenresource.v1+json'
+        headers = {'Accept': schema_response, 'Content-Type': schema_request}
+
+        body = Utils.convert_body(kwargs.pop('body'), wrap=False)
+        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+
+    @sp_endpoint('/termsTokens/{}', method='GET')
+    def get_terms_token(self, termsToken: str, **kwargs) -> ApiResponse:
+        r"""
+        get_terms_token(termsToken: str) -> ApiResponse
+
+        Get the terms token status for the customer.
+
+        path **termsToken**:string | Required. A Terms Token refers to an UUID token used for terms and conditions acceptance.
+
+        Returns:
+
+            ApiResponse
+
+        """
+        schema_response = 'application/vnd.termstokenresource.v1+json'
+        headers = {'Accept': schema_response, 'Content-Type': 'application/json'}
+
+        return self._request(fill_query_params(kwargs.pop('path'), termsToken), params=kwargs, headers=headers)
+
