@@ -1,5 +1,5 @@
-PortfoliosV3 (deprecated)
-=========================
+Portfolios (version 3)
+======================
 
 
 .. list-table::
@@ -41,6 +41,11 @@ Manage portfolios that group together campaigns.
     portfoliosV3/create_portfolios
     portfoliosV3/edit_portfolios
     portfoliosV3/get_budget_usage_for_portfolios
+
+In the package this generation is the class ``PortfoliosV3``
+(``ad_api/api/portfolios_v3.py``). ``Portfolios`` is a different class:
+the one in ``ad_api/api/portfolios.py``, which this page does not document.
+Use ``PortfoliosV3`` for these four routes.
 
 .. autoclass:: ad_api.api.PortfoliosV3
     :noindex:

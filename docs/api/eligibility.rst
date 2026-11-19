@@ -1,5 +1,5 @@
-Eligibility
-=================
+Product eligibility
+===================
 
 .. list-table::
     :header-rows: 0

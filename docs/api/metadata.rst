@@ -1,5 +1,5 @@
-Product Selector
-=================
+Product metadata
+================
 .. list-table::
     :header-rows: 0
     :widths: 18 82

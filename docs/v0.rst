@@ -25,6 +25,11 @@ no unified equivalent yet.
     :maxdepth: 1
     :hidden:
 
+    api/exports
+    api/attribution
+    Portfolios <api/portfoliosV3>
+    Assets <api/creative_assets>
+    api/history
     sp
     sb
     sd
@@ -45,6 +50,55 @@ negative keywords, drafts, landing pages, Stores and brands.
 
 The Sponsored Display API: campaigns, ad groups, targeting, creatives and
 reports.
+
+Billing & invoices
+------------------
+
+The billing family and the account budget settings, as Amazon groups them in
+the v0 reference.
+
+.. toctree::
+    :maxdepth: 1
+
+    api/billing
+    api/account_budgets
+
+
+Recommendations & insights
+--------------------------
+
+The insights families, as Amazon groups them in the v0 reference.
+
+.. toctree::
+    :maxdepth: 1
+
+    Overlapping audiences <api/insights>
+
+
+Products
+--------
+
+The product families, as Amazon groups them in the v0 reference.
+
+.. toctree::
+    :maxdepth: 1
+
+    Product metadata <api/metadata>
+    Product eligibility <api/eligibility>
+
+
+Localization
+------------
+
+The localization family: the localize routes and the validation
+configurations they share with the campaign resources.
+
+.. toctree::
+    :maxdepth: 1
+
+    api/localization
+    Validation configurations <api/validation_configurations>
+
 
 Accounts
 --------

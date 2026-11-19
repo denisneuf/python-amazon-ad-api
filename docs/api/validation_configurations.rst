@@ -1,5 +1,5 @@
-Validation Configuration
-========================
+Validation configurations
+=========================
 
 
 .. list-table::

@@ -1,5 +1,5 @@
-Amazon Attribution API open beta
-================================
+Amazon Attribution
+==================
 
 .. list-table::
     :header-rows: 0

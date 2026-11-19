@@ -7,7 +7,7 @@ Exports
     :widths: 18 82
 
     * - **Vendor docs**
-      - not indexed by Amazon; the vendor page has not been found yet.
+      - https://advertising.amazon.com/API/docs/en-us/exports
     * - **Specification**
       - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIExports_prod_3p.json
 

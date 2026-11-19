@@ -92,12 +92,11 @@
   "Billing": {
     "file": "AdvertisingBilling_prod_3p.json",
     "modules": [
-      "billing.py",
-      "invoices.py"
+      "billing.py"
     ],
     "sha256": "d0cd75f40fa7f753aff0ed45860c992ffb4125eaafe91b092aa1b3fe6cdb23fe",
     "size": 143393,
-    "url": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json"
+    "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AdvertisingBilling_prod_3p.json"
   },
   "Brand metrics": {
     "file": "BrandMetrics_prod_3p.json",
@@ -250,7 +249,6 @@
       "sd/bid_recommendations.py",
       "sd/brand_safety.py",
       "sd/budget_rules.py",
-      "sd/campaign_budget_usage.py",
       "sd/campaigns.py",
       "sd/campaigns_budget_usage.py",
       "sd/creatives.py",

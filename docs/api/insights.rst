@@ -1,5 +1,5 @@
-Insights
-========
+Audience insights
+=================
 
 
 .. list-table::
@@ -7,7 +7,7 @@ Insights
     :widths: 18 82
 
     * - **Vendor docs**
-      - not indexed by Amazon; the vendor page has not been found yet.
+      - https://advertising.amazon.com/API/docs/en-us/overlapping-audiences
     * - **Specification**
       - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Insights_prod_3p.json
 

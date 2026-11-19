@@ -1,6 +1,5 @@
-Account Budgets
-===============
-
+Account budget settings
+=======================
 
 .. list-table::
     :header-rows: 0

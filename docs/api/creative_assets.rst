@@ -1,5 +1,5 @@
-Creative Assets
-===============
+Asset library
+=============
 
 
 .. list-table::
