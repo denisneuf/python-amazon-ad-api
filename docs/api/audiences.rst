@@ -1,18 +1,25 @@
-Audiences
-=========
+Audiences discovery
+===================
 
 .. list-table::
     :header-rows: 0
     :widths: 18 82
 
     * - **Vendor docs**
-      - https://advertising.amazon.com/API/docs/en-us/audiences/
+      - https://advertising.amazon.com/API/docs/en-us/audiences
     * - **Specification**
       - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Audiences_prod_3p.json
 
 
-Audience Discovery API
+Audience Edit, Delete, & Discovery, as Amazon names the page. **Only two of the four
+routes of the contract are implemented**: the two that do not belong to DSP,
+``POST /audiences/list`` and ``POST /audiences/taxonomy/list``. The remaining two,
+``POST /dsp/audiences/delete`` and ``PUT /dsp/audiences/edit``, need DSP permissions
+and are not in this package.
 
+The contract declares nothing else: ``Audiences_prod_3p.json`` has exactly those four
+paths. ``POST /dsp/audiences`` (audience creation) lives in a separate contract,
+``ADSPAudiences_prod_3p.json``, which is not implemented either.
 
 .. toctree::
     :maxdepth: 1

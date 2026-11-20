@@ -100,6 +100,18 @@ configurations they share with the campaign resources.
     Validation configurations <api/validation_configurations>
 
 
+Amazon DSP
+----------
+
+The DSP families. Only one page of the tree is implemented, and only
+partially: the two non-DSP routes of *Audiences discovery*.
+
+.. toctree::
+    :maxdepth: 1
+
+    Audiences <api/audiences>
+
+
 Accounts
 --------
 
