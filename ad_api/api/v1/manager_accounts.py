@@ -54,7 +54,13 @@ class ManagerAccounts(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
-        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
+        body = kwargs.pop('body', None)
+        return self._request(
+            kwargs.pop('path'),
+            params=kwargs,
+            headers=headers,
+            **({'data': Utils.convert_body(body, False)} if body is not None else {})
+        )
 
     @sp_endpoint('/adsApi/v1/create/managerAccounts', method='POST')
     def create_manager_accounts(self, **kwargs) -> ApiResponse:
