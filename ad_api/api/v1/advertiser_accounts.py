@@ -41,11 +41,12 @@ class AdvertiserAccounts(Client):
             ApiResponse. ``payload`` holds ``advertiserAccounts`` and ``nextToken``.
         """
         headers = {"Accept": "application/json", "Content-Type": "application/json"}
+        body = kwargs.pop('body', None)
         return self._request(
             kwargs.pop('path'),
-            data=Utils.convert_body(kwargs.pop('body'), False),
             params=kwargs,
             headers=headers,
+            **({'data': Utils.convert_body(body, False)} if body is not None else {})
         )
 
     @sp_endpoint('/adsApi/v1/create/advertiserAccounts', method='POST')
