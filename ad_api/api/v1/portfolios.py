@@ -125,8 +125,26 @@ class Portfolios(Client):
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
         body = kwargs.pop('body', None)
-        return self._request(kwargs.pop('path'), params=kwargs, headers=headers,
-                             **({'data': Utils.convert_body(body, False)} if body is not None else {}))
+        # The contract marks the whole request body optional: no `required: true`
+        # on the requestBody, and no required member in QueryPortfolioRequest.
+        # The service disagrees. Omitting the body answers 400
+        # "Invalid JSON: input is empty"; sending `{}` answers 200 with the
+        # default page. Measured 2026-11-22 against leadtech_fr. So an empty
+        # body is sent when the caller passes none, and the caller's body is
+        # sent as-is otherwise.
+        data = Utils.convert_body(body if body is not None else {}, False)
+
+        # Both account headers are optional in the contract:
+        #   AccountIdHeaderOptional   -> Amazon-Ads-AccountId
+        #   ScopeHeaderOptional       -> Amazon-Advertising-API-Scope (the client
+        #                                already sends it from the profile_id)
+        # Taken from kwargs and removed before the query is built: left in kwargs
+        # they would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers['Amazon-Ads-AccountId'] = account_id
+
+        return self._request(kwargs.pop('path'), data=data, params=kwargs, headers=headers)
 
     @sp_endpoint('/adsApi/v1/update/portfolios', method='POST')
     def update_portfolios(self, **kwargs) -> ApiResponse:

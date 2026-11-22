@@ -15,6 +15,35 @@ Three routes exist, all POST. There is no GET on a path and no DELETE:
     POST /adsApi/v1/query/portfolios
     POST /adsApi/v1/update/portfolios
 
+An empty body is not optional here
+----------------------------------
+
+The contract marks the whole request body optional: ``requestBody`` carries no
+``required: true`` and ``QueryPortfolioRequest`` marks no member as required.
+The service disagrees. **Omitting the body answers 400** ``Invalid JSON: input is
+empty``; sending ``{}`` answers 200 with the default page. Measured 2026-11-22
+against ``leadtech_fr``.
+
+This differs from the other query routes, which accept an omitted body. The
+method therefore sends ``{}`` when the caller passes no body:
+
+.. code-block:: python
+
+    body = kwargs.pop('body', None)
+    data = Utils.convert_body(body if body is not None else {}, False)
+    return self._request(kwargs.pop('path'), data=data, params=kwargs, headers=headers)
+
+A caller may still pass a filter, and that body is sent as-is.
+
+Marketplace picks the host
+---------------------------
+
+Unlike ``locationIndexes`` and ``managerAccounts``, this route **does** answer
+only from the host of the account's partition. ``leadtech_fr`` queried with
+``Marketplaces.NA`` and with ``Marketplaces.JP`` is rejected; the same call with
+``Marketplaces.EU`` returns the portfolio. The client therefore has to be built
+with the account's own marketplace, not a fixed ``NA``.
+
 Budget sharing
 --------------
 
