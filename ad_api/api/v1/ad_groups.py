@@ -43,19 +43,11 @@ class AdGroups(Client):
 
         Headers
             | **account_id** (string) -> Amazon-Ads-AccountId
-            | **manager_account_id** (string) -> Amazon-Ads-Manager-AccountId
 
-        Measured on 2026-11-15 against a global advertiser (eleven
-        marketplaces). The Scope header this client already sends filters the
-        results by marketplace, and neither of the two above improves on it.
-        Sending no account header answers 200 with the same page as sending
-        manager_account_id, which is identical. Sending account_id answers 400
-        "Multi marketplace query requests only support query by primary resource
-        id", and sending both answers the same 400 as account_id alone.
-
-        So on a global account pass manager_account_id or nothing: account_id
-        breaks the call. Adding campaignIdFilter does not fix it, the refusal
-        is about the header and not about the body.
+        The contract declares three parameters on this route: the client id
+        (required, the client always sends it), the profile scope (optional,
+        sent from the profile_id) and Amazon-Ads-AccountId (optional). There is
+        no manager-account header on this route.
 
         Returns
             ApiResponse
@@ -65,14 +57,11 @@ class AdGroups(Client):
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
 
-        # Optional account headers, taken from kwargs and removed before the
-        # query is built: left in kwargs they would travel in the query string.
+        # Optional account header, taken from kwargs and removed before the
+        # query is built: left in kwargs it would travel in the query string.
         account_id = kwargs.pop('account_id', None)
-        manager_account_id = kwargs.pop('manager_account_id', None)
         if account_id:
             headers["Amazon-Ads-AccountId"] = account_id
-        if manager_account_id:
-            headers["Amazon-Ads-Manager-AccountId"] = manager_account_id
 
         body = kwargs.pop('body', None)
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers,
