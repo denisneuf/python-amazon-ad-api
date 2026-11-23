@@ -82,6 +82,13 @@ class Portfolios(Client):
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
         body = kwargs.pop('body', None)
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers['Amazon-Ads-AccountId'] = account_id
+
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers,
                              **({'data': Utils.convert_body(body, False)} if body is not None else {}))
 
@@ -182,5 +189,12 @@ class Portfolios(Client):
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
         body = kwargs.pop('body', None)
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers['Amazon-Ads-AccountId'] = account_id
+
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers,
                              **({'data': Utils.convert_body(body, False)} if body is not None else {}))
