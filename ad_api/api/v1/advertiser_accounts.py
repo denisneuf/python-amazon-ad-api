@@ -68,7 +68,6 @@ class AdvertiserAccounts(Client):
                   including ``EUR``, ``USD``, ``GBP``
                 | **displayName** (string) [optional] name shown for the account
                 | **industryVertical** (string) [optional] Enum of 19 sectors
-                | **isGlobalAccount** (boolean) [optional]
                 | **isTestAccount** (boolean) [optional]
                 | **managerAccountId** (string) [optional] Required for
                   ADSP-enabled accounts; without it the account is created for
@@ -105,7 +104,6 @@ class AdvertiserAccounts(Client):
                 | **currencyCode** (string) [optional]
                 | **displayName** (string) [optional]
                 | **industryVertical** (string) [optional]
-                | **isGlobalAccount** (boolean) [optional]
                 | **isTestAccount** (boolean) [optional]
                 | **managerAccountId** (string) [optional]
                 | **sellingAccountLinkRequests** (list) [optional]

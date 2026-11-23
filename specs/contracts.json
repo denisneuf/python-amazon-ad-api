@@ -40,8 +40,8 @@
       "v1/selling_accounts.py",
       "v1/targets.py"
     ],
-    "sha256": "73778acd0a63f44411e380ed518b4f2aab4be615130eca4ad483623ec472f4cd",
-    "size": 1298895,
+    "sha256": "f62c308475d174e2d9fc60900bee89b88f48a081d4af3c13cf2086a2d46fd317",
+    "size": 1297974,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json"
   },
   "Amazon Attribution": {
@@ -307,8 +307,8 @@
     "modules": [
       "recommendations.py"
     ],
-    "sha256": "a3062061c7530e22cb519a5a56f317b8926d152d7a0e86f24da00431e2d99da3",
-    "size": 55541,
+    "sha256": "044389a68a16b8693cf353413676af7eb20def1c058ff7e4eb3297c7049b4b3a",
+    "size": 55557,
     "url": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/Recommendations_prod_3p.json"
   },
   "Test accounts": {
@@ -388,8 +388,8 @@
     "modules": [
       "v1/advertiser_accounts.py"
     ],
-    "sha256": "2640d5100f0aae1c0fc66870831a75279b59f1239971aa0c415ce1533eeefedd",
-    "size": 35511,
+    "sha256": "a801cb7f0e8ae926d480de0b50d09f24dc096458da6337738485269ec106f514",
+    "size": 35285,
     "url": "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdvertiserAccountsContract_prod_3p.json"
   },
   "Amazon Ads API v1 - Ad associations": {
