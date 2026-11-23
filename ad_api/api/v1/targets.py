@@ -64,6 +64,13 @@ class Targets(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/adsApi/v1/create/targets', method='POST')
@@ -141,6 +148,13 @@ class Targets(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/adsApi/v1/update/targets', method='POST')
@@ -179,6 +193,13 @@ class Targets(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/adsApi/v1/delete/targets', method='POST')
@@ -202,4 +223,11 @@ class Targets(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
