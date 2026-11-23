@@ -17,5 +17,14 @@ a target points at, delete it and create a new one.
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-targets
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLTargetsContract_prod_3p.json
 
-.. autoclass:: ad_api.api.v1.Targets
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: targets/
+    :nosignatures:
+
+    Targets
+    Targets.create_targets
+    Targets.delete_targets
+    Targets.query_targets
+    Targets.update_targets

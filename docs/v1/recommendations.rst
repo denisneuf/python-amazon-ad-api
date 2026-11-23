@@ -51,5 +51,13 @@ its schemas are prefixed SB (``SBCreateRecommendationRequest``,
 
     The calls stay built from the contract and verified offline.
 
-.. autoclass:: ad_api.api.v1.Recommendations
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: recommendations/
+    :nosignatures:
+
+    Recommendations
+    Recommendations.create_recommendations_sb
+    Recommendations.query_recommendations
+    Recommendations.list_recommendations

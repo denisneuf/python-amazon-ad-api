@@ -9,5 +9,14 @@ URL. All four methods talk to ``/adsApi/v1/*/campaigns``.
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-campaigns
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLCampaignsContract_prod_3p.json
 
-.. autoclass:: ad_api.api.v1.Campaigns
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: campaigns/
+    :nosignatures:
+
+    Campaigns
+    Campaigns.create_campaigns
+    Campaigns.delete_campaigns
+    Campaigns.query_campaigns
+    Campaigns.update_campaigns

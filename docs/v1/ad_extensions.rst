@@ -22,6 +22,14 @@ filter is shaped ``{"include": [...]}`` with ``include`` required inside.
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-adextensions
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdExtensionsContract_prod_3p.json
 
-.. autoclass:: ad_api.api.v1.AdExtensions
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: ad_extensions/
+    :nosignatures:
+
+    AdExtensions
+    AdExtensions.query_ad_extensions
+    AdExtensions.update_ad_extensions
+
 

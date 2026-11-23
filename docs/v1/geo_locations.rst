@@ -35,5 +35,11 @@ Two shapes sit under ``location``, exactly one of them per entry:
 Up to 100 locations per call, and the answer is a 207 multi-status indexed the
 same way as the other write routes.
 
-.. autoclass:: ad_api.api.v1.GeoLocations
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: geo_locations/
+    :nosignatures:
+
+    GeoLocations
+    GeoLocations.create_geo_locations

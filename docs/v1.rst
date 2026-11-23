@@ -80,7 +80,7 @@ The contracts behind each resource, as published by Amazon:
 
 ..  toctree::
     :caption: Table of Contents
-    :maxdepth: 1
+    :maxdepth: 2
 
     v1/campaigns
     v1/ad_groups

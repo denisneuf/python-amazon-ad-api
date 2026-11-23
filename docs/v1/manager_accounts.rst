@@ -42,5 +42,13 @@ The package keeps the legacy manager account reader as
     ``currencyCode``, ``timeZoneIana``, ``industryVertical``,
     ``accountUsageType`` and ``businessDetails``.
 
-.. autoclass:: ad_api.api.v1.ManagerAccounts
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: manager_accounts/
+    :nosignatures:
+
+    ManagerAccounts
+    ManagerAccounts.create_manager_accounts
+    ManagerAccounts.query_manager_accounts
+    ManagerAccounts.update_manager_accounts

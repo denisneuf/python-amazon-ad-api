@@ -62,5 +62,13 @@ first entry loses data.
     which means ``entity.field`` (``campaign.campaignStatus``), a shape the
     contract states but does not enumerate.
 
-.. autoclass:: ad_api.api.v1.Reports
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: reports/
+    :nosignatures:
+
+    Reports
+    Reports.create_report
+    Reports.delete_report
+    Reports.retrieve_report

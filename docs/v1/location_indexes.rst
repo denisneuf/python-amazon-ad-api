@@ -58,45 +58,54 @@ Measured on 2026-11-15 with two accounts, one with a manager and one without.
     account header, not the permissions: with ``account_id`` or
     ``manager_account_id`` the read answers 200. Create and update were never
     sent, since they write into the account.
-.. autoclass:: ad_api.api.v1.LocationIndexes
-    :members:
+.. currentmodule:: ad_api.api.v1
 
-    ### Endpoint map
+.. autosummary::
+    :toctree: location_indexes/
+    :nosignatures:
 
-    .. list-table::
-        :header-rows: 1
+    LocationIndexes
+    LocationIndexes.create_location_index
+    LocationIndexes.list_location_indexes
+    LocationIndexes.retrieve_location_indexes
+    LocationIndexes.update_location_indexes
 
-       * - Path
-         - Method
-         - Operation
-       * - ``/adsApi/v1/create/locationIndexes``
-         - POST
-         - CreateLocationIndex
-       * - ``/adsApi/v1/locationIndexes``
-         - GET
-         - ListLocationIndex
-       * - ``/adsApi/v1/retrieve/locationIndexes``
-         - POST
-         - RetrieveLocationIndex
-       * - ``/adsApi/v1/update/locationIndexes``
-         - POST
-         - UpdateLocationIndex
+### Endpoint map
 
-    ### Example python
+.. list-table::
+    :header-rows: 1
 
-    .. code-block:: python
+    * - Path
+      - Method
+      - Operation
+    * - ``/adsApi/v1/create/locationIndexes``
+      - POST
+      - CreateLocationIndex
+    * - ``/adsApi/v1/locationIndexes``
+      - GET
+      - ListLocationIndex
+    * - ``/adsApi/v1/retrieve/locationIndexes``
+      - POST
+      - RetrieveLocationIndex
+    * - ``/adsApi/v1/update/locationIndexes``
+      - POST
+      - UpdateLocationIndex
 
-        from ad_api.api.v1 import LocationIndexes
+### Example python
 
-        from ad_api.api.v1 import LocationIndexes
+.. code-block:: python
 
-        api = LocationIndexes(account=store)
+    from ad_api.api.v1 import LocationIndexes
 
-        # Without an account header this route answers 401. Either one works.
-        result = api.list_location_indexes(
-            account_id="amzn1.ads-account.g.<id>",   # or manager_account_id=...
-        )
+    from ad_api.api.v1 import LocationIndexes
 
-        payload = result.payload or {}
-        for index in payload.get("locationIndexes", []):
-            print(index.get("indexId"), index.get("indexName"), index.get("status"))
+    api = LocationIndexes(account=store)
+
+    # Without an account header this route answers 401. Either one works.
+    result = api.list_location_indexes(
+        account_id="amzn1.ads-account.g.<id>",   # or manager_account_id=...
+    )
+
+    payload = result.payload or {}
+    for index in payload.get("locationIndexes", []):
+        print(index.get("indexId"), index.get("indexName"), index.get("status"))

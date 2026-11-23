@@ -26,6 +26,12 @@ This is the middle link of the Stores chain:
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-brandstoreeditions
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLBrandStoreEditionsContract_prod_3p.json
 
-.. autoclass:: ad_api.api.v1.BrandStoreEditions
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: brand_store_editions/
+    :nosignatures:
+
+    BrandStoreEditions
+    BrandStoreEditions.list_brand_store_editions
 

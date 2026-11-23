@@ -45,5 +45,11 @@ The remaining filters are all optional, and each takes its own list:
     The call is built from the contract and verified offline; it has not been
     exercised against the service from this account.
 
-.. autoclass:: ad_api.api.v1.Labels
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: labels/
+    :nosignatures:
+
+    Labels
+    Labels.query_labels

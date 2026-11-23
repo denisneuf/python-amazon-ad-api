@@ -14,5 +14,15 @@ URL. All four methods talk to ``/adsApi/v1/*/ads``.
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-ads
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdsContract_prod_3p.json
 
-.. autoclass:: ad_api.api.v1.Ads
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: ads/
+    :nosignatures:
+
+    Ads
+    Ads.delete_ads
+    Ads.create_ads
+    Ads.query_ads
+    Ads.update_ads
+

@@ -23,6 +23,14 @@ zone, display name, industry and manager link.
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-advertiseraccounts
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdvertiserAccountsContract_prod_3p.json
 
-.. autoclass:: ad_api.api.v1.AdvertiserAccounts
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: advertiser_accounts/
+    :nosignatures:
+
+    AdvertiserAccounts
+    AdvertiserAccounts.query_advertiser_accounts
+    AdvertiserAccounts.update_advertiser_accounts
+
 

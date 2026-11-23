@@ -43,6 +43,13 @@ The update array holds exactly one element, not a range.
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-brandstoreeditionpublishversions
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLBrandStoreEditionPublishVersionsContract_prod_3p.json
 
-.. autoclass:: ad_api.api.v1.BrandStoreEditionPublishVersions
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: brand_store_edition_publish_versions/
+    :nosignatures:
+
+    BrandStoreEditionPublishVersions
+    BrandStoreEditionPublishVersions.update_brand_store_edition_publish_versions
+
 

@@ -31,6 +31,15 @@ filters by association, ad group or ad.
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-adassociations
 Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdAssociationsContract_prod_3p.json
 
-.. autoclass:: ad_api.api.v1.AdAssociations
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: ad_associations/
+    :nosignatures:
+
+    AdAssociations
+    AdAssociations.delete_ad_associations
+    AdAssociations.query_ad_associations
+    AdAssociations.update_ad_associations
+
 

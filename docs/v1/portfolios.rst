@@ -74,53 +74,61 @@ There is no delete route. A portfolio is retired by updating ``state`` to
     are indexed together and both have to be read. These routes write into
     the account; they were not probed against a live account.
 
-.. autoclass:: ad_api.api.v1.Portfolios
-    :members:
+.. currentmodule:: ad_api.api.v1
 
-    ### Endpoint map
+.. autosummary::
+    :toctree: portfolios/
+    :nosignatures:
 
-    .. list-table::
-        :header-rows: 1
+    Portfolios
+    Portfolios.create_portfolios
+    Portfolios.query_portfolios
+    Portfolios.update_portfolios
 
-       * - Path
-         - Method
-         - Operation
-       * - ``/adsApi/v1/create/portfolios``
-         - POST
-         - CreatePortfolio
-       * - ``/adsApi/v1/query/portfolios``
-         - POST
-         - QueryPortfolio
-       * - ``/adsApi/v1/update/portfolios``
-         - POST
-         - UpdatePortfolio
+### Endpoint map
 
-    ### Example python
+.. list-table::
+    :header-rows: 1
 
-    .. code-block:: python
+    * - Path
+      - Method
+      - Operation
+    * - ``/adsApi/v1/create/portfolios``
+      - POST
+      - CreatePortfolio
+    * - ``/adsApi/v1/query/portfolios``
+      - POST
+      - QueryPortfolio
+    * - ``/adsApi/v1/update/portfolios``
+      - POST
+      - UpdatePortfolio
 
-        from ad_api.api.v1 import Portfolios
+### Example python
 
-        api = Portfolios(account=store)
+.. code-block:: python
 
-        result = api.query_portfolios(body={"maxResults": 10})
+    from ad_api.api.v1 import Portfolios
 
-        for portfolio in result.payload.get("portfolios", []):
-            print(portfolio["portfolioId"], portfolio["name"], portfolio["state"])
+    api = Portfolios(account=store)
 
-    Reading the 207 of a write:
+    result = api.query_portfolios(body={"maxResults": 10})
 
-    .. code-block:: python
+    for portfolio in result.payload.get("portfolios", []):
+        print(portfolio["portfolioId"], portfolio["name"], portfolio["state"])
 
-        result = api.create_portfolios(body={"portfolios": [
-            {"name": "Q4", "state": "ENABLED", "marketplaceScope": "GLOBAL",
-             "marketplaces": ["ES", "FR"],
-             "budget": {"budgetType": "MONETARY",
-                        "budgetValue": {"monetaryBudget": {"value": 100.0}},
-                        "recurrenceTimePeriod": "DAILY"},
-             "budgetControls": {"campaignBudgetSharing":
-                                {"shareUnspentCampaignBudget": "ENABLED"}}}
-        ]})
+Reading the 207 of a write:
 
-        payload = result.payload
-        print(payload.get("success"), payload.get("error"))
+.. code-block:: python
+
+    result = api.create_portfolios(body={"portfolios": [
+        {"name": "Q4", "state": "ENABLED", "marketplaceScope": "GLOBAL",
+         "marketplaces": ["ES", "FR"],
+         "budget": {"budgetType": "MONETARY",
+                    "budgetValue": {"monetaryBudget": {"value": 100.0}},
+                    "recurrenceTimePeriod": "DAILY"},
+         "budgetControls": {"campaignBudgetSharing":
+                            {"shareUnspentCampaignBudget": "ENABLED"}}}
+    ]})
+
+    payload = result.payload
+    print(payload.get("success"), payload.get("error"))

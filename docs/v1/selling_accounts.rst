@@ -21,5 +21,11 @@ Each ``SellingAccount`` carries the token that locates the account, the portals
 used to reach it, its selling program and the countries the user can advertise
 in.
 
-.. autoclass:: ad_api.api.v1.SellingAccounts
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: selling_accounts/
+    :nosignatures:
+
+    SellingAccounts
+    SellingAccounts.query_selling_accounts

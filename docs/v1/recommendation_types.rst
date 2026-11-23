@@ -22,5 +22,11 @@ Every member of the request is optional, so an empty body is valid and asks for
 the defaults. ``maxResults`` accepts 50 to 500 and starts at 50, so a smaller
 value is a rejected body rather than a shorter page.
 
-.. autoclass:: ad_api.api.v1.RecommendationTypes
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: recommendation_types/
+    :nosignatures:
+
+    RecommendationTypes
+    RecommendationTypes.query_sb_recommendation_types

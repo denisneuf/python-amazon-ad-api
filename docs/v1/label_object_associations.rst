@@ -40,5 +40,11 @@ because associations grow with the number of tagged objects.
     The call is built from the contract and verified offline; it has not been
     exercised against the service from this account.
 
-.. autoclass:: ad_api.api.v1.LabelObjectAssociations
-    :members:
+.. currentmodule:: ad_api.api.v1
+
+.. autosummary::
+    :toctree: label_object_associations/
+    :nosignatures:
+
+    LabelObjectAssociations
+    LabelObjectAssociations.query_label_object_associations
