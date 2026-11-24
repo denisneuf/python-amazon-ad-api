@@ -26,9 +26,12 @@ empty``; sending ``{}`` answers 200 with the default page. Measured 2026-11-22
 against ``leadtech_fr``.
 
 This differs from the other query routes, which accept an omitted body. The
-method therefore sends ``{}`` when the caller passes no body.
+method therefore sends ``{}`` when the caller passes no body. A caller may
+still pass a filter, and that body is sent as-is.
 
-A caller may still pass a filter, and that body is sent as-is.
+``create_portfolios`` and ``update_portfolios`` are the opposite: their body is
+required by the contract and by the method, so calling either without one
+raises ``KeyError: 'body'`` before any request is built.
 
 .. rubric:: Marketplace picks the host
 
