@@ -37,6 +37,9 @@ class LabelObjectAssociations(Client):
             | **maxResults** (int) : 1..5000, default 100
             | **nextToken** (string)
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Returns
             | **labelObjectAssociations** (list<LabelObjectAssociation>) : 0..5000
                 | **labelObjectAssociationId** (string) : [required]
@@ -49,9 +52,18 @@ class LabelObjectAssociations(Client):
         maxResults reaches 5000 here, far above the 100 of the campaign
         families, because associations grow with the number of tagged objects.
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Requires one of these permissions:
             campaign_edit, campaign_view
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

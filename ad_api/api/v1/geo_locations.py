@@ -42,6 +42,10 @@ class GeoLocations(Client):
                         | **minIndexValuePercentile** (int) : 0..100
                         | **maxIndexValuePercentile** (int) : 0..100, greater than the minimum
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+            | **Amazon-Ads-Manager-AccountId** (string) [optional] Manager account identifier
+
         Answer
             207 MultiStatus with success[] and error[] indexed the same way;
             each success carries the created GeoLocation and its position.
@@ -51,4 +55,14 @@ class GeoLocations(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional headers, taken from kwargs and removed before the call is
+        # built: left in kwargs they would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+        manager_id = kwargs.pop('manager_id', None)
+        if manager_id:
+            headers["Amazon-Ads-Manager-AccountId"] = manager_id
+
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

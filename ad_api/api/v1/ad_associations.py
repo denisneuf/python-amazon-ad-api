@@ -40,10 +40,20 @@ class AdAssociations(Client):
             | **maxResults** (int) [optional] Maximum number of records in the response
             | **nextToken** (string) [optional] Token to navigate to the next page
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Returns
             ApiResponse. ``payload`` holds ``adAssociations`` and ``nextToken``.
         """
-        headers = {"Accept": "application/json", "Content-Type": "application/json"}
+        schema_version = 'application/json'
+        headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
         return self._request(
             kwargs.pop('path'),
             data=Utils.convert_body(kwargs.pop('body'), False),
@@ -70,11 +80,21 @@ class AdAssociations(Client):
                 | **weight** (integer) [optional] relative share of the ad
                   group's traffic directed to this creative
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Returns
             ApiResponse. Per-entity result carrying ``success`` and ``error``,
             not the created objects.
         """
-        headers = {"Accept": "application/json", "Content-Type": "application/json"}
+        schema_version = 'application/json'
+        headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
         return self._request(
             kwargs.pop('path'),
             data=Utils.convert_body(kwargs.pop('body'), False),
@@ -102,10 +122,20 @@ class AdAssociations(Client):
                 | **state** (string) [optional] Enum [ ENABLED, PAUSED, ARCHIVED ]
                 | **weight** (integer) [optional]
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Returns
             ApiResponse. Per-entity result carrying ``success`` and ``error``.
         """
-        headers = {"Accept": "application/json", "Content-Type": "application/json"}
+        schema_version = 'application/json'
+        headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
         return self._request(
             kwargs.pop('path'),
             data=Utils.convert_body(kwargs.pop('body'), False),
@@ -126,10 +156,20 @@ class AdAssociations(Client):
         Request Body [Required]
             | **adAssociationIds** (list, 1..20) [required] associations to delete
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Returns
             ApiResponse. Per-entity result carrying ``success`` and ``error``.
         """
-        headers = {"Accept": "application/json", "Content-Type": "application/json"}
+        schema_version = 'application/json'
+        headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
         return self._request(
             kwargs.pop('path'),
             data=Utils.convert_body(kwargs.pop('body'), False),

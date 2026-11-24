@@ -37,13 +37,24 @@ class BrandStores(Client):
             | **maxResults** (int) [optional]
             | **nextToken** (string) [optional]
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Returns
             ApiResponse. ``payload`` holds ``brandStores`` and ``nextToken``.
             Each store carries ``storeId`` (required), ``storeName`` and
             ``pageInfos``. The ``storeId`` is what the publish-version family
             filters on.
         """
-        headers = {"Accept": "application/json", "Content-Type": "application/json"}
+        schema_version = 'application/json'
+        headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
         return self._request(
             kwargs.pop('path'),
             data=Utils.convert_body(kwargs.pop('body'), False),

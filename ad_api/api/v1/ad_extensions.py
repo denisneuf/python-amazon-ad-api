@@ -52,16 +52,22 @@ class AdExtensions(Client):
         required inside each one. An empty ``{}`` body is not the same as no
         filter: send the body you mean.
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Returns
             ApiResponse
         """
-        headers = {"Accept": "application/json", "Content-Type": "application/json"}
-        return self._request(
-            kwargs.pop('path'),
-            data=Utils.convert_body(kwargs.pop('body'), False),
-            params=kwargs,
-            headers=headers,
-        )
+        schema_version = 'application/json'
+        headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/adsApi/v1/create/adExtensions', method='POST')
     def create_ad_extensions(self, **kwargs) -> ApiResponse:
@@ -84,16 +90,22 @@ class AdExtensions(Client):
                 | **adGroupId** (string) [optional] ad group the extension belongs to
                 | **adId** (string) [optional] ad the extension belongs to
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Returns
             ApiResponse
         """
-        headers = {"Accept": "application/json", "Content-Type": "application/json"}
-        return self._request(
-            kwargs.pop('path'),
-            data=Utils.convert_body(kwargs.pop('body'), False),
-            params=kwargs,
-            headers=headers,
-        )
+        schema_version = 'application/json'
+        headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional headers, taken from kwargs and removed before the call is
+        # built: left in kwargs they would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/adsApi/v1/update/adExtensions', method='POST')
     def update_ad_extensions(self, **kwargs) -> ApiResponse:
@@ -113,13 +125,19 @@ class AdExtensions(Client):
                 | **adExtensionId** (string) [required] extension to update
                 | **state** (string) [optional] Enum [ ENABLED, PAUSED, ARCHIVED ]
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Returns
             ApiResponse
         """
-        headers = {"Accept": "application/json", "Content-Type": "application/json"}
-        return self._request(
-            kwargs.pop('path'),
-            data=Utils.convert_body(kwargs.pop('body'), False),
-            params=kwargs,
-            headers=headers,
-        )
+        schema_version = 'application/json'
+        headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional headers, taken from kwargs and removed before the call is
+        # built: left in kwargs they would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)

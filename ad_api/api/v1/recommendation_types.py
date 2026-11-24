@@ -31,6 +31,9 @@ class RecommendationTypes(Client):
             | **maxResults** (int) : 50..500, default 50
             | **nextToken** (string) : token to navigate to the next page
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Returns
             | **recommendationTypes** (list<SBRecommendationType>) : 0..500
                 | **recommendationTypeId** (string) : [required] a UUID or a unique descriptive string
@@ -40,9 +43,19 @@ class RecommendationTypes(Client):
         maxResults starts at 50, so a smaller value is a rejected body rather
         than a shorter page. An empty body is valid and asks for the defaults.
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] Advertiser account identifier
+
         Requires one of these permissions:
             advertiser_campaign_view
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
