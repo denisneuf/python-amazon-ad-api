@@ -81,7 +81,9 @@ class Portfolios(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
-        body = kwargs.pop('body', None)
+        # The contract marks this body required: omit it and the call raises
+        # KeyError here rather than reaching the service.
+        body = kwargs.pop('body')
 
         # Optional account header, taken from kwargs and removed before the
         # call is built: left in kwargs it would travel in the query string.
@@ -89,8 +91,8 @@ class Portfolios(Client):
         if account_id:
             headers['Amazon-Ads-AccountId'] = account_id
 
-        return self._request(kwargs.pop('path'), params=kwargs, headers=headers,
-                             **({'data': Utils.convert_body(body, False)} if body is not None else {}))
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(body, False),
+                             params=kwargs, headers=headers)
 
     @sp_endpoint('/adsApi/v1/query/portfolios', method='POST')
     def query_portfolios(self, **kwargs) -> ApiResponse:
@@ -188,7 +190,9 @@ class Portfolios(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
-        body = kwargs.pop('body', None)
+        # The contract marks this body required: omit it and the call raises
+        # KeyError here rather than reaching the service.
+        body = kwargs.pop('body')
 
         # Optional account header, taken from kwargs and removed before the
         # call is built: left in kwargs it would travel in the query string.
@@ -196,5 +200,5 @@ class Portfolios(Client):
         if account_id:
             headers['Amazon-Ads-AccountId'] = account_id
 
-        return self._request(kwargs.pop('path'), params=kwargs, headers=headers,
-                             **({'data': Utils.convert_body(body, False)} if body is not None else {}))
+        return self._request(kwargs.pop('path'), data=Utils.convert_body(body, False),
+                             params=kwargs, headers=headers)
