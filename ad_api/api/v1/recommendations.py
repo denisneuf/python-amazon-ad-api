@@ -44,9 +44,24 @@ class Recommendations(Client):
             | **recommendations** (list<Recommendation>) : 0..300
             | **totalResults** (int)
             | **nextToken** (string)
+
+        Headers
+            | **Amazon-Ads-ClientId** (string) [required] sent by the base Client
+              on every call.
+
+        The accounts travel in the body through ``accessRequestedAccounts``,
+        each item naming an ``advertiserAccountId`` or a ``managerAccountId``.
+        The contract also declares Amazon-Ads-AccountId as optional here.
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional account header, taken from kwargs and removed before the
+        # call is built: left in kwargs it would travel in the query string.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
     @sp_endpoint('/adsApi/v1/recommendations', method='GET')
@@ -58,14 +73,17 @@ class Recommendations(Client):
 
         A GET with query parameters, not a body.
 
+        Headers
+            | **Amazon-Ads-AccountId** (string) [optional] advertiser account
+            | **Amazon-Ads-Manager-AccountId** (string) [optional] manager account
         Parameters
-            | **Amazon-Ads-AccountId** (string) : advertiser account, optional
-            | **Amazon-Ads-Manager-AccountId** (string) : manager account, optional
             | **nextToken**, **maxResults** (1..300), **adProduct**, **marketplace**, **language**, **recommendationType**
 
         The account travels in the headers, and since 2026-11-11 the contract
         marks both of them optional: the list can be read for an advertiser
-        account or for a manager account.
+        account or for a manager account. Pass ``account_id=`` or
+        ``manager_id=``; each becomes its own header and neither reaches the
+        query string.
 
         Returns
             | **recommendations** (list<Recommendation>) : 0..300
@@ -73,7 +91,19 @@ class Recommendations(Client):
             | **nextToken** (string)
         """
         path = kwargs.pop('path')
-        return self._request(path, params=kwargs)
+        params = dict(kwargs)
+
+        # Optional account headers, taken from kwargs and removed before the
+        # call is built: left in kwargs they would travel in the query string.
+        account_id = params.pop('account_id', None)
+        manager_id = params.pop('manager_id', None)
+        headers = {}
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+        if manager_id:
+            headers["Amazon-Ads-Manager-AccountId"] = manager_id
+
+        return self._request(path, params=params, headers=headers or None)
 
     @sp_endpoint('/adsApi/v1/create/recommendations/sb', method='POST')
     def create_recommendations_sb(self, **kwargs) -> ApiResponse:
@@ -93,4 +123,11 @@ class Recommendations(Client):
         """
         schema_version = 'application/json'
         headers = {"Accept": schema_version, "Content-Type": schema_version}
+
+        # Optional advertiser account header, taken from kwargs and removed
+        # before the call is built: left in kwargs it would travel in the query.
+        account_id = kwargs.pop('account_id', None)
+        if account_id:
+            headers["Amazon-Ads-AccountId"] = account_id
+
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
