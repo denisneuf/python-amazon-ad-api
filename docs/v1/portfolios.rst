@@ -1,8 +1,10 @@
 Portfolios
 ==========
 
-Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLPortfoliosContract_prod_3p.json
+Amazon Ads API v1 - unified Portfolios endpoints
+
 Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-portfolios
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLPortfoliosContract_prod_3p.json
 
 A portfolio groups campaigns under one name, one budget and one set of
 marketplace rules. The v1 family is the successor to :doc:`/api/portfoliosV3`:
@@ -15,8 +17,7 @@ Three routes exist, all POST. There is no GET on a path and no DELETE:
     POST /adsApi/v1/query/portfolios
     POST /adsApi/v1/update/portfolios
 
-An empty body is not optional here
-----------------------------------
+.. rubric:: An empty body is not optional here
 
 The contract marks the whole request body optional: ``requestBody`` carries no
 ``required: true`` and ``QueryPortfolioRequest`` marks no member as required.
@@ -25,18 +26,11 @@ empty``; sending ``{}`` answers 200 with the default page. Measured 2026-11-22
 against ``leadtech_fr``.
 
 This differs from the other query routes, which accept an omitted body. The
-method therefore sends ``{}`` when the caller passes no body:
-
-.. code-block:: python
-
-    body = kwargs.pop('body', None)
-    data = Utils.convert_body(body if body is not None else {}, False)
-    return self._request(kwargs.pop('path'), data=data, params=kwargs, headers=headers)
+method therefore sends ``{}`` when the caller passes no body.
 
 A caller may still pass a filter, and that body is sent as-is.
 
-Marketplace picks the host
----------------------------
+.. rubric:: Marketplace picks the host
 
 Unlike ``locationIndexes`` and ``managerAccounts``, this route **does** answer
 only from the host of the account's partition. ``leadtech_fr`` queried with
@@ -44,16 +38,14 @@ only from the host of the account's partition. ``leadtech_fr`` queried with
 ``Marketplaces.EU`` returns the portfolio. The client therefore has to be built
 with the account's own marketplace, not a fixed ``NA``.
 
-Budget sharing
---------------
+.. rubric:: Budget sharing
 
 ``budgetControls.campaignBudgetSharing.shareUnspentCampaignBudget``, with
 values ``ENABLED`` or ``DISABLED``, lets the campaigns of the portfolio spend
 the budget the other campaigns did not use. Without it each campaign is capped
 on its own.
 
-Global and per marketplace
---------------------------
+.. rubric:: Global and per marketplace
 
 A portfolio is either ``GLOBAL``, covering every marketplace listed in
 ``marketplaces``, or ``SINGLE_MARKETPLACE``. A global portfolio can override
@@ -61,8 +53,7 @@ A portfolio is either ``GLOBAL``, covering every marketplace listed in
 marketplace through ``marketplaceConfigurations``, up to 30 overrides. What is
 not overridden carries the global value.
 
-Archiving instead of deleting
------------------------------
+.. rubric:: Archiving instead of deleting
 
 There is no delete route. A portfolio is retired by updating ``state`` to
 ``ARCHIVED``, which is terminal and cannot be reverted.
@@ -75,7 +66,6 @@ There is no delete route. A portfolio is retired by updating ``state`` to
     the account; they were not probed against a live account.
 
 .. currentmodule:: ad_api.api.v1
-
 .. autosummary::
     :toctree: portfolios/
     :nosignatures:
@@ -85,7 +75,7 @@ There is no delete route. A portfolio is retired by updating ``state`` to
     Portfolios.query_portfolios
     Portfolios.update_portfolios
 
-### Endpoint map
+.. rubric:: Endpoint map
 
 .. list-table::
     :header-rows: 1
@@ -103,7 +93,7 @@ There is no delete route. A portfolio is retired by updating ``state`` to
       - POST
       - UpdatePortfolio
 
-### Example python
+.. rubric:: Example python
 
 .. code-block:: python
 
