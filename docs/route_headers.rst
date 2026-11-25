@@ -1,15 +1,45 @@
 Credential Headers (Beta)
 =========================
 
-Which routes declare which identity header, as of 2.1.14. A route that declares
-a header sends only that one; a route with an empty list sends none. The rule
-and the selector argument are on :doc:`config`. Every module below was checked
-route by route, and the count is how many of its routes carry the mark.
+Which routes need which credentials, as of 2.1.14. Every module below was
+checked route by route; the count is how many of its routes carry the mark.
+The rule and the ``selector=`` argument are on :doc:`config`.
 
-Routes with an empty list
--------------------------
+The OAuth trio is required by every route, wherever it comes from -- the
+config file, a dict in code or the environment variables:
 
-These answer from the token alone, so they never receive an identity header.
+..  list-table::
+    :header-rows: 1
+
+    * - Credentials key
+      - Sent as
+    * - ``refresh_token``
+      - the bearer token
+    * - ``client_id``
+      - ``Amazon-Advertising-API-ClientId``
+    * - ``client_secret``
+      - used to obtain the token
+
+The three identifiers are optional and each route takes a fixed set of them:
+
+..  list-table::
+    :header-rows: 1
+
+    * - Credentials key
+      - Sent as
+    * - ``profile_id``
+      - ``Amazon-Advertising-API-Scope``
+    * - ``account_id``
+      - ``Amazon-Ads-AccountId``
+    * - ``manager_account_id``
+      - ``Amazon-Advertising-API-Manager-Account``
+
+Routes that need no identifier
+-------------------------------
+
+``refresh_token``, ``client_id`` and ``client_secret`` are enough. The three
+identifiers may be set and are not sent: these routes list the identifiers
+themselves, so they cannot require one.
 
 ..  list-table::
     :header-rows: 1
@@ -33,13 +63,13 @@ These answer from the token alone, so they never receive an identity header.
     * - ``profiles.py``
       - v0
       - 4/4
-      - done, plus 5 ``@Utils.deprecated``
+      - done
 
-Routes marked with the scope
-----------------------------
+Routes that need ``profile_id``
+--------------------------------
 
 One marketplace per answer. The client sends ``Amazon-Advertising-API-Scope``
-and drops the other two headers.
+and drops the other two headers, even when the credentials carry them.
 
 ..  list-table::
     :header-rows: 1
@@ -65,11 +95,12 @@ and drops the other two headers.
       - 1/4
       - list only
 
-Routes that accept several
---------------------------
+Routes that accept any of the three
+-----------------------------------
 
-The call picks with ``selector=``; with several headers present and no
-selector the client raises ``AmbiguousEndpointHeader`` instead of guessing.
+The call picks with ``selector=``. With more than one identifier in the
+credentials and no selector, the client raises ``AmbiguousEndpointHeader``
+instead of guessing.
 
 ..  list-table::
     :header-rows: 1
