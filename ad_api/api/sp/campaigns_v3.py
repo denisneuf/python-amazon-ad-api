@@ -74,7 +74,7 @@ class CampaignsV3(Client):
             headers.update({"Prefer": prefer_value})
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/sp/campaigns/list', method='POST')
+    @sp_endpoint('/sp/campaigns/list', method='POST', headers=['Amazon-Advertising-API-Scope'])
     @Utils.deprecated
     def list_campaigns(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""

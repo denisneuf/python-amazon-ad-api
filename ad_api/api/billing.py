@@ -185,8 +185,11 @@ class Billing(Client):
         body = Utils.convert_body(kwargs.pop('body'), False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
 
-    @sp_endpoint('/invoiceSummaries/list', method='POST')
-    def invoice_summaries(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/invoiceSummaries/list', method='POST',
+                 headers=['Amazon-Advertising-API-Scope',
+                          'Amazon-Ads-AccountId',
+                          'Amazon-Advertising-API-Manager-Account'])
+    def invoice_summaries(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Lists invoice summaries with filters, sorting and paging.
 
@@ -245,7 +248,8 @@ class Billing(Client):
             'Content-Type': 'application/vnd.billingInvoiceSummary.v1+json',
         }
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        extra = {'selector': selector} if selector else {}
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **extra), headers=headers)
 
     @sp_endpoint('/billingProfiles/list', method='POST')
     def list_billing_profiles(self, **kwargs) -> ApiResponse:

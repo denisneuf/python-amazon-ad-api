@@ -3,7 +3,7 @@ import json
 
 
 class Profiles(Client):
-    @sp_endpoint('/v2/profiles', method='GET')
+    @sp_endpoint('/v2/profiles', method='GET', headers=[])
     def list_profiles(self, **kwargs) -> ApiResponse:
         r"""
 
@@ -27,7 +27,8 @@ class Profiles(Client):
         """
         return self._request(kwargs.pop('path'), params=kwargs)
 
-    @sp_endpoint('/v2/profiles', method='PUT')
+    @sp_endpoint('/v2/profiles', method='PUT', headers=[])
+    @Utils.deprecated
     def update_single_profile_assistant(self, profile_id: int, daily_budget: int, **kwargs) -> ApiResponse:
         r"""
         update_single_profile_assistant(profile_id: int, daily_budget: int, **kwargs) -> ApiResponse
@@ -54,12 +55,17 @@ class Profiles(Client):
         options.update({'path': kwargs.pop("path")})
         options.update({'method': kwargs.pop("method")})
 
+        # The decorator injects its header list into kwargs, and this helper
+        # copies everything left in kwargs into the body: drop it first or the
+        # service answers 422 Unrecognized field "endpoint_headers".
+        kwargs.pop('endpoint_headers', None)
+
         required.update(kwargs)
 
         data_str = json.dumps([required])
         return self._request(options.pop('path'), data=data_str, params=options)
 
-    @sp_endpoint('/v2/profiles', method='PUT')
+    @sp_endpoint('/v2/profiles', method='PUT', headers=[])
     def update_profile(self, **kwargs) -> ApiResponse:
         r"""
 
@@ -84,7 +90,7 @@ class Profiles(Client):
         body = Utils.convert_body(kwargs.pop('body'))
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
-    @sp_endpoint('/v2/profiles/{}', method='GET')
+    @sp_endpoint('/v2/profiles/{}', method='GET', headers=[])
     def get_profile(self, profileId, **kwargs) -> ApiResponse:
         r"""
 
@@ -103,6 +109,7 @@ class Profiles(Client):
         return self._request(fill_query_params(kwargs.pop('path'), profileId), params=kwargs)
 
     @sp_endpoint('/v2/profiles/registerBrand', method='PUT')
+    @Utils.deprecated
     def register_brand_assistant(self, country_code: str, brand: str, **kwargs) -> ApiResponse:
         r"""
         register_brand_assistant(country_code:str, brand:str) -> ApiResponse
@@ -124,6 +131,7 @@ class Profiles(Client):
         return self._request(kwargs.pop('path'), data=data_str, params=kwargs)
 
     @sp_endpoint('/v2/profiles/registerBrand', method='PUT')
+    @Utils.deprecated
     def register_brand(self, **kwargs) -> ApiResponse:
         r"""
 
@@ -147,6 +155,7 @@ class Profiles(Client):
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
     @sp_endpoint('/v2/profiles/register', method='PUT')
+    @Utils.deprecated
     def register_assistant(self, country_code: str, **kwargs) -> ApiResponse:
         r"""
         register_assistant(country_code: str) -> ApiResponse
@@ -168,6 +177,7 @@ class Profiles(Client):
         return self._request(kwargs.pop('path'), data=data_str, params=kwargs)
 
     @sp_endpoint('/v2/profiles/register', method='PUT')
+    @Utils.deprecated
     def register(self, **kwargs) -> ApiResponse:
         r"""
         register(body: (dict, str)) -> ApiResponse

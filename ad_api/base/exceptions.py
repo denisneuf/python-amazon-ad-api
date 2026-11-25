@@ -46,8 +46,9 @@ class MissingEndpointHeader(Exception):
         'Amazon-Advertising-API-Manager-Account': 'manager_account_id',
     }
 
-    def __init__(self, path, method, required, account, available, source='yml'):
+    def __init__(self, path, method, required, account, available, source='yml', reason=None):
         self.path = path
+        self.reason = reason
         self.method = method
         self.required = required
         self.account = account
@@ -61,11 +62,18 @@ class MissingEndpointHeader(Exception):
             where = 'the AD_API_* environment variables'
         else:
             where = f"credentials.yml (account '{account}')"
-        message = (
-            f"{method} {path} needs one of {required}; "
-            f"{', '.join(self.missing)} is missing from {where}. "
-            f"It does hold: {held}"
-        )
+        if reason == 'not-accepted':
+            message = (
+                f"{method} {path} only accepts {required}; the selector asked "
+                f"for {', '.join(self.missing)}, which {where} does hold. "
+                f"Drop the selector or pick one the route declares."
+            )
+        else:
+            message = (
+                f"{method} {path} needs one of {required}; "
+                f"{', '.join(self.missing)} is missing from {where}. "
+                f"It does hold: {held}"
+            )
         super().__init__(message)
 
 

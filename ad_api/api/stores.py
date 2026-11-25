@@ -11,7 +11,7 @@ class Stores(Client):
     is why they carry a body even though they only read.
     """
 
-    @sp_endpoint('/stores/{}/asinMetrics', method='POST')
+    @sp_endpoint('/stores/{}/asinMetrics', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def get_asin_engagement_for_store(self, brandEntityId, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Engagement figures for the ASINs of a store.
@@ -29,7 +29,7 @@ class Stores(Client):
         headers = {'Content-Type': content_type, 'Accept': accept}
         return self._request(fill_query_params(kwargs.pop('path'), brandEntityId), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/stores/{}/insights', method='POST')
+    @sp_endpoint('/stores/{}/insights', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def get_insights_for_store_api(self, brandEntityId, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Insight metrics for a store, over the period named in the body.

@@ -14,7 +14,7 @@ class Campaigns(Client):
     """
 
 
-    @sp_endpoint('/adsApi/v1/query/campaigns', method='POST')
+    @sp_endpoint('/adsApi/v1/query/campaigns', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def query_campaigns(self, **kwargs) -> ApiResponse:
         r"""
         query_campaigns(body: dict) -> ApiResponse

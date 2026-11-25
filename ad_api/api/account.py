@@ -2,7 +2,7 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 
 
 class Account(Client):
-    @sp_endpoint('/adsAccounts/list', method='POST')
+    @sp_endpoint('/adsAccounts/list', method='POST', headers=[])
     def list_accounts(self, **kwargs) -> ApiResponse:
         r"""
         list_accounts(body: (dict, str)) -> ApiResponse
@@ -19,7 +19,7 @@ class Account(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
 
-    @sp_endpoint('/adsAccounts/{}', method='GET')
+    @sp_endpoint('/adsAccounts/{}', method='GET', headers=[])
     def get_account(self, advertisingAccountId: str, **kwargs) -> ApiResponse:
         r"""
         get_account(advertisingAccountId: str) -> ApiResponse
@@ -33,7 +33,7 @@ class Account(Client):
 
         return self._request(fill_query_params(kwargs.pop('path'), advertisingAccountId), params=kwargs, headers=headers)
 
-    @sp_endpoint('/adsAccounts', method='POST')
+    @sp_endpoint('/adsAccounts', method='POST', headers=[])
     def create_account(self, **kwargs) -> ApiResponse:
         r"""
         create_account(body: (dict, str)) -> ApiResponse
@@ -52,7 +52,7 @@ class Account(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
 
-    @sp_endpoint('/termsTokens', method='POST')
+    @sp_endpoint('/termsTokens', method='POST', headers=[])
     def create_terms_token(self, **kwargs) -> ApiResponse:
         r"""
         create_terms_token(body: (dict, str)) -> ApiResponse
@@ -75,7 +75,7 @@ class Account(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
 
-    @sp_endpoint('/termsTokens/{}', method='GET')
+    @sp_endpoint('/termsTokens/{}', method='GET', headers=[])
     def get_terms_token(self, termsToken: str, **kwargs) -> ApiResponse:
         r"""
         get_terms_token(termsToken: str) -> ApiResponse

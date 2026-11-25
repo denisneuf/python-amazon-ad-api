@@ -4,7 +4,7 @@ from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 class History(Client):
     """ """
 
-    @sp_endpoint('/history', method='POST')
+    @sp_endpoint('/history', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def get_history(self, version: str = "1.0", **kwargs) -> ApiResponse:
         r"""
         Returns the changes made to campaigns, ad groups, ads and the rest of the

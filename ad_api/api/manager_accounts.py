@@ -2,7 +2,7 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 
 
 class ManagerAccounts(Client):
-    @sp_endpoint('/managerAccounts', method='GET')
+    @sp_endpoint('/managerAccounts', method='GET', headers=[])
     def list_manager_accounts(self, **kwargs) -> ApiResponse:
         r"""
 
@@ -17,7 +17,7 @@ class ManagerAccounts(Client):
 
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
 
-    @sp_endpoint('/managerAccounts', method='POST')
+    @sp_endpoint('/managerAccounts', method='POST', headers=[])
     def create_manager_account(self, **kwargs) -> ApiResponse:
         r"""
         create_manager_account(body: (dict, str)) -> ApiResponse
@@ -36,7 +36,7 @@ class ManagerAccounts(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
-    @sp_endpoint('/managerAccounts/{}/associate', method='POST')
+    @sp_endpoint('/managerAccounts/{}/associate', method='POST', headers=[])
     def associate_manager_accounts(self, managerAccountId: str, **kwargs) -> ApiResponse:
         r"""
         associate_manager_accounts(managerAccountId: str, body: (dict, str)) -> ApiResponse
@@ -68,7 +68,7 @@ class ManagerAccounts(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(fill_query_params(kwargs.pop('path'), managerAccountId), data=body, params=kwargs, headers=headers)
 
-    @sp_endpoint('/managerAccounts/{}/disassociate', method='POST')
+    @sp_endpoint('/managerAccounts/{}/disassociate', method='POST', headers=[])
     def disassociate_manager_accounts(self, managerAccountId: str, **kwargs) -> ApiResponse:
         r"""
         disassociate_manager_accounts(managerAccountId: str, body: (dict, str)) -> ApiResponse

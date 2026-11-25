@@ -301,6 +301,14 @@ class Client(BaseClient):
                             f"unknown selector {selector!r}; valid values are "
                             + ', '.join(repr(k) for k in _SELECTOR_HEADERS)
                         )
+                    if chosen in identity and chosen not in endpoint_headers:
+                        raise MissingEndpointHeader(
+                            path, method, endpoint_headers,
+                            getattr(self, 'account_name', 'default'),
+                            list(identity.keys()),
+                            getattr(self, 'credentials_source', 'yml'),
+                            reason='not-accepted',
+                        )
                     if chosen not in present:
                         raise MissingEndpointHeader(
                             path, method, [chosen],

@@ -6,7 +6,7 @@ class AdvertisingTestAccount(Client):
     Create test advertising account for 3P API integrators
     """
 
-    @sp_endpoint('/testAccounts', method='POST')
+    @sp_endpoint('/testAccounts', method='POST', headers=[])
     def create_test_account(self, **kwargs) -> ApiResponse:
         r"""
         create_test_account(body: dict or str) -> ApiResponse:
@@ -27,7 +27,7 @@ class AdvertisingTestAccount(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
-    @sp_endpoint('/testAccounts', method='GET')
+    @sp_endpoint('/testAccounts', method='GET', headers=[])
     def get_test_account(self, **kwargs) -> ApiResponse:
         r"""
         get_test_account(requestId: str) -> ApiResponse
