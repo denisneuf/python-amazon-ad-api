@@ -11,7 +11,7 @@ pydata-sphinx-theme
 requests>=2.34.2,<2.35.0
 six>=1.17.0,<1.18
 cachetools>=8.0.2,<8.1
-pycryptodome>=4.5.0,<4.6
+pycryptodome>=4.6.0,<4.7
 pytz>=2026.6,<2027.0
 confuse>=2.3.1,<2.4
 python-dotenv
