@@ -91,10 +91,11 @@ request, in a header:
 
 .. note::
 
-    **No route is marked yet.** The argument exists in 2.1.13 and nothing in the
-    package uses it: every call behaves as it did in 2.1.12, sending whatever
-    the credentials carry. Routes gain their header list release by release as
-    each family is verified, and this page gains the list with them.
+    **A first group of routes is marked in 2.1.14.** The rest still behave as
+    they did in 2.1.12 and send whatever the credentials carry. The routes that
+    declare a header, and the call that proved each one, are on
+    :doc:`route_headers`. Families are marked release by release as each one is
+    verified against the service.
 
 Not every route accepts all three. Each route declares the ones it takes, and
 the client sends only those: a route marked with the scope never receives the
@@ -167,3 +168,13 @@ Two exceptions replace the silent request that used to leave without a header:
 
 The first says what the route needs and where to add it. The second says the
 route could use several and the call did not choose.
+
+A third shape covers the case where the selector names an identifier the route
+does not accept. It is not a missing credential and the message says so:
+
+::
+
+    MissingEndpointHeader: POST /history only accepts
+    ['Amazon-Advertising-API-Scope']; the selector asked for manager_account_id,
+    which credentials.yml (account 'another_account') does hold. Drop the
+    selector or pick one the route declares.
