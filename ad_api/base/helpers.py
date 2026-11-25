@@ -16,11 +16,30 @@ def fill_query_params(query, *args):
 T = TypeVar("T")
 
 
-def sp_endpoint(path, method="GET"):
+def sp_endpoint(path, method="GET", headers=None):
+    """Bind a method to its route.
+
+    headers is the set of identity headers this route may send:
+    'Amazon-Advertising-API-Scope', 'Amazon-Ads-AccountId',
+    'Amazon-Advertising-API-Manager-Account', or [] for a route that takes
+    none of them. Left as None the route keeps the earlier behaviour and
+    sends whatever the credentials carry.
+
+    A route that lists one header sends that one. A route that lists several
+    lets the caller choose with selector=, whose values are the keys
+    credentials.yml takes ('profile_id', 'account_id', 'manager_account_id'),
+    and raises AmbiguousEndpointHeader when the call names none of them. A
+    route whose listed headers cannot be supplied raises MissingEndpointHeader
+    instead of sending a request the service will reject with a message naming
+    nothing useful.
+    """
+
     def decorator(function: T) -> T:
         @functools.wraps(function)
         def wrapper(*args, **kwargs):
             kwargs.update({"path": path, "method": method})
+            if headers is not None:
+                kwargs["endpoint_headers"] = list(headers)
             return function(*args, **kwargs)
 
         wrapper.__doc__ = function.__doc__

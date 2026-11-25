@@ -1,12 +1,12 @@
 import json
 from json import JSONDecodeError
 import logging
-from cachetools import TTLCache
 from requests import request
 from ad_api.auth import AccessTokenClient, AccessTokenResponse
 from .api_response import ApiResponse
 from ad_api.shared.base_client import BaseClient
-from .exceptions import get_exception_for_code, get_exception_for_content
+from .exceptions import (get_exception_for_code, get_exception_for_content,
+                         MissingEndpointHeader, AmbiguousEndpointHeader)
 from .marketplaces import Marketplaces
 import os
 import requests
@@ -20,7 +20,23 @@ import ad_api.version as vd
 from typing import Any, Dict, Optional
 
 log = logging.getLogger(__name__)
-role_cache = TTLCache(maxsize=int(os.environ.get('AD_API_AUTH_CACHE_SIZE', 10)), ttl=3200)
+# The three headers that name which account a call is about. A route may only
+# send one of them; which one it sends is decided per route and, when a route
+# accepts more than one, per call.
+_IDENTITY_HEADERS = (
+    'Amazon-Advertising-API-Scope',
+    'Amazon-Ads-AccountId',
+    'Amazon-Advertising-API-Manager-Account',
+)
+
+# selector= value -> header it sends. The keys are the same keys credentials.yml
+# takes, so a caller writes the name it already knows.
+_SELECTOR_HEADERS = {
+    'profile_id': 'Amazon-Advertising-API-Scope',
+    'account_id': 'Amazon-Ads-AccountId',
+    'manager_account_id': 'Amazon-Advertising-API-Manager-Account',
+}
+
 _DEFAULT_MARKETPLACE = Marketplaces[os.environ['AD_API_DEFAULT_MARKETPLACE']] if 'AD_API_DEFAULT_MARKETPLACE' in os.environ else Marketplaces.EU
 
 
@@ -37,7 +53,10 @@ class Client(BaseClient):
         access_token: Optional[str] = None,
         verify_additional_credentials: bool = True,
     ):
-        self.credentials = CredentialProvider(account, credentials, verify_additional_credentials).credentials
+        _provider = CredentialProvider(account, credentials, verify_additional_credentials)
+        self.credentials = _provider.credentials
+        self.account_name = getattr(_provider, 'account', account)
+        self.credentials_source = getattr(_provider, 'source', 'yml')
         self._auth = AccessTokenClient(
             credentials=self.credentials,
             proxies=proxies,
@@ -64,6 +83,12 @@ class Client(BaseClient):
         }
         if profile_id := self.credentials.get('profile_id'):
             data['Amazon-Advertising-API-Scope'] = profile_id
+
+        if account_id := self.credentials.get('account_id'):
+            data['Amazon-Ads-AccountId'] = account_id
+
+        if manager_account_id := self.credentials.get('manager_account_id'):
+            data['Amazon-Advertising-API-Manager-Account'] = manager_account_id
         return data
 
     @property
@@ -221,6 +246,8 @@ class Client(BaseClient):
             params = {}
 
         method = params.pop('method')
+        endpoint_headers = params.pop('endpoint_headers', None)
+        selector = params.pop('selector', None)
 
         if headers is False:
             base_header = self.headers.copy()
@@ -231,6 +258,75 @@ class Client(BaseClient):
             base_header = self.headers.copy()
             base_header.update(headers)
             headers = base_header
+
+        elif endpoint_headers is not None:
+            # headers is None: self.headers is used at request time. Copy it so
+            # the filter below has something to mutate.
+            headers = self.headers.copy()
+
+        # A method that passed its own headers often carries only Accept and
+        # Content-Type. Rebuild the layer from the base so the filter sees what
+        # the property would have produced. With headers=None the old helper
+        # deleted the identity header earlier in _request itself, which is why
+        # this has to happen before the branches above.
+        if endpoint_headers is not None:
+            headers = dict(headers or {})
+            for h in _IDENTITY_HEADERS:
+                headers.pop(h, None)
+            for h, v in self.headers.items():
+                if h in _IDENTITY_HEADERS:
+                    headers[h] = v
+
+        # Build the identity picture from self.headers, independently of the
+        # per-method headers dict (which often carries only Accept/Content-Type).
+        identity = {h: v for h, v in self.headers.items() if h in _IDENTITY_HEADERS}
+
+        # A route that declares headers sends only those, and fails loudly when
+        # none of them can be supplied: an identity header left out silently
+        # turns into a 401 or 400 from the service that names nothing useful.
+        if endpoint_headers is not None:
+            if endpoint_headers:
+                present = [h for h in endpoint_headers if h in identity]
+                if not present:
+                    raise MissingEndpointHeader(
+                        path, method, endpoint_headers,
+                        getattr(self, 'account_name', 'default'),
+                        list(identity.keys()),
+                        getattr(self, 'credentials_source', 'yml'),
+                    )
+                if selector is not None:
+                    chosen = _SELECTOR_HEADERS.get(selector)
+                    if chosen is None:
+                        raise ValueError(
+                            f"unknown selector {selector!r}; valid values are "
+                            + ', '.join(repr(k) for k in _SELECTOR_HEADERS)
+                        )
+                    if chosen not in present:
+                        raise MissingEndpointHeader(
+                            path, method, [chosen],
+                            getattr(self, 'account_name', 'default'),
+                            list(identity.keys()),
+                            getattr(self, 'credentials_source', 'yml'),
+                        )
+                    keep = {chosen}
+                elif len(present) > 1:
+                    raise AmbiguousEndpointHeader(
+                        path, method, present,
+                        getattr(self, 'account_name', 'default'),
+                        getattr(self, 'credentials_source', 'yml'),
+                    )
+                else:
+                    keep = set(present)
+            else:
+                keep = set()
+            # Apply the selection both to the base headers and to the dict
+            # the method supplied: the identity header must not survive in
+            # either place if this route did not declare it.
+            headers = headers or {}
+            for h in _IDENTITY_HEADERS:
+                headers.pop(h, None)
+                if h in keep and h in identity:
+                    headers[h] = identity[h]
 
         request_data = data if method in ('POST', 'PUT', 'PATCH') else None
         res = request(

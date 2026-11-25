@@ -12,8 +12,11 @@ REQUIRED_CREDENTIALS = [
     'client_id',
     'client_secret',
 ]
+# Nothing beyond the OAuth trio is required. profile_id, account_id and
+# manager_account_id are destination identifiers, not credentials: a route
+# decides which one it needs, and demanding them here rejects any account
+# that holds only one of the three.
 ADDITIONAL_CREDENTIALS = [
-    'profile_id'
 ]
 
 
@@ -113,6 +116,12 @@ class CredentialProvider:
         credentials: Optional[Dict[str, str]] = None,
         verify_additional_credentials: bool = True,
     ):
+        # Where the credentials came from: code dict > env vars > credentials.yml.
+        self.account = account
+        self.source = ('code' if isinstance(credentials, dict)
+                       else 'env' if self._get_env('AD_API_CLIENT_ID')
+                       else 'yml')
+
         client_id_env = self._get_env('AD_API_CLIENT_ID')
         client_secret_env = self._get_env('AD_API_CLIENT_SECRET')
         refresh_token_env = self._get_env('AD_API_REFRESH_TOKEN')
