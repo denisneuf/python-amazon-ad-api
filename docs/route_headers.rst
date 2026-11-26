@@ -101,7 +101,6 @@ and drops the other two headers, even when the credentials carry them.
 
 Routes that need ``account_id`` or ``manager_account_id``
 ---------------------------------------------------------
---------------------------------------------------------------
 
 These routes accept neither a marketplace scope nor a second account.
 
