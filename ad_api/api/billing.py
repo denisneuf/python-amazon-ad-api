@@ -2,8 +2,10 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 
 
 class Billing(Client):
-    @sp_endpoint('/billing/statuses', method='POST')
-    def list_billing_status(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billing/statuses', method='POST',
+                 headers=['Amazon-Advertising-API-Scope',
+                          'Amazon-Ads-AccountId'])
+    def list_billing_status(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Get the billing status for a list of advertising accounts.
 
@@ -27,10 +29,13 @@ class Billing(Client):
         headers = {'Content-Type': request_contentType, 'Accept': accept_contentType}
 
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/billing/notifications', method='POST')
-    def list_billing_notifications(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billing/notifications', method='POST',
+                 headers=['Amazon-Advertising-API-Scope',
+                          'Amazon-Ads-AccountId',
+                          'Amazon-Advertising-API-Manager-Account'])
+    def list_billing_notifications(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Get the billing notifications for a list advertising accounts.
 
@@ -53,11 +58,14 @@ class Billing(Client):
         accept_contentType = 'application/vnd.bulkgetbillingnotificationsresponse.v1+json'
         headers = {'Content-Type': request_contentType, 'Accept': accept_contentType}
 
-        body = Utils.convert_body(kwargs.pop('body'))
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        body = Utils.convert_body(kwargs.pop('body'), False)
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/billing/paymentMethods/list', method='POST')
-    def get_customer_payment_methods(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billing/paymentMethods/list', method='POST',
+                 headers=['Amazon-Advertising-API-Scope',
+                          'Amazon-Ads-AccountId',
+                          'Amazon-Advertising-API-Manager-Account'])
+    def get_customer_payment_methods(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Lists the ways this account can pay.
 
@@ -84,10 +92,12 @@ class Billing(Client):
         """
         accept_contentType = 'application/vnd.paymentmethods.v1+json'
         headers = {'Accept': accept_contentType}
-        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/billing/invoices/pay', method='POST')
-    def pay_invoices(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billing/invoices/pay', method='POST',
+                 headers=['Amazon-Advertising-API-Scope', 
+                          'Amazon-Ads-AccountId'])
+    def pay_invoices(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Collects the outstanding balance for one or more countries.
 
@@ -125,10 +135,13 @@ class Billing(Client):
         accept_contentType = 'application/vnd.invoices.v1+json'
         headers = {'Accept': accept_contentType}
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/billing/paymentAgreements/list', method='POST')
-    def get_payment_agreements(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billing/paymentAgreements/list', method='POST',
+                 headers=['Amazon-Advertising-API-Scope',
+                          'Amazon-Ads-AccountId',
+                          'Amazon-Advertising-API-Manager-Account'])
+    def get_payment_agreements(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Lists the payment agreements this account holds.
 
@@ -152,10 +165,13 @@ class Billing(Client):
         """
         accept_contentType = 'application/vnd.paymentagreements.v1+json'
         headers = {'Accept': accept_contentType}
-        return self._request(kwargs.pop('path'), params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/billing/paymentAgreements', method='POST')
-    def create_payment_agreements(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billing/paymentAgreements', method='POST',
+                 headers=['Amazon-Advertising-API-Scope', 
+                          'Amazon-Ads-AccountId', 
+                          'Amazon-Advertising-API-Manager-Account'])
+    def create_payment_agreements(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Creates a payment agreement, which decides how an account gets charged.
 
@@ -183,7 +199,7 @@ class Billing(Client):
         accept_contentType = 'application/vnd.paymentagreements.v1+json'
         headers = {'Accept': accept_contentType}
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
     @sp_endpoint('/invoiceSummaries/list', method='POST',
                  headers=['Amazon-Advertising-API-Scope',
@@ -251,8 +267,11 @@ class Billing(Client):
         extra = {'selector': selector} if selector else {}
         return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **extra), headers=headers)
 
-    @sp_endpoint('/billingProfiles/list', method='POST')
-    def list_billing_profiles(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billingProfiles/list', method='POST',
+                 headers=['Amazon-Advertising-API-Scope',
+                          'Amazon-Ads-AccountId',
+                          'Amazon-Advertising-API-Manager-Account'])
+    def list_billing_profiles(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Lists the billing profiles of the account.
 
@@ -280,10 +299,13 @@ class Billing(Client):
             'Content-Type': 'application/vnd.billingProfile.v1+json',
         }
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/billingProfileUsages/list', method='POST')
-    def list_billing_profile_usages(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billingProfileUsages/list', method='POST',
+                 headers=['Amazon-Advertising-API-Scope',
+                          'Amazon-Ads-AccountId',
+                          'Amazon-Advertising-API-Manager-Account'])
+    def list_billing_profile_usages(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Lists which billing profile each country uses.
 
@@ -315,10 +337,10 @@ class Billing(Client):
             'Content-Type': 'application/vnd.billingProfileUsage.v1+json',
         }
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/billing/documents/{}', method='GET')
-    def get_billing_document(self, documentId, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billing/documents/{}', method='GET', headers=['Amazon-Ads-AccountId'])
+    def get_billing_document(self, documentId, selector=None, **kwargs) -> ApiResponse:
         r"""
         Reads one billing document.
 
@@ -337,11 +359,15 @@ class Billing(Client):
 
         """
         headers = {'Accept': 'application/vnd.billingDocuments.v1+json'}
+        extra = {'selector': selector} if selector else {}
         return self._request(fill_query_params(kwargs.pop('path'), documentId),
-                             params=kwargs, headers=headers)
+                             params=dict(kwargs, **extra), headers=headers)
 
-    @sp_endpoint('/billingProfileAgreementContents/{}', method='GET')
-    def get_billing_profile_agreement_content(self, billingProfileAgreementContentId, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billingProfileAgreementContents/{}', method='GET',
+                 headers=['Amazon-Advertising-API-Scope',
+                          'Amazon-Ads-AccountId',
+                          'Amazon-Advertising-API-Manager-Account'])
+    def get_billing_profile_agreement_content(self, billingProfileAgreementContentId, selector=None, **kwargs) -> ApiResponse:
         r"""
         Reads the agreement text attached to a billing profile.
 
@@ -358,12 +384,16 @@ class Billing(Client):
 
         """
         headers = {'Accept': 'application/vnd.billingProfileAgreement.v1+json'}
+        extra = {'selector': selector} if selector else {}
         return self._request(
             fill_query_params(kwargs.pop('path'), billingProfileAgreementContentId),
-            params=kwargs, headers=headers)
+            params=dict(kwargs, **extra), headers=headers)
 
-    @sp_endpoint('/billingStatements/{}', method='GET')
-    def get_billing_statement(self, billingStatementRequestId, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billingStatements/{}', method='GET',
+                 headers=['Amazon-Advertising-API-Scope',
+                          'Amazon-Ads-AccountId',
+                          'Amazon-Advertising-API-Manager-Account'])
+    def get_billing_statement(self, billingStatementRequestId, selector=None, **kwargs) -> ApiResponse:
         r"""
         Reports on a billing statement request.
 
@@ -392,11 +422,15 @@ class Billing(Client):
 
         """
         headers = {'Accept': 'application/vnd.createbillingstatementsrequest.v1+json'}
+        extra = {'selector': selector} if selector else {}
         return self._request(fill_query_params(kwargs.pop('path'), billingStatementRequestId),
-                             params=kwargs, headers=headers)
+                             params=dict(kwargs, **extra), headers=headers)
 
-    @sp_endpoint('/billingStatements', method='POST')
-    def create_billing_statement(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billingStatements', method='POST',
+                 headers=['Amazon-Advertising-API-Scope',
+                          'Amazon-Ads-AccountId',
+                          'Amazon-Advertising-API-Manager-Account'])
+    def create_billing_statement(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Asks the service to generate a billing statement for a period.
 
@@ -422,10 +456,13 @@ class Billing(Client):
             'Content-Type': 'application/vnd.createbillingstatementsrequest.v1+json',
         }
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        extra = {'selector': selector} if selector else {}
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **extra), headers=headers)
 
-    @sp_endpoint('/billingProfileUsages', method='POST')
-    def apply_billing_profile(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billingProfileUsages', method='POST',
+                 headers=['Amazon-Ads-AccountId', 
+                          'Amazon-Advertising-API-Manager-Account'])
+    def apply_billing_profile(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Links one or more countries to a billing profile.
 
@@ -456,10 +493,12 @@ class Billing(Client):
             'Content-Type': 'application/vnd.billingProfileUsage.v1+json',
         }
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/billingProfiles', method='POST')
-    def create_billing_profiles(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billingProfiles', method='POST',
+                 headers=['Amazon-Ads-AccountId', 
+                          'Amazon-Advertising-API-Manager-Account'])
+    def create_billing_profiles(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Creates one or more billing profiles.
 
@@ -487,10 +526,12 @@ class Billing(Client):
             'Content-Type': 'application/json',
         }
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/billingProfiles', method='PUT')
-    def update_billing_profiles(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billingProfiles', method='PUT',
+                 headers=['Amazon-Ads-AccountId', 
+                          'Amazon-Advertising-API-Manager-Account'])
+    def update_billing_profiles(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Updates one or more billing profiles.
 
@@ -516,10 +557,12 @@ class Billing(Client):
             'Content-Type': 'application/json',
         }
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/billing/paymentProfiles', method='POST')
-    def create_payment_profiles(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/billing/paymentProfiles', method='POST',
+                 headers=['Amazon-Ads-AccountId', 
+                          'Amazon-Advertising-API-Manager-Account'])
+    def create_payment_profiles(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Creates one or more payment profiles.
 
@@ -547,10 +590,11 @@ class Billing(Client):
             'Content-Type': 'application/json',
         }
         body = Utils.convert_body(kwargs.pop('body'), False)
-        return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
+        return self._request(kwargs.pop('path'), data=body, params=dict(kwargs, **({'selector': selector} if selector else {})), headers=headers)
 
-    @sp_endpoint('/invoices', method='GET')
-    def list_invoices(self, **kwargs) -> ApiResponse:
+    @sp_endpoint('/invoices', method='GET',
+                 headers=['Amazon-Advertising-API-Scope'])
+    def list_invoices(self, selector=None, **kwargs) -> ApiResponse:
         r"""
         Get invoices for advertiser. Requires one of these permissions: ["nemo_transactions_view","nemo_transactions_edit"]
 
@@ -573,9 +617,11 @@ class Billing(Client):
             that key belongs to the inner object.
 
         """
-        return self._request(kwargs.pop('path'), params=kwargs)
+        extra = {'selector': selector} if selector else {}
+        return self._request(kwargs.pop('path'), params=dict(kwargs, **extra))
 
-    @sp_endpoint('/invoices/{}', method='GET')
+    @sp_endpoint('/invoices/{}', method='GET',
+                 headers=['Amazon-Advertising-API-Scope'])
     def get_invoice(self, invoiceId, **kwargs) -> ApiResponse:
         r"""
         Get invoice data by invoice ID. Requires one of these permissions: ["nemo_transactions_view","nemo_transactions_edit"]
