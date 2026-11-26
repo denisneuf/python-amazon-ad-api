@@ -28,13 +28,20 @@ Headers
 
 The contract splits them three ways, and the client now follows that split:
 
-======================  ==============================================
-Route                   Headers
-======================  ==============================================
-``create/.../sb``       ``Amazon-Ads-AccountId`` optional
-``query/...``           ``Amazon-Ads-AccountId`` optional
-``GET /recommendations``       ``Amazon-Ads-AccountId`` and ``Amazon-Ads-Manager-AccountId``, optional
-======================  ==============================================
+..  list-table::
+    :header-rows: 1
+
+    * - Route
+      - Headers
+
+    * - ``create/.../sb``
+      - ``Amazon-Ads-AccountId`` optional
+
+    * - ``query/...``
+      - ``Amazon-Ads-AccountId`` optional
+
+    * - ``GET /recommendations``
+      - ``Amazon-Ads-AccountId`` and ``Amazon-Ads-Manager-AccountId``, optional
 
 ``Amazon-Ads-ClientId`` is required on all three and the base client sends it
 on every call, so no method takes it.
