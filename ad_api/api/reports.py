@@ -7,9 +7,24 @@ class Reports(Client):
     Documentation: https://advertising.amazon.com/API/docs/en-us/offline-report-prod-3p
 
     Creates a report request. Use this operation to request the creation of a new report for Amazon Advertising Products. Use adProduct to specify the Advertising Product of the report.
+
+    Identity
+    --------
+    The three routes carry ``headers=['Amazon-Advertising-API-Scope']``.
+
+    ``Amazon-Ads-AccountId`` is declared optional for DSP advertiser accounts and
+    does not replace the profile: measured on 2026-11-27 with ``leadtech_fr``, every
+    combination without the profile answers 400 ``profile ID required`` on POST,
+    GET and DELETE, and adding the account id on top of the profile changes
+    nothing on a seller account. ``Amazon-Advertising-API-Manager-Account`` is not
+    part of this contract.
+
+    A ``GET`` on a report still being generated answers 404, not a status: the
+    status and the download url only arrive with ``COMPLETED``, which can take
+    twenty minutes or more. An empty report is a valid answer.
     """
 
-    @sp_endpoint('/reporting/reports', method='POST')
+    @sp_endpoint('/reporting/reports', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def post_report(self, **kwargs) -> ApiResponse:
         r"""
         Requests a Sponsored Products report.
@@ -37,7 +52,7 @@ class Reports(Client):
         """
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs)
 
-    @sp_endpoint('/reporting/reports/{}', method='GET')
+    @sp_endpoint('/reporting/reports/{}', method='GET', headers=['Amazon-Advertising-API-Scope'])
     def get_report(self, reportId, **kwargs) -> ApiResponse:
         r"""
         Gets a generation status of a report by id. Uses the reportId value from the response of previously requested report via POST /reporting/reports operation. When status is set to COMPLETED, the report will be available to be downloaded at url.
@@ -93,7 +108,7 @@ class Reports(Client):
         """
         return self._download(self, params=kwargs, headers={'User-Agent': self.user_agent})
 
-    @sp_endpoint('/reporting/reports/{}', method='DELETE')
+    @sp_endpoint('/reporting/reports/{}', method='DELETE', headers=['Amazon-Advertising-API-Scope'])
     def delete_report(self, reportId, **kwargs) -> ApiResponse:
         r"""
         Deletes a report by id. Use this operation to cancel a report in a PENDING status.
