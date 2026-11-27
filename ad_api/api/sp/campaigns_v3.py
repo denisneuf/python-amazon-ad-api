@@ -6,7 +6,7 @@ class CampaignsV3(Client):
     Amazon Ads API - Sponsored Products
     """
 
-    @sp_endpoint('/sp/campaigns', method='POST')
+    @sp_endpoint('/sp/campaigns', method='POST', headers=['Amazon-Advertising-API-Scope'])
     @Utils.deprecated
     def create_campaigns(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
@@ -39,7 +39,7 @@ class CampaignsV3(Client):
             headers.update({"Prefer": prefer_value})
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/sp/campaigns', method='PUT')
+    @sp_endpoint('/sp/campaigns', method='PUT', headers=['Amazon-Advertising-API-Scope'])
     @Utils.deprecated
     def edit_campaigns(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
@@ -102,7 +102,7 @@ class CampaignsV3(Client):
         return self._request(kwargs.pop('path'), params=kwargs, headers=headers, **({'data': Utils.convert_body(body, False)} if body is not None else {})
         )
 
-    @sp_endpoint('/sp/campaigns/delete', method='POST')
+    @sp_endpoint('/sp/campaigns/delete', method='POST', headers=['Amazon-Advertising-API-Scope'])
     @Utils.deprecated
     def delete_campaigns(self, version: int = 3, **kwargs) -> ApiResponse:
         r"""

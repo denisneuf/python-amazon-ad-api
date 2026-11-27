@@ -92,7 +92,7 @@ and drops the other two headers, even when the credentials carry them.
       - query only
     * - ``sp/campaigns_v3.py``
       - v3
-      - 1/4
+      - 4/4
       - list only
     * - ``billing.py``
       - v0
@@ -536,10 +536,6 @@ routes are marked and the rest are not; ``pending`` means none is.
       - v1
       - 0/1
       - pending
-    * - ``v1/campaigns.py``
-      - v1
-      - 1/4
-      - partial
     * - ``v1/geo_locations.py``
       - v1
       - 0/1
