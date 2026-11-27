@@ -14,7 +14,7 @@ class PortfoliosV3(Client):
     for anyone pinning an older release.
     """
 
-    @sp_endpoint('/portfolios/list', method='POST')
+    @sp_endpoint('/portfolios/list', method='POST', headers=['Amazon-Advertising-API-Scope'])
     @Utils.deprecated
     def list_portfolios(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
@@ -55,7 +55,7 @@ class PortfoliosV3(Client):
 
 
 
-    @sp_endpoint('/portfolios', method='POST')
+    @sp_endpoint('/portfolios', method='POST', headers=['Amazon-Advertising-API-Scope'])
     @Utils.deprecated
     def create_portfolios(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
@@ -104,7 +104,7 @@ class PortfoliosV3(Client):
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/portfolios', method='PUT')
+    @sp_endpoint('/portfolios', method='PUT', headers=['Amazon-Advertising-API-Scope'])
     @Utils.deprecated
     def edit_portfolios(self, version: int = 3, prefer: bool = False, **kwargs) -> ApiResponse:
         r"""
@@ -145,7 +145,7 @@ class PortfoliosV3(Client):
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
 
-    @sp_endpoint('/portfolios/budget/usage', method='POST')
+    @sp_endpoint('/portfolios/budget/usage', method='POST', headers=['Amazon-Advertising-API-Scope'])
     @Utils.deprecated
     def get_budget_usage_for_portfolios(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
