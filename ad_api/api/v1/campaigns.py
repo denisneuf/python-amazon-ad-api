@@ -14,7 +14,7 @@ class Campaigns(Client):
     """
 
 
-    @sp_endpoint('/adsApi/v1/query/campaigns', method='POST', headers=['Amazon-Advertising-API-Scope'])
+    @sp_endpoint('/adsApi/v1/query/campaigns', method='POST', headers=['Amazon-Advertising-API-Scope', 'Amazon-Ads-AccountId'])
     def query_campaigns(self, **kwargs) -> ApiResponse:
         r"""
         query_campaigns(body: dict) -> ApiResponse
@@ -61,7 +61,7 @@ class Campaigns(Client):
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/adsApi/v1/delete/campaigns', method='POST')
+    @sp_endpoint('/adsApi/v1/delete/campaigns', method='POST', headers=['Amazon-Advertising-API-Scope', 'Amazon-Ads-AccountId'])
     def delete_campaigns(self, **kwargs) -> ApiResponse:
         r"""
         delete_campaigns(body: dict) -> ApiResponse
@@ -91,7 +91,7 @@ class Campaigns(Client):
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/adsApi/v1/update/campaigns', method='POST')
+    @sp_endpoint('/adsApi/v1/update/campaigns', method='POST', headers=['Amazon-Advertising-API-Scope', 'Amazon-Ads-AccountId'])
     def update_campaigns(self, **kwargs) -> ApiResponse:
         r"""
         update_campaigns(body: dict) -> ApiResponse
@@ -146,7 +146,7 @@ class Campaigns(Client):
 
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/adsApi/v1/create/campaigns', method='POST')
+    @sp_endpoint('/adsApi/v1/create/campaigns', method='POST', headers=['Amazon-Advertising-API-Scope', 'Amazon-Ads-AccountId'])
     def create_campaigns(self, **kwargs) -> ApiResponse:
         r"""
         create_campaigns(body: dict) -> ApiResponse
