@@ -89,6 +89,14 @@ Routes completed
       - ``v0``
       - ``5/5``
       - ``completed``
+    * - ``audiences.py``
+      - ``v0``
+      - ``2/2``
+      - ``completed``
+    * - ``audiences.py``
+      - ``v0``
+      - ``2/2``
+      - ``completed``
     * - ``billing.py``
       - ``v0``
       - ``19/19``
@@ -499,11 +507,6 @@ when none is; the last column groups what is left to do.
       - ``0/5``
       - ``pending``
       - ``5 unmarked``
-    * - audiences.py
-      - ``v0``
-      - ``0/2``
-      - ``pending``
-      - ``2 unmarked``
     * - brand_benchmarks.py
       - ``v0``
       - ``0/2``

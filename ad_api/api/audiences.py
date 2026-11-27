@@ -4,7 +4,7 @@ from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 class Audiences(Client):
     """ """
 
-    @sp_endpoint('/audiences/taxonomy/list', method='POST')
+    @sp_endpoint('/audiences/taxonomy/list', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def list_audiences_taxonomy(self, **kwargs) -> ApiResponse:
         r"""
         Returns a list of audience categories for a given category path
@@ -36,7 +36,7 @@ class Audiences(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs)
 
-    @sp_endpoint('/audiences/list', method='POST')
+    @sp_endpoint('/audiences/list', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def list_audiences(self, **kwargs) -> ApiResponse:
         r"""
         Returns a list of audience segments for an advertiser. The result set can be filtered by providing an array of Filter objects. Each item in the resulting set will match all specified filters.
