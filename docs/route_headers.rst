@@ -93,7 +93,7 @@ and drops the other two headers, even when the credentials carry them.
     * - ``sp/campaigns_v3.py``
       - v3
       - 4/4
-      - list only
+      - done
     * - ``billing.py``
       - v0
       - 2/19
