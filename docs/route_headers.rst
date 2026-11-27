@@ -137,6 +137,10 @@ Routes completed
       - ``v0``
       - ``3/3``
       - ``completed``
+    * - ``reports.py``
+      - ``v0``
+      - ``3/3``
+      - ``completed``
     * - ``sp/campaigns_v3.py``
       - ``sp``
       - ``4/4``
@@ -537,11 +541,6 @@ when none is; the last column groups what is left to do.
       - ``0/6``
       - ``pending``
       - ``6 unmarked``
-    * - reports.py
-      - ``v0``
-      - ``0/3``
-      - ``pending``
-      - ``3 unmarked``
     * - stream.py
       - ``v0``
       - ``0/4``

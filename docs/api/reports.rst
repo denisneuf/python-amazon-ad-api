@@ -243,10 +243,53 @@ answered by the service, not by the contract.
       - —
 
 A DSP report needs the ``Amazon-Ads-AccountId`` header in addition to the
-profile, and its ``advertiserId`` filter. The route takes three optional headers
-in total; the create call is the only one whose body is versioned, and the media
-type is ``application/vnd.createasyncreportrequest.v3+json``, not
+profile, and its ``advertiserId`` filter. The create call is the only one whose
+body is versioned, and the media type is
+``application/vnd.createasyncreportrequest.v3+json``, not
 ``application/json``.
+
+Credential headers
+------------------
+
+The vendor page declares two identity headers for the three routes and marks
+one of them optional:
+
+..  list-table::
+    :header-rows: 1
+    :widths: 34 12 54
+
+    * - Header
+      - Required
+      - What it identifies
+    * - ``Amazon-Advertising-API-Scope``
+      - yes
+      - the profile from ``GET /profiles`` linked to the access token
+    * - ``Amazon-Ads-AccountId``
+      - no
+      - a DSP advertiser account; not a substitute for the profile
+
+``Amazon-Advertising-API-Manager-Account`` is not part of this contract and the
+service does not read it. The package marks the three routes with
+``Amazon-Advertising-API-Scope`` and nothing else.
+
+Measured on 2026-11-27 with the account ``leadtech_fr`` in EU, every combination
+of the three headers against the three routes:
+
+* without ``Amazon-Advertising-API-Scope``, all three routes answer 400
+  ``profile ID required``, whatever else is sent. ``Amazon-Ads-AccountId``
+  alone and ``Amazon-Advertising-API-Manager-Account`` alone fail the same way,
+  so neither replaces the profile.
+* with the profile, adding ``Amazon-Ads-AccountId`` changes nothing on a seller
+  account: same status, same payload. The DSP case is untested because
+  ``leadtech_fr`` has no DSP advertiser account to point it at.
+
+A report that is still being generated is not a 404 by accident. While the
+status is ``PENDING`` or ``PROCESSING``, the ``GET`` answers 404 ``Not Found``;
+the status and the download ``url`` only appear once it reaches ``COMPLETED`.
+Poll the id rather than re-creating the report, and expect it to take minutes,
+not seconds: one ``spAdvertisedProduct`` request for a four-week window took
+about nineteen minutes here. An empty report (``[]`` in the file) is a valid
+answer too, not a failed call.
 
 .. note::
 
