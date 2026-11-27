@@ -85,11 +85,27 @@ Routes completed
       - ``v0``
       - ``2/2``
       - ``completed``
+    * - ``attribution.py``
+      - ``v0``
+      - ``5/5``
+      - ``completed``
     * - ``billing.py``
       - ``v0``
       - ``19/19``
       - ``completed``
+    * - ``brand_metrics.py``
+      - ``v0``
+      - ``2/2``
+      - ``completed``
+    * - ``exports.py``
+      - ``v0``
+      - ``5/5``
+      - ``completed``
     * - ``history.py``
+      - ``v0``
+      - ``1/1``
+      - ``completed``
+    * - ``insights.py``
       - ``v0``
       - ``1/1``
       - ``completed``
@@ -100,6 +116,10 @@ Routes completed
     * - ``profiles.py``
       - ``v0``
       - ``4/4``
+      - ``completed``
+    * - ``recommendations.py``
+      - ``v0``
+      - ``3/3``
       - ``completed``
     * - ``sp/campaigns_v3.py``
       - ``sp``
@@ -113,7 +133,10 @@ Routes completed
       - ``v1``
       - ``4/4``
       - ``completed``
-
+    * - ``validation_configurations.py``
+      - ``v0``
+      - ``2/2``
+      - ``completed``
 With ``Amazon-Ads-AccountId`` the v1 campaign routes answer only when the body
 carries ``campaignIdFilter``; without it the service replies 400 "Multi marketplace
 query requests only support query by primary resource id". ``Amazon-Advertising-API-Scope``
@@ -468,22 +491,12 @@ when none is; the last column groups what is left to do.
       - ``0/5``
       - ``pending``
       - ``5 unmarked``
-    * - attribution.py
-      - ``v0``
-      - ``0/5``
-      - ``pending``
-      - ``5 unmarked``
     * - audiences.py
       - ``v0``
       - ``0/2``
       - ``pending``
       - ``2 unmarked``
     * - brand_benchmarks.py
-      - ``v0``
-      - ``0/2``
-      - ``pending``
-      - ``2 unmarked``
-    * - brand_metrics.py
       - ``v0``
       - ``0/2``
       - ``pending``
@@ -498,16 +511,6 @@ when none is; the last column groups what is left to do.
       - ``0/3``
       - ``pending``
       - ``3 unmarked``
-    * - exports.py
-      - ``v0``
-      - ``0/5``
-      - ``pending``
-      - ``5 unmarked``
-    * - insights.py
-      - ``v0``
-      - ``0/1``
-      - ``pending``
-      - ``1 unmarked``
     * - localization.py
       - ``v0``
       - ``0/5``
@@ -533,11 +536,6 @@ when none is; the last column groups what is left to do.
       - ``0/4``
       - ``pending``
       - ``4 unmarked``
-    * - recommendations.py
-      - ``v0``
-      - ``0/3``
-      - ``pending``
-      - ``3 unmarked``
     * - reports.py
       - ``v0``
       - ``0/3``
@@ -548,11 +546,6 @@ when none is; the last column groups what is left to do.
       - ``0/4``
       - ``pending``
       - ``4 unmarked``
-    * - validation_configurations.py
-      - ``v0``
-      - ``0/2``
-      - ``pending``
-      - ``2 unmarked``
     * - v1/ad_associations.py
       - ``v1``
       - ``0/4``

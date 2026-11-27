@@ -5,7 +5,7 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 class Attribution(Client):
     r""" """
 
-    @sp_endpoint("/attribution/advertisers", method="GET")
+    @sp_endpoint("/attribution/advertisers", method="GET", headers=['Amazon-Advertising-API-Scope'])
     def get_advertisers(self, **kwargs) -> ApiResponse:
         r"""
         Gets a list of advertisers associated with an Amazon Attribution account.
@@ -37,7 +37,7 @@ class Attribution(Client):
         """
         return self._request(fill_query_params(kwargs.pop("path")), params=kwargs)
 
-    @sp_endpoint("/attribution/publishers", method="GET")
+    @sp_endpoint("/attribution/publishers", method="GET", headers=['Amazon-Advertising-API-Scope'])
     def get_publishers(self, **kwargs) -> ApiResponse:
         r"""
         Gets a list of all available publishers.
@@ -70,7 +70,7 @@ class Attribution(Client):
         """
         return self._request(fill_query_params(kwargs.pop("path")), params=kwargs)
 
-    @sp_endpoint("/attribution/report", method="POST")
+    @sp_endpoint("/attribution/report", method="POST", headers=['Amazon-Advertising-API-Scope'])
     def post_report(self, **kwargs) -> ApiResponse:
         r"""
         Gets an attribution report for a specified list of advertisers.
@@ -104,7 +104,7 @@ class Attribution(Client):
         resp.set_next_token(resp.payload.pop("cursorId"))
         return resp
 
-    @sp_endpoint("/attribution/tags/macroTag", method="GET")
+    @sp_endpoint("/attribution/tags/macroTag", method="GET", headers=['Amazon-Advertising-API-Scope'])
     def get_macro_tag(self, **kwargs) -> ApiResponse:
         r"""
         Gets a list of attribution tags for third-party publisher campaigns that support macros.
@@ -124,7 +124,7 @@ class Attribution(Client):
         """
         return self._request(kwargs.pop('path'), params=kwargs)
 
-    @sp_endpoint("/attribution/tags/nonMacroTemplateTag", method="GET")
+    @sp_endpoint("/attribution/tags/nonMacroTemplateTag", method="GET", headers=['Amazon-Advertising-API-Scope'])
     def get_non_macro_template_tag(self, **kwargs) -> ApiResponse:
         r"""
         Gets a list of attribution tags for third-party publisher campaigns that do not support macros.

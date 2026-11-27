@@ -21,7 +21,7 @@ class Exports(Client):
     built from the entity and the version argument. The service routes on that
     type, so the wrong one answers 406.
     """
-    @sp_endpoint('/ads/export', method='POST')
+    @sp_endpoint('/ads/export', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def ads_export(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Requests an export of the ads.
@@ -45,7 +45,7 @@ class Exports(Client):
         headers = {'Content-Type': content_type, 'Accept': accept}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/campaigns/export', method='POST')
+    @sp_endpoint('/campaigns/export', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def campaigns_export(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Requests an export of the campaigns.
@@ -69,7 +69,7 @@ class Exports(Client):
         headers = {'Content-Type': content_type, 'Accept': accept}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/adGroups/export', method='POST')
+    @sp_endpoint('/adGroups/export', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def adgroups_export(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Requests an export of the ad groups.
@@ -93,7 +93,7 @@ class Exports(Client):
         headers = {'Content-Type': content_type, 'Accept': accept}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/targets/export', method='POST')
+    @sp_endpoint('/targets/export', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def targets_export(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Requests an export of the targets.
@@ -123,7 +123,7 @@ class Exports(Client):
         headers = {'Content-Type': content_type, 'Accept': accept}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/exports/{}', method='GET')
+    @sp_endpoint('/exports/{}', method='GET', headers=['Amazon-Advertising-API-Scope'])
     def get_export(self, exportId, typeExport, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Reads the state of an export requested earlier.

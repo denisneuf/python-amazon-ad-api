@@ -4,7 +4,7 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse, Uti
 class Recommendations(Client):
     """ """
 
-    @sp_endpoint('/recommendations/list', method='POST')
+    @sp_endpoint('/recommendations/list', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def list_recommendations(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Retrieves a list of recommendations.
@@ -50,7 +50,7 @@ class Recommendations(Client):
         headers = {"Accept": schema_version, "Content-Type": schema_version}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/recommendations/apply', method='POST')
+    @sp_endpoint('/recommendations/apply', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def apply_recommendations(self, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Applies one or more recommendations.
@@ -77,7 +77,7 @@ class Recommendations(Client):
         headers = {"Accept": schema_version, "Content-Type": schema_version}
         return self._request(kwargs.pop('path'), data=Utils.convert_body(kwargs.pop('body'), False), params=kwargs, headers=headers)
 
-    @sp_endpoint('/recommendations/{}', method='PUT')
+    @sp_endpoint('/recommendations/{}', method='PUT', headers=['Amazon-Advertising-API-Scope'])
     def update_recommendation(self, recommendationId, version: int = 1, **kwargs) -> ApiResponse:
         r"""
         Updates a recommendation.

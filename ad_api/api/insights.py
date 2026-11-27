@@ -4,7 +4,7 @@ from ad_api.base import Client, sp_endpoint, fill_query_params, ApiResponse
 class Insights(Client):
     """ """
 
-    @sp_endpoint('/insights/audiences/{}/overlappingAudiences', method='GET')
+    @sp_endpoint('/insights/audiences/{}/overlappingAudiences', method='GET', headers=['Amazon-Advertising-API-Scope'])
     def get_insights(self, audienceId: str, version: int = 2, **kwargs) -> ApiResponse:
         r"""
         Returns the audiences that overlap with the one given, ranked by affinity.

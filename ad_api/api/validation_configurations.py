@@ -9,7 +9,7 @@ class ValidationConfigurations(Client):
     This API allows users to retrieve campaign validation configuration values per marketplace, entity type, and program type.
     """
 
-    @sp_endpoint('/validationConfigurations/campaigns', method='POST')
+    @sp_endpoint('/validationConfigurations/campaigns', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def retrieve_validation_campaigns(self, **kwargs) -> ApiResponse:
         r"""
 
@@ -40,7 +40,7 @@ class ValidationConfigurations(Client):
         body = Utils.convert_body(kwargs.pop('body'), wrap=False)
         return self._request(kwargs.pop('path'), data=body, params=kwargs, headers=headers)
 
-    @sp_endpoint('/validationConfigurations/targetingClauses', method='POST')
+    @sp_endpoint('/validationConfigurations/targetingClauses', method='POST', headers=['Amazon-Advertising-API-Scope'])
     def retrieve_validation_targeting_clauses(self, **kwargs) -> ApiResponse:
         r"""
 
