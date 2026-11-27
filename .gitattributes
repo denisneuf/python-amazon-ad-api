@@ -1,0 +1,4 @@
+# The vendor contracts are references, not code we author.
+# Keep them out of the language statistics and out of diffs by default.
+specs/*.json    linguist-vendored
+specs/*.yaml    linguist-vendored

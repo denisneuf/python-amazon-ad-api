@@ -1,0 +1,26 @@
+Brand Safety List
+=================
+
+.. warning::
+
+    Sponsored Display is not available for Sandbox endpoint
+
+Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-display/3-0/openapi
+
+Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-display/3-0/openapi.yaml
+
+.. autoclass:: ad_api.api.sd.BrandSafety
+    :members:
+
+    Endpoints available
+
+    .. csv-table::
+        :widths: 25, 25, 50
+        :header: "Method", "Endpoint", "Description"
+
+        "GET", "/sd/brandSafety/deny", "Gets a list of websites/apps that are on the advertiser's Brand Safety Deny List."
+        "POST", "/sd/brandSafety/deny", "Creates one or more domains to add to a Brand Safety Deny Lis"
+        "DELETE", "/sd/brandSafety/deny", "Archives all of the domains in the Brand Safety Deny List."
+        "GET", "/sd/brandSafety/{requestId}/results", "Gets the results for the given request"
+        "GET", "/sd/brandSafety/{requestId}/status", "Gets the status for the given request"
+        "GET", "/sd/brandSafety/status", "List status of all Brand Safety List requests."

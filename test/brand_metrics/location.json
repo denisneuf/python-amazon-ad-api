@@ -1,0 +1,15 @@
+{
+ "brandsInfo":
+ [
+   {
+      "id": "BRAND|BRAND_AID|34cf8a28-77f0-44dd-kl98-c419a6203257",
+      "name": "BMW"
+   }
+ ],
+  "expiration": 300000,
+  "format": "CSV",
+  "location": "https://infrastack-prod-eu-eu-we-generatedreportsbucket49-96329mbigajd.s3.eu-west-1.amazonaws.com/[...]/[...]",
+  "reportId": "820882fa-ff22-4772-99e1-6889e3ae97f8",
+  "status": "SUCCESSFUL",
+  "statusDetails": "Generation of the report was successful!"
+}

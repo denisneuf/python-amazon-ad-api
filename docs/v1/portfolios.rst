@@ -1,0 +1,127 @@
+Portfolios
+==========
+
+Amazon Ads API v1 - unified Portfolios endpoints
+
+Documentation: https://advertising.amazon.com/API/docs/en-us/api-spec-v1-portfolios
+Specification: https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLPortfoliosContract_prod_3p.json
+
+A portfolio groups campaigns under one name, one budget and one set of
+marketplace rules. The v1 family is the successor to :doc:`/api/portfoliosV3`:
+that one lives outside ``/adsApi/v1/`` and keeps its own contract, while this
+one shares the v1 merged contract with the campaign resources.
+
+Three routes exist, all POST. There is no GET on a path and no DELETE:
+
+    POST /adsApi/v1/create/portfolios
+    POST /adsApi/v1/query/portfolios
+    POST /adsApi/v1/update/portfolios
+
+.. rubric:: An empty body is not optional here
+
+The contract marks the whole request body optional: ``requestBody`` carries no
+``required: true`` and ``QueryPortfolioRequest`` marks no member as required.
+The service disagrees. **Omitting the body answers 400** ``Invalid JSON: input is
+empty``; sending ``{}`` answers 200 with the default page. Measured 2026-11-22
+against ``leadtech_fr``.
+
+This differs from the other query routes, which accept an omitted body. The
+method therefore sends ``{}`` when the caller passes no body. A caller may
+still pass a filter, and that body is sent as-is.
+
+``create_portfolios`` and ``update_portfolios`` are the opposite: their body is
+required by the contract and by the method, so calling either without one
+raises ``KeyError: 'body'`` before any request is built.
+
+.. rubric:: Marketplace picks the host
+
+Unlike ``locationIndexes`` and ``managerAccounts``, this route **does** answer
+only from the host of the account's partition. ``leadtech_fr`` queried with
+``Marketplaces.NA`` and with ``Marketplaces.JP`` is rejected; the same call with
+``Marketplaces.EU`` returns the portfolio. The client therefore has to be built
+with the account's own marketplace, not a fixed ``NA``.
+
+.. rubric:: Budget sharing
+
+``budgetControls.campaignBudgetSharing.shareUnspentCampaignBudget``, with
+values ``ENABLED`` or ``DISABLED``, lets the campaigns of the portfolio spend
+the budget the other campaigns did not use. Without it each campaign is capped
+on its own.
+
+.. rubric:: Global and per marketplace
+
+A portfolio is either ``GLOBAL``, covering every marketplace listed in
+``marketplaces``, or ``SINGLE_MARKETPLACE``. A global portfolio can override
+``budgetControls``, ``startDateTime``, ``endDateTime`` and ``state`` for one
+marketplace through ``marketplaceConfigurations``, up to 30 overrides. What is
+not overridden carries the global value.
+
+.. rubric:: Archiving instead of deleting
+
+There is no delete route. A portfolio is retired by updating ``state`` to
+``ARCHIVED``, which is terminal and cannot be reverted.
+
+.. warning::
+
+    Create and update answer ``207 MultiStatus``, not ``200``. A batch can
+    create some portfolios and reject others, so ``success`` and ``error``
+    are indexed together and both have to be read. These routes write into
+    the account; they were not probed against a live account.
+
+.. currentmodule:: ad_api.api.v1
+.. autosummary::
+    :toctree: portfolios/
+    :nosignatures:
+
+    Portfolios
+    Portfolios.create_portfolios
+    Portfolios.query_portfolios
+    Portfolios.update_portfolios
+
+.. rubric:: Endpoint map
+
+.. list-table::
+    :header-rows: 1
+
+    * - Path
+      - Method
+      - Operation
+    * - ``/adsApi/v1/create/portfolios``
+      - POST
+      - CreatePortfolio
+    * - ``/adsApi/v1/query/portfolios``
+      - POST
+      - QueryPortfolio
+    * - ``/adsApi/v1/update/portfolios``
+      - POST
+      - UpdatePortfolio
+
+.. rubric:: Example python
+
+.. code-block:: python
+
+    from ad_api.api.v1 import Portfolios
+
+    api = Portfolios(account=store)
+
+    result = api.query_portfolios(body={"maxResults": 10})
+
+    for portfolio in result.payload.get("portfolios", []):
+        print(portfolio["portfolioId"], portfolio["name"], portfolio["state"])
+
+Reading the 207 of a write:
+
+.. code-block:: python
+
+    result = api.create_portfolios(body={"portfolios": [
+        {"name": "Q4", "state": "ENABLED", "marketplaceScope": "GLOBAL",
+         "marketplaces": ["ES", "FR"],
+         "budget": {"budgetType": "MONETARY",
+                    "budgetValue": {"monetaryBudget": {"value": 100.0}},
+                    "recurrenceTimePeriod": "DAILY"},
+         "budgetControls": {"campaignBudgetSharing":
+                            {"shareUnspentCampaignBudget": "ENABLED"}}}
+    ]})
+
+    payload = result.payload
+    print(payload.get("success"), payload.get("error"))

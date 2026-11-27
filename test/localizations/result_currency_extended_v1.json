@@ -1,0 +1,56 @@
+{
+    "localizedCurrencyResponses": [
+        {
+            "localizedCurrencies": {
+                "A1F83G8C2ARO7P": {
+                    "amount": 8.29,
+                    "currency": "GBP",
+                    "country_code": "UK"
+                },
+                "ATVPDKIKX0DER": {
+                    "amount": 10.83,
+                    "currency": "USD",
+                    "country_code": "US"
+                },
+                "A1VC38T7YXB528": {
+                    "amount": 1363.0,
+                    "currency": "JPY",
+                    "country_code": "JP"
+                },
+            },
+            "status": "SUCCESS",
+            "sourceCurrency": {
+                "amount": 10,
+                "country_code": "DE",
+                "currency": "EUR",
+                "source_marketplace_id": "A1PA6795UKMFR9"
+            },
+        },
+        {
+            "localizedCurrencies": {
+                "A1F83G8C2ARO7P": {
+                    "amount": 12.43,
+                    "currency": "GBP",
+                    "country_code": "UK"
+                },
+                "ATVPDKIKX0DER": {
+                    "amount": 16.25,
+                    "currency": "USD",
+                    "country_code": "US"
+                },
+                "A1VC38T7YXB528": {
+                    "amount": 2045.0,
+                    "currency": "JPY",
+                    "country_code": "JP"
+                },
+            },
+            "status": "SUCCESS",
+            "sourceCurrency": {
+                "amount": 15,
+                "country_code": "DE",
+                "currency": "EUR",
+                "source_marketplace_id": "A1PA6795UKMFR9"
+            }
+        }
+    ]
+}

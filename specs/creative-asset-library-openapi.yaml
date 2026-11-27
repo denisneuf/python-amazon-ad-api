@@ -1,0 +1,1496 @@
+info:
+  title: Creative assets
+  version: '3.0'
+  description: |-
+    Use the creative assets API to create and manage video and image assets for use in Amazon Ads campaigns. For details on using this API, see [Creatives overview](guides/creative-asset/asset-library-overview).
+paths:
+  /assets:
+    get:
+      summary: Retrieve an asset
+      operationId: getAsset
+      responses:
+        '200':
+          description: Returns asset metadata.
+          content:
+            application/vnd.creativeassetsgetresponse.v3+json:
+              schema:
+                type: object
+                properties:
+                  assetVersionList:
+                    $ref: '#/components/schemas/caAssetVersionList'
+                  assetGlobal:
+                    $ref: '#/components/schemas/caAssetGlobal'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.creativeassetsgetresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caBadRequest'
+        '401':
+          description: UnAuthorized Operation
+          content:
+            application/vnd.creativeassetsgetresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caUnauthorizedRequest'
+        '403':
+          description: Forbidden Operation
+          content:
+            application/vnd.creativeassetsgetresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caForbiddenRequest'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.creativeassetsgetresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caInternalError'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Advertising-API-ClientId
+          description: The identifier of a client associated with a "Login with Amazon" account.
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Advertising-API-Scope
+          description: The identifier of a profile associated with the advertiser account. Use `GET` method on Profiles resource to list profiles associated with the access token passed in the HTTP Authorization header.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: assetId
+          description: The assetId
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: version
+          description: The versionId of the asset, if not included all versions will return.
+          required: false
+      tags:
+        - Creative assets
+  /assets/batchRegister/{requestId}:
+    get:
+      summary: Retrieves status of the batch asset registration request, uniquely identified by requestId.
+      operationId: getAssetsBatchRegister
+      responses:
+        '200':
+          description: Registration status of each media file( uniquely identified by their url).
+          content:
+            application/vnd.creativeassetsgetbatchregisterresponse.v3+json:
+              schema:
+                title: GetBatchRegisterAssetStatusOutput
+                type: object
+                properties:
+                  registrationStatus:
+                    $ref: '#/components/schemas/caRegistrationStatus'
+                  successfullyRegisteredAssets:
+                    $ref: '#/components/schemas/caSuccessfulRegistrationDetailsList'
+                  inProgressAssetDetails:
+                    $ref: '#/components/schemas/caInProgressRegistrationDetailsList'
+                  failedAssetDetails:
+                    $ref: '#/components/schemas/caFailedRegistrationDetailsList'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.creativeassetsgetbatchregisterresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caBadRequest'
+        '401':
+          description: UnAuthorized Operation
+          content:
+            application/vnd.creativeassetsgetbatchregisterresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caUnauthorizedRequest'
+        '403':
+          description: Forbidden Operation
+          content:
+            application/vnd.creativeassetsgetbatchregisterresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caForbiddenRequest'
+        '429':
+          description: Operation Throttled.
+          content:
+            application/vnd.assetsbatchregisterresponse.v1+json:
+              schema:
+                $ref: '#/components/schemas/caThrottledRequest'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.creativeassetsgetbatchregisterresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caInternalError'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Advertising-API-ClientId
+          description: The identifier of a client associated with a "Login with Amazon" account.
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Advertising-API-Scope
+          description: The identifier of a profile associated with the advertiser account. Use `GET` method on Profiles resource to list profiles associated with the access token passed in the HTTP Authorization header.
+          required: true
+        - schema:
+            type: string
+          in: path
+          name: requestId
+          description: Batch asset registration request id. It is returned in response of POST /assets/batchRegister API.
+          required: true
+      tags:
+        - Creative assets
+  /assets/batchRegister:
+    post:
+      tags:
+        - Creative assets
+      summary: Batch register uploaded assets
+      description: This is an asynchronous api that provides clients an identifier for their batch registration request. They need to check for the status of their request by calling the `GET /assets/batchRegister/{requestId}` api with the identifier.
+      operationId: assetsBatchRegister
+      parameters:
+        - name: Amazon-Advertising-API-ClientId
+          in: header
+          description: "The identifier of a client associated with a `Login with Amazon` account."
+          required: true
+          schema:
+            type: string
+        - name: Amazon-Advertising-API-Scope
+          in: header
+          description: The identifier of a profile associated with the advertiser account. Use `GET` method on Profiles resource to list profiles associated with the access token passed in the HTTP Authorization header and choose profile id `profileId` from the response to pass it as input.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Batch Register Uploaded Assets.
+        content:
+          application/vnd.assetsbatchregisterrequest.v1+json:
+            schema:
+              title: AssetsBatchRegisterRequest
+              type: object
+              properties:
+                assetDetailsList:
+                  maxItems: 50
+                  minItems: 1
+                  type: array
+                  description: List containing details of assets to register.
+                  items:
+                    type: object
+                    properties:
+                      asinList:
+                        $ref: "#/components/schemas/caAsins"
+                      assetSubTypeList:
+                        $ref: "#/components/schemas/caAssetSubTypes"
+                      assetType:
+                        $ref: "#/components/schemas/caAssetType"
+                      associatedPrograms:
+                        maxItems: 100
+                        minItems: 1
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/caAssociatedProgram"
+                      name:
+                        $ref: "#/components/schemas/caAssetName"
+                      otherMetadata:
+                        type: object
+                        additionalProperties:
+                          type: string
+                        description: Any other metadata that client wants to associate with this asset.
+                      skipAssetSubTypesDetection:
+                        type: boolean
+                        description: Flag to determine if asset subtype detection should be skipped.
+                      tagList:
+                        $ref: "#/components/schemas/caTagList"
+                      url:
+                        type: string
+                        description: Url of the media file to be registered as an asset.
+                      versionInfo:
+                        $ref: "#/components/schemas/caVersionInfo"
+                    description: Object containing details for individual assets to register.
+                batchRegistrationContext:
+                  $ref: "#/components/schemas/caBatchRegistrationContext"
+        required: true
+      responses:
+        "200":
+          description: Identifier for the batch registration request.
+          content:
+            application/vnd.assetsbatchregisterresponse.v1+json:
+              schema:
+                title: BatchRegisterAssetResponse
+                type: object
+                properties:
+                  requestId:
+                    type: string
+        "400":
+          description: Bad Request.
+          content:
+            application/vnd.assetsbatchregisterresponse.v1+json:
+              schema:
+                $ref: "#/components/schemas/caBadRequest"
+        "401":
+          description: UnAuthorized Operation.
+          content:
+            application/vnd.assetsbatchregisterresponse.v1+json:
+              schema:
+                $ref: "#/components/schemas/caUnauthorizedRequest"
+        "403":
+          description: Forbidden Operation.
+          content:
+            application/vnd.assetsbatchregisterresponse.v1+json:
+              schema:
+                $ref: "#/components/schemas/caForbiddenRequest"
+        "429":
+          description: Operation Throttled.
+          content:
+            application/vnd.assetsbatchregisterresponse.v1+json:
+              schema:
+                $ref: "#/components/schemas/caThrottledRequest"
+        "500":
+          description: Internal Server Error.
+          content:
+            application/vnd.assetsbatchregisterresponse.v1+json:
+              schema:
+                $ref: "#/components/schemas/caInternalError"
+  /assets/register:
+    post:
+      summary: Register an uploaded asset
+      x-amazon-advertising-authorization:
+        permissions:
+          - amazon_stores_edit
+          - advertiser_campaign_edit
+          - creatives_edit
+          - creatives_view
+          - campaign_view
+          - campaign_edit
+        rules:
+          - resourceType: DSP_ACCOUNT
+            resourceLocation:
+              parameterName: Amazon-Ads-AccountId
+              in: header
+            allowFallback: 'true'
+      requestBody:
+        description: Note - **asinList**, **versionInfo**, and **tags** are optional in the request body.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  $ref: '#/components/schemas/caAssetUploadLocation'
+                name:
+                  $ref: '#/components/schemas/caAssetName'
+                asinList:
+                  $ref: '#/components/schemas/caAsins'
+                assetType:
+                  $ref: '#/components/schemas/caAssetType'
+                assetSubTypeList:
+                  $ref: '#/components/schemas/caassetSubTypes'
+                versionInfo:
+                  $ref: '#/components/schemas/caVersionInfo'
+                tags:
+                  type: array
+                  items:
+                    type: string
+                registrationContext:
+                  $ref: '#/components/schemas/caRegistrationContext'
+                associatedSubEntityList:
+                  $ref: '#/components/schemas/caAssociatedSubEntityList'
+                skipAssetSubTypesDetection:
+                  description: Select true if you want to set an asset to a specific assetSubType, if this is not included the system may reclassify your asset based on specifications.
+                  type: boolean
+        required: true
+      description: |-
+        The API should be called once the asset is uploaded to the location
+        provided by the /asset/upload API endpoint. See [Creating assets](guides/creative-asset/creating-assets) to understand the call flow.
+      operationId: registerAsset
+      responses:
+        '200':
+          description: AssetResource
+          content:
+            application/vnd.creativeassetsregisterresponse.v3+json:
+              schema:
+                type: object
+                properties:
+                  assetId:
+                    $ref: '#/components/schemas/caAssetId'
+                  versionId:
+                    $ref: '#/components/schemas/caVersion'
+                  failedSpecChecks:
+                    $ref: '#/components/schemas/caProgramSpecificationsList'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.creativeassetsregisterresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caBadRequest'
+        '401':
+          description: UnAuthorized Operation
+          content:
+            application/vnd.creativeassetsregisterresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caUnauthorizedRequest'
+        '403':
+          description: UnAuthorized Operation
+          content:
+            application/vnd.creativeassetsregisterresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caForbiddenRequest'
+        '404':
+          description: Resource not found
+          content:
+            application/vnd.creativeassetsregisterresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caResourceNotFound'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.creativeassetsregisterresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caInternalError'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Advertising-API-ClientId
+          description: The identifier of a client associated with a "Login with Amazon" account.
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Ads-AccountId
+          description: Account identifier you use to access the DSP. This is your Amazon DSP Advertiser ID. Use Amazon-Ads-AccountId to get resources at advertiser level. Use Amazon-Advertising-API-Scope and leave     Amazon-Ads-AccountId empty to get resources at manager account level.
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Advertising-API-Scope
+          description: The identifier of a profile associated with the advertiser account. Use `GET` method on Profiles resource to list profiles associated with the access token passed in the HTTP Authorization header.
+      tags:
+        - Creative assets
+  /assets/upload:
+    post:
+      summary: Create an upload location
+      x-amazon-advertising-authorization:
+        permissions:
+          - amazon_stores_edit
+          - advertiser_campaign_edit
+          - creatives_edit
+          - creatives_view
+          - campaign_view
+          - campaign_edit
+        rules:
+          - resourceType: DSP_ACCOUNT
+            resourceLocation:
+              parameterName: Amazon-Ads-AccountId
+              in: header
+            allowFallback: 'true'
+      requestBody:
+        description: Make sure to include file extension along with filename . (ie. "filename.mp4") 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fileName:
+                  $ref: '#/components/schemas/caFileName'
+        required: true
+      description: Creates an ephemeral resource (upload location) to upload Assets to Creative Assets tool. The upload location is short lived and expires in 15 minutes.The upload location only supports PUT HTTP Method to upload the asset content. If the upload location expires, API user will get `403` Forbidden response.
+      
+        * All ad specs - sizes and policies can be found [here](https://advertising.amazon.com/resources/ad-specs/?ref_=a20m_us_hnav_spcs)
+        
+        
+        * Program specific links
+        
+        1. **Stores** - [here](https://advertising.amazon.com/resources/ad-specs/stores?ref_=a20m_us_spcs_stcrgd)
+        
+        2. **SB/SBV/sponsored ads** - [here](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies?ref_=a20m_us_spcs_sbv_spcs_spadcap)
+
+        See [Creating assets](guides/creative-asset/creating-assets) to understand the call flow.
+      operationId: getUploadLocation
+      responses:
+        '200':
+          description: Returns an upload location.
+          content:
+            application/vnd.creativeassetsuploadresponse.v3+json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    $ref: '#/components/schemas/caAssetUploadLocation'
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.creativeassetsuploadresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caBadRequest'
+        '401':
+          description: UnAuthorized Operation
+          content:
+            application/vnd.creativeassetsuploadresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caUnauthorizedRequest'
+        '403':
+          description: Forbidden Operation
+          content:
+            application/vnd.creativeassetsuploadresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caForbiddenRequest'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.creativeassetsuploadresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caInternalError'
+      tags:
+        - Creative assets
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Advertising-API-ClientId
+          description: The identifier of a client associated with a "Login with Amazon" account.
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Ads-AccountId
+          description: Account identifier you use to access the DSP. This is your Amazon DSP Advertiser ID. Use Amazon-Ads-AccountId to get resources at advertiser level. Use Amazon-Advertising-API-Scope and leave     Amazon-Ads-AccountId empty to get resources at manager account level.
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Advertising-API-Scope
+          description: The identifier of a profile associated with the advertiser account. Use `GET` method on Profiles resource to list profiles associated with the access token passed in the HTTP Authorization header.
+  /assets/search:
+    post:
+      summary: Search assets
+      requestBody:
+        description: |
+          text - optional, this field matches asset name, asset name prefix, tags and ASINs associated with the assets
+          
+          filterCriteria - optional, this is used to filter results
+          
+          sortCriteria - optional, this is used to get sorted results
+          
+          pageCriteria - optional, this is used for pagination
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/caSearchRequestCommon'
+
+        required: true
+      operationId: searchAssets
+      responses:
+        '200':
+          description: Returns search results
+          content:
+            application/vnd.creativeassetssearchassetsresponse.v3+json:
+              schema:
+                type: object
+                properties:
+                  totalRecords:
+                    format: int64
+                    type: integer
+                  assetList:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/caAsset'
+                  token:
+                    type: string
+        '400':
+          description: Bad Request
+          content:
+            application/vnd.creativeassetssearchassetsresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caBadRequest'
+        '401':
+          description: UnAuthorized Operation
+          content:
+            application/vnd.creativeassetssearchassetsresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caUnauthorizedRequest'
+        '403':
+          description: Forbidden Operation
+          content:
+            application/vnd.creativeassetssearchassetsresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caForbiddenRequest'
+        '500':
+          description: Internal Server Error
+          content:
+            application/vnd.creativeassetssearchassetsresponse.v3+json:
+              schema:
+                $ref: '#/components/schemas/caInternalError'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Advertising-API-ClientId
+          description: The identifier of a client associated with a "Login with Amazon" account.
+          required: true
+        - schema:
+            type: string
+          in: header
+          name: Amazon-Advertising-API-Scope
+          description: The identifier of a profile associated with the advertiser account. Use `GET` method on Profiles resource to list profiles associated with the access token passed in the HTTP Authorization header.
+          required: true
+      tags:
+        - Creative assets
+components:
+  headers: {}
+  examples: {}
+  schemas:
+    caAssociatedProgram:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/caMetadataMap'
+        programName:
+          $ref: '#/components/schemas/caProgram'
+    caMetadataMap:
+      description: Include key-value pairs related to the asset. For DSP use "dspAdvertiserId" = "ID". Include program as AMAZON_DSP.
+      additionalProperties:
+        type: string
+      type: object
+      example:
+          "dspAdvertiserId": "string"
+    caProgram:
+      type: string
+      description: Use this field to specify which program you are uploading an asset for. Currently, the accepted value here on registration is to associate an asset with a DSP advertiser.
+      enum:
+        - A_PLUS
+        - INTEGRATED_VIDEO_EXPERIENCE
+        - SB
+        - POSTS
+        - STORES
+        - SPONSORED_BRANDS_VIDEO
+        - SPONSORED_DISPLAY_VIDEO
+        - AMAZON_DSP
+        - FIRE_TV
+        - SPONSORED_TV
+        - PRODUCT_DESCRIPTION_PAGE
+    caFileName:
+      pattern: '[\w]+\.jpg|png|mp4|mov|wmv|avi'
+      description: The fileName of the asset.
+      type: "string" 
+    caAsins:
+      minItems: 1
+      maxItems: 100
+      description: Tagging assets with ASIN, promotes asset discoverability downstream. If ASIN is provided at the time of upload/during asset registration, it is applied as a tag on that asset. This allows for that asset to be searchable using that ASIN#. For e.g., An advertiser may want to search for assets tagged with ASIN BC10001, so they can create a store spotlight ad with product images for that ASIN.
+      type: array
+      items:
+        type: string
+    caAssetVersionList:
+      minItems: 1
+      maxItems: 100
+      description: The asset version list.
+      type: array
+      items:
+        $ref: '#/components/schemas/caAssetVersion'
+    caSpecification:
+      description: |-
+        Structure containing specification
+         stringId: This is the translated string Id, client will be retrieving the translation corresponding to this string.
+         failureReason: This specifies the failure reason of specification. 
+         arguments: Arguments required for translation string.
+         isPassed: Whether spec got passed or failed.
+         actualValue: If spec got failed then this attribute represent the actual value of the spec parameter in the file.
+      type: object
+      properties:
+        stringId:
+          type: string
+        isPassed:
+          type: boolean
+        failureReason:
+          type: string
+        actualValue:
+          type: string
+        arguments:
+          $ref: '#/components/schemas/caArgumentList'
+    caArgumentList:
+      description: List of arguments for translation string
+      type: array
+      items:
+        type: string
+    caPageCriteria:
+      description: |
+        used for pagination
+
+        when searching for the first page, no need to put anything, otherwise, use the token returned from previous search call
+      type: object
+      properties:
+        identifier:
+          $ref: '#/components/schemas/caPageIdentifier'
+        size:
+          $ref: '#/components/schemas/caPageSize'
+    caProgramSpecifications:
+      description: Specification Check for program, This contains program name and specifications
+      type: object
+      properties:
+        specProgramName:
+          $ref: '#/components/schemas/caSpecificationProgram'
+        specifications:
+          $ref: '#/components/schemas/caSpecificationList'
+    caSpecificationList:
+      description: List of specifications
+      type: array
+      items:
+        $ref: '#/components/schemas/caSpecification'
+    caProgramSpecificationsList:
+      description: Specification Checks for all programs
+      type: array
+      items:
+        $ref: '#/components/schemas/caProgramSpecifications'
+    caAssetVersion:
+      type: object
+      properties:
+        lastUpdatedBy:
+          type: string
+        creationTime:
+          format: int64
+          type: integer
+        specCheckApprovedPrograms:
+          $ref: '#/components/schemas/caSpecCheckApprovedPrograms'
+        assetIdentifier:
+          $ref: '#/components/schemas/caAssetIdentifier'
+        assetFiles:
+          $ref: '#/components/schemas/caAssetFiles'
+        otherMetadata:
+          $ref: '#/components/schemas/caMetadataMap'
+        url:
+          $ref: '#/components/schemas/caURL'
+        assetSubTypes:
+          $ref: '#/components/schemas/caassetSubTypes'
+        fileMetadata:
+          $ref: '#/components/schemas/caFileMetadata'
+        createdBy:
+          type: string
+        name:
+          $ref: '#/components/schemas/caFileName'
+        lastUpdatedTime:
+          format: int64
+          type: integer
+        versionNotes:
+          description: The URL of the asset
+          type: string
+        assetStatus:
+          $ref: '#/components/schemas/caAssetStatus'
+        failedSpecChecks:
+          $ref: '#/components/schemas/caProgramSpecificationsList'
+        storageLocationUrls:
+          $ref: '#/components/schemas/caStorageLocationUrls'
+        moderationContentList:
+          type: array
+          items:
+            $ref: '#/components/schemas/caModerationContent'
+    caURL:
+      description: The URL of the asset.
+      type: string
+    caModerationPolicyMap:
+      description: 'A hashmap of key-value pairs, this is the most accurate way of defining a map in swagger 2.0'
+      type: object
+      example:
+        HSA: REJECTED
+        Stores: PENDING
+        Logo: APPROVED
+    caUnauthorizedRequest:
+      description: 401 unauthorized request
+      type: object
+      properties:
+        message:
+          type: string
+    caAssetSubType:
+      type: string
+      enum:
+        - LOGO
+        - PRODUCT_IMAGE
+        - AUTHOR_IMAGE
+        - LIFESTYLE_IMAGE
+        - OTHER_IMAGE
+        - BACKGROUND_VIDEO
+    caAssetGlobal:
+      type: object
+      properties:
+        assetId:
+          $ref: '#/components/schemas/caAssetId'
+        assetType:
+          $ref: '#/components/schemas/caAssetType'
+        accountIds:
+          $ref: "#/components/schemas/caAccounts"
+        marketplaceId:
+          $ref: "#/components/schemas/caMarketplaceIds"
+    caValueFilter:
+      description: Filter for certain values of asset attributes
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: string
+        valueField:
+          type: string
+          enum:
+            - TAG
+            - ASIN
+            - CAMPAIGN_NAME
+            - CAMPAIGN_ID
+            - PROGRAM
+            - ASSET_TYPE
+            - ASSET_SUB_TYPE
+            - APPROVED_AD_POLICY
+            - ASSET_EXTENSION
+    caSpecCheckApprovedPrograms:
+      description: List of spec programs for which asset spec check is approved
+      type: array
+      items:
+        $ref: '#/components/schemas/caSpecificationProgram'
+    caSpecificationProgram:
+      type: string
+      enum:
+        - SPONSORED_BRANDS_VIDEO
+        - SPONSORED_DISPLAY_VIDEO
+        - SPONSORED_DISPLAY_LANDSCAPE_VIDEO
+        - SPONSORED_DISPLAY_PORTRAIT_VIDEO
+        - SPONSORED_DISPLAY_SQUARE_VIDEO
+        - STORES_VIDEO_TILE
+        - STORES_BACKGROUND_VIDEO_TILE
+        - STORES_INTRO_SPLASH
+        - FIRE_TV_FEATURE_ROTATOR
+        - SPONSORED_TV
+        - SPONSORED_BRANDS_VIDEO_PORTRAIT
+        - DEMAND_SIDE_PLATFORM_OTT
+        - DEMAND_SIDE_PLATFORM_OLV
+        - DEMAND_SIDE_PLATFORM_H1_DESKTOP
+        - DEMAND_SIDE_PLATFORM_H1_MOBILE
+        - LIVE_IMAGE_SPONSORED_DISPLAY
+    caAsset:
+      type: object
+      properties:
+        moderationPolicyMap:
+          $ref: '#/components/schemas/caModerationPolicyMap'
+        lastUpdatedBy:
+          type: string
+        creationTime:
+          format: int64
+          type: integer
+        specCheckApprovedPrograms:
+          $ref: '#/components/schemas/caSpecCheckApprovedPrograms'
+        associatedAccountIds:
+          type: array
+          items:
+            type: string
+        marketplaces:
+          type: array
+          items:
+            type: string
+        version:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        assetType:
+          $ref: '#/components/schemas/caAssetType'
+        fileMetadata:
+          $ref: '#/components/schemas/caFileMetadata'
+        collections:
+          type: array
+          items:
+            type: string
+        createdBy:
+          type: string
+        assetId:
+          type: string
+        storageLocationUrls:
+          $ref: '#/components/schemas/caStorageLocationUrls'
+        name:
+          type: string
+        lastUpdatedTime:
+          format: int64
+          type: integer
+        associatedContexts:
+          $ref: '#/components/schemas/caAssociatedContextTypeMapping'
+        assetSubTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/caAssetSubType'
+        status:
+          $ref: '#/components/schemas/caAssetStatus'
+    caAssetStatus:
+      type: string
+      enum:
+        - ACTIVE
+        - PROCESSING
+        - ARCHIVED
+    caRangeFilter:
+      description: |
+        Filter assets which have certain ranges of asset attributes.
+        
+        For example, filter assets which have file size in the range of [10,20] or [40,50].
+      type: object
+      properties:
+        rangeField:
+          $ref: '#/components/schemas/caValueRangeFilterOptions'
+        ranges:
+          type: array
+          items:
+            $ref: '#/components/schemas/caRange'
+    caAssetSortCriteria:
+      type: object
+      properties:
+        field:
+          type: string
+          enum:
+            - CREATED_TIME
+            - SIZE
+            - NAME
+            - IMAGE_HEIGHT
+            - IMAGE_WIDTH
+            - EXTENSION
+        order:
+          type: string
+          enum:
+            - ASC
+            - DESC
+    caSearchAssetText:
+      description: The text used for searching assets, it matches asset name, asset name prefix, tags and ASINs associated with the assets
+      type: string
+    caAssetUploadLocation:
+      description: The url to upload the asset. The url expires in 15 minutes.
+      type: string
+    caAssetName:
+      description: The name to be given to the asset being registered.
+      type: string
+    caResourceNotFound:
+      description: 404 requested resource not found
+      type: object
+      properties:
+        message:
+          type: string
+    caFileMetadata:
+      type: object
+      properties:
+        duration:
+          format: double
+          type: number
+        extension:
+          description: The extension of the file name.
+          type: string
+        fileSize:
+          description: The asset size in bytes.
+          type: number
+        resolutionHeight:
+          type: integer
+        width:
+          description: The width of the asset in pixels.
+          type: number
+        aspectRatio:
+          pattern: '[0-9]+:[0-9]+'
+          description: The aspect ration of the asset.
+          type: string
+        resolutionWidth:
+          type: integer
+        contentType:
+          description: The content type of the asset.
+          type: string
+          enum:
+            - jpeg
+            - jpg
+            - png
+            - mp4
+            - image/jpg
+            - image/jpeg
+            - image/png
+        audioSampleRate:
+          format: double
+          type: number
+        height:
+          description: The height of the asset in pixels.
+          type: number
+    caAssetId:
+      description: The asset identifier.
+      type: string
+    caAssetType:
+      description: The asset type you are registering [`IMAGE`, `VIDEO`]
+      type: string
+      enum:
+        - IMAGE
+        - VIDEO
+    caInternalError:
+      description: 500 internal server error
+      type: object
+      properties:
+        message:
+          type: string
+    caAccounts:
+      description: The list of advertiser accounts the asset can be shared with. All the accounts within this list will be able to search this asset. Additional validation of checking that the accounts are associated will be done as part of this call.
+      type: array
+      minItems: 1
+      maxItems: 100
+      items: 
+        type: string
+    caMarketplaceIds:
+      description: The list of marketplace Ids.
+      type: array
+      minItems: 1
+      maxItems: 100
+      items: 
+        type: string
+    caAssetIdentifier:
+      type: object
+      properties:
+        assetId:
+          $ref: '#/components/schemas/caAssetId'
+        version:
+          $ref: '#/components/schemas/caVersion'
+    caModerationContent:
+      type: object
+      properties:
+        assetSubType:
+          $ref: '#/components/schemas/caAssetSubType'
+        adPolicyModerationResultList:
+          minItems: 1
+          maxItems: 10
+          type: array
+          items:
+            $ref: '#/components/schemas/caAdPolicyModerationResult'
+        moderationContentStatus:
+          $ref: '#/components/schemas/caModerationContentStatus'
+    caModerationStatus:
+      type: string
+      enum:
+        - REJECTED
+        - APPROVED
+        - PENDING
+    caModerationContentStatus:
+      type: string
+      enum:
+        - IN_PROGRESS
+        - COMPLETED
+        - FAILED
+    caRange:
+      type: object
+      properties:
+        start:
+          type: string
+        end:
+          type: string
+    caForbiddenRequest:
+      description: 403 forbidden request
+      type: object
+      properties:
+        message:
+          type: string
+    caAdPolicyModerationResult:
+      type: object
+      properties:
+        marketplaceId:
+          type: string
+        policyName:
+          type: string
+        moderationStatus:
+          $ref: '#/components/schemas/caModerationStatus'
+        locale:
+          type: string
+    caBadRequest:
+      description: 400 bad request
+      type: object
+      properties:
+        message:
+          type: string
+    caFilterCriteria:
+      description: '**Optional** this is used to filter results, we support two types of filters, valueFilter and rangeFilter'
+      type: object
+      properties:
+        valueFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/caValueFilter'
+        rangeFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/caRangeFilter'
+    caassetSubTypes:
+      description: |- 
+        1. For assetType `IMAGE` acceptable assetSubTypes are `LOGO`, `PRODUCT_IMAGE`, `AUTHOR_IMAGE`, `LIFESTYLE_IMAGE`, `OTHER_IMAGE`
+        
+        2. For assetType `VIDEO` acceptable assetSubtype is `BACKGROUND_VIDEO`.
+      minItems: 1
+      maxItems: 10
+      type: array
+      items:
+        $ref: '#/components/schemas/caAssetSubType'
+    caVersionInfo:
+      type: object
+      properties:
+        linkedAssetId:
+          description: The registering asset will be created as a new version of this linkedAssetId.
+          type: string
+        versionNotes:
+          description: The version notes that client can associate to the asset.Versioning enables users to update an old asset, so that you can ensure the latest asset is being used. You can upload a new version of an existing asset along with version notes. Any tags/ASINs from previous version, will be retained on the new version too.
+          type: string
+          maxLength: 1000
+    caRegistrationContext:
+      type: object
+      description: This is used on registration of an asset, to associate DSP assets to a specific advertiser. This is **required** for assets being uploaded for use in DSP.
+      properties:
+        associatedPrograms:
+          type: array
+          items:
+            $ref: '#/components/schemas/caAssociatedProgram'
+    caVersion:
+      description: The version of the asset.
+      type: string
+    caStorageLocationUrls:
+      type: object
+      properties:
+        processedUrls:
+          $ref: '#/components/schemas/caProcessedUrlsMap'
+        defaultUrl:
+          type: string
+    caProcessedUrlsMap:
+      description: Map containing processed urls of the asset. Key is the processed type and value is the url
+      additionalProperties:
+        type: object
+      type: object
+      example:
+        MODERATION: http://abc.xyz
+    caPageIdentifier:
+      type: object
+      properties:
+        pageNumber:
+          type: integer
+        token:
+          type: string
+    caPageSize:
+      type: integer
+      default: 25
+      minimum: 1
+      maximum: 500
+    caAssociatedContextTypeMapping:
+      description: 'A hashmap of key-value pairs, this is the most accurate way of defining a map in swagger 2.0'
+      type: object
+      example:
+        ASIN: ContextDetailsList
+    caAssociatedSubEntityList:
+      minItems: 1
+      maxItems: 100
+      description: This field is required for sellers, but not required for vendors. The brandEntityId is required for sellers uploading assets for use in Sponsored Brands. As a best practice, ensure to include brandEntityId when uploading assets for sellers.
+      type: array
+      items:
+        $ref: '#/components/schemas/caAssociatedSubEntity'
+    caAssociatedSubEntity:
+      type: object
+      properties:
+        brandEntityId:
+          description: The entity id of brand, which can be retrieved using GET /brands.
+          type: string
+    caAssetFiles:
+      description: |-
+        Structure containing processed transcode files for an asset
+         defaultUrl: This is the location of the original source.
+         processedFiles: List of processed files with metadata.
+      type: object
+      properties:
+        processedFiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/caProcessedFile'
+        defaultUrl:
+          type: string
+    caProcessedFile:
+      description: |-
+        Structure containing url, program, profile and metadata of processed output
+         program: This is the program for which this transcoding is done.
+         profile: This is the profile/outformat of the processed file.
+         url: This is the location of the processed file.
+         fileMetadata: This contains the metadata of file.
+      type: object
+      properties:
+        fileMetadata:
+          $ref: '#/components/schemas/caProcessedFileMetadata'
+        profile:
+          $ref: '#/components/schemas/caProcessedUrlType'
+        programs:
+          type: array
+          items:
+            $ref: '#/components/schemas/caProgram'
+        url:
+          type: string
+    caProcessedUrlType:
+      description: |-
+        Enum containing different type of processed urls
+        1. `MODERATION`: This is an internal url that will be used to moderate the asset.
+        2. `IMAGE_THUMBNAIL_500`: This is the url for image asset type to support thumbnail rendering of max side 500px.
+        3. `VIDEO_DEFAULT_OPTIMIZED`: This is the default processed url for video asset type for optimized rendering.
+        4. `PRODUCT_VIDEO_OPTIMIZED`: This is the processed url for video that can be used for product.
+        5. `BACKGROUND_VIDEO_TILE`: This is the processed url for video that can be used for background video tile.
+        6. `VIDEO_TILE`: This is the processed url for video that can be used for video tile.
+        7. `INTRO_SPLASH`: This is the processed url for video that can be used for intro splash.
+        8. `MP4_260KBS_25FPS_48KHZ_64KBS_180P_H264_BASELINE`: This is the processed url for video that can be used with mp4 container, 260KBS bitrate, 25fps(frame per sec), 48KHZ sampleRate, 64KBS audio bit rate, 180p height and generated with codec profile H.264/ Baseline.
+        9. `MP4_300KBS_15FPS_48KHZ_96KBS_360P`: This is the processed url for video that can be used with mp4 container, 300KBS bitrate, 15fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate and 360p height.
+        10. `MP4_300KBS_30FPS_48KHZ_96KBS_360P_H264_BASELINE`: This is the processed url for video that can be used with mp4 container, 300KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate, 360p height and generated with codec profile H.264/ Baseline.
+        11. `MP4_320KBS_25FPS_48KHZ_96KBS_576P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 320KBS bitrate, 25fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate, 576p height and generated with codec profile H.264/ High.
+        12. `MP4_375KBS_30FPS_48KHZ_192KBS_360P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 375KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate, 360p height and generated with codec profile H.264/ High.
+        13. `MP4_450KBS_15FPS_48KHZ_96KBS_360P`: This is the processed url for video that can be used with mp4 container, 450KBS bitrate, 15fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate and 360p height. 
+        14. `MP4_450KBS_30FPS_48KHZ_96KBS_360P_H264_BASELINE`: This is the processed url for video that can be used with mp4 container, 450KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate, 360p height and generated with codec profile H.264/ Baseline.
+        15. `MP4_600KBS_15FPS_48KHZ_96KBS_480P`: This is the processed url for video that can be used with mp4 container, 600KBS bitrate, 15fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate and 480p height. 
+        16. `MP4_600KBS_30FPS_48KHZ_96KBS_480P_H264_BASELINE`: This is the processed url for video that can be used with mp4 container, 600KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate, 480p height and generated with codec profile H.264/ Baseline.
+        17. `MP4_600KBS_25FPS_48KHZ_128KBS_360P_H264_BASELINE`: This is the processed url for video that can be used with mp4 container, 600KBS bitrate, 25fps(frame per sec), 48KHZ sampleRate, 128KBS audio bit rate, 360p height and generated with codec profile H.264/ Baseline.
+        18. `MP4_600KBS_30FPS_48KHZ_128KBS_360P_H264_BASELINE`: This is the processed url for video that can be used with mp4 container, 600KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 128KBS audio bit rate, 360p height and generated with codec profile H.264/ Baseline.
+        19. `MP4_700KBS_24FPS_48KHZ_96KBS_360P`: This is the processed url for video that can be used with mp4 container, 700KBS bitrate, 24fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate and 360p height.
+        20. `MP4_750KBS_30FPS_48KHZ_192KBS_432P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 750KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate, 432p height and generated with codec profile H.264/ High.
+        21. `MP4_750KBS_25FPS_48KHZ_96KBS_576P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 750KBS bitrate, 25fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate, 576p height and generated with codec profile H.264/ High.
+        22. `MP4_900KBS_15FPS_48KHZ_96KBS_480P`: This is the processed url for video that can be used with mp4 container, 900KBS bitrate, 15fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate and 480p height. 
+        23. `MP4_900KBS_30FPS_48KHZ_96KBS_480P_H264_BASELINE`: This is the processed url for video that can be used with mp4 container, 900KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate, 480p height and generated with codec profile H.264/ Baseline.
+        24. `MP4_1350KBS_30FPS_48KHZ_96KBS_720P`: This is the processed url for video that can be used with mp4 container, 1350KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate and 720p height. 
+        25. `MP4_1350KBS_30FPS_48KHZ_96KBS_720P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 1.35MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate, 720p height and generated with codec profile H.264/ High.
+        26. `MP4_1350KBS_25FPS_48KHZ_128KBS_540P_H264_MAIN`: This is the processed url for video that can be used with mp4 container, 1.35MBPS bitrate, 25fps(frame per sec), 48KHZ sampleRate, 128KBS audio bit rate, 540p height and generated with codec profile H.264/ Main.
+        27. `MP4_1500KBS_24FPS_48KHZ_96KBS_576P`: This is the processed url for video that can be used with mp4 container, 1500KBS bitrate, 24fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate and 576p height.
+        28. `MP4_1500KBS_30FPS_48KHZ_192KBS_540P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 1.5MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate, 540p height and generated with codec profile H.264/ High.
+        29. `MP4_1500KBS_25FPS_48KHZ_128KBS_576P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 1.5MBPS bitrate, 25fps(frame per sec), 48KHZ sampleRate, 128KBS audio bit rate, 576p height and generated with codec profile H.264/ High.
+        30. `MP4_2000KBS_30FPS_48KHZ_96KBS_720P`: This is the processed url for video that can be used with mp4 container, 2000KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate and 720p height. 
+        31. `MP4_2000KBS_30FPS_48KHZ_96KBS_720P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 2MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate, 720p height and generated with codec profile H.264/ High.
+        32. `MP4_2000KBS_30FPS_48KHZ_192KBS_720P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 2MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate, 720p height and generated with codec profile H.264/ High.
+        33. `MP4_2100KBS_30FPS_48KHZ_192KBS_576P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 2.1MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate, 576p height and generated with codec profile H.264/ High.
+        34. `MP4_2100KBS_30FPS_48KHZ_192KBS_480P_H264_MAIN`: This is the processed url for video that can be used with mp4 container, 2.1MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate, 480p height and generated with codec profile H.264/ Main.
+        35. `MP4_3400KBS_30FPS_48KHZ_192KBS_1080P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 3.4MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate, 1080p height and generated with codec profile H.264/ High.
+        36. `MP4_3500KBS_24FPS_48KHZ_96KBS_1080P`: This is the processed url for video that can be used with mp4 container, 3500KBS bitrate, 24fps(frame per sec), 48KHZ sampleRate, 96KBS audio bit rate and 1080p height.
+        37. `MP4_3500KBS_30FPS_48KHZ_128KBS_720P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 3.5MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 128KBS audio bit rate, 720p height and generated with codec profile H.264/ High.
+        38. `MP4_4000KBS_30FPS_48KHZ_192KBS_1080P`: This is the processed url for video that can be used with mp4 container, 4000KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate and 1080p height. 
+        39. `MP4_4000KBS_30FPS_48KHZ_192KBS_1080P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 4MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate, 1080p height and generated with codec profile H.264/ High.
+        40. `MP4_10000KBS_30FPS_48KHZ_320KBS_1080P`: This is the processed url for video that can be used with mp4 container, 10000KBS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 320KBS audio bit rate and 1080p height. 
+        41. `MP4_10000KBS_30FPS_48KHZ_320KBS_1080P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 10MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 320KBS audio bit rate, 1080p height and generated with codec profile H.264/ High.
+        42. `MP4_20000KBS_AUTOFPS_48KHZ_320KBS`: This is the processed url for video that can be used with mp4 container, 20000KBS bitrate, auto fps, 48KHZ sampleRate, 320KBS audio bit rate.
+        43. `MP4_20000KBS_AUTOFPS_48KHZ_320KBS_1080P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 20MBPS bitrate, auto fps, 48KHZ sampleRate, 320KBS audio bit rate, 1080p height and generated with codec profile H.264/ High.
+        44. `MP4_25000KBS_30FPS_48KHZ_192KBS_1080P_H264_HIGH`: This is the processed url for video that can be used with mp4 container, 25MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate, 1080p height and generated with codec profile H.264/ High.
+        45. `MP4_25000KBS_30FPS_48KHZ_192KBS_1080P_H264_MAIN`: This is the processed url for video that can be used with mp4 container, 25MBPS bitrate, 30fps(frame per sec), 48KHZ sampleRate, 192KBS audio bit rate, 1080p height and generated with codec profile H.264/ Main.
+
+      type: string
+      enum:
+        - MODERATION
+        - IMAGE_THUMBNAIL_500
+        - VIDEO_DEFAULT_OPTIMIZED
+        - PRODUCT_VIDEO_OPTIMIZED
+        - BACKGROUND_VIDEO_TILE
+        - VIDEO_TILE
+        - INTRO_SPLASH
+        - MP4_260KBS_25FPS_48KHZ_64KBS_180P_H264_BASELINE
+        - MP4_300KBS_15FPS_48KHZ_96KBS_360P
+        - MP4_300KBS_30FPS_48KHZ_96KBS_360P_H264_BASELINE
+        - MP4_320KBS_25FPS_48KHZ_96KBS_576P_H264_HIGH
+        - MP4_375KBS_30FPS_48KHZ_192KBS_360P_H264_HIGH
+        - MP4_450KBS_15FPS_48KHZ_96KBS_360P
+        - MP4_450KBS_30FPS_48KHZ_96KBS_360P_H264_BASELINE
+        - MP4_600KBS_15FPS_48KHZ_96KBS_480P
+        - MP4_600KBS_30FPS_48KHZ_96KBS_480P_H264_BASELINE
+        - MP4_600KBS_25FPS_48KHZ_128KBS_360P_H264_BASELINE
+        - MP4_600KBS_30FPS_48KHZ_128KBS_360P_H264_BASELINE
+        - MP4_700KBS_24FPS_48KHZ_96KBS_360P
+        - MP4_750KBS_30FPS_48KHZ_192KBS_432P_H264_HIGH
+        - MP4_750KBS_25FPS_48KHZ_96KBS_576P_H264_HIGH
+        - MP4_900KBS_15FPS_48KHZ_96KBS_480P
+        - MP4_900KBS_30FPS_48KHZ_96KBS_480P_H264_BASELINE
+        - MP4_1350KBS_30FPS_48KHZ_96KBS_720P
+        - MP4_1350KBS_30FPS_48KHZ_96KBS_720P_H264_HIGH
+        - MP4_1350KBS_25FPS_48KHZ_128KBS_540P_H264_MAIN
+        - MP4_1500KBS_24FPS_48KHZ_96KBS_576P
+        - MP4_1500KBS_30FPS_48KHZ_192KBS_540P_H264_HIGH
+        - MP4_1500KBS_25FPS_48KHZ_128KBS_576P_H264_HIGH
+        - MP4_2000KBS_30FPS_48KHZ_96KBS_720P
+        - MP4_2000KBS_30FPS_48KHZ_96KBS_720P_H264_HIGH
+        - MP4_2000KBS_30FPS_48KHZ_192KBS_720P_H264_HIGH
+        - MP4_2100KBS_30FPS_48KHZ_192KBS_576P_H264_HIGH
+        - MP4_2100KBS_30FPS_48KHZ_192KBS_480P_H264_MAIN
+        - MP4_3400KBS_30FPS_48KHZ_192KBS_1080P_H264_HIGH
+        - MP4_3500KBS_24FPS_48KHZ_96KBS_1080P
+        - MP4_3500KBS_30FPS_48KHZ_128KBS_720P_H264_HIGH
+        - MP4_4000KBS_30FPS_48KHZ_192KBS_1080P
+        - MP4_4000KBS_30FPS_48KHZ_192KBS_1080P_H264_HIGH
+        - MP4_10000KBS_30FPS_48KHZ_320KBS_1080P
+        - MP4_10000KBS_30FPS_48KHZ_320KBS_1080P_H264_HIGH
+        - MP4_20000KBS_AUTOFPS_48KHZ_320KBS
+        - MP4_20000KBS_AUTOFPS_48KHZ_320KBS_1080P_H264_HIGH
+        - MP4_25000KBS_30FPS_48KHZ_192KBS_1080P_H264_HIGH
+        - MP4_25000KBS_30FPS_48KHZ_192KBS_1080P_H264_MAIN
+    caProcessedFileMetadata:
+      description: |-
+        Structure containing metadata of processed file.
+         contentHash: This is the location of the original source.
+         contentType: This is the location of the original source.
+         videoStreams: This contains the metadata of Video streams.
+         audioStreams: This contains the metadata of Audio streams.
+      type: object
+      properties:
+        videoStreams:
+          type: array
+          items:
+            $ref: '#/components/schemas/caVideoStreamMetadata'
+        audioStreams:
+          type: array
+          items:
+            $ref: '#/components/schemas/caAudioStreamMetadata'
+        contentType:
+          type: string
+        contentHash:
+          type: string
+    caAudioStreamMetadata:
+      description: |-
+        Structure containing metadata of Video Stream.
+         profile: This is the profile of the stream.
+         duration: This is the duration of the stream in secs.
+         codecName: This tells the codec of the media stream.
+         codecType: This is the codec type of stream.
+         bitRate: This tells the bit rate of the stream.
+         channelLayout: This tells the channel of the stream
+         sampleRate: This is the sample rate of the stream
+      type: object
+      properties:
+        duration:
+          format: double
+          type: number
+        channelLayout:
+          type: string
+        bitRate:
+          format: int64
+          type: integer
+        profile:
+          type: string
+        codecName:
+          type: string
+        codecType:
+          type: string
+        sampleRate:
+          format: int64
+          type: integer
+    caSearchRequestCommon:
+      properties:
+        text:
+          $ref: '#/components/schemas/caSearchAssetText'
+        filterCriteria:
+          $ref: '#/components/schemas/caFilterCriteria'
+        sortCriteria:
+          $ref: '#/components/schemas/caAssetSortCriteria'
+        pageCriteria:
+          $ref: '#/components/schemas/caPageCriteria'
+    caVideoStreamMetadata:
+      description: |-
+        Structure containing metadata of Video Stream.
+         profile: This is the profile of the stream.
+         width: This is the resolution width of stream.
+         height: This is the resolution height of stream.
+         duration: This is the duration of the stream in secs.
+         codecName: This tells the codec of the media stream.
+         codecType: This is the codec type of stream.
+         displayAspectRatio: This tells the aspect ratio of the stream.
+         bitRate: This tells the bit rate of the stream.
+         frameRate: This is the frame rate of video stream per sec.
+      type: object
+      properties:
+        duration:
+          format: double
+          type: number
+        frameRate:
+          format: double
+          type: number
+        bitRate:
+          format: int64
+          type: integer
+        profile:
+          type: string
+        width:
+          type: integer
+        codecName:
+          type: string
+        codecType:
+          type: string
+        height:
+          type: integer
+        displayAspectRatio:
+          type: string
+    caValueFilterOptions:
+      anyOf:
+        - $ref: '#/components/schemas/ASSET_TYPE'
+        - $ref: '#/components/schemas/TAG'
+        - $ref: '#/components/schemas/ASSET_SUB_TYPE'
+        - $ref: '#/components/schemas/APPROVED_AD_POLICY'
+        - $ref: '#/components/schemas/ASSET_EXTENSION'
+        - $ref: '#/components/schemas/PROGRAM'
+        - $ref: '#/components/schemas/ASIN'
+        - $ref: '#/components/schemas/CAMPAIGN_NAME'
+        - $ref: '#/components/schemas/CAMPAIGN_ID'
+    caValueRangeFilterOptions:
+      anyOf:
+        - $ref: '#/components/schemas/SIZE'
+        - $ref: '#/components/schemas/DATE_UPLOADED'
+    DATE_UPLOADED:
+      type: string
+      description: The value for this should be timestamp in milliseconds. It is the same as creation date.
+    SIZE:
+      type: string
+      description: File size in bytes.
+    TAG:
+      type: string
+      description: A tag is assigned to a creative asset at time of registration. Values can include any tags that you have created.
+    ASSET_TYPE:
+      type: string
+      description: 'Asset types available are only the following:'
+      enum:
+        - IMAGE
+    ASSET_SUB_TYPE:
+      type: string
+      description: >
+        STORE4V_SPOTLIGHT = Store Spotlight
+        STORES_MODERATION = Stores
+        HSA4V_Products = Sponsored Brands
+        AD_POST = Posts
+      enum:
+        - AUTHOR_IMAGE
+        - LIFESTYLE_IMAGE
+        - PRODUCT_IMAGE
+        - OTHER_IMAGE
+        - LOGO
+    APPROVED_AD_POLICY:
+      type: string
+      enum:
+        - STORE4V_SPOTLIGHT
+        - STORES_MODERATION
+        - HSA4V_PRODUCTS
+        - AD_POST
+    ASSET_EXTENSION:
+      type: string
+      enum:
+        - JPG
+        - JPEG
+        - PNG
+    PROGRAM:
+      type: string
+      enum:
+        - A_PLUS
+    ASIN:
+      type: string
+      description: The ASIN value on which to filter.
+    CAMPAIGN_NAME:
+      type: string
+      description: The name of the campaign for which to filter.
+    CAMPAIGN_ID:
+      type: string
+      description: The campaignID for which to filter.
+    caAssetSubTypes:
+      maxItems: 10
+      minItems: 1
+      type: array
+      items:
+        $ref: "#/components/schemas/caAssetSubType"
+    caTagList:
+      maxItems: 10
+      minItems: 1
+      type: array
+      description: List of tags.
+      items:
+        $ref: "#/components/schemas/caTagName"
+    caTagName:
+      minLength: 1
+      type: string
+      description: Tag Name.
+    caBatchRegistrationContext:
+      type: object
+      description: Contextual information for asset registration e.g. what is the source of this asset.
+      properties:
+        assetSourceInfo:
+          $ref: "#/components/schemas/caAssetSourceInfo"
+    caAssetSourceInfo:
+      type: object
+      description: Details on the source of this asset and any source specific metadata to be associated against it.
+      properties:
+        assetSourceId:
+          $ref: "#/components/schemas/caAssetSourceId"
+        assetSourceMetadata:
+          $ref: "#/components/schemas/caAssetSourceMetadataMap"
+    caAssetSourceId:
+      type: string
+      enum:
+        - AMAZON_CREATIVE_SERVICES
+        - AMAZON_VIDEO_BUILDER
+        - ASSET_LIBRARY
+        - SELF_SERVICE_FIRE_TV
+        - INTEGRATED_VIDEO_EXPERIENCE
+        - CANVA_PLUGIN
+        - AMAZON_DSP
+        - SPONSORED_DISPLAY
+        - SPONSORED_BRANDS
+    caAssetSourceMetadataMap:
+      type: object
+      additionalProperties:
+        type: string
+      description: "Map containing source information details. Total map size should not exceed 5, with each Key's length 50 and Value's length 500."
+      example:
+        key: String upto length 50
+        value: String upto length 500
+    caThrottledRequest:
+      description: 429 request throttled
+      type: object
+      properties:
+        message:
+          type: string
+    caRegistrationStatus:
+      description: Possible statuses of batch registration request
+      type: string
+      enum:
+        - FAILED
+        - IN_PROGRESS
+        - COMPLETE
+    caFailedRegistrationDetailsList:
+      description: List containing failed registration details
+      type: array
+      minItems: 0
+      maxItems: 100
+      items:
+        $ref: '#/components/schemas/caFailedRegistrationDetails'
+    caFailedRegistrationDetails:
+      description: Structure containing details of registration failure for each url in a batch registration request.
+      type: object
+      properties:
+        url:
+          type: string
+          description: Url of the media file as provided in the input of batch registration request.
+        failureReason:
+          type: string
+          description: Failure reason for registration of media file identified by corresponding url in batch registration request.
+    caInProgressRegistrationDetailsList:
+      description: List containing in progress registration details
+      type: array
+      minItems: 0
+      maxItems: 100
+      items:
+        $ref: '#/components/schemas/caInProgressRegistrationDetails'
+    caInProgressRegistrationDetails:
+      description: Structure containing details of in progress registration for each url in a batch registration request.
+      type: object
+      properties:
+        url:
+          type: string
+          description: Url of the media file as provided in the input of batch registration request.
+    caSuccessfulRegistrationDetailsList:
+      description: List containing successful registration details
+      type: array
+      minItems: 0
+      maxItems: 100
+      items:
+        $ref: '#/components/schemas/caSuccessfulRegistrationDetails'
+    caSuccessfulRegistrationDetails:
+      description: Structure containing details of successful registration for each url in a batch registration request.
+      type: object
+      properties:
+        url:
+          type: string
+          description: Url of the media file as provided in the input of batch registration request.
+        assetIdentifier:
+          $ref: '#/components/schemas/caAssetIdentifier'
+  requestBodies: {}
+  responses: {}
+  callbacks: {}
+  links: {}
+  securitySchemes: {}
+  parameters: {}
+openapi: 3.0.1

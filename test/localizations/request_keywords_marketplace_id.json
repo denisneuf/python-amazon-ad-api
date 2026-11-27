@@ -1,0 +1,24 @@
+{
+    "localizeKeywordRequests": [
+        {"localizationKeyword": {"keyword": "máquina"}},
+        {"localizationKeyword": {"keyword": "diagnosis"}},
+        {"localizationKeyword": {"keyword": "diagnosis multimarca"}},
+        {"localizationKeyword": {"keyword": "coche"}},
+        {"localizationKeyword": {"keyword": "automóvil"}},
+        {"localizationKeyword": {"keyword": "frenos"}},
+        {"localizationKeyword": {"keyword": "presión"}},
+        {"localizationKeyword": {"keyword": "neumáticos"}}
+    ],
+    "sourceDetails": {"marketplaceId": "A1RKKUPIHCS9HS"},
+    "targetDetails": {
+        "marketplaceIds": [
+            "A1F83G8C2ARO7P",
+            "A13V1IB3VIYZZH",
+            "APJ6JRA9NG5V4",
+            "A1PA6795UKMFR9",
+            "A1805IZSGTT6HS",
+            "A2NODRKZP88ZB9"
+        ]
+    },
+}
+

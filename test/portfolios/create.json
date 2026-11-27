@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Apple",
+        "budget": {
+            "amount": 100,
+            "currencyCode": "EUR",
+            "policy": "monthlyRecurring",
+            "startDate": "20220418"
+        },
+        "inBudget": true,
+        "state": "enabled"
+    },
+    {
+        "name": "Huawei",
+        "budget": {
+            "amount": 120,
+            "currencyCode": "EUR",
+            "policy": "dateRange",
+            "startDate": "20220418"
+        },
+        "inBudget": true,
+        "state": "enabled"
+    },
+    {
+        "name": "Sony",
+        "budget": {
+            "amount": 120,
+            "currencyCode": "EUR",
+            "policy": "dateRange",
+            "startDate": "20220418"
+        },
+        "inBudget": true,
+        "state": "enabled"
+    }
+]

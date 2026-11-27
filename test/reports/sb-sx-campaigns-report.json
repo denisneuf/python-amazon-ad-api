@@ -1,0 +1,5 @@
+{
+  "segment": "placement",
+  "reportDate": "20211101",
+  "metrics": "campaignName,campaignId,campaignStatus,campaignBudget,campaignBudgetType,campaignRuleBasedBudget"
+}

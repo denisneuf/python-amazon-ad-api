@@ -1,0 +1,24 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "pip" # See documentation for possible values 2
+    directory: "/" # Location of package manifests
+    target-branch: "main"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "denisneuf"
+    commit-message:
+      prefix: "DEP"
+      include: "scope"
+    ignore:
+      # pyproject.toml asks for setuptools>=61.0 as a build requirement, and
+      # dependabot reads that as a floor to raise to the latest release. The
+      # build works on 61, so a jump to 84 only narrows who can build it; the
+      # floor is raised by hand when something actually needs a newer one.
+      - dependency-name: "setuptools"
+        update-types: ["version-update:semver-major"]

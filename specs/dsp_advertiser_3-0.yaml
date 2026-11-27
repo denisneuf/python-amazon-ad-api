@@ -1,0 +1,473 @@
+openapi: 3.0.2
+info:
+  title: Amazon Ads API for DSP
+  description: Retrieve information of DSP advertisers.
+  license:
+    name: Amazon Ads API License Agreement
+    url: 'https://advertising.amazon.com/API/docs/license_agreement'
+  version: '3.0'
+tags:
+  - name: Advertiser
+paths:
+  '/dsp/advertisers/{advertiserId}':
+    get:
+      description: Returns advertiser information based on given advertiser id.
+      tags:
+        - Advertiser
+      parameters:
+        - name: Amazon-Advertising-API-ClientId
+          in: header
+          description: The client identifier of the customer making the request.
+          required: true
+          schema:
+            type: string
+        - name: Amazon-Advertising-API-Scope
+          in: header
+          description: >-
+            The identifier of a profile associated with the advertiser account. Use GET method on Profiles resource to list profiles associated with the access token passed in the HTTP Authorization header. For DSP profiles, the `type` field of the `accountInfo` object must be set to `agency` and the `subType` must not be `AMAZON_ATTRIBUTION`.
+          required: true
+          schema:
+            type: string
+        - name: advertiserId
+          in: path
+          description: Unique id to identify advertiser
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspAdvertiserV1'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Malformed JSON
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '401':
+          description: Unauthenticated request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Unauthenticated Request
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '403':
+          description: >-
+            Forbidden - Request failed because user is not authorized to access
+            a resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+        '404':
+          description: >-
+            Not Found - Requested resource does not exist or is not visible for
+            the authenticated user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Resource Not Found
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '422':
+          description: Unprocessable entity - Failed due to invalid parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Validation Error
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+                errors:
+                  - errorType: DSP_INVALID_PATH_PARAM
+                    field: advertiserId
+                    message: AdvertiserId must be a valid numeric id.
+        '429':
+          description: Too Many Requests - Request was rate-limited. Retry later.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Too Many Requests
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Internal Server Error
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '502':
+          description: Bad Gateway Exception.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Bad Gateway
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '503':
+          description: Service Unavailable Exception.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Service Unavailable
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '504':
+          description: Endpoint Request Timed-out Exception.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Endpoint Request Timed-out
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+  /dsp/advertisers:
+    get:
+      description: >-
+        Returns a list of advertisers with information which satisfy the
+        filtering criteria.
+      tags:
+        - Advertiser
+      parameters:
+        - name: Amazon-Advertising-API-ClientId
+          in: header
+          description: The client identifier of the customer making the request.
+          required: true
+          schema:
+            type: string
+        - name: Amazon-Advertising-API-Scope
+          in: header
+          description: >-
+            The identifier of a profile associated with the advertiser account. Use GET method on Profiles resource to list profiles associated with the access token passed in the HTTP Authorization header. For DSP profiles, the `type` field of the `accountInfo` object must be set to `agency` and the `subType` must not be `AMAZON_ATTRIBUTION`.
+          required: true
+          schema:
+            type: string
+        - name: startIndex
+          in: query
+          description: >-
+            Sets a cursor into the requested set of advertisers. Use in
+            conjunction with the count parameter to control pagination of the
+            returned array. 0-indexed record offset for the result set, defaults
+            to 0.
+          schema:
+            type: integer
+            format: int32
+            maximum: 29900
+            default: 0
+        - name: count
+          in: query
+          description: Sets the number of advertisers to be returned in a single call. Maximum of 100 advertisers per call. 
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 100
+            default: 100
+        - name: advertiserIdFilter
+          in: query
+          description: >-
+            List of comma separated advertiser ids to filter the advertisers. If
+            no advertiser ids provided, all advertisers in this entity will be
+            returned.
+          schema:
+            type: string
+          example: '6753579448901,8753890875385'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspAdvertisersV1'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Malformed JSON
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '401':
+          description: Unauthenticated request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Unauthenticated Request
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '403':
+          description: >-
+            Forbidden - Request failed because user is not authorized to access
+            a resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+        '404':
+          description: >-
+            Not Found - Requested resource does not exist or is not visible for
+            the authenticated user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Resource Not Found
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '422':
+          description: Unprocessable entity - Failed due to invalid parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Validation Error
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+                errors:
+                  - errorType: DSP_INVALID_QUERY_PARAM
+                    field: advertiserIdFilter
+                    message: >-
+                      Each advertiserId must be a valid numeric id separated by
+                      comma.
+        '429':
+          description: Too Many Requests - Request was rate-limited. Retry later.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Too Many Requests
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Internal Server Error
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '502':
+          description: Bad Gateway Exception.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Bad Gateway
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '503':
+          description: Service Unavailable Exception.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Service Unavailable
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+        '504':
+          description: Endpoint Request Timed-out Exception.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DspErrorV1'
+              example:
+                message: Endpoint Request Timed-out
+                requestId: ad165994-489a-4fcf-a175-7a846c899b41
+components:
+  schemas:
+    DspAdvertiserV1:
+      type: object
+      description: The DSP Advertiser object
+      properties:
+        advertiserId:
+          type: string
+          description: The advertiser identifier.
+          example: '4728736040201'
+        name:
+          type: string
+          description: The advertiser name.
+          example: DSP Public API Advertiser
+        currency:
+          $ref: '#/components/schemas/DspSupportedCurrencyV1'
+        url:
+          type: string
+          description: The URL of the advertiser’s website.
+          example: www.example.com
+        country:
+          $ref: '#/components/schemas/DspCountryV1'
+        timezone:
+          $ref: '#/components/schemas/DspTimezoneV1'
+        isRegional:
+          type: boolean
+          description: Set to `true` if account is associated with a Global Advertiser Account.
+          example: false
+    DspAdvertisersV1:
+      type: object
+      description: >-
+        List of advertisers along with total number of advertisers which satisfy
+        the filtering criteria.
+      properties:
+        totalResults:
+          type: integer
+          format: int32
+          description: >-
+            Total number of advertisers which satisfy the filtering criteria.
+            This number is given to support pagination and tell the client if there are more advertisers to be fetched.
+          example: 1100
+        response:
+          type: array
+          description: List of advertisers with complete information.
+          items:
+            $ref: '#/components/schemas/DspAdvertiserV1'
+    DspSupportedCurrencyV1:
+      type: string
+      description: The supported currencies.
+      enum:
+        - USD
+        - CAD
+        - JPY
+        - GBP
+        - EUR
+        - INR
+        - MXN
+        - AED
+        - SAR
+        - BRL
+        - AUD
+        - SEK
+        - SGD
+        - TRY
+      example: USD
+    DspCountryV1:
+      type: string
+      description: The country code.
+      enum:
+        - US
+        - CA
+        - MX
+        - JP
+        - AU
+        - IN
+        - UK
+        - GB
+        - DE
+        - FR
+        - IT
+        - ES
+        - AT
+        - AE
+        - SA
+        - BR
+        - NL
+        - SE
+        - SG
+        - TR
+      example: US
+    DspTimezoneV1:
+      type: string
+      description: |
+        The advertiser timezone.
+        - America/Anchorage
+        - America/Caracas
+        - America/Chicago
+        - America/Denver
+        - America/Halifax
+        - America/Los_Angeles
+        - America/New_York
+        - America/Sao_Paulo
+        - America/St_Johns
+        - Asia/Almaty
+        - Asia/Baghdad
+        - Asia/Bangkok
+        - Asia/Hong_Kong
+        - Asia/Kabul
+        - Asia/Kathmandu
+        - Asia/Kolkata
+        - Asia/Magadan
+        - Asia/Shanghai
+        - Asia/Tehran
+        - Asia/Tokyo
+        - Asia/Yekaterinburg
+        - Asia/Yerevan
+        - Atlantic/Azores
+        - Atlantic/South_Georgia
+        - Australia/Brisbane
+        - Australia/Darwin
+        - Europe/London
+        - Europe/Paris
+        - Indian/Cocos
+        - Pacific/Fiji
+        - Pacific/Honolulu
+        - Pacific/Kwajalein
+        - Pacific/Midway
+    DspErrorV1:
+      type: object
+      description: Error response object.
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: A human-readable description of the response.
+          example: Unprocessable entity
+        requestId:
+          type: string
+          description: >-
+            A value will be used to identify your
+            request uniquely.
+          example: ad165994-489a-4fcf-a175-7a846c899b41
+        errors:
+          type: array
+          description: List of errors. Useful in case of validation errors
+          items:
+            $ref: '#/components/schemas/DspSubErrorV1'
+    DspSubErrorV1:
+      type: object
+      description: Error Object
+      required:
+        - errorType
+        - message
+      properties:
+        errorType:
+          type: string
+          description: Enumerated error type.
+          example: DSP_ADVERTISER_UNSUPPORTED_INDUSTRY
+        field:
+          type: string
+          description: Request body field which is cause of the error.
+          example: budget
+        message:
+          type: string
+          description: Detailed error description
+          example: Health
+  securitySchemes:
+    oauth2AuthorizationCode:
+      type: oauth2
+      description: >-
+        Login with Amazon. For more information see [Login with Amazon
+        authorization code
+        grant](https://developer.amazon.com/docs/login-with-amazon/authorization-code-grant.html).
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://www.amazon.com/ap/oa'
+          tokenUrl: 'https://api.amazon.com/auth/o2/token'
+          scopes:
+            'advertising::campaign_management': Modify your DSP advertising campaigns and access performance data

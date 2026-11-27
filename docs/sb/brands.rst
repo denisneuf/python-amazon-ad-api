@@ -1,0 +1,35 @@
+Brands
+======
+
+Documentation: https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi
+
+Specification: https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-brands/4-0/openapi.json
+
+.. autoclass:: ad_api.api.sb.Brands
+    :members:
+
+    ### Example python
+
+    .. code-block:: python
+
+        from ad_api.api.sb.brands import Brands
+
+        result = Brands().list_brands()
+
+        logging.info(result)
+
+    ### Payload
+
+    .. code-block:: python
+
+        [{'brandEntityId': 'ENTITY5ON7M22396H',
+          'brandId': 'A387T2Q1UNXHJK',
+          'brandRegistryName': 'Apple'},
+         {'brandEntityId': 'ENTITY218756GCCQ6CF',
+          'brandId': 'A36UAF6UNGFFAR',
+          'brandRegistryName': 'Huawei'},
+         {'brandEntityId': 'ENTITY1PRG7GD8FVXA3',
+          'brandId': 'A87RK5OLHEBUU5',
+          'brandRegistryName': 'Xiaomi'}]
+
+NOT AVAILABLE SANDBOX [NOT_FOUND - Could not find resource for full path]

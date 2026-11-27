@@ -1,0 +1,8 @@
+{
+    "expiration": 300000,
+     "format": "CSV",
+     "location": "",
+     "reportId": "820882fa-ff22-4772-99e1-6889e3ae97f8",
+     "status": "IN_PROGRESS",
+     "statusDetails": "Generation of the report is in progress!"
+}

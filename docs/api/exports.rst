@@ -1,0 +1,77 @@
+Exports
+=======
+
+
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/exports
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIExports_prod_3p.json
+
+The export resource takes a request for a snapshot of one entity type and answers
+an identifier. The file is built asynchronously, so the identifier is polled
+afterwards until the export is ready.
+
+Each request names its own media type, ``application/vnd.<entity>export.v1+json``,
+and the client sends that version in both the ``Content-Type`` and the ``Accept``
+header. The version argument defaults to 1.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    exports/ads_export
+    exports/campaigns_export
+    exports/adgroups_export
+    exports/targets_export
+    exports/get_export
+
+.. autoclass:: ad_api.api.Exports
+    :noindex:
+
+    ### Endpoint map
+
+    .. list-table::
+        :header-rows: 1
+
+       * - Path
+         - Method
+         - Media type
+       * - ``/ads/export``
+         - POST
+         - ``application/vnd.adsexport.v1+json``
+       * - ``/campaigns/export``
+         - POST
+         - ``application/vnd.campaignsexport.v1+json``
+       * - ``/adGroups/export``
+         - POST
+         - ``application/vnd.adgroupsexport.v1+json``
+       * - ``/targets/export``
+         - POST
+         - ``application/vnd.targetsexport.v1+json``
+       * - ``/exports/{exportId}``
+         - GET
+         - -
+
+    ### Example python
+
+    .. code-block:: python
+
+        import json
+        from ad_api.api import Exports
+
+        result = Exports(account=store).ads_export(
+            body=json.dumps({
+                "adProductFilter": {"include": ["SPONSORED_PRODUCTS"]}
+            })
+        )
+
+        export_id = result.payload.get("exportId")
+
+        status = Exports(account=store).get_export(
+            exportId=export_id,
+            typeExport="ads",
+        )

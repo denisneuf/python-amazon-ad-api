@@ -1,0 +1,15 @@
+{
+    "categoryPath": ["Lifestyle"],
+    "categories": [
+        {"category": "Automotive Ownership", "audienceCount": 65},
+        {"category": "Business & Industry", "audienceCount": 19},
+        {"category": "New to Category", "audienceCount": 11},
+        {"category": "Entertainment", "audienceCount": 8},
+        {"category": "Shoppers", "audienceCount": 4},
+        {"category": "Students & Professionals", "audienceCount": 3},
+        {"category": "Characteristics", "audienceCount": 2},
+        {"category": "Conscious Consumption", "audienceCount": 1},
+        {"category": "Family", "audienceCount": 1},
+        {"category": "Subscriptions", "audienceCount": 1},
+    ],
+}

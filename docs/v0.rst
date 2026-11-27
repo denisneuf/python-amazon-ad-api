@@ -1,0 +1,146 @@
+Amazon Ads API v0
+=================
+
+The per-product endpoints, superseded by :doc:`v1`.
+
+Each product keeps its own path prefix and its own generations -- Sponsored
+Products, Sponsored Brands and Sponsored Display were separate APIs, not
+versions of one API. They stay here for reference and for the products that have
+no unified equivalent yet.
+
+.. warning::
+
+    **Legacy, on the path to deprecation.** Amazon publishes these as product
+    specific APIs that predate the v1 domain model. Use them only when the
+    functionality you need is not yet available in the Amazon Ads API v1, and
+    all v0 APIs are on the path to deprecation and not recommended for new
+    integrations unless they provide functionality not yet available in v1.
+
+    New code should target :doc:`v1`. The vendor states it in its own words, `v0 overview`_.
+
+
+.. _`v0 overview`: https://advertising.amazon.com/API/docs/en-us/reference/v0-overview
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    api/exports
+    api/attribution
+    Portfolios <api/portfoliosV3>
+    Assets <api/creative_assets>
+    api/history
+    sp
+    sb
+    sd
+
+
+
+
+
+The Sponsored Products API: campaigns, ad groups, product ads, keywords,
+negative keywords, targeting and reports.
+
+
+
+The Sponsored Brands API, in 3.0 and 4.0: campaigns, ad groups, keywords,
+negative keywords, drafts, landing pages, Stores and brands.
+
+
+
+The Sponsored Display API: campaigns, ad groups, targeting, creatives and
+reports.
+
+Billing & invoices
+------------------
+
+The billing family and the account budget settings, as Amazon groups them in
+the v0 reference.
+
+.. toctree::
+    :maxdepth: 1
+
+    api/billing
+    api/account_budgets
+
+
+Recommendations & insights
+--------------------------
+
+The insights families, as Amazon groups them in the v0 reference.
+
+.. toctree::
+    :maxdepth: 1
+
+    Overlapping audiences <api/insights>
+
+
+Products
+--------
+
+The product families, as Amazon groups them in the v0 reference.
+
+.. toctree::
+    :maxdepth: 1
+
+    Product metadata <api/metadata>
+    Product eligibility <api/eligibility>
+
+
+Localization
+------------
+
+The localization family: the localize routes and the validation
+configurations they share with the campaign resources.
+
+.. toctree::
+    :maxdepth: 1
+
+    api/localization
+    Validation configurations <api/validation_configurations>
+
+
+Amazon DSP
+----------
+
+The DSP families. Only one page of the tree is implemented, and only
+partially: the two non-DSP routes of *Audiences discovery*.
+
+.. toctree::
+    :maxdepth: 1
+
+    Audiences <api/audiences>
+
+
+Accounts
+--------
+
+The account resources, listed in the order Amazon publishes them under
+**Accounts** in the v0 reference.
+
+.. toctree::
+    :maxdepth: 1
+
+    api/account
+    api/profiles
+    api/manager_accounts
+    api/advertising_test_account
+    api/advertising_invitations
+    api/advertising_user_permissions
+    api/dsp_advertiser
+
+Reporting
+---------
+
+The reporting families, in the order Amazon publishes them under
+**Reporting** in the v0 reference. Version 3 is the offline report service; the
+other four are separate families with their own contracts.
+
+.. toctree::
+    :maxdepth: 1
+
+    api/reports
+    api/brand_metrics
+    api/stores
+    api/marketing_mix_modeling
+    api/brand_benchmarks

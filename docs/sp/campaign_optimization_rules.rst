@@ -1,0 +1,113 @@
+Campaign Optimization Rules
+===========================
+
+.. warning::
+
+    Sponsored Product v3 is not available for Sandbox endpoint
+
+.. list-table::
+    :header-rows: 0
+    :widths: 18 82
+
+    * - **Vendor docs**
+      - https://advertising.amazon.com/API/docs/en-us/sponsored-products/3-0/openapi/prod
+    * - **Specification**
+      - https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json
+
+.. note::
+
+    This API is version 3.0
+
+.. note::
+
+    This API requires separated access from Amazon Advertising Support
+
+.. code-block:: python
+
+    {
+    'code': 403,
+    'message': 'Client does not have access to this API',
+    'responseBody': None,
+    'responseHeaders': None
+    }
+
+.. autoclass:: ad_api.api.sp.CampaignOptimization
+    :members:
+
+    Endpoints available
+
+    .. list-table::
+        :header-rows: 1
+
+       * - Method
+         - Endpoint
+         - Description
+       * - ``POST``
+         - ``/sp/rules/campaignOptimization/eligibility``
+         - Gets a campaign optimization rule recommendation for SP campaigns.
+       * - ``GET``
+         - ``/sp/rules/campaignOptimization/{campaignOptimizationId}``
+         - Gets a campaign optimization rule specified by identifier.
+       * - ``DELETE``
+         - ``/sp/rules/campaignOptimization/{campaignOptimizationId}``
+         - Deletes a campaign optimization rule specified by identifier.
+       * - ``POST``
+         - ``/sp/rules/campaignOptimization``
+         - Creates a campaign optimization rule.
+       * - ``PUT``
+         - ``/sp/rules/campaignOptimization``
+         - Updates a campaign optimization rule.
+       * - ``POST``
+         - ``/sp/rules/campaignOptimization/state``
+         - Gets campaign optimization rule state. Recommended refresh frequency is once a day.
+
+    Example body:
+
+    .. code-block:: python
+
+            {
+              "campaignIds": [
+                "string"
+              ]
+            }
+
+        .. code-block:: python
+
+            {
+              "recurrence": "DAILY",
+              "ruleAction": "ADOPT",
+              "ruleCondition": [
+                {
+                  "metricName": "ROAS",
+                  "comparisonOperator": "GREATER_THAN",
+                  "threshold": "4"
+                }
+              ],
+              "ruleType": "BID",
+              "ruleName": "RuleROAS4",
+              "campaignIds": [
+                "123784",
+                "1223785"
+              ]
+            }
+
+        .. code-block:: python
+
+            {
+              "recurrence": "DAILY",
+              "ruleAction": "ADOPT",
+              "campaignOptimizationId": "10001",
+              "ruleCondition": [
+                {
+                  "metricName": "ROAS",
+                  "comparisonOperator": "GREATER_THAN",
+                  "threshold": "7"
+                }
+              ],
+              "ruleType": "BID",
+              "ruleName": "RuleROAS4",
+              "campaignIds": [
+                "123784",
+                "1223785"
+              ]
+            }

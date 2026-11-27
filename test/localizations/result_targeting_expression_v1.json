@@ -1,0 +1,26 @@
+{
+    "responses": [
+        {
+            "sourceTargetingExpression": {
+                "expression": [{"value": "B08SWH2KP4", "type": "asinSameAs"}],
+                "isForNegativeTargeting": true
+            },
+            "localizedTargetingExpressions": {
+                "A1RKKUPIHCS9HS": {
+                    "expression": [{"value": "B08SWH2KP4", "type": "asinSameAs"}],
+                    "isForNegativeTargeting": true
+                }
+            },
+            "localizedTargetingExpressionResults": {
+                "A1RKKUPIHCS9HS": {
+                    "localizedTargetingExpression": {
+                        "expression": [{"value": "B08SWH2KP4", "type": "asinSameAs"}],
+                        "isForNegativeTargeting": true
+                    },
+                    "status": "SUCCESS"
+                }
+            },
+            "status": "SUCCESS"
+        }
+    ]
+}

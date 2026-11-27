@@ -1,0 +1,41 @@
+[
+  {
+    "name": "SB.Campaign.Keyword.Api.001",
+    "budget": 100,
+    "budgetType": "lifetime",
+    "startDate": "20240131",
+    "endDate": "20250131",
+    "adFormat": "productCollection",
+    "brandEntityId": "ENTITY218756GCCQ6CF",
+    "bidOptimization": true,
+    "creative": {
+      "brandName": "Apple",
+      "brandLogoAssetID": "AW0_z87632Ghstax",
+      "headline": "Apple Iphone XS",
+      "asins": [
+        "B08N5WRTN2", "B081G9YQ73", "B008ATNJNS"
+      ],
+      "shouldOptimizeAsins": false
+    },
+    "landingPage": {
+      "asins": [
+        "B08N5WRTN2", "B081G9YQ73", "B008ATNJNS"
+      ]
+    },
+    "keywords": [
+      {
+        "keywordText": "limpieza professional",
+        "nativeLanguageKeyword": "cleaning profesional",
+        "nativeLanguageLocale": "en_GB",
+        "matchType": "broad",
+        "bid": 0.1
+      }
+    ],
+    "negativeKeywords": [
+      {
+        "keywordText": "Huawei",
+        "matchType": "negativeExact"
+      }
+    ]
+  }
+]

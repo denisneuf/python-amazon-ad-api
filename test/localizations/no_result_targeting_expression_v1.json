@@ -1,0 +1,22 @@
+{
+    "responses": [
+        {
+            "sourceTargetingExpression": {
+                "expression": [{"value": "B000000000", "type": "asinSameAs"}],
+                "isForNegativeTargeting": true
+            },
+            "localizedTargetingExpressions": {},
+            "localizedTargetingExpressionResults": {
+                "A1RKKUPIHCS9HS": {
+                    "status": "FAILURE",
+                    "messages": [
+                        "No match for ASIN B000000000 could be found in marketplace A1RKKUPIHCS9HS."
+                    ],
+                    "errorCode": "INTERNAL_ERROR"
+                }
+            },
+            "status": "FAILURE",
+            "errorCode": "INTERNAL_ERROR"
+        }
+    ]
+}

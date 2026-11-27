@@ -1,0 +1,105 @@
+Amazon Ads API v1
+=================
+
+The unified generation: the v1 endpoints live under ``/adsApi/v1/`` and are
+**not** split by product. Every call targets the same resource and the product is
+selected in the request body through ``adProductFilter``. This supersedes the
+per-product v3 endpoints (``/sp/...``, ``/sb/...``, ``/sd/...``).
+
+The contracts behind each resource, as published by Amazon:
+
+.. list-table::
+    :header-rows: 1
+
+    * - Resource
+      - Documentation
+      - OpenAPI
+    * - Campaigns
+      - `api-spec-v1-campaigns <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-campaigns>`_
+      - `AmazonAdsAPIALLCampaignsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLCampaignsContract_prod_3p.json>`_
+    * - Ad Groups
+      - `api-spec-v1-adgroups <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-adgroups>`_
+      - `AmazonAdsAPIALLAdGroupsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdGroupsContract_prod_3p.json>`_
+    * - Ads
+      - `api-spec-v1-ads <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-ads>`_
+      - `AmazonAdsAPIALLAdsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdsContract_prod_3p.json>`_
+    * - Targets
+      - `api-spec-v1-targets <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-targets>`_
+      - `AmazonAdsAPIALLTargetsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLTargetsContract_prod_3p.json>`_
+    * - Ad Extensions
+      - `api-spec-v1-adextensions <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-adextensions>`_
+      - `AmazonAdsAPIALLAdExtensionsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdExtensionsContract_prod_3p.json>`_
+    * - Advertiser Accounts
+      - `api-spec-v1-advertiseraccounts <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-advertiseraccounts>`_
+      - `AmazonAdsAPIALLAdvertiserAccountsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdvertiserAccountsContract_prod_3p.json>`_
+    * - Ad Associations
+      - `api-spec-v1-adassociations <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-adassociations>`_
+      - `AmazonAdsAPIALLAdAssociationsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLAdAssociationsContract_prod_3p.json>`_
+    * - Brand Store Edition Publish Versions
+      - `api-spec-v1-brandstoreeditionpublishversions <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-brandstoreeditionpublishversions>`_
+      - `AmazonAdsAPIALLBrandStoreEditionPublishVersionsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLBrandStoreEditionPublishVersionsContract_prod_3p.json>`_
+    * - Brand Stores
+      - `api-spec-v1-brandstores <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-brandstores>`_
+      - `AmazonAdsAPIALLBrandStoresContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLBrandStoresContract_prod_3p.json>`_
+    * - Brand Store Editions
+      - `api-spec-v1-brandstoreeditions <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-brandstoreeditions>`_
+      - `AmazonAdsAPIALLBrandStoreEditionsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLBrandStoreEditionsContract_prod_3p.json>`_
+    * - Brand Store Pages
+      - `api-spec-v1-brandstorepages <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-brandstorepages>`_
+      - `AmazonAdsAPIALLBrandStorePagesContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLBrandStorePagesContract_prod_3p.json>`_
+    * - Reports
+      - `api-spec-v1-reports <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-reports>`_
+      - `AmazonAdsAPIALLReportsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLReportsContract_prod_3p.json>`_
+    * - Labels
+      - `api-spec-v1-labels <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-labels>`_
+      - `AmazonAdsAPIALLLabelsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLabelsContract_prod_3p.json>`_
+    * - Manager Accounts
+      - `api-spec-v1-manageraccounts <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-manageraccounts>`_
+      - `AmazonAdsAPIALLManagerAccountsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLManagerAccountsContract_prod_3p.json>`_
+    * - Recommendations
+      - `api-spec-v1-recommendations <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-recommendations>`_
+      - `AmazonAdsAPIALLRecommendationsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationsContract_prod_3p.json>`_
+    * - Selling Accounts
+      - `api-spec-v1-sellingaccounts <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-sellingaccounts>`_
+      - `AmazonAdsAPIALLSellingAccountsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLSellingAccountsContract_prod_3p.json>`_
+    * - Label Object Associations
+      - `api-spec-v1-labelobjectassociations <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-labelobjectassociations>`_
+      - `AmazonAdsAPIALLLabelObjectAssociationsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLabelObjectAssociationsContract_prod_3p.json>`_
+    * - Geo Locations
+      - `api-spec-v1-geolocations <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-geolocations>`_
+      - `AmazonAdsAPIALLGeoLocationsContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLGeoLocationsContract_prod_3p.json>`_
+    * - Location Indexes
+      - `api-spec-v1-locationindexes <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-locationindexes>`_
+      - `AmazonAdsAPIALLLocationIndexesContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLLocationIndexesContract_prod_3p.json>`_
+    * - Recommendation Types
+      - `api-spec-v1-recommendationtypes <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-recommendationtypes>`_
+      - `AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLRecommendationTypesContract_prod_3p.json>`_
+    * - Portfolios
+      - `api-spec-v1-portfolios <https://advertising.amazon.com/API/docs/en-us/api-spec-v1-portfolios>`_
+      - `AmazonAdsAPIALLPortfoliosContract_prod_3p.json <https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLPortfoliosContract_prod_3p.json>`_
+
+..  toctree::
+    :caption: Table of Contents
+    :maxdepth: 2
+
+    v1/campaigns
+    v1/ad_groups
+    v1/ads
+    v1/targets
+    v1/ad_extensions
+    v1/advertiser_accounts
+    v1/ad_associations
+    v1/brand_store_edition_publish_versions
+    v1/brand_stores
+    v1/brand_store_editions
+    v1/brand_store_pages
+    v1/reports
+    v1/labels
+    v1/manager_accounts
+    v1/recommendations
+    v1/selling_accounts
+    v1/label_object_associations
+    v1/geo_locations
+    v1/location_indexes
+    v1/recommendation_types
+    v1/portfolios
