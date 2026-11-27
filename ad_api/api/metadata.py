@@ -4,7 +4,7 @@ from ad_api.base import Client, sp_endpoint, ApiResponse, Utils
 class Metadata(Client):
     r""" """
 
-    @sp_endpoint('/product/metadata', method='POST')
+    @sp_endpoint('/product/metadata', method='POST', headers=['Amazon-Advertising-API-Scope', 'Amazon-Ads-AccountId'])
     def get_products_metadata(self, **kwargs) -> ApiResponse:
         r"""
 

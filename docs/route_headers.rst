@@ -113,6 +113,10 @@ Routes completed
       - ``v0``
       - ``4/4``
       - ``completed``
+    * - ``metadata.py``
+      - ``v0``
+      - ``1/1``
+      - ``completed``
     * - ``profiles.py``
       - ``v0``
       - ``4/4``
@@ -521,11 +525,6 @@ when none is; the last column groups what is left to do.
       - ``0/10``
       - ``pending``
       - ``10 unmarked``
-    * - metadata.py
-      - ``v0``
-      - ``0/1``
-      - ``pending``
-      - ``1 unmarked``
     * - portfolios.py
       - ``v0``
       - ``0/6``
