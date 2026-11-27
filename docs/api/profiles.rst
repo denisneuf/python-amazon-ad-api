@@ -37,15 +37,15 @@ To retrieve your profile IDs, call the listProfiles operation, and include a val
    you pass ``profile_id`` and ``daily_budget`` and the method wraps them in
    the array the service expects.
 
-   The remaining ``register`` operations are not listed here. They target the
-   sandbox test environment, which Amazon has retired, and are not part of
-   the 3.0 contract.
+   The four ``register`` operations that used to live here were removed in
+   2.1.16. They targeted the sandbox test environment, which Amazon has
+   retired: both ``/v2/profiles/register`` and ``/v2/profiles/registerBrand``
+   answer ``404 NOT_FOUND``. They are not part of the 3.0 contract.
 
 .. autoclass:: ad_api.api.Profiles
     :members:
     :member-order: bysource
     :noindex:
-    :exclude-members: register, register_assistant, register_brand, register_brand_assistant
 
     ### Example getting a list of profiles
 
