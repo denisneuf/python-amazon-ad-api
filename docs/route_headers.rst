@@ -1,7 +1,7 @@
 Credential Headers (Beta)
 =========================
 
-Which routes need which credentials, as of 2.1.15. Every module below was
+Which routes need which credentials, as of 2.2.0. Every module below was
 checked route by route; the count is how many of its routes carry the mark.
 
 The OAuth trio is required by every route, wherever it comes from -- the
